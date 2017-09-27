@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.education.imagefire.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:orientation="vertical">
+
+        <ImageView
+
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <EditText
+            android:id="@+id/e1"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:id="@+id/e2"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:id="@+id/e3"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/l1"
+        android:id="@+id/l2"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <Button
+            android:onClick="upload"
+            android:text="upload"
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="chooose"
+            android:text="choose"
+            android:id="@+id/choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="Next"
+            android:id="@+id/nxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="Search"
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

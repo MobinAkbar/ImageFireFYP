@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "550883936190",
+    "firebase_url": "https://imagefire-77fa9.firebaseio.com",
+    "project_id": "imagefire-77fa9",
+    "storage_bucket": "imagefire-77fa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550883936190:android:76b4af9ff7516608",
+        "android_client_info": {
+          "package_name": "com.education.imagefire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550883936190-ad6l8e9i67me8mev80u3q9pnpl8fk5da.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.education.imagefire",
+            "certificate_hash": "702aedf55a78407222fafe9c07f85f3bfd9b1b4d"
+          }
+        },
+        {
+          "client_id": "550883936190-eabugf7a40fq1dru7cevhp1lst6285br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUx2P1to2ch5u0f0PKX6lqXDxXpujyVz4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550883936190-eabugf7a40fq1dru7cevhp1lst6285br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
