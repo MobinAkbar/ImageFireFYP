@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SearchActivity extends AppCompatActivity {
 
-    Button B1;
+    Button B1,B2;
     EditText E1;
 
     @Override
@@ -25,6 +25,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         B1=(Button)findViewById(R.id.go);
+        B2=(Button)findViewById(R.id.go0);
         E1=(EditText)findViewById(R.id.eee1);
 
         B1.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,14 @@ public class SearchActivity extends AppCompatActivity {
                 Intent o1=new Intent(SearchActivity.this,ResultActivity.class);
                 o1.putExtra("name",answer);
                 startActivity(o1);
+            }
+        });
+
+        B2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intt=new Intent(SearchActivity.this,MainActivity.class);
+                startActivity(intt);
             }
         });
     }

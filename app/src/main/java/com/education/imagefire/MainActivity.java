@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         E3 = (EditText) findViewById(R.id.e3);
 
         b1=(Button)findViewById(R.id.nxt);
-        b2=(Button)findViewById(R.id.search);
+        //b2=(Button)findViewById(R.id.search);
 
         storeReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
@@ -81,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(o);
             }
         });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent o=new Intent(MainActivity.this,SearchActivity.class);
-                startActivity(o);
-            }
-        });
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent o=new Intent(MainActivity.this,SearchActivity.class);
+//                startActivity(o);
+//            }
+//        });
 
 
     }
