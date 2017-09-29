@@ -17,13 +17,13 @@ public class ImageUpload {
         return name;
     }
 
-//    public double getLongi() {
-//        return longi;
-//    }
-//
-//    public double getLat() {
-//        return lat;
-//    }
+    public double getLongi() {
+        return longi;
+    }
+
+    public double getLat() {
+        return lat;
+    }
 
     public String getUrl() {
         return url;

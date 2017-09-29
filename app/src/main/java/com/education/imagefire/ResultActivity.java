@@ -1,8 +1,11 @@
 package com.education.imagefire;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,11 +35,16 @@ public class ResultActivity extends AppCompatActivity {
         imglistt=new ArrayList<>();
         lv=(ListView)findViewById(R.id.recyclerView);
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent ip=new Intent(ResultActivity.this,MapsActivity.class);
+                startActivity(ip);
+            }
+        });
+
         String value=getIntent().getStringExtra("name");
         Toast.makeText(ResultActivity.this, "i have" +value , Toast.LENGTH_SHORT).show();
-
-
-
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = mFirebaseDatabaseReference.child("Image").orderByChild("name").equalTo(value);

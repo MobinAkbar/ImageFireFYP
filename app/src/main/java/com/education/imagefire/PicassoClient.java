@@ -19,4 +19,5 @@ public class PicassoClient {
             Picasso.with(c).load(R.drawable.afridi).into(img);
         }
     }
+
 }

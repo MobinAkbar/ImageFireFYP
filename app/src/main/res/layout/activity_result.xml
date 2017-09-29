@@ -10,6 +10,7 @@
     android:background="#FEFEFE">
 
     <ListView
+        android:dividerHeight="10dip"
         android:background="#9CBABF"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
