@@ -16,63 +16,405 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <LinearLayout
-        android:background="@drawable/map2"
-        android:id="@+id/l1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+
+            <LinearLayout
+
+                android:id="@+id/l2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:src="@drawable/h11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_below="@+id/l2"
+                android:id="@+id/l15"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:text="COMSATS HOSTEL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="H-Block , Defence Road, Off Raiwind Road, Lahore."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v13"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/l15"
+                android:layout_width="300dp"
+                android:layout_height="0.5dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_marginTop="13dp"
+                android:layout_below="@+id/v13"
+                android:orientation="vertical"
+                android:id="@+id/l20"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="85dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progress"
+                        android:max="100"
+                        android:progress="100"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="7.8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Security"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="68dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="60"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="6.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:text="Location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="65dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="100"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="7.8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Staff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="88dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="80"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="8.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Cleanliness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="49dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="30"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="3.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!--<LinearLayout-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<TextView-->
+                <!--android:textStyle="bold"-->
+                <!--android:text="Atmosphere"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+                <!--<ProgressBar-->
+                <!--android:layout_marginLeft="41dp"-->
+                <!--style="?android:attr/progressBarStyleHorizontal"-->
+                <!--android:layout_width="150dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:max="100"-->
+                <!--android:progress="100"/>-->
+                <!--<TextView-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_marginLeft="35dp"-->
+                <!--android:text="7.8"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+                <!--</LinearLayout>-->
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v133"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/l20"
+                android:layout_width="300dp"
+                android:layout_height="0.5dp"
+                android:background="#000" />
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/v133"
+                android:id="@+id/l3"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
 
-    <View
-        android:id="@+id/v1"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/l1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000" />
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Facilities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/l2"
-        android:layout_below="@+id/v1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="210dp">
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_wifi_black_24dp"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+
+                        android:text="Free WiFi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:src="@drawable/ic_menu_manage"
+                        android:layout_marginLeft="100dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="20dp"
+                        android:text="Electrition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_directions_bike_black_24dp"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+
+                        android:text="Parking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:src="@drawable/ic_menu_gallery"
+                        android:layout_marginLeft="113dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="20dp"
+                        android:text="Gallry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:textStyle="bold"
+                        android:textColor="#FF9224"
+                        android:text="... See all facilities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v3"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/l3"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/v3"
+                android:id="@+id/l4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Property Information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:text="This place located in Lahore near Thoker Niyaz Baig.
+                                  It located on defence road near Bhobtiyaa Chownk. From this chownk, 1 kilometer left ."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <View
-        android:id="@+id/v2"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/l2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000" />
+            <View
+                android:id="@+id/v4"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/l4"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:background="#000" />
 
-    <LinearLayout
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/v4"
+                android:id="@+id/l5"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
 
-        android:layout_below="@+id/v2"
-        android:id="@+id/l3"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:src="@drawable/map2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+            </LinearLayout>
 
-    </LinearLayout>
-
-
+            <View
+                android:id="@+id/v44"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/l4"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:background="#000" />
 
 
         </RelativeLayout>
-</ScrollView>
+    </ScrollView>
 </RelativeLayout>
-
 

@@ -38,10 +38,18 @@ public class ResultActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent ip=new Intent(ResultActivity.this,MapsActivity.class);
+                Intent ip=new Intent(ResultActivity.this,ShowdataActivity.class);
                 startActivity(ip);
             }
         });
+
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent ip=new Intent(ResultActivity.this,MapsActivity.class);
+//                startActivity(ip);
+//            }
+//        });
 
         String value=getIntent().getStringExtra("name");
         Toast.makeText(ResultActivity.this, "i have" +value , Toast.LENGTH_SHORT).show();

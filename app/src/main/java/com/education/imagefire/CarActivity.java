@@ -42,10 +42,6 @@ public class CarActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private CarAdapter adapter;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

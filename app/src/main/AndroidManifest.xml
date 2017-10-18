@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchActivity">
+        <activity android:name=".ShowdataActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,10 +34,13 @@
             android:label="Maps" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CarActivity" />
-        <activity android:name=".SigninActivity" />
+        <activity android:name=".SigninActivity"
+
+                  />
+
         <activity android:name=".ResultActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".ShowdataActivity" />
+        <activity android:name=".SearchActivity" />
         <activity android:name=".RecyclerviewActivity"></activity>
     </application>
 

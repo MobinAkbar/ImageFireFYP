@@ -48,10 +48,15 @@ public class RecyclerviewActivity extends AppCompatActivity {
                             RecyclerUpload listdata = new RecyclerUpload();
 
                             String name=userdetails.getName();
-                            Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
+                            String uri=userdetails.getUrl();
+                            double log=userdetails.getLongi();
+                            //Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
                            // double lat=userdetails.getLat();
                             //double logi=userdetails.getLongi();
                             listdata.setName(name);
+                            listdata.setUri(uri);
+                            listdata.setLongi(log);
+
                            // listdata.setLat(lat);
                             //listdata.setLongi(logi);
                             list.add(listdata);
