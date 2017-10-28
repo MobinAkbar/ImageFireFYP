@@ -5,13 +5,13 @@ package com.education.imagefire;
  */
 
 public class PropertyInfo {
-    public String property;
-    public String university_1;
-    public String university_2;
-    public String university_3;
-    public String location_1;
-    public String location_2;
-    public String location_3;
+    private String property;
+    private String university_1;
+    private String university_2;
+    private String university_3;
+    private String location_1;
+    private String location_2;
+    private String location_3;
 
     public PropertyInfo() {
     }

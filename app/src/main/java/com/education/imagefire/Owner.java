@@ -5,21 +5,30 @@ package com.education.imagefire;
  */
 
 public class Owner {
+    public String id;
     public String name;
     public String number_1;
     public String number_2;
     public String email;
+    public String decsription;
     public String uri;
 
     public Owner() {
     }
 
-    public Owner(String name, String number_1, String number_2, String email, String uri) {
+    public Owner(String id,String name, String number_1, String number_2, String email,String decsription, String uri) {
+
+        this.id=id;
         this.name = name;
         this.number_1 = number_1;
         this.number_2 = number_2;
         this.email = email;
+        this.decsription=decsription;
         this.uri = uri;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -38,6 +47,9 @@ public class Owner {
         return email;
     }
 
+    public String getDecsription() {
+        return decsription;
+    }
     public String getUri() {
         return uri;
     }

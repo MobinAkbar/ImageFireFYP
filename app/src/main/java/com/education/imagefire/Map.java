@@ -5,9 +5,9 @@ package com.education.imagefire;
  */
 
 public class Map {
-    public double latitude;
-    public double longitude;
-    public String uri;
+    private double latitude;
+    private double longitude;
+    private String uri;
 
     public Map() {
     }

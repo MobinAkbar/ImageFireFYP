@@ -5,21 +5,19 @@ package com.education.imagefire;
  */
 
 public class HostelInfo {
-    public String address;
-    public String Value;
-    public String Security;
-    public String Cleanliness;
-    public String Staff;
-    public String Location;
+    private String address;
+    private String Valuee;
+    private String Security;
+    private String Staff;
+    private String Location;
 
     public HostelInfo() {
     }
 
-    public HostelInfo(String address, String value, String security, String cleanliness, String staff, String location) {
+    public HostelInfo(String address, String valuee, String security, String staff, String location) {
         this.address = address;
-        Value = value;
+        Valuee = valuee;
         Security = security;
-        Cleanliness = cleanliness;
         Staff = staff;
         Location = location;
     }
@@ -28,16 +26,12 @@ public class HostelInfo {
         this.address = address;
     }
 
-    public void setValue(String value) {
-        Value = value;
+    public void setValuee(String valuee) {
+        Valuee = valuee;
     }
 
     public void setSecurity(String security) {
         Security = security;
-    }
-
-    public void setCleanliness(String cleanliness) {
-        Cleanliness = cleanliness;
     }
 
     public void setStaff(String staff) {
@@ -52,16 +46,12 @@ public class HostelInfo {
         return address;
     }
 
-    public String getValue() {
-        return Value;
+    public String getValuee() {
+        return Valuee;
     }
 
     public String getSecurity() {
         return Security;
-    }
-
-    public String getCleanliness() {
-        return Cleanliness;
     }
 
     public String getStaff() {

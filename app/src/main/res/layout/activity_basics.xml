@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#424242"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.education.imagefire.BasicsActivity">
+
+
+    <Button
+
+        android:layout_marginLeft="40dp"
+        android:id="@+id/btn_login_student"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dip"
+        android:background="@color/colorAccent"
+        android:text="Student Login"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/btn_login_student"
+        android:id="@+id/btn_login_owner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@color/colorAccent"
+        android:text="Hostel Owner Login"
+        android:textColor="@android:color/black" />
+
+
+
+
+
+
+</RelativeLayout>

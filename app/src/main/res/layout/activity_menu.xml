@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.education.imagefire.MenuActivity">
+
+
+    <Button
+        android:layout_marginLeft="70dp"
+        android:layout_below="@+id/stu"
+        android:id="@+id/own"
+        android:text="Login For Owners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="70dp"
+        android:id="@+id/stu"
+        android:text="Login For Students"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

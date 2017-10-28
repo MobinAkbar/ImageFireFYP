@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowdataActivity"
+        <activity
+            android:name=".BasicsActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,14 +34,21 @@
             android:label="Maps" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CarActivity" />
-        <activity android:name=".SigninActivity"
-
-                  />
-
+        <activity android:name=".SigninActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".RecyclerviewActivity"></activity>
+        <activity android:name=".RecyclerviewActivity" />
+        <activity android:name=".HostelActivity" />
+        <activity android:name=".HostelInfoActivity" />
+        <activity android:name=".MapInfoActivity" />
+        <activity android:name=".PropertyActivity" />
+        <activity android:name=".FacilitiesActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".Owner_PortalActivity" />
+        <activity android:name=".ShowdataActivity" />
+        <activity android:name=".OwnerSignInActivity" />
+        <activity android:name=".OwnerSignUpActivity"></activity>
     </application>
 
 </manifest>

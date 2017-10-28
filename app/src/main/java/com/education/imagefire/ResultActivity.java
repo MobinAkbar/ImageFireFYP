@@ -58,7 +58,7 @@ public class ResultActivity extends AppCompatActivity {
         Query query = mFirebaseDatabaseReference.child("Image").orderByChild("name").equalTo(value);
 
 
-        final ValueEventListener valueEventListener = new ValueEventListener()
+         final ValueEventListener valueEventListener = new ValueEventListener()
         {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)

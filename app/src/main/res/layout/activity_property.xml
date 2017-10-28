@@ -13,46 +13,62 @@
         android:layout_height="450dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="150dp" />
-
         <EditText
-            android:hint="Enter your name"
+            android:hint="Enter Hostel Location Info"
             android:id="@+id/e1"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
         <EditText
-            android:hint="Enter your number 1"
+            android:hint="Near by univrsty 1"
             android:id="@+id/e2"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
         <EditText
-            android:hint="Enter your number 2"
+            android:hint="Near by univrsty 2"
             android:id="@+id/e3"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
         <EditText
-            android:hint="Enter your email"
+            android:hint="Near by univrsty 3"
             android:id="@+id/e4"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
         <EditText
-            android:hint="Enter your password "
+            android:hint="Near by location 1"
             android:id="@+id/e5"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
+        <EditText
+            android:hint="Near by location 2"
+            android:id="@+id/e6"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:hint="Near by location 3"
+            android:id="@+id/e7"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+
 
     </LinearLayout>
     <LinearLayout
@@ -69,28 +85,10 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:onClick="chooose"
-            android:text="choose"
-            android:id="@+id/choose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
+            android:onClick="next"
             android:text="Next"
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <!--<Button-->
-            <!--android:text="Search"-->
-            <!--android:id="@+id/search"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-
-
     </LinearLayout>
-
-
-
-
-
 </RelativeLayout>
