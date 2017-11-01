@@ -49,13 +49,13 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
                             String name=userdetails.getName();
                             String uri=userdetails.getUrl();
-                            double log=userdetails.getLongi();
+                           // double log=userdetails.getLongi();
                             //Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
                            // double lat=userdetails.getLat();
                             //double logi=userdetails.getLongi();
                             listdata.setName(name);
                             listdata.setUri(uri);
-                            listdata.setLongi(log);
+                            //listdata.setLongi(log);
 
                            // listdata.setLat(lat);
                             //listdata.setLongi(logi);
@@ -64,11 +64,11 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
                         }
 
-                        Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,list);
-                        RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RecyclerviewActivity.this);
-                        recyclerview.setLayoutManager(layoutmanager);
-                        recyclerview.setItemAnimator( new DefaultItemAnimator());
-                        recyclerview.setAdapter(recycler);
+                        //Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,list);
+                        //RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RecyclerviewActivity.this);
+                        //recyclerview.setLayoutManager(layoutmanager);
+                        //recyclerview.setItemAnimator( new DefaultItemAnimator());
+                        //recyclerview.setAdapter(recycler);
 
                     }
 

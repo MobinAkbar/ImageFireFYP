@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,13 +36,35 @@ public class OwnerSignInActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
+    private FirebaseAuth.AuthStateListener stateListener;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intt=new Intent(OwnerSignInActivity.this,BasicsActivity.class);
+        startActivity(intt);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
+        stateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user != null){
+                   // email=user.getEmail();
+                    //ids=user.getUid();
+                }else{
+                    Toast.makeText(OwnerSignInActivity.this,"Sign out operation",Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
 
 //        if (auth.getCurrentUser() != null) {
 //            startActivity(new Intent(SigninActivity.this, MainActivity.class));
@@ -119,6 +142,20 @@ public class OwnerSignInActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(stateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (stateListener != null) {
+            auth.removeAuthStateListener(stateListener);
+        }
+
     }
 
 //    private EditText inputEmail, inputPassword;

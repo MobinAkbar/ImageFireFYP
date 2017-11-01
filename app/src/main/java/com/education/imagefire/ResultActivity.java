@@ -22,10 +22,10 @@ import java.util.List;
 public class ResultActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-    private List<ImageUpload> imglistt;
+    private List<Hostel> imglistt;
     private ListView lv;
     private ProgressDialog progressDialog;
-    private CarAdapter adapter;
+   // private CarAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class ResultActivity extends AppCompatActivity {
         Toast.makeText(ResultActivity.this, "i have" +value , Toast.LENGTH_SHORT).show();
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-        Query query = mFirebaseDatabaseReference.child("Image").orderByChild("name").equalTo(value);
+        Query query = mFirebaseDatabaseReference.child("Hostels").orderByChild("name").equalTo(value);
 
 
          final ValueEventListener valueEventListener = new ValueEventListener()
@@ -65,11 +65,14 @@ public class ResultActivity extends AppCompatActivity {
             {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
-                    imglistt.add(postSnapshot.getValue(ImageUpload.class));
+                    Hostel hostel=postSnapshot.getValue(Hostel.class);
+                    imglistt.add(hostel);
                     //TODO get the data here
+                    Toast.makeText(ResultActivity.this,"I have"+hostel.getName(),Toast.LENGTH_SHORT).show();
+
 
                 }
-                adapter=new CarAdapter(ResultActivity.this,R.layout.list_item,imglistt);
+               CarAdapter adapter=new CarAdapter(ResultActivity.this,imglistt);
                 lv.setAdapter(adapter);
 
             }

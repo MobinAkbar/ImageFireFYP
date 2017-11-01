@@ -4,53 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#424242"
     tools:context="com.education.imagefire.Owner_PortalActivity">
 
 <LinearLayout
     android:id="@+id/l11"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="130dp">
 
       <LinearLayout
-          android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
-        android:layout_width="170dp"
-        android:layout_height="match_parent">
+          android:layout_marginTop="5dp"
+          android:layout_marginLeft="10dp"
+          android:orientation="vertical"
+          android:layout_width="110dp"
+          android:layout_height="120dp">
 
-          <ImageView
-               android:id="@+id/image"
-              android:scaleType="fitXY"
+          <de.hdodenhof.circleimageview.CircleImageView
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/profile_image"
+              android:layout_width="96dp"
+              android:layout_height="96dp"
               android:src="@drawable/afridi"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" />
+              android:layout_marginTop="2dp"
+              app:civ_border_width="2dp"
+              app:civ_border_color="#FF000000"/>
 
       </LinearLayout>
 
       <LinearLayout
-          android:layout_marginTop="30dp"
+          android:layout_marginTop="5dp"
           android:layout_marginLeft="10dp"
           android:orientation="vertical"
-          android:layout_width="190dp"
-          android:layout_height="match_parent">
+          android:layout_width="170dp"
+          android:layout_height="120dp">
 
           <LinearLayout
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="40dp">
-
-              <TextView
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:text="Name"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
 
               <TextView
                   android:id="@+id/name"
                   android:layout_weight="1"
-                  android:text="name"
+                  android:text="Owners Name"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content" />
 
@@ -61,19 +58,11 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="40dp">
-
-              <TextView
-
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:text="Cell"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
 
               <TextView
                   android:id="@+id/numb1"
                   android:layout_weight="1"
-                  android:text="name"
+                  android:text="Moile Number"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content" />
 
@@ -86,70 +75,94 @@
               android:layout_height="40dp">
 
               <TextView
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:text="cell"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
-              <TextView
-                  android:id="@+id/numb2"
-                  android:layout_weight="1"
-                  android:text="name"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
-
-          </LinearLayout>
-
-          <LinearLayout
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="40dp">
-
-              <TextView
-                  android:textSize="20dp"
+                  android:id="@+id/email"
                   android:layout_weight="1"
                   android:text="Email"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content" />
 
-              <TextView
-                  android:id="@+id/email"
-                  android:layout_weight="1"
-                  android:text="name"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
 
           </LinearLayout>
 
-
       </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="2dp"
+        android:orientation="vertical"
+        android:layout_width="60dp"
+        android:layout_height="120dp">
 
-   </LinearLayout>
+        <TextView
+            android:id="@+id/out"
+            android:textColor="#DF33"
+            android:text="Sign Out"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+              </LinearLayout>
+
+    <View
+
+        android:id="@+id/v3"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/l11"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:background="#000" />
+
+
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/v3"
+        android:id="@+id/l55"
         android:orientation="horizontal"
-        android:layout_below="@+id/l11"
-        android:id="@+id/l22"
-        android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_width="350dp"
+        android:layout_height="40dp">
 
-        <android.support.v7.widget.RecyclerView
+        <Button
+            android:background="@color/colorAccent"
+            android:text="Add New Hostel "
+            android:id="@+id/newhostel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recycle">
-
-
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
 
+    <LinearLayout
+
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/l55"
+        android:id="@+id/l22"
+        android:layout_width="match_parent"
+        android:layout_height="330dp">
+
+        <ListView
+            android:dividerHeight="10dip"
+            android:background="#9CBABF"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:background="#DF34"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:id="@+id/recycle">-->
+
+
+
+        <!--</android.support.v7.widget.RecyclerView>-->
+
+
+    </LinearLayout>
 </RelativeLayout>

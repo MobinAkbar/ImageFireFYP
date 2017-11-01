@@ -25,35 +25,35 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.resource;
 import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 /**
  * Created by NET LINK on 8/9/2017.
  */
 
-public class CarAdapter extends ArrayAdapter<ImageUpload> {
+public class CarAdapter extends ArrayAdapter<Hostel> {
 
     private Activity context;
-    private List<ImageUpload> carList;
-    private int resource;
+    List<Hostel> carList;;
 
-    public CarAdapter(@NonNull Activity context, @LayoutRes int resource, @NonNull List<ImageUpload> objects) {
-        super(context, resource, objects);
+    public CarAdapter(Activity context, List<Hostel> carList) {
+        super(context, R.layout.list_item,carList);
         this.context=context;
-        this.resource=resource;
-        carList=objects;
+        this.carList=carList;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position,View convertView, ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
-        View v=inflater.inflate(resource,null);
+        View v=inflater.inflate(R.layout.list_item,null,true);
+
         TextView tv= (TextView) v.findViewById(R.id.textView);
         ImageView tp= (ImageView) v.findViewById(R.id.imageView);
 
-        tv.setText(carList.get(position).getName());
-        PicassoClient.downloadImage(context,carList.get(position).getUrl(),tp);
+        Hostel hostel=carList.get(position);
+        tv.setText(hostel.getName());
+        PicassoClient.downloadImage(context,hostel.getUri(),tp);
 
         return  v;
     }

@@ -46,7 +46,7 @@ public class OwnerSignUpActivity extends AppCompatActivity {
 
         //btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        inputname=(EditText)findViewById(R.id.name);
+        //inputname=(EditText)findViewById(R.id.name);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -90,7 +90,7 @@ public class OwnerSignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String name=inputname.getText().toString().trim();
+               // String name=inputname.getText().toString().trim();
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
 

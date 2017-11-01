@@ -46,6 +46,7 @@ public class HostelActivity extends AppCompatActivity {
     public static final String FB_STOARGE_PATH="Hostels/";
     public static final String FB_DATABASE_PATH="Hostels";
     Hostel hostel;
+    String ids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class HostelActivity extends AppCompatActivity {
         choose=(Button)findViewById(R.id.choose);
         next=(Button)findViewById(R.id.next);
 
-        final String key=getIntent().getStringExtra("id");
+        final String key=getIntent().getStringExtra("UID");
 
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(key);
@@ -71,7 +72,7 @@ public class HostelActivity extends AppCompatActivity {
                 Intent in=new Intent(HostelActivity.this,HostelInfoActivity.class);
                 //in.putExtra("id",databaseReference.getKey());
                 //in.putExtra("id",hostel.getId());
-                in.putExtra("id",key);
+                in.putExtra("id",ids);
                 //String id=databaseReference.getKey();
                 //String key = databaseReference.push().getKey();
                 Toast.makeText(HostelActivity.this, "value is "+hostel.getId() ,Toast.LENGTH_LONG).show();
@@ -147,6 +148,7 @@ public class HostelActivity extends AppCompatActivity {
                     Toast.makeText(HostelActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=databaseReference.push().getKey();
                     String owner_name=name.getText().toString().trim();
+                    ids=id;
 
                     //double logitude=Double.parseDouble(E2.getText().toString());
                     //double latitude=Double.parseDouble(E3.getText().toString());

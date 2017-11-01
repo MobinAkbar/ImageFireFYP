@@ -13,6 +13,14 @@ public class BasicsActivity extends AppCompatActivity {
 
     Button student,owner;
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +47,7 @@ public class BasicsActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

@@ -25,7 +25,6 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         B1=(Button)findViewById(R.id.go);
-        B2=(Button)findViewById(R.id.go0);
         B3=(Button)findViewById(R.id.go0o);
         E1=(EditText)findViewById(R.id.eee1);
 
@@ -36,14 +35,6 @@ public class SearchActivity extends AppCompatActivity {
                 Intent o1=new Intent(SearchActivity.this,ResultActivity.class);
                 o1.putExtra("name",answer);
                 startActivity(o1);
-            }
-        });
-
-        B2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intt=new Intent(SearchActivity.this,MainActivity.class);
-                startActivity(intt);
             }
         });
 

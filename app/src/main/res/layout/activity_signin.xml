@@ -8,6 +8,7 @@
     tools:context="com.education.imagefire.SigninActivity">
 
     <LinearLayout
+        android:background="#424242"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
@@ -23,6 +24,8 @@
             android:src="@mipmap/ic_launcher" />
 
         <android.support.design.widget.TextInputLayout
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -38,6 +41,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

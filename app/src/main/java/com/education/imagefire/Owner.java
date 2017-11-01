@@ -27,6 +27,34 @@ public class Owner {
         this.uri = uri;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumber_1(String number_1) {
+        this.number_1 = number_1;
+    }
+
+    public void setNumber_2(String number_2) {
+        this.number_2 = number_2;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDecsription(String decsription) {
+        this.decsription = decsription;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
     public String getId() {
         return id;
     }

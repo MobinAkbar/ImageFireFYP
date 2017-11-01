@@ -14,9 +14,9 @@
         android:id="@+id/btn_login_student"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dip"
+        android:layout_marginTop="210dip"
         android:background="@color/colorAccent"
-        android:text="Student Login"
+        android:text="STUDENT LOGIN "
         android:textColor="@android:color/black" />
 
     <Button

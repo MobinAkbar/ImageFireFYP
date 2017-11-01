@@ -71,8 +71,8 @@ public class CarActivity extends AppCompatActivity {
 
                 }
 
-                adapter=new CarAdapter(CarActivity.this,R.layout.list_item,imglist);
-                lv.setAdapter(adapter);
+               // adapter=new CarAdapter(CarActivity.this,R.layout.list_item,imglist);
+                //lv.setAdapter(adapter);
             }
 
 

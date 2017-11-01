@@ -7,8 +7,6 @@ package com.education.imagefire;
 public class RecyclerUpload {
     public  String name;
     public String Uri;
-    public double longi;
-    public double lat;
 
     public RecyclerUpload() {
     }
@@ -16,8 +14,6 @@ public class RecyclerUpload {
     public RecyclerUpload(String name, String uri, double longi, double lat) {
         this.name = name;
         Uri = uri;
-        this.longi = longi;
-        this.lat = lat;
     }
 
     public String getName() {
@@ -34,21 +30,5 @@ public class RecyclerUpload {
 
     public void setUri(String uri) {
         Uri = uri;
-    }
-
-        public double getLongi() {
-        return longi;
-    }
-
-    public void setLongi(double longi) {
-        this.longi = longi;
-    }
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
     }
 }

@@ -115,12 +115,12 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(MainActivity.this,HostelActivity.class);
+                Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
                 //in.putExtra("id",databaseReference.getKey());
-                in.putExtra("id",owner.getId());
+                in.putExtra("UID",UserId);
                 //String id=databaseReference.getKey();
                 //String key = databaseReference.push().getKey();
-                Toast.makeText(MainActivity.this, "value is "+owner.getId() ,Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainActivity.this, "value is "+owner.getId() ,Toast.LENGTH_LONG).show();
                 startActivity(in);
 
             }

@@ -65,7 +65,7 @@ public class MapInfoActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(MapInfoActivity.this,PropertyActivity.class);
+                Intent o=new Intent(MapInfoActivity.this,Owner_PortalActivity.class);
                 o.putExtra("id",key);
                 startActivity(o);
             }
