@@ -31,6 +31,7 @@ import java.io.IOException;
 public class MapInfoActivity extends AppCompatActivity {
 
     Button upload,choose,next;
+    private EditText name;
     private EditText latitude;
     private EditText longitude;
     private ImageView image;
@@ -49,8 +50,9 @@ public class MapInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map_info);
 
         image = (ImageView) findViewById(R.id.image);
-        latitude = (EditText) findViewById(R.id.e1);
-        longitude = (EditText) findViewById(R.id.e2);
+        name = (EditText) findViewById(R.id.e1);
+        latitude = (EditText) findViewById(R.id.e2);
+        longitude = (EditText) findViewById(R.id.e3);
         upload=(Button)findViewById(R.id.upload);
         choose=(Button)findViewById(R.id.choose);
         next=(Button)findViewById(R.id.nxt);
@@ -65,7 +67,7 @@ public class MapInfoActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(MapInfoActivity.this,Owner_PortalActivity.class);
+                Intent o=new Intent(MapInfoActivity.this,PropertyActivity.class);
                 o.putExtra("id",key);
                 startActivity(o);
             }
@@ -114,10 +116,12 @@ public class MapInfoActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progress.dismiss();
                     Toast.makeText(MapInfoActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
+                    String id=key;
+                    String nam=name.getText().toString();
                     double logitude=Double.parseDouble(longitude.getText().toString());
                     double latitud=Double.parseDouble(latitude.getText().toString());
 
-                    Map maping=new Map(latitud,logitude,taskSnapshot.getDownloadUrl().toString());
+                    Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
 
                     //String uploadId=databaseReference.push().getKey();
                     databaseReference.setValue(maping);

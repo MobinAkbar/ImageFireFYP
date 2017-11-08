@@ -16,76 +16,150 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.host;
+import static android.media.CamcorderProfile.get;
+import static com.education.imagefire.R.drawable.hostel;
+import static com.education.imagefire.R.id.address;
+import static com.education.imagefire.R.id.location;
+import static com.education.imagefire.R.id.security;
 
 public class ResultActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-    private List<Hostel> imglistt;
+    private List<PropertyInfo> imglist;
+    private List<Hostel> hostelList;
     private ListView lv;
     private ProgressDialog progressDialog;
-   // private CarAdapter adapter;
+    //private CarAdapter adapter;
+    // private HostelInfo hostelInfo;
+    private String hostelid;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        imglistt=new ArrayList<>();
-        lv=(ListView)findViewById(R.id.recyclerView);
-
+        imglist = new ArrayList<>();
+        hostelList = new ArrayList<>();
+        lv = (ListView) findViewById(R.id.recyclerView);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent ip=new Intent(ResultActivity.this,ShowdataActivity.class);
-                startActivity(ip);
+                Hostel hostell=hostelList.get(i);
+                String id=hostell.getId();
+                String owner=hostell.getOwner();
+                String name=hostell.getName();
+                String urii=hostell.getUri();
+                Intent intent1235=new Intent(ResultActivity.this,ShowdataActivity.class);
+                intent1235.putExtra("Ownerid",owner);
+                intent1235.putExtra("Hostelid",id);
+                intent1235.putExtra("Hostelname",name);
+                intent1235.putExtra("Hosteluri",urii);
+                startActivity(intent1235);
             }
         });
+
+        String value = getIntent().getStringExtra("name");
+        Toast.makeText(ResultActivity.this, "i have" + value, Toast.LENGTH_SHORT).show();
+
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query1 = mFirebaseDatabaseReference.child("Hostel_Property_Info").orderByChild("university_1").equalTo(value);
+
+        final ValueEventListener eventListener1 = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+                    PropertyInfo propertyInfo = ds.getValue(PropertyInfo.class);
+                    hostelid = propertyInfo.getId();
+                    Toast.makeText(ResultActivity.this, "here is " + hostelid, Toast.LENGTH_SHORT).show();
+                    imglist.add(propertyInfo);
+
+                    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+                    Query query2 = databaseReference.child("Hostels").orderByChild("id").equalTo(hostelid);
+                    Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 3", Toast.LENGTH_SHORT).show();
+                    final ValueEventListener eventListener2 = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 4", Toast.LENGTH_SHORT).show();
+                                Hostel hostel = ds.getValue(Hostel.class);
+                                String name = hostel.getName();
+                                Toast.makeText(ResultActivity.this, "i have" + name, Toast.LENGTH_SHORT).show();
+                                hostelList.add(hostel);
+                            }
+                            CarAdapter adapter = new CarAdapter(ResultActivity.this, hostelList);
+                            lv.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+                    query2.addValueEventListener(eventListener2);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        query1.addValueEventListener(eventListener1);
+
+        if (imglist == null) {
+            Toast.makeText(ResultActivity.this, " I am Empty ", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ResultActivity.this, " I HAVE SOMETHING", Toast.LENGTH_SHORT).show();
+        }
+
+//        for (int i = 1; i <= imglist.size(); i++) {
+//            PropertyInfo propertyInfo = imglist.get(i);
+//            String pro_id = propertyInfo.getId();
+        Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 2", Toast.LENGTH_SHORT).show();
+//            Query query2 = mFirebaseDatabaseReference.child("Hostels").orderByChild("id").equalTo(hostelid);
+//        Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 3", Toast.LENGTH_SHORT).show();
+//            final ValueEventListener eventListener2 = new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                        Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 4", Toast.LENGTH_SHORT).show();
+//                        Hostel hostel = ds.getValue(Hostel.class);
+//                        String name = hostel.getName();
+//                        Toast.makeText(ResultActivity.this, "i have" + name, Toast.LENGTH_SHORT).show();
+//                        hostelList.add(hostel);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(DatabaseError databaseError) {
+//
+//                }
+//            };
+//            query2.addValueEventListener(eventListener2);
+        //}
+
+//        CarAdapter adapter = new CarAdapter(ResultActivity.this, hostelList);
+//        lv.setAdapter(adapter);
 
 //        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent ip=new Intent(ResultActivity.this,MapsActivity.class);
+//                Intent ip = new Intent(ResultActivity.this, ShowdataActivity.class);
 //                startActivity(ip);
 //            }
 //        });
 
-        String value=getIntent().getStringExtra("name");
-        Toast.makeText(ResultActivity.this, "i have" +value , Toast.LENGTH_SHORT).show();
 
-        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-        Query query = mFirebaseDatabaseReference.child("Hostels").orderByChild("name").equalTo(value);
-
-
-         final ValueEventListener valueEventListener = new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-                {
-                    Hostel hostel=postSnapshot.getValue(Hostel.class);
-                    imglistt.add(hostel);
-                    //TODO get the data here
-                    Toast.makeText(ResultActivity.this,"I have"+hostel.getName(),Toast.LENGTH_SHORT).show();
-
-
-                }
-               CarAdapter adapter=new CarAdapter(ResultActivity.this,imglistt);
-                lv.setAdapter(adapter);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError)
-            {
-
-            }
-        };
-
-        query.addValueEventListener(valueEventListener);
-
-
+//        CarAdapter adapter=new CarAdapter(ResultActivity.this,imglistt);
+//        lv.setAdapter(adapter);
     }
 }

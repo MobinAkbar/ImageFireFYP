@@ -48,14 +48,14 @@
                     android:layout_height="wrap_content" />
 
 
-                <ImageButton
-                android:layout_gravity="right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_dots"
-                android:id="@+id/img_btn"
-                android:background="@null"
-                />
+                <!--<ImageButton-->
+                <!--android:layout_gravity="right"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ic_dots"-->
+                <!--android:id="@+id/img_btn"-->
+                <!--android:background="@null"-->
+                <!--/>-->
 
 
             </LinearLayout>

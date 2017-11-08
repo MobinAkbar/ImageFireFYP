@@ -57,6 +57,7 @@ public class PropertyActivity extends AppCompatActivity {
     }
     private void addMember(){
 
+        String id=key;
         String pro_info = location_info.getText().toString().trim();
         String univ1=uni_1.getText().toString().trim();
         String univ2=uni_2.getText().toString().trim();
@@ -69,7 +70,7 @@ public class PropertyActivity extends AppCompatActivity {
 
             //String id=databaseReference.push().getKey();
             //ID=id;
-            PropertyInfo infor=new PropertyInfo(pro_info,univ1,univ2,univ3,loc1,loc2,loc3);
+            PropertyInfo infor=new PropertyInfo(id,pro_info,univ1,univ2,univ3,loc1,loc2,loc3);
             databaseReference.setValue(infor);
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();

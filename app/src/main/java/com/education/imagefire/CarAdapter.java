@@ -57,26 +57,9 @@ public class CarAdapter extends ArrayAdapter<Hostel> {
 
         return  v;
     }
-    //
-//    @Override
-//    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View v=LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
-//        MyViewHolder holder=new MyViewHolder(v);
-//        return holder;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(MyViewHolder holder, int position) {
-//        holder.name.setText(carList.get(position).getName());
-//        //Picasso.with(mContext).load(ImageUpload.getUri()).into(holder.thumbnail);
-//        PicassoClient.downloadImage(mContext,carList.get(position).getUrl(),holder.thumbnail);
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return carList.size();
-//    }
+
+
+
 }
 
 

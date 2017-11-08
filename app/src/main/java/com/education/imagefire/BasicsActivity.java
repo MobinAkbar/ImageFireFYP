@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import static com.education.imagefire.R.id.stu;
 
@@ -12,13 +13,15 @@ public class BasicsActivity extends AppCompatActivity {
 
 
     Button student,owner;
+    Long back_pressed;
 
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        System.exit(0);
+        //System.exit(0);
         finish();
+
     }
 
     @Override

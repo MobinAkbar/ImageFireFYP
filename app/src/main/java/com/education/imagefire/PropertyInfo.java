@@ -1,10 +1,13 @@
 package com.education.imagefire;
 
+import java.io.Serializable;
+
 /**
  * Created by NET LINK on 10/18/2017.
  */
 
-public class PropertyInfo {
+public class PropertyInfo implements Serializable {
+    private String id;
     private String property;
     private String university_1;
     private String university_2;
@@ -16,7 +19,8 @@ public class PropertyInfo {
     public PropertyInfo() {
     }
 
-    public PropertyInfo(String property, String university_1, String university_2, String university_3, String location_1, String location_2, String location_3) {
+    public PropertyInfo(String id,String property, String university_1, String university_2, String university_3, String location_1, String location_2, String location_3) {
+        this.id=id;
         this.property = property;
         this.university_1 = university_1;
         this.university_2 = university_2;
@@ -24,6 +28,10 @@ public class PropertyInfo {
         this.location_1 = location_1;
         this.location_2 = location_2;
         this.location_3 = location_3;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getProperty() {

@@ -47,6 +47,7 @@ public class HostelActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH="Hostels";
     Hostel hostel;
     String ids;
+    private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +60,11 @@ public class HostelActivity extends AppCompatActivity {
         choose=(Button)findViewById(R.id.choose);
         next=(Button)findViewById(R.id.next);
 
-        final String key=getIntent().getStringExtra("UID");
+        key=getIntent().getStringExtra("UID");
+        Toast.makeText(HostelActivity.this, "value is "+key ,Toast.LENGTH_LONG).show();
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(key);
+        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
 
@@ -147,13 +149,14 @@ public class HostelActivity extends AppCompatActivity {
                     progress.dismiss();
                     Toast.makeText(HostelActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=databaseReference.push().getKey();
+                    String owner=key;
                     String owner_name=name.getText().toString().trim();
                     ids=id;
 
                     //double logitude=Double.parseDouble(E2.getText().toString());
                     //double latitude=Double.parseDouble(E3.getText().toString());
 
-                    Hostel hostel=new Hostel(id,owner_name,taskSnapshot.getDownloadUrl().toString());
+                    Hostel hostel=new Hostel(id,owner,owner_name,taskSnapshot.getDownloadUrl().toString());
 
                     //String uploadId=databaseReference.push().getKey();
                     databaseReference.child(id).setValue(hostel);

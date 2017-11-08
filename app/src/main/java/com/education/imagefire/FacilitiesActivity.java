@@ -35,7 +35,7 @@ public class FacilitiesActivity extends AppCompatActivity {
         upload=(Button)findViewById(R.id.upload);
         done=(Button)findViewById(R.id.done);
         key = getIntent().getStringExtra("id");
-        databaseReference = FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(key);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Facilities").child(key);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +55,7 @@ public class FacilitiesActivity extends AppCompatActivity {
     }
     private void addMember(){
 
+        String id=key;
         String frewifi = wifi.getText().toString().trim();
         String ac = air_conditioning.getText().toString().trim();
         String brkfast = breakfast.getText().toString().trim();
@@ -68,7 +69,7 @@ public class FacilitiesActivity extends AppCompatActivity {
 
             //String id=databaseReference.push().getKey();
             //ID=id;
-           Facilities fac=new Facilities(frewifi,ac,brkfast,stand,recption,jym,electric,kitchn);
+           Facilities fac=new Facilities(id,frewifi,ac,brkfast,stand,recption,jym,electric,kitchn);
             databaseReference.setValue(fac);
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();

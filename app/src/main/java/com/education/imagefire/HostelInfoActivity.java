@@ -51,6 +51,7 @@ public class HostelInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //addMember();
+                String id=key;
                 String adrs = E1.getText().toString().trim();
                 String val = E2.getText().toString().trim();
                 String scur = E3.getText().toString().trim();
@@ -61,7 +62,7 @@ public class HostelInfoActivity extends AppCompatActivity {
 
                     //String id=databaseReference.push().getKey();
                     //ID=id;
-                    HostelInfo info = new HostelInfo(adrs, val, scur, sta, loca);
+                    HostelInfo info = new HostelInfo(id,adrs, val, scur, sta, loca);
                     databaseReference.setValue(info);
 
                     Toast.makeText(HostelInfoActivity.this, "Successfulyy entered", Toast.LENGTH_LONG).show();

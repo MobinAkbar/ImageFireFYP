@@ -1,0 +1,193 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="80dp"
+    android:id="@+id/frag"
+    android:background="#fff"
+    android:layout_width="220dp"
+    android:layout_height="match_parent"
+    tools:context="com.education.imagefire.FacilitiesFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+
+        android:id="@+id/l1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Facilities :" />
+
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/l3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="AC" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v2"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="Brakfst" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v3"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l7"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="Electric" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v6"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l8"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="Gym" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v7"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l9"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="kitchen" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v8"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/l5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="Parking" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v4"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l6"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="Availble" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v5"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="wifi" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/v1"
+                android:textSize="25dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="value" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
