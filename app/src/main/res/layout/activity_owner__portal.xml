@@ -128,10 +128,19 @@
 
         <Button
             android:background="@color/colorAccent"
-            android:text="Add New Hostel "
+            android:text="Add Hostel "
             android:id="@+id/newhostel"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorAccent"
+            android:text="Delete Hostel "
+            android:id="@+id/deletehostel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
 
 
     </LinearLayout>

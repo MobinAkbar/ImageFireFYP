@@ -1,5 +1,7 @@
 package com.education.imagefire;
 
+import android.graphics.Color;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -11,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +33,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private double lat;
     private double logi;
     //private Map map;
+    private static final LatLng COMSATS=new LatLng(33.6518,73.1566);
+    //private static final LatLng HOSTEL=new LatLng(lat,);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,22 +83,39 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        LatLng location=new LatLng(logi ,lat );
 
+
+        PolylineOptions options=new PolylineOptions().add(COMSATS).add(location).width(5).color(Color.BLUE).geodesic(true);
+              googleMap.addPolyline(options);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(COMSATS,13));
 //        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
 //                for(DataSnapshot s:dataSnapshot.getChildren()){
 //                    ImageUpload user=s.getValue(ImageUpload.class);
-                    LatLng location=new LatLng(logi ,lat );
+                    //LatLng location=new LatLng(logi ,lat );
 
-                    googleMap.addMarker(new MarkerOptions().position(location)
-                            .title(nameMap));
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+                    //googleMap.addMarker(new MarkerOptions().position(location)
+                      //      .title(nameMap));
+                    //googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
 
 
 
 
                 }
+//    public double getDistance(LatLng LatLng1, LatLng LatLng2) {
+//        double distance = 0;
+//        Location locationA = new Location("A");
+//        locationA.setLatitude(LatLng1.latitude);
+//        locationA.setLongitude(LatLng1.longitude);
+//        Location locationB = new Location("B");
+//        locationB.setLatitude(LatLng2.latitude);
+//        locationB.setLongitude(LatLng2.longitude);
+//        distance = locationA.distanceTo(locationB);
+//
+//        return distance;
+//    }
            // }
 
          //   @Override

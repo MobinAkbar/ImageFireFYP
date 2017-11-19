@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,16 +35,25 @@ public class ResultActivity extends AppCompatActivity {
     private List<PropertyInfo> imglist;
     private List<Hostel> hostelList;
     private ListView lv;
-    private ProgressDialog progressDialog;
-    //private CarAdapter adapter;
-    // private HostelInfo hostelInfo;
     private String hostelid;
     int i;
+    private ProgressDialog progressDialog;
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener listener;
+    private String UserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference();
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        UserId=user.getUid();
+        Toast.makeText(ResultActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
         imglist = new ArrayList<>();
         hostelList = new ArrayList<>();

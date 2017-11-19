@@ -32,11 +32,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="Maps" />
-
         <activity android:name=".OwnerSignInActivity" />
-        <activity android:name=".OwnerSignUpActivity"/>
+        <activity android:name=".OwnerSignUpActivity" />
         <activity android:name=".Owner_PortalActivity" />
-        <activity android:name=".ShowdataActivity"/>
+        <activity android:name=".ShowdataActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CarActivity" />
         <activity android:name=".SigninActivity" />
@@ -50,7 +49,8 @@
         <activity android:name=".PropertyActivity" />
         <activity android:name=".FacilitiesActivity" />
         <activity android:name=".MenuActivity" />
-
+        <activity android:name=".UniversityActivity" />
+        <activity android:name=".NearbyplacesActivity"></activity>
     </application>
 
 </manifest>

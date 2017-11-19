@@ -9,14 +9,10 @@
     android:background="#FEFEFE"
     android:layout_margin="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_marginTop="2dp"
             android:layout_marginLeft="10dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -25,42 +21,19 @@
 
                 android:id="@+id/imageView"
                 android:src="@drawable/afridi"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="match_parent" />
 
-
-
-
-        </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
                 <TextView
-                    android:layout_marginTop="40dp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:id="@+id/textView"
                     android:layout_weight="1"
                     android:text="Hostel name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content" />
 
 
-                <!--<ImageButton-->
-                <!--android:layout_gravity="right"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/ic_dots"-->
-                <!--android:id="@+id/img_btn"-->
-                <!--android:background="@null"-->
-                <!--/>-->
-
-
             </LinearLayout>
-
-    </RelativeLayout>
 
 
     <!--<ImageButton-->

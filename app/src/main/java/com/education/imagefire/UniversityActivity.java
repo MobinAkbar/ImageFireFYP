@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -28,7 +29,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class MapInfoActivity extends AppCompatActivity {
+public class UniversityActivity extends AppCompatActivity {
 
     Button upload,choose,next;
     private EditText name;
@@ -39,14 +40,14 @@ public class MapInfoActivity extends AppCompatActivity {
     private StorageReference storeReference;
     private DatabaseReference databaseReference;
     public static final int REQUEST_CODE=1234;
-    public static final String FB_STOARGE_PATH="MapsInfo/";
-    public static final String FB_DATABASE_PATH="MapsInfo";
+    public static final String FB_STOARGE_PATH="Universities/";
+    public static final String FB_DATABASE_PATH="Universities";
     String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map_info);
+        setContentView(R.layout.activity_university);
 
         image = (ImageView) findViewById(R.id.image);
         name = (EditText) findViewById(R.id.e1);
@@ -56,22 +57,21 @@ public class MapInfoActivity extends AppCompatActivity {
         choose=(Button)findViewById(R.id.choose);
         next=(Button)findViewById(R.id.nxt);
 
-        key=getIntent().getStringExtra("id");
-
         storeReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(key);
+        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(MapInfoActivity.this,PropertyActivity.class);
-                o.putExtra("id",key);
+                Intent o=new Intent(UniversityActivity.this,BasicsActivity.class);
                 startActivity(o);
             }
         });
     }
+
     public void upload(View v) {
+
         if(filepath!=null){
             final ProgressDialog progress=new ProgressDialog(this);
             progress.setTitle("uploading.....");
@@ -83,21 +83,23 @@ public class MapInfoActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progress.dismiss();
-                    Toast.makeText(MapInfoActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
-                    String id=key;
+                    Toast.makeText(UniversityActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
+                    String id=databaseReference.push().getKey();
                     String nam=name.getText().toString();
                     double logitude=Double.parseDouble(longitude.getText().toString());
                     double latitud=Double.parseDouble(latitude.getText().toString());
 
                     Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
+
                     databaseReference.setValue(maping);
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     progress.dismiss();
-                    Toast.makeText(MapInfoActivity.this,"Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(UniversityActivity.this,"Failed",Toast.LENGTH_LONG).show();
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
 
@@ -109,30 +111,24 @@ public class MapInfoActivity extends AppCompatActivity {
                 }
             });
         }else{
-            Toast.makeText(MapInfoActivity.this,"please select image",Toast.LENGTH_LONG).show();
+            Toast.makeText(UniversityActivity.this,"please select image",Toast.LENGTH_LONG).show();
         }
     }
-
 
     public void chooose(View view) {
         Intent intent=new Intent();
         intent.setType("Image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
-        //Toast.makeText(MainActivity.this,"please image 3",Toast.LENGTH_LONG).show();
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-            //Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
             filepath=data.getData();
-
             try{
                 Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-                //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
                 image.setImageBitmap(bitmap);
             }catch (FileNotFoundException e){
                 e.printStackTrace();
@@ -140,41 +136,12 @@ public class MapInfoActivity extends AppCompatActivity {
             catch (IOException e){
                 e.printStackTrace();
             }
-
         }
-
     }
 
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==REQUEST_CODE && requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-//            Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-//                    filepath=data.getData();
-//
-//            try{
-//                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-//                Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-//                I1.setImageBitmap(bitmap);
-//            }catch (FileNotFoundException e){
-//                e.printStackTrace();
-//            }
-//            catch (IOException e){
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
-
-
-
-
-
-
 }
-

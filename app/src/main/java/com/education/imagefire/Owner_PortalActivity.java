@@ -1,19 +1,25 @@
 package com.education.imagefire;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +33,13 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.attr.data;
+import static android.R.attr.id;
 import static android.R.attr.key;
 import static android.R.attr.value;
 import static com.education.imagefire.R.id.recyclerView;
@@ -57,6 +66,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
     private String ownerId;
     private String UserId;
     private String HostelId;
+    private String HostelId2;
     private String HostelName;
     private String HostelUri;
    // private List<RecyclerUpload> list;
@@ -71,6 +81,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
 
        // list.clear();
         B1=(Button)findViewById(R.id.newhostel);
+        B2=(Button)findViewById(R.id.deletehostel);
         B3=(Button)findViewById(R.id.btn6);
         imageView=(ImageView)findViewById(R.id.imageView);
         T1=(TextView)findViewById(R.id.name);
@@ -128,7 +139,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
 
         query.addValueEventListener(eventListener);
 
-        Toast.makeText(Owner_PortalActivity.this,"IM here running",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(Owner_PortalActivity.this,"IM here running",Toast.LENGTH_SHORT).show();
 
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +150,73 @@ public class Owner_PortalActivity extends AppCompatActivity {
                 }
             }
         );
+
+//        B2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                final Dialog dialog = new Dialog(getApplicationContext());
+//                dialog.setContentView(R.layout.delete_dialog);
+//                dialog.setTitle("Enter Name To Cancel");
+//
+//                dialog.show();
+//
+//                // set the custom dialog components - text, image and button
+//                TextView T1 = (TextView) dialog.findViewById(R.id.t1);
+//                final EditText E12 = (EditText) dialog.findViewById(R.id.e1);
+//               final Button B12=(Button)dialog.findViewById(R.id.del1);
+//                final Button B22=(Button)dialog.findViewById(R.id.can1);
+//
+//                B12.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        String name=E12.getText().toString();
+//                    DatabaseReference databaseReferenceA=FirebaseDatabase.getInstance().getReference("Hostels");
+//                        Query query = databaseReferenceA.child("Hostels").orderByChild("name").equalTo(name);
+//
+//                        final ValueEventListener eventListener56=new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(DataSnapshot dataSnapshot) {
+//                                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                                   Hostel hostel=ds.getValue(Hostel.class);
+//                                    HostelId2=hostel.getId();
+//                                    String name=hostel.getName();
+//                                    Toast.makeText(Owner_PortalActivity.this,"IM that"+name,Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                            @Override
+//                            public void onCancelled(DatabaseError databaseError) {
+//                            }
+//                        };
+//                        query.addValueEventListener(eventListener56);
+//
+//                        DatabaseReference databaseReferenceB=FirebaseDatabase.getInstance().getReference("Hostels").child(HostelId2);
+//                        DatabaseReference databaseReferenceC=FirebaseDatabase.getInstance().getReference("HostelInformation").child(HostelId2);
+//                        DatabaseReference databaseReferenceD=FirebaseDatabase.getInstance().getReference("MapsInfo").child(HostelId2);
+//                        DatabaseReference databaseReferenceE=FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(HostelId2);
+//                        DatabaseReference databaseReferenceF=FirebaseDatabase.getInstance().getReference("Facilities").child(HostelId2);
+//
+//                        Toast.makeText(Owner_PortalActivity.this,"Deleting",Toast.LENGTH_SHORT).show();
+//                        databaseReferenceB.removeValue();
+//                        databaseReferenceC.removeValue();
+//                        databaseReferenceD.removeValue();
+//                        databaseReferenceE.removeValue();
+//                        databaseReferenceF.removeValue();
+//                        Toast.makeText(Owner_PortalActivity.this,"I Have deleted",Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//                B22.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//                //dialog.show();
+//            }
+//        });
 
         B3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,7 +243,92 @@ public class Owner_PortalActivity extends AppCompatActivity {
         });
         Toast.makeText(Owner_PortalActivity.this,"Above of mainActivity",Toast.LENGTH_SHORT).show();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Hostel hostell = listhos.get(i);
+                String sta=hostell.getStatus();
+                if (sta.equals("NOT_APPROVED")) {
+                    Toast.makeText(Owner_PortalActivity.this, "Please wait for approval ", Toast.LENGTH_SHORT).show();
+                } else {
+                    String id = hostell.getId();
+                    String name = hostell.getName();
+                    String urii = hostell.getUri();
+                    Intent intent12345 = new Intent(Owner_PortalActivity.this, ShowdataActivity.class);
+                    intent12345.putExtra("Ownerid", UserId);
+                    intent12345.putExtra("Hostelid", id);
+                    intent12345.putExtra("Hostelname", name);
+                    intent12345.putExtra("Hosteluri", urii);
+                    startActivity(intent12345);
+
+                }
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Hostel hostel=listhos.get(i);
+                HostelId2=hostel.getId();
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Owner_PortalActivity.this);
+                dialog.setCancelable(false);
+                dialog.setTitle("Dialog on Android");
+                dialog.setMessage("Are you sure you want to delete this entry?" );
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        DatabaseReference databaseReferenceB=FirebaseDatabase.getInstance().getReference("Hostels").child(HostelId2);
+                        DatabaseReference databaseReferenceC=FirebaseDatabase.getInstance().getReference("HostelInformation").child(HostelId2);
+                        DatabaseReference databaseReferenceD=FirebaseDatabase.getInstance().getReference("MapsInfo").child(HostelId2);
+                        DatabaseReference databaseReferenceE=FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(HostelId2);
+                        DatabaseReference databaseReferenceF=FirebaseDatabase.getInstance().getReference("Facilities").child(HostelId2);
+
+                        Toast.makeText(Owner_PortalActivity.this,"Deleting",Toast.LENGTH_SHORT).show();
+                        databaseReferenceB.removeValue();
+                        databaseReferenceC.removeValue();
+                        databaseReferenceD.removeValue();
+                        databaseReferenceE.removeValue();
+                        databaseReferenceF.removeValue();
+                        Toast.makeText(Owner_PortalActivity.this,"I Have deleted",Toast.LENGTH_SHORT).show();
+
+
+                    }
+                })
+                        .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Action for "Cancel".
+                            }
+                        });
+
+                final AlertDialog alert = dialog.create();
+                alert.show();
+
+
+                return false;
+            }
+        });
+
 }
+
+//private void showDialog(String id,String name){
+//      AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+//      LayoutInflater inflater=getLayoutInflater();
+//     final View dialogview=inflater.inflate(R.layout.delete_dialog,null);
+//     dialog.setView(dialogview);
+//
+//    final Spinner E12 = (Spinner) dialogview.findViewById(R.id.spin);
+//    final Button B12=(Button)dialogview.findViewById(R.id.del1);
+//    final Button B13=(Button)dialogview.findViewById(R.id.can1);
+//
+//    dialog.setTitle("updating ... "+name);
+//    AlertDialog alertDialog=dialog.create();
+//    alertDialog.show();
+//
+//}
 
     @Override
     protected void onStart() {
@@ -176,30 +339,53 @@ public class Owner_PortalActivity extends AppCompatActivity {
         //databaseReference.addValueEventListener(new ValueEventListener() {
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = mFirebaseDatabaseReference.child("Hostels").orderByChild("owner").equalTo(UserId);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Hostel hostell=listhos.get(i);
-                String id=hostell.getId();
-                String name=hostell.getName();
-                String urii=hostell.getUri();
-                Intent intent12345=new Intent(Owner_PortalActivity.this,ShowdataActivity.class);
-                intent12345.putExtra("Ownerid",UserId);
-                intent12345.putExtra("Hostelid",id);
-                intent12345.putExtra("Hostelname",name);
-                intent12345.putExtra("Hosteluri",urii);
-                startActivity(intent12345);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Hostel hostell=listhos.get(i);
+//
+//                if(hostell.getStatus()== "NOT_APPROVED"){
+//                    Toast.makeText(Owner_PortalActivity.this,"Please wait for approval ",Toast.LENGTH_SHORT).show();
+//                }
+//                else{
+//                    String id=hostell.getId();
+//                    String name=hostell.getName();
+//                    String urii=hostell.getUri();
+//                    Intent intent12345=new Intent(Owner_PortalActivity.this,ShowdataActivity.class);
+//                    intent12345.putExtra("Ownerid",UserId);
+//                    intent12345.putExtra("Hostelid",id);
+//                    intent12345.putExtra("Hostelname",name);
+//                    intent12345.putExtra("Hosteluri",urii);
+//                    startActivity(intent12345);
+//
+//                }
+//                String id=hostell.getId();
+//                String name=hostell.getName();
+//                String urii=hostell.getUri();
+//                Intent intent12345=new Intent(Owner_PortalActivity.this,ShowdataActivity.class);
+//                intent12345.putExtra("Ownerid",UserId);
+//                intent12345.putExtra("Hostelid",id);
+//                intent12345.putExtra("Hostelname",name);
+//                intent12345.putExtra("Hosteluri",urii);
+//                startActivity(intent12345);
                 //Toast.makeText(Owner_PortalActivity.this,"Value is"+HostelId,Toast.LENGTH_SHORT).show();
 
-            }
-        });
+          //  }
+        //});
         final ValueEventListener eventListener=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listhos.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Hostel hostel=ds.getValue(Hostel.class);
+                    hostel=ds.getValue(Hostel.class);
                     HostelId=hostel.getId();
+                    String answer=hostel.getStatus();
+
+                   // if(answer=="APPROVED"){
+                     //   listhos.add(hostel);
+                    //}
+                    String sta=hostel.getStatus();
+                    Toast.makeText(Owner_PortalActivity.this,"Value is"+sta,Toast.LENGTH_SHORT).show();
                     listhos.add(hostel);
 
                 }

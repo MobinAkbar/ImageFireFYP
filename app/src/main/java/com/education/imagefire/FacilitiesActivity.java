@@ -40,7 +40,7 @@ public class FacilitiesActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intnt=new Intent(FacilitiesActivity.this,Owner_PortalActivity.class);
+                Intent intnt=new Intent(FacilitiesActivity.this,NearbyplacesActivity.class);
                 intnt.putExtra("id",key);
                 startActivity(intnt);
             }

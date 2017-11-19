@@ -12,7 +12,7 @@ import static com.education.imagefire.R.id.stu;
 public class BasicsActivity extends AppCompatActivity {
 
 
-    Button student,owner;
+    Button student,owner,admin;
     Long back_pressed;
 
 
@@ -31,6 +31,7 @@ public class BasicsActivity extends AppCompatActivity {
 
         student=(Button)findViewById(R.id.btn_login_student);
         owner=(Button)findViewById(R.id.btn_login_owner);
+        admin=(Button)findViewById(R.id.btn_admin_use);
 
 
         student.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,15 @@ public class BasicsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intt=new Intent(BasicsActivity.this,OwnerSignInActivity.class);
+                startActivity(intt);
+
+            }
+        });
+
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intt=new Intent(BasicsActivity.this,UniversityActivity.class);
                 startActivity(intt);
 
             }

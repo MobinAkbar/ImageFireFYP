@@ -37,6 +37,7 @@ import static android.os.Build.VERSION_CODES.M;
 public class HostelActivity extends AppCompatActivity {
 
     private EditText name;
+    private EditText sex;
     Button upload,choose,next;
     private ImageView image;
     private Uri filepath;
@@ -55,6 +56,7 @@ public class HostelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hostel);
 
         name=(EditText)findViewById(R.id.e1);
+        sex=(EditText)findViewById(R.id.e2);
         image=(ImageView)findViewById(R.id.image);
         upload=(Button)findViewById(R.id.upload);
         choose=(Button)findViewById(R.id.choose);
@@ -151,12 +153,14 @@ public class HostelActivity extends AppCompatActivity {
                     String id=databaseReference.push().getKey();
                     String owner=key;
                     String owner_name=name.getText().toString().trim();
+                    String hostel_type=name.getText().toString().trim();
                     ids=id;
+                    String statuses="APPROVED";
 
                     //double logitude=Double.parseDouble(E2.getText().toString());
                     //double latitude=Double.parseDouble(E3.getText().toString());
 
-                    Hostel hostel=new Hostel(id,owner,owner_name,taskSnapshot.getDownloadUrl().toString());
+                    Hostel hostel=new Hostel(id,owner,owner_name,hostel_type,taskSnapshot.getDownloadUrl().toString(),statuses);
 
                     //String uploadId=databaseReference.push().getKey();
                     databaseReference.child(id).setValue(hostel);

@@ -10,31 +10,39 @@
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="430dp"
         android:orientation="vertical">
-
+        <TextView
+            android:layout_marginLeft="40dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="Add Nearby Places"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <ImageView
-
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
-
         <EditText
-            android:hint="Enter Hostel Name"
+            android:hint="name of place"
             android:id="@+id/e1"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
-
         <EditText
-            android:hint="Enter Gender Male or female"
+            android:hint="latitude"
             android:id="@+id/e2"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/e1"
+            android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
-
+        <EditText
+            android:hint="longitude"
+            android:id="@+id/e3"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/e2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -44,12 +52,17 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
         <Button
+            android:onClick="allclear"
+            android:text="Clear"
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
             android:onClick="upload"
             android:text="upload"
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <Button
             android:onClick="chooose"
             android:text="choose"
@@ -57,9 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
-            android:onClick="next"
             android:text="Next"
-            android:id="@+id/next"
+            android:id="@+id/nxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

@@ -11,15 +11,19 @@ public class Hostel {
     public String owner;
     public String name;
     public String uri;
+    public String status;
+    public String sex;
 
     public Hostel() {
     }
 
-    public Hostel(String id,String owner,String name, String uri) {
+    public Hostel(String id,String owner,String name, String uri,String status,String sex) {
         this.owner=owner;
         this.id=id;
         this.name = name;
         this.uri = uri;
+        this.status=status;
+        this.sex=sex;
     }
 
     public String getId() {
@@ -36,5 +40,13 @@ public class Hostel {
 
     public String getUri() {
         return uri;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getSex() {
+        return sex;
     }
 }

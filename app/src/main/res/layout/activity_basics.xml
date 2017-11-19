@@ -30,6 +30,17 @@
         android:text="Hostel Owner Login"
         android:textColor="@android:color/black" />
 
+    <Button
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/btn_login_owner"
+        android:id="@+id/btn_admin_use"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@color/colorAccent"
+        android:text="For Admin Use"
+        android:textColor="@android:color/black" />
+
 
 
 
