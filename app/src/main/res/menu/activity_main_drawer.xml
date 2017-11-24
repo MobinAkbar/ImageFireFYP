@@ -9,19 +9,37 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Tab 2" />
+            android:title="Settings" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Tab 3" />
+            android:title="Favourites" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tab 4" />
+            android:title="About Us" />
         <item
             android:id="@+id/nav_manage1"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tab 5" />
+            android:title="Sign out" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Home" />
+        <item
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Settings" />
+        <item
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Favourites" />
+        <item
+            android:icon="@drawable/ic_menu_manage"
+            android:title="About Us" />
+        <item
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Sign out" />
     </group>
 
 

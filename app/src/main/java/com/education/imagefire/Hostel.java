@@ -18,8 +18,8 @@ public class Hostel {
     }
 
     public Hostel(String id,String owner,String name, String uri,String status,String sex) {
-        this.owner=owner;
         this.id=id;
+        this.owner=owner;
         this.name = name;
         this.uri = uri;
         this.status=status;

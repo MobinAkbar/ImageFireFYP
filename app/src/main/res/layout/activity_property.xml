@@ -7,88 +7,251 @@
     android:layout_height="match_parent"
     tools:context="com.education.imagefire.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/l1"
+    <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:orientation="vertical">
-
-        <EditText
-            android:hint="Enter Hostel Location Info"
-            android:id="@+id/e1"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Near by univrsty 1"
-            android:id="@+id/e2"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Near by univrsty 2"
-            android:id="@+id/e3"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Near by univrsty 3"
-            android:id="@+id/e4"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Near by location 1"
-            android:id="@+id/e5"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Near by location 2"
-            android:id="@+id/e6"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:hint="Near by location 3"
-            android:id="@+id/e7"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@+id/l1"
-        android:id="@+id/l2"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <Button
-            android:onClick="upload"
-            android:text="upload"
-            android:id="@+id/upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="next"
-            android:text="Next"
-            android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-</RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_weight="0"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:id="@+id/l_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginBottom="15dp"
+                    android:textSize="30dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Property Information :"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            <EditText
+                android:maxLines="5"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="7dp"
+                android:hint="Property detail with surroundings"
+                android:background="@drawable/editdesign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginBottom="15dp"
+                    android:textSize="30dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Add Nearby Places :"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Hospital"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Hospital"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Park"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy GYM"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Restaurents"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Restaurents"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Shopping Mall"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Grocery Shop"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add NearBy Book Shop"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:maxLines="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Add Nearby Police Station"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/colorAccent"
+                    android:text="upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+                <!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.education.imagefire.MainActivity">-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/l1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="450dp"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter Hostel Location Info"-->
+            <!--android:id="@+id/e1"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Near by univrsty 1"-->
+            <!--android:id="@+id/e2"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Near by univrsty 2"-->
+            <!--android:id="@+id/e3"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Near by univrsty 3"-->
+            <!--android:id="@+id/e4"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Near by location 1"-->
+            <!--android:id="@+id/e5"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Near by location 2"-->
+            <!--android:id="@+id/e6"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+        <!--<EditText-->
+            <!--android:hint="Near by location 3"-->
+            <!--android:id="@+id/e7"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_below="@+id/l1"-->
+        <!--android:id="@+id/l2"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<Button-->
+            <!--android:onClick="upload"-->
+            <!--android:text="upload"-->
+            <!--android:id="@+id/upload"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<Button-->
+            <!--android:onClick="next"-->
+            <!--android:text="Next"-->
+            <!--android:id="@+id/next"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+<!--</RelativeLayout>-->

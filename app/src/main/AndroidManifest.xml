@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".BasicsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+
+        <!-- //android:theme="@style/AppTheme">// -->
+        <activity android:name=".RoomsActivity">
+
+            <!-- android:theme="@style/AppTheme.NoActionBar"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,12 +31,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCb-lRXV2Tk6F-YRL7dGQEcchBqxIlF0Tg" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="Maps" />
         <activity android:name=".OwnerSignInActivity" />
         <activity android:name=".OwnerSignUpActivity" />
-        <activity android:name=".Owner_PortalActivity" />
+        <activity
+            android:name=".Owner_PortalActivity"
+            android:theme="@style/MyAppTheme" />
         <activity android:name=".ShowdataActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CarActivity" />
@@ -50,7 +51,15 @@
         <activity android:name=".FacilitiesActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".UniversityActivity" />
-        <activity android:name=".NearbyplacesActivity"></activity>
+        <activity android:name=".NearbyplacesActivity" />
+        <activity android:name=".UserInfoActivity" />
+        <activity android:name=".OwnerShowActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="Maps" />
+        <activity android:name=".BasicsActivity" />
+        <activity android:name=".AddHostelActivity" />
+        <activity android:name=".HostelImagesActivity"></activity>
     </application>
 
 </manifest>

@@ -8,94 +8,230 @@
     tools:context="com.education.imagefire.MainActivity">
 
     <LinearLayout
-        android:id="@+id/l1"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:orientation="vertical">
-
-        <EditText
-            android:hint="Enter status of FREE WIFI (true or false)"
-            android:id="@+id/e1"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Enter status of AIR CONDITIONING"
-            android:id="@+id/e2"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Enter status of BREAKFAST"
-            android:id="@+id/e3"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Enter status of PARKING"
-            android:id="@+id/e4"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Enter status of ELECTRITION"
-            android:id="@+id/e5"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:hint="Enter status of RECEPTION"
-            android:id="@+id/e6"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:hint="Enter status of Gym"
-            android:id="@+id/e7"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:hint="Enter status of Kitchen"
-            android:id="@+id/e8"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@+id/l1"
-        android:id="@+id/l2"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <Button
-            android:onClick="upload"
-            android:text="upload"
-            android:id="@+id/upload"
-            android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_weight="0"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/l_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="30dp"
+            android:textColor="@color/colorAccent"
+            android:text="Mark Facilities of Hostel !!!"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="done"
-            android:text="Done"
-            android:id="@+id/done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
     </LinearLayout>
-</RelativeLayout>
+
+    <LinearLayout
+        android:layout_weight="9"
+        android:layout_marginTop="20dp"
+        android:id="@+id/l5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="15dp"
+                android:text="Free Wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Reception"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Generater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Staff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Camera Security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Geezer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Electrition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="15dp"
+                android:text="Guest House"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Tuck Shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Air Condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Fruits Shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Parking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Gym"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginTop="20dp"
+                android:text="Washer-man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:text="Kitchen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_weight="0"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:background="@color/colorAccent"
+                android:text="upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </RelativeLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/l1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="450dp"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of FREE WIFI (true or false)"-->
+            <!--android:id="@+id/e1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of AIR CONDITIONING"-->
+            <!--android:id="@+id/e2"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of BREAKFAST"-->
+            <!--android:id="@+id/e3"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of PARKING"-->
+            <!--android:id="@+id/e4"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of ELECTRITION"-->
+            <!--android:id="@+id/e5"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+        <!--<EditText-->
+            <!--android:hint="Enter status of RECEPTION"-->
+            <!--android:id="@+id/e6"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+        <!--<EditText-->
+            <!--android:hint="Enter status of Gym"-->
+            <!--android:id="@+id/e7"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+        <!--<EditText-->
+            <!--android:hint="Enter status of Kitchen"-->
+            <!--android:id="@+id/e8"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp" />-->
+
+
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_below="@+id/l1"-->
+        <!--android:id="@+id/l2"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<Button-->
+            <!--android:onClick="upload"-->
+            <!--android:text="upload"-->
+            <!--android:id="@+id/upload"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<Button-->
+            <!--android:onClick="done"-->
+            <!--android:text="Done"-->
+            <!--android:id="@+id/done"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+<!--</RelativeLayout>-->

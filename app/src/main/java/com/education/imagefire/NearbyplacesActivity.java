@@ -40,14 +40,14 @@ public class NearbyplacesActivity extends AppCompatActivity {
     private StorageReference storeReference;
     private DatabaseReference databaseReference;
     public static final int REQUEST_CODE=1234;
-    public static final String FB_STOARGE_PATH="Universities/";
-    public static final String FB_DATABASE_PATH="Universities";
+    public static final String FB_STOARGE_PATH="NearbyPlaces/";
+    public static final String FB_DATABASE_PATH="NearbyPlaces";
     String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_university);
+        setContentView(R.layout.activity_nearbyplaces);
 
         key=getIntent().getStringExtra("id");
         image = (ImageView) findViewById(R.id.image);
@@ -59,6 +59,8 @@ public class NearbyplacesActivity extends AppCompatActivity {
         next=(Button)findViewById(R.id.nxt);
         clearr=(Button)findViewById(R.id.clear);
 
+
+        Toast.makeText(NearbyplacesActivity.this,"key is "+key,Toast.LENGTH_LONG).show();
 
         storeReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(key);
@@ -93,7 +95,7 @@ public class NearbyplacesActivity extends AppCompatActivity {
 
                     Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
 
-                    databaseReference.setValue(maping);
+                    databaseReference.child(id).setValue(maping);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

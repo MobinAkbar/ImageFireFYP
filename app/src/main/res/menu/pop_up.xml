@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/Not_interasted"
-        android:orderInCategory="100"
-        android:title="Update" />
+        <item
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="My Profile" />
+        <item
+            android:id="@+id/power"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Settings" />
 
-    <item
-        android:id="@+id/Not_interasted_catugury"
-        android:orderInCategory="100"
-        android:title="Delete" />
+
+
 
 
 </menu>

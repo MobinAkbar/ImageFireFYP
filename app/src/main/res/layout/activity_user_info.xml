@@ -10,42 +10,48 @@
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="450dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_marginLeft="40dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="Enter University Information"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
         <ImageView
-
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="150dp" />
 
         <EditText
-            android:hint="name"
+            android:hint="Enter your Full name"
             android:id="@+id/e1"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:hint="latitude"
-            android:id="@+id/e2"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <EditText
-            android:hint="longitude"
+            android:hint="Enter your contact number"
+            android:id="@+id/e2"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:hint="Enter your address in lahore"
             android:id="@+id/e3"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/e2"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:hint="Gender: Male/Female"
+            android:id="@+id/e4"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <EditText
+            android:hint="Enter your university "
+            android:id="@+id/e5"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
@@ -71,17 +77,9 @@
             android:layout_height="wrap_content" />
         <Button
             android:text="Next"
-            android:id="@+id/nxt"
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <Button
-            android:onClick="allclear"
-            android:text="clear"
-            android:id="@+id/clear1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
 
     </LinearLayout>
 

@@ -153,14 +153,14 @@ public class HostelActivity extends AppCompatActivity {
                     String id=databaseReference.push().getKey();
                     String owner=key;
                     String owner_name=name.getText().toString().trim();
-                    String hostel_type=name.getText().toString().trim();
+                    String hostel_type=sex.getText().toString().trim();
                     ids=id;
                     String statuses="APPROVED";
 
                     //double logitude=Double.parseDouble(E2.getText().toString());
                     //double latitude=Double.parseDouble(E3.getText().toString());
 
-                    Hostel hostel=new Hostel(id,owner,owner_name,hostel_type,taskSnapshot.getDownloadUrl().toString(),statuses);
+                    Hostel hostel=new Hostel(id,owner,owner_name,taskSnapshot.getDownloadUrl().toString(),statuses,hostel_type);
 
                     //String uploadId=databaseReference.push().getKey();
                     databaseReference.child(id).setValue(hostel);

@@ -104,9 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
-
-
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 

@@ -1,6 +1,18 @@
 <resources>
 
     <string name="app_name">ImageFire</string>
+
+    <string-array name="universities">
+        <item>Punjab University</item>
+        <item>FAST University</item>
+        <item>CONSATS University of Information</item>
+        <item>University of Engineering and Technology</item>
+        <item>University of Management and Sciences</item>
+        <item>University Of Central Punjab</item>
+        <item>Sergodha University</item>
+        <item>Gujrat University</item>
+    </string-array>
+
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="open">Open</string>

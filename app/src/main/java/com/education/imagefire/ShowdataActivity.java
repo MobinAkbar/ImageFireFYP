@@ -51,12 +51,16 @@ public class ShowdataActivity extends AppCompatActivity {
     private PropertyInfo propertyInfo;
     private Facilities facilities;
     private Owner owner;
-    private double latitude;
-    private double longitude;
+    private double latitude12;
+    private double longitude13;
+    private double m_lat;
+    private double m_logi;
+    String lati_0;
+    String longi_0;
     private String nameMap;
-    private String ltitude;
-    private String logitude;
-
+    String latitude_s;
+    String logitude_s;
+    String univrsty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,7 @@ public class ShowdataActivity extends AppCompatActivity {
         final String hostlid=getIntent().getStringExtra("Hostelid");
         String hostlname=getIntent().getStringExtra("Hostelname");
         String hostluri=getIntent().getStringExtra("Hosteluri");
+        univrsty=getIntent().getStringExtra("uni_name");
 
         Toast.makeText(ShowdataActivity.this,"Value is"+hostlid,Toast.LENGTH_SHORT).show();
         Toast.makeText(ShowdataActivity.this,"Value is"+hostlname,Toast.LENGTH_SHORT).show();
@@ -126,11 +131,13 @@ public class ShowdataActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     map=ds.getValue(Map.class);
-                    latitude=map.getLatitude();
-                    longitude=map.getLongitude();
+                    latitude12=map.getLatitude();
+                    longitude13=map.getLongitude();
                     nameMap=map.getName();
-
                     PicassoClient.downloadImage(ShowdataActivity.this,map.getUri(),imageView);
+                    Toast.makeText(ShowdataActivity.this,"Value is love u " +longitude13,Toast.LENGTH_SHORT).show();
+                    latitude_s=Double.toString(latitude12);
+                    logitude_s=Double.toString(longitude13);
 
                 }
             }
@@ -139,6 +146,25 @@ public class ShowdataActivity extends AppCompatActivity {
             }
         };
                query2.addValueEventListener(eventListener1);
+
+
+        Query query29 = mFirebaseDatabaseReference.child("Universities").orderByChild("name").equalTo(univrsty);
+        final ValueEventListener eventListener19=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                   map=ds.getValue(Map.class);
+                    m_lat=map.getLatitude();
+                    m_logi=map.getLongitude();
+                    lati_0=Double.toString(m_lat);
+                    longi_0=Double.toString(m_logi);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        query29.addValueEventListener(eventListener19);
 
 
         Query query3 = mFirebaseDatabaseReference.child("Hostel_Property_Info").orderByChild("id").equalTo(hostlid);
@@ -175,17 +201,17 @@ public class ShowdataActivity extends AppCompatActivity {
         };
         query4.addValueEventListener(eventListener3);
 
-        //nameMap=map.getName();
-        ltitude=Double.toString(latitude);
-        logitude=Double.toString(longitude);
-
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ShowdataActivity.this,MapsActivity.class);
+                intent.putExtra("id",hostlid);
                 intent.putExtra("name",nameMap);
-                intent.putExtra("lati",ltitude);
-                intent.putExtra("longi",logitude);
+                intent.putExtra("lati",latitude_s);
+                intent.putExtra("longi",logitude_s);
+                intent.putExtra("A_lati1",lati_0);
+                intent.putExtra("A_longi1",longi_0);
+                intent.putExtra("uni_name",univrsty);
                 startActivity(intent);
 
             }

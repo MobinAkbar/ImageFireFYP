@@ -1,6 +1,5 @@
 package com.education.imagefire;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -19,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,47 +30,96 @@ import com.google.firebase.storage.UploadTask;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class UniversityActivity extends AppCompatActivity {
+//import static com.education.imagefire.R.id.numb1;
 
-    Button upload,choose,next,clear;
+public class UserInfoActivity extends AppCompatActivity {
+
+    Button upload,choose,next;
     private EditText name;
-    private EditText latitude;
-    private EditText longitude;
+    private EditText number;
+    private EditText address;
+    private EditText age;
+    private EditText university;
     private ImageView image;
     private Uri filepath;
-    private StorageReference storeReference;
+    private FirebaseAuth auth;
+    private FirebaseDatabase database;
+    private String UserId;
+    private FirebaseAuth.AuthStateListener stateListener;
+    private StorageReference storageReference;
     private DatabaseReference databaseReference;
     public static final int REQUEST_CODE=1234;
-    public static final String FB_STOARGE_PATH="Universities/";
-    public static final String FB_DATABASE_PATH="Universities";
+    public static final String FB_STOARGE_PATH="Users_Info/";
+    public static final String FB_DATABASE_PATH="Users_Info";
+    String email;
+    String password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_university);
+        setContentView(R.layout.activity_user_info);
 
         image = (ImageView) findViewById(R.id.image);
         name = (EditText) findViewById(R.id.e1);
-        latitude = (EditText) findViewById(R.id.e2);
-        longitude = (EditText) findViewById(R.id.e3);
+        number = (EditText) findViewById(R.id.e2);
+        address = (EditText) findViewById(R.id.e3);
+        age = (EditText) findViewById(R.id.e4);
+        university = (EditText) findViewById(R.id.e5);
         upload=(Button)findViewById(R.id.upload);
         choose=(Button)findViewById(R.id.choose);
-        next=(Button)findViewById(R.id.nxt);
-        clear=(Button)findViewById(R.id.clear1) ;
+        next=(Button)findViewById(R.id.next);
 
-        storeReference = FirebaseStorage.getInstance().getReference();
+        email=getIntent().getStringExtra("email");
+        password=getIntent().getStringExtra("password");
+
+        auth=FirebaseAuth.getInstance();
+        database=FirebaseDatabase.getInstance();
+        databaseReference=database.getReference();
+        FirebaseUser user=auth.getCurrentUser();
+        UserId=user.getUid();
+
+        stateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user != null){
+                    Toast.makeText(UserInfoActivity.this,"Id have something"+UserId,Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(UserInfoActivity.this,"Id is empty",Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+
+
+        storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(UniversityActivity.this,BasicsActivity.class);
-                startActivity(o);
+                Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
+                in.putExtra("UID",UserId);
+                startActivity(in);
             }
         });
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(stateListener);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (stateListener != null) {
+            auth.removeAuthStateListener(stateListener);
+        }
+    }
     public void upload(View v) {
 
         if(filepath!=null){
@@ -77,21 +127,24 @@ public class UniversityActivity extends AppCompatActivity {
             progress.setTitle("uploading.....");
             progress.show();
 
-            StorageReference ref=storeReference.child(FB_STOARGE_PATH + System.currentTimeMillis()+ getImageExt(filepath));
+            StorageReference ref=storageReference.child(FB_STOARGE_PATH + System.currentTimeMillis()+ getImageExt(filepath));
             ref.putFile(filepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @SuppressWarnings("VisibleForTests")
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progress.dismiss();
-                    Toast.makeText(UniversityActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
-                    String id=databaseReference.push().getKey();
-                    String nam=name.getText().toString();
-                    double logitude=Double.parseDouble(longitude.getText().toString());
-                    double latitud=Double.parseDouble(latitude.getText().toString());
+                    Toast.makeText(UserInfoActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
+                    String id=UserId;
+                    String name1=name.getText().toString().trim();
+                    String email1=email;
+                    String password1=password;
+                    String number1=number.getText().toString().trim();
+                    String gender1=age.getText().toString().trim();
+                    String address1=address.getText().toString().trim();
+                    String uni1=university.getText().toString().trim();
 
-                    Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
-
-                    databaseReference.child(id).setValue(maping);
+                    Users user=new Users(id,name1,email1,password1,number1,gender1,address1,uni1,taskSnapshot.getDownloadUrl().toString());
+                    databaseReference.child(id).setValue(user);
 
 
                 }
@@ -99,7 +152,7 @@ public class UniversityActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     progress.dismiss();
-                    Toast.makeText(UniversityActivity.this,"Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(UserInfoActivity.this,"Failed",Toast.LENGTH_LONG).show();
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
 
@@ -108,27 +161,35 @@ public class UniversityActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
+                    // Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
+//                    startActivity(in);
                 }
             });
         }else{
-            Toast.makeText(UniversityActivity.this,"please select image",Toast.LENGTH_LONG).show();
+            Toast.makeText(UserInfoActivity.this,"please select image",Toast.LENGTH_LONG).show();
         }
     }
 
+
     public void chooose(View view) {
         Intent intent=new Intent();
-        intent.setType("Image/*");
+        intent.setType("Owners/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
+        startActivityForResult(Intent.createChooser(intent,"Owners"),REQUEST_CODE);
+        Toast.makeText(UserInfoActivity.this,"please image 3",Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            Toast.makeText(UserInfoActivity.this,"please image 2",Toast.LENGTH_LONG).show();
             filepath=data.getData();
+
             try{
                 Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                Toast.makeText(UserInfoActivity.this,"please image",Toast.LENGTH_LONG).show();
                 image.setImageBitmap(bitmap);
             }catch (FileNotFoundException e){
                 e.printStackTrace();
@@ -136,7 +197,9 @@ public class UniversityActivity extends AppCompatActivity {
             catch (IOException e){
                 e.printStackTrace();
             }
+
         }
+
     }
 
     public String getImageExt(Uri uri){
@@ -145,10 +208,4 @@ public class UniversityActivity extends AppCompatActivity {
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 
-    public void allclear(View view){
-        name.getText().clear();
-        latitude.getText().clear();
-        longitude.getText().clear();
-        image.setImageResource(0);
-    }
 }

@@ -1,182 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawr"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#424242"
     tools:context="com.education.imagefire.Owner_PortalActivity">
 
-<LinearLayout
-    android:id="@+id/l11"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="130dp">
-
-      <LinearLayout
-          android:layout_marginTop="5dp"
-          android:layout_marginLeft="10dp"
-          android:orientation="vertical"
-          android:layout_width="110dp"
-          android:layout_height="120dp">
-
-          <de.hdodenhof.circleimageview.CircleImageView
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:id="@+id/profile_image"
-              android:layout_width="96dp"
-              android:layout_height="96dp"
-              android:src="@drawable/afridi"
-              android:layout_marginTop="2dp"
-              app:civ_border_width="2dp"
-              app:civ_border_color="#FF000000"/>
-
-      </LinearLayout>
-
-      <LinearLayout
-          android:layout_marginTop="5dp"
-          android:layout_marginLeft="10dp"
-          android:orientation="vertical"
-          android:layout_width="170dp"
-          android:layout_height="120dp">
-
-          <LinearLayout
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="40dp">
-
-              <TextView
-                  android:id="@+id/name"
-                  android:layout_weight="1"
-                  android:text="Owners Name"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
-
-          </LinearLayout>
-
-          <LinearLayout
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="40dp">
-
-              <TextView
-                  android:id="@+id/numb1"
-                  android:layout_weight="1"
-                  android:text="Moile Number"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
-
-          </LinearLayout>
-
-          <LinearLayout
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="40dp">
-
-              <TextView
-                  android:id="@+id/email"
-                  android:layout_weight="1"
-                  android:text="Email"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-
-
-          </LinearLayout>
-
-      </LinearLayout>
-
     <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="2dp"
         android:orientation="vertical"
-        android:layout_width="60dp"
-        android:layout_height="120dp">
-
-        <TextView
-            android:id="@+id/out"
-            android:textColor="#DF33"
-            android:text="Sign Out"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
-              </LinearLayout>
-
-    <View
-
-        android:id="@+id/v3"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/l11"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
-        android:background="#000" />
-
-
-
-    <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_below="@+id/v3"
-        android:id="@+id/l55"
-        android:orientation="horizontal"
-        android:layout_width="350dp"
-        android:layout_height="40dp">
-
-        <Button
-            android:background="@color/colorAccent"
-            android:text="Add Hostel "
-            android:id="@+id/newhostel"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_marginLeft="20dp"
-            android:background="@color/colorAccent"
-            android:text="Delete Hostel "
-            android:id="@+id/deletehostel"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content" />
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/l55"
-        android:id="@+id/l22"
+        android:id="@+id/ri"
         android:layout_width="match_parent"
-        android:layout_height="230dp">
-
-        <ListView
-            android:clickable="true"
-            android:background="#9CBABF"
-            android:id="@+id/recyc"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/tool_bar"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            layout="@layout/usersignup"
+            />
 
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:background="#DF34"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="200dp"-->
-            <!--android:id="@+id/recycle">-->
+        <LinearLayout
+            android:layout_marginBottom="50dp"
+            android:id="@+id/l11"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ListView
+                android:dividerHeight="20.0px"
+                android:clickable="true"
+                android:background="#9CBABF"
+                android:id="@+id/recyc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
+        </LinearLayout>
 
-        <!--</android.support.v7.widget.RecyclerView>-->
     </LinearLayout>
+        <LinearLayout
+            android:layout_marginBottom="2dp"
+            android:gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:layout_below="@+id/l22"
-        android:id="@+id/btn6"
-        android:text="Showdata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+            <Button
+                android:id="@+id/add_1"
+                android:background="@color/colorAccent"
+                android:text="Add New Hostel"
+                android:layout_width="match_parent"
+                android:layout_height="43dp" />
+
+        </LinearLayout>
+
+
+    <android.support.design.widget.NavigationView
+        android:fitsSystemWindows="true"
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

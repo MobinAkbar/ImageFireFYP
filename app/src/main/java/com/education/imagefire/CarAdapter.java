@@ -49,8 +49,8 @@ public class CarAdapter extends ArrayAdapter<Hostel> {
         LayoutInflater inflater=context.getLayoutInflater();
         final View v=inflater.inflate(R.layout.list_item,null,true);
 
-        TextView tv= (TextView) v.findViewById(R.id.textView);
-        ImageView tp= (ImageView) v.findViewById(R.id.imageView);
+        TextView tv= (TextView) v.findViewById(R.id.text_1);
+        ImageView tp= (ImageView) v.findViewById(R.id.image_1);
         //ImageButton img=(ImageButton)v.findViewById(R.id.img_btn);
 
         Hostel hostel=carList.get(position);
