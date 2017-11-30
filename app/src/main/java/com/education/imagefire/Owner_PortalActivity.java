@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -65,6 +66,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
@@ -81,6 +83,9 @@ public class Owner_PortalActivity extends AppCompatActivity {
    // private List<RecyclerUpload> list;
     private Owner owner;
     private Hostel hostel;
+    TextView t1,t2;
+    ImageView im1;
+    Owner users;
 
 
     @Override
@@ -97,6 +102,12 @@ public class Owner_PortalActivity extends AppCompatActivity {
 
         // toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView=(NavigationView)findViewById(R.id.nav_view);
+        View navi=navigationView.inflateHeaderView(R.layout.nav_header_main);
+        t1=(TextView) navi.findViewById(R.id.headtext);
+        t2=(TextView)navi.findViewById(R.id.textView89);
+        im1=(ImageView)navi.findViewById(R.id.profile_image);
        // list.clear();
         B1=(Button)findViewById(R.id.add_1);
        // B2=(Button)findViewById(R.id.deletehostel);
@@ -128,35 +139,51 @@ public class Owner_PortalActivity extends AppCompatActivity {
             }
         };
 
-//        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-//        Query query = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(UserId);
-//        final ValueEventListener eventListener=new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//                for(DataSnapshot ds:dataSnapshot.getChildren()){
-//                    owner=ds.getValue(Owner.class);
-//
-//                    ownerId=owner.getId();
-//                    HostelName= owner.getName();
-//                    HostelUri=owner.getUri();
-//                    T1.setText(owner.getName());
-//                    T2.setText(owner.getNumber_1());
-//                    T4.setText(owner.getEmail());
-//                    // imageView.setImageURI(owner.getUri());
-//                    //Picasso.with(Owner_PortalActivity.this).load(owner.getUri()).resize(100, 100).into(imageView);
-//                    // PicassoClient.downloadImage(Owner_PortalActivity.this,owner.getUri(),imageView);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        };
-//
-//        query.addValueEventListener(eventListener);
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query1 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(UserId);
 
-       // Toast.makeText(Owner_PortalActivity.this,"IM here running",Toast.LENGTH_SHORT).show();
+        final ValueEventListener eventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    users=ds.getValue(Owner.class);
+                    t1.setText(users.getName());
+                    t2.setText(users.getEmail());
+                    PicassoClient.downloadImage(Owner_PortalActivity.this,users.getUri(),im1);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        query1.addValueEventListener(eventListener);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -331,22 +358,6 @@ public class Owner_PortalActivity extends AppCompatActivity {
 
 }
 
-//private void showDialog(String id,String name){
-//      AlertDialog.Builder dialog=new AlertDialog.Builder(this);
-//      LayoutInflater inflater=getLayoutInflater();
-//     final View dialogview=inflater.inflate(R.layout.delete_dialog,null);
-//     dialog.setView(dialogview);
-//
-//    final Spinner E12 = (Spinner) dialogview.findViewById(R.id.spin);
-//    final Button B12=(Button)dialogview.findViewById(R.id.del1);
-//    final Button B13=(Button)dialogview.findViewById(R.id.can1);
-//
-//    dialog.setTitle("updating ... "+name);
-//    AlertDialog alertDialog=dialog.create();
-//    alertDialog.show();
-//
-//}
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -425,6 +436,24 @@ public class Owner_PortalActivity extends AppCompatActivity {
         if (listener != null) {
             firebaseAuth.removeAuthStateListener(listener);
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.user_profile:
+                Intent intent=new Intent(Owner_PortalActivity.this,OwnerProfileActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.sign_out:
+                firebaseAuth.signOut();
+                Toast.makeText(Owner_PortalActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+                Intent intt=new Intent(Owner_PortalActivity.this,OwnerSignInActivity.class);
+                startActivity(intt);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

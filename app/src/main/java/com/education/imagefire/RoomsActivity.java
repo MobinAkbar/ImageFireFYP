@@ -17,9 +17,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,229 +41,102 @@ import java.util.List;
 import static android.R.attr.data;
 import static com.education.imagefire.R.drawable.hostel;
 import static com.education.imagefire.R.id.e1;
+import static com.education.imagefire.R.id.spin;
 
 
 public class RoomsActivity extends AppCompatActivity {
-    Button upload,choose,next;
-    private EditText name;
-    private EditText latitude;
-    private EditText longitude;
-    private ImageView image1111,image2,image3,image4,image5;
-    private Uri filepath;
-    private StorageReference storeReference;
-    private DatabaseReference databaseReference;
-    public static final int REQUEST_CODE=1234;
-    public static final String FB_STOARGE_PATH="RoomsInfo/";
-    public static final String FB_DATABASE_PATH="RoomsInfo";
-    ArrayList<Uri> myOwn=new ArrayList<Uri>();
-    String key;
-    int PICK_IMAGE_MULTIPLE = 1;
-    String imageEncoded;
-    List<String> imagesEncodedList;
+    Button upload_r, next_r;
+    private EditText t_rooms;
+    private EditText e_rooms;
+    private EditText t_beds;
+    private EditText e_beds;
+    private Spinner uni1;
+    private Spinner uni2;
+    private Spinner uni3;
+    private EditText r_1month;
+    private EditText r_6month;
+    private EditText b_1month;
+    private EditText b_6month;
 
+
+    private StorageReference storeReference;
+    private DatabaseReference databaseReference1;
+    private DatabaseReference databaseReference2;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
-//        image1111 = (ImageView) findViewById(R.id.image111);
-//        image2 = (ImageView) findViewById(R.id.image12);
-//       // image3 = (ImageView) findViewById(R.id.image13);
-//        //image4 = (ImageView) findViewById(R.id.image14);
-//        //image5 = (ImageView) findViewById(R.id.image15);
-//        name = (EditText) findViewById(e1);
-//        latitude = (EditText) findViewById(R.id.e2);
-//        longitude = (EditText) findViewById(R.id.e3);
-//        upload=(Button)findViewById(R.id.upload);
-//        choose=(Button)findViewById(R.id.choose);
-//        next=(Button)findViewById(R.id.nextt);
-//
-//        //key=getIntent().getStringExtra("id");
-//
-//        storeReference = FirebaseStorage.getInstance().getReference();
-//        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
-//
-//
-//
-//        Permission.checkPermission(this);
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                for(int i=0;i<myOwn.size();i++) {
-//                    String num=myOwn.get(i).toString();
-//                    Toast.makeText(RoomsActivity.this, "please 3 and " +num, Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-//    }
-//    public void upload(View v) {
-//        if(filepath!=null){
-//            final ProgressDialog progress=new ProgressDialog(this);
-//            progress.setTitle("uploading.....");
-//            progress.show();
-//
-//            StorageReference ref=storeReference.child(FB_STOARGE_PATH + System.currentTimeMillis()+ getImageExt(filepath));
-//            ref.putFile(filepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @SuppressWarnings("VisibleForTests")
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    progress.dismiss();
-//                    Toast.makeText(RoomsActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
-//                    String id=key;
-//                    String nam=name.getText().toString();
-//                    double logitude=Double.parseDouble(longitude.getText().toString());
-//                    double latitud=Double.parseDouble(latitude.getText().toString());
-//
-//                    Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
-//                    databaseReference.setValue(maping);
-//
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    progress.dismiss();
-//                    Toast.makeText(RoomsActivity.this,"Failed",Toast.LENGTH_LONG).show();
-//                }
-//            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//
-//                @SuppressWarnings("VisibleForTests")
-//                @Override
-//                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                    double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-//                    progress.setMessage("uploaded"+(int)pro+"%");
-//                }
-//            });
-//        }else{
-//            Toast.makeText(RoomsActivity.this,"please select image",Toast.LENGTH_LONG).show();
-//        }
+
+        upload_r=(Button)findViewById(R.id.upload3);
+        next_r=(Button)findViewById(R.id.next3);
+        t_rooms=(EditText)findViewById(R.id.total_rooms);
+        e_rooms=(EditText)findViewById(R.id.empty_rooms);
+        t_beds=(EditText)findViewById(R.id.total_beds);
+        e_beds=(EditText)findViewById(R.id.empty_beds);
+        r_1month=(EditText)findViewById(R.id.r_prizemont);
+        r_6month=(EditText)findViewById(R.id.r_prize6month);
+        b_1month=(EditText)findViewById(R.id.b_prize1month);
+        b_6month=(EditText)findViewById(R.id.b_prize6month);
+
+
+        uni1=(Spinner)findViewById(R.id.spin_1);
+        uni2=(Spinner)findViewById(R.id.spin_2);
+        uni3=(Spinner)findViewById(R.id.spin_3);
+
+        key = getIntent().getStringExtra("id");
+
+        ArrayAdapter adapter=ArrayAdapter.createFromResource(this, R.array.universities, android.R.layout.simple_spinner_item);
+        uni1.setAdapter(adapter);
+        uni2.setAdapter(adapter);
+        uni3.setAdapter(adapter);
+
+        next_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(RoomsActivity.this, PropertyActivity.class);
+                in.putExtra("id", key);
+                Toast.makeText(RoomsActivity.this, "value is " + key, Toast.LENGTH_LONG).show();
+                startActivity(in);
+            }
+        });
+
+        upload_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                upload();
+            }
+        });
+
+        //storeReference = FirebaseStorage.getInstance().getReference();
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("Rooms");
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("Hostel_Universities");
+
     }
-//
-//
-//    public void chooose(View view) {
-//        Intent intent=new Intent();
-//        intent.setType("Image/*");
-//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
-//
-////        Intent intent = new Intent();
-////        intent.setType("image/*");
-////        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-////        intent.setAction(Intent.ACTION_GET_CONTENT);
-////        startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
-//
-//    }
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == REQUEST_CODE) {
-//            if(resultCode==RESULT_OK) {
-//                Toast.makeText(RoomsActivity.this, "please 1", Toast.LENGTH_LONG).show();
-//                if (data != null && data.getData() != null) {
-//                    Uri mImageUri = data.getData();
-//                    try {
-//                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mImageUri);
-//                        //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-//                        image1111.setImageBitmap(bitmap);
-//                    } catch (FileNotFoundException e) {
-//                        e.printStackTrace();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                } else if (data.getClipData() != null) {
-//                        Toast.makeText(RoomsActivity.this,"please 2",Toast.LENGTH_LONG).show();
-//                    ClipData mClipData = data.getClipData();
-//                    ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
-//                    for (int i = 0; i < mClipData.getItemCount(); i++) {
-//                        Toast.makeText(RoomsActivity.this,"please 2 and in ",Toast.LENGTH_LONG).show();
-//                        ClipData.Item item = mClipData.getItemAt(i);
-//                        Uri uri = item.getUri();
-//                        String urii=uri.toString();
-//                        Toast.makeText(RoomsActivity.this,"please 3 and "+urii,Toast.LENGTH_LONG).show();
-//                        mArrayUri.add(uri);
-//                        switch (i) {
-//
-//                            case 0:
-//                                try {
-//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//                                    image1111.setImageBitmap(bitmap);
-//                                } catch (FileNotFoundException e) {
-//                                    e.printStackTrace();
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                                break;
-//                            case 1:
-//                                try {
-//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//                                    image2.setImageBitmap(bitmap);
-//                                } catch (FileNotFoundException e) {
-//                                    e.printStackTrace();
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                                break;
-//
-//                        }
-//
-//                    }
-//                    myOwn=mArrayUri;
-//                   // Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
-//
-//                }
-//                }
-//            }
-//
-//
-//        }
-//
-//
-////    @Override
-////    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        super.onActivityResult(requestCode, resultCode, data);
-////        if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-////            //Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-////            filepath=data.getData();
-////
-////            try{
-////                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-////                //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-////                image.setImageBitmap(bitmap);
-////            }catch (FileNotFoundException e){
-////                e.printStackTrace();
-////            }
-////            catch (IOException e){
-////                e.printStackTrace();
-////            }
-////
-////        }
-////
-////    }
-//
-//    //    @Override
-////    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        super.onActivityResult(requestCode, resultCode, data);
-////        if(requestCode==REQUEST_CODE && requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-////            Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-////                    filepath=data.getData();
-////
-////            try{
-////                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-////                Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-////                I1.setImageBitmap(bitmap);
-////            }catch (FileNotFoundException e){
-////                e.printStackTrace();
-////            }
-////            catch (IOException e){
-////                e.printStackTrace();
-////            }
-////
-////        }
-////    }
-//    public String getImageExt(Uri uri){
-//        ContentResolver contentResolver=getContentResolver();
-//        MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
-//        return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-//    }
+
+    private void upload(){
+        String totalRooms=t_rooms.getText().toString();
+        String emptyRoos=e_rooms.getText().toString();
+        String totalBeds=t_beds.getText().toString();
+        String emptybeds=e_beds.getText().toString();
+        String rm_1month=r_1month.getText().toString();
+        String rm_6month=r_6month.getText().toString();
+        String bd_1month=b_1month.getText().toString();
+        String bd_6month=b_6month.getText().toString();
+
+
+        String univrsty1=uni1.getSelectedItem().toString();
+        String univrsty2=uni2.getSelectedItem().toString();
+        String univrsty3=uni3.getSelectedItem().toString();
+
+        Rooms room=new Rooms(key,totalRooms,emptyRoos,totalBeds,emptybeds,rm_1month,bd_1month,rm_6month,bd_6month);
+        databaseReference1.child(key).setValue(room);
+
+        University university=new University(key,univrsty1,univrsty2,univrsty3);
+        databaseReference2.child(key).setValue(university);
+
+    }
+
+
 }

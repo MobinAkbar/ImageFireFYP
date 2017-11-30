@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.nfc.Tag;
@@ -91,8 +92,8 @@ public class OwnerSignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                // String name=inputname.getText().toString().trim();
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
+               final String email = inputEmail.getText().toString().trim();
+               final String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -124,15 +125,15 @@ public class OwnerSignUpActivity extends AppCompatActivity {
                                     Toast.makeText(OwnerSignUpActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(OwnerSignUpActivity.this, MainActivity.class));
+
+                                    Intent intent=new Intent(OwnerSignUpActivity.this, MainActivity.class);
+                                    intent.putExtra("email",email);
+                                    intent.putExtra("password",password);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }
                         });
-
-
-
-
 
             }
         });

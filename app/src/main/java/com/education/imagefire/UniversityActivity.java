@@ -37,8 +37,8 @@ public class UniversityActivity extends AppCompatActivity {
     private EditText longitude;
     private ImageView image;
     private Uri filepath;
-    private StorageReference storeReference;
-    private DatabaseReference databaseReference;
+    StorageReference storeReference;
+    DatabaseReference databaseReference;
     public static final int REQUEST_CODE=1234;
     public static final String FB_STOARGE_PATH="Universities/";
     public static final String FB_DATABASE_PATH="Universities";
@@ -57,7 +57,7 @@ public class UniversityActivity extends AppCompatActivity {
         next=(Button)findViewById(R.id.nxt);
         clear=(Button)findViewById(R.id.clear1) ;
 
-        storeReference = FirebaseStorage.getInstance().getReference();
+
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
@@ -71,8 +71,9 @@ public class UniversityActivity extends AppCompatActivity {
     }
 
     public void upload(View v) {
-
+        storeReference = FirebaseStorage.getInstance().getReference();
         if(filepath!=null){
+
             final ProgressDialog progress=new ProgressDialog(this);
             progress.setTitle("uploading.....");
             progress.show();
@@ -89,7 +90,7 @@ public class UniversityActivity extends AppCompatActivity {
                     double logitude=Double.parseDouble(longitude.getText().toString());
                     double latitud=Double.parseDouble(latitude.getText().toString());
 
-                    Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
+                    NearBy maping=new NearBy(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
 
                     databaseReference.child(id).setValue(maping);
 

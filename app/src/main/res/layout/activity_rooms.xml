@@ -47,7 +47,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent">
                 <EditText
-
+                    android:id="@+id/total_rooms"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="7dp"
                     android:hint="Add Total Rooms"
@@ -56,6 +56,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/empty_rooms"
                     android:layout_marginLeft="5dp"
                     android:hint="Add Empty Rooms"
                     android:background="@drawable/editdesign"
@@ -72,13 +73,87 @@
                 android:layout_height="match_parent">
 
                 <EditText
+                    android:id="@+id/total_beds"
                     android:layout_marginBottom="7dp"
                     android:hint="Add Total Beds"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/empty_beds"
                     android:hint="Add Empty Beds"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:id="@+id/l_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="30dp"
+                android:textColor="@color/colorAccent"
+                android:text="Prizes Details :"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:id="@+id/l_7"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="150dp"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/r_prizemont"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="7dp"
+                    android:hint="Per month prize"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/r_prize6month"
+                    android:layout_marginLeft="5dp"
+                    android:hint="Six motn prize"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="150dp"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/b_prize1month"
+                    android:layout_marginBottom="7dp"
+                    android:hint="1 month prize of bed"
+                    android:background="@drawable/editdesign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/b_prize6month"
+                    android:hint="6 month prize of bed"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -104,7 +179,7 @@
 
         <LinearLayout
             android:layout_weight="0"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -124,6 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:id="@+id/spin_1"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -148,6 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:id="@+id/spin_2"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,6 +248,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:id="@+id/spin_3"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,16 +259,26 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
+                android:layout_marginBottom="5dp"
+                android:id="@+id/upload3"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="@color/colorAccent"
                 android:text="upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/next3"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/colorAccent"
+                android:text="next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

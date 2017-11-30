@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText name;
     private EditText numb1;
     private EditText numb2;
-    private EditText email;
-    private EditText password;
+    private EditText numb3;
+    private EditText profesion;
     private ImageView image;
     private Uri filepath;
     private FirebaseAuth auth;
@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String FB_STOARGE_PATH="Owners/";
     public static final String FB_DATABASE_PATH="Owners";
     Owner owner;
+    String email;
+    String password;
+
 
     //private ProgressDialog progressDialog;
 
@@ -76,12 +79,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        email=getIntent().getStringExtra("email");
+        password=getIntent().getStringExtra("password");
+
         image = (ImageView) findViewById(R.id.image);
         name = (EditText) findViewById(R.id.e1);
         numb1 = (EditText) findViewById(R.id.e2);
         numb2 = (EditText) findViewById(R.id.e3);
-        email = (EditText) findViewById(R.id.e4);
-        password = (EditText) findViewById(R.id.e5);
+        numb3 = (EditText) findViewById(R.id.e4);
+        profesion = (EditText) findViewById(R.id.e5);
         upload=(Button)findViewById(R.id.upload);
         choose=(Button)findViewById(R.id.choose);
         next=(Button)findViewById(R.id.next);
@@ -215,15 +221,15 @@ public class MainActivity extends AppCompatActivity {
                     String owner_name=name.getText().toString().trim();
                     String number1=numb1.getText().toString().trim();
                     String number2=numb2.getText().toString().trim();
-                    String mail=email.getText().toString().trim();
-                    String passw=password.getText().toString().trim();
+                    String number3=numb3.getText().toString().trim();
+                    String email1=email;
+                    String password1=password;
+                    String profession=profesion.getText().toString().trim();
 
                      //double logitude=Double.parseDouble(E2.getText().toString());
                      //double latitude=Double.parseDouble(E3.getText().toString());
 
-                    Owner owner=new Owner(id,owner_name,number1,number2,mail,passw,taskSnapshot.getDownloadUrl().toString());
-
-                    //String uploadId=databaseReference.push().getKey();
+                    Owner owner=new Owner(id,owner_name,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString());
                     databaseReference.child(id).setValue(owner);
 
 

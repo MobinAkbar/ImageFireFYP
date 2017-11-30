@@ -9,25 +9,34 @@ import java.io.Serializable;
 public class PropertyInfo implements Serializable {
     private String id;
     private String property;
-    private String university_1;
-    private String university_2;
-    private String university_3;
-    private String location_1;
-    private String location_2;
-    private String location_3;
+    private String nearby_place1;
+    private String nearby_place2;
+    private String nearby_place3;
+    private String nearby_place4;
+    private String nearby_place5;
+    private String nearby_place6;
+    private String nearby_place7;
+    private String nearby_place8;
+    private String nearby_place9;
+    private String nearby_place10;
+
 
     public PropertyInfo() {
     }
 
-    public PropertyInfo(String id,String property, String university_1, String university_2, String university_3, String location_1, String location_2, String location_3) {
-        this.id=id;
+    public PropertyInfo(String id, String property, String nearby_place1, String nearby_place2, String nearby_place3, String nearby_place4, String nearby_place5, String nearby_place6, String nearby_place7, String nearby_place8, String nearby_place9, String nearby_place10) {
+        this.id = id;
         this.property = property;
-        this.university_1 = university_1;
-        this.university_2 = university_2;
-        this.university_3 = university_3;
-        this.location_1 = location_1;
-        this.location_2 = location_2;
-        this.location_3 = location_3;
+        this.nearby_place1 = nearby_place1;
+        this.nearby_place2 = nearby_place2;
+        this.nearby_place3 = nearby_place3;
+        this.nearby_place4 = nearby_place4;
+        this.nearby_place5 = nearby_place5;
+        this.nearby_place6 = nearby_place6;
+        this.nearby_place7 = nearby_place7;
+        this.nearby_place8 = nearby_place8;
+        this.nearby_place9 = nearby_place9;
+        this.nearby_place10 = nearby_place10;
     }
 
     public String getId() {
@@ -38,27 +47,43 @@ public class PropertyInfo implements Serializable {
         return property;
     }
 
-    public String getUniversity_1() {
-        return university_1;
+    public String getNearby_place1() {
+        return nearby_place1;
     }
 
-    public String getUniversity_2() {
-        return university_2;
+    public String getNearby_place2() {
+        return nearby_place2;
     }
 
-    public String getUniversity_3() {
-        return university_3;
+    public String getNearby_place3() {
+        return nearby_place3;
     }
 
-    public String getLocation_1() {
-        return location_1;
+    public String getNearby_place4() {
+        return nearby_place4;
     }
 
-    public String getLocation_2() {
-        return location_2;
+    public String getNearby_place5() {
+        return nearby_place5;
     }
 
-    public String getLocation_3() {
-        return location_3;
+    public String getNearby_place6() {
+        return nearby_place6;
+    }
+
+    public String getNearby_place7() {
+        return nearby_place7;
+    }
+
+    public String getNearby_place8() {
+        return nearby_place8;
+    }
+
+    public String getNearby_place9() {
+        return nearby_place9;
+    }
+
+    public String getNearby_place10() {
+        return nearby_place10;
     }
 }

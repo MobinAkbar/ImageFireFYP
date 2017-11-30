@@ -3,6 +3,14 @@
     package="com.education.imagefire">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <permission android:name="android.permission.INTERNET" />
+    <permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -14,9 +22,9 @@
         android:theme="@style/AppTheme">
 
         <!-- //android:theme="@style/AppTheme">// -->
-        <activity android:name=".RoomsActivity">
-
-            <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +39,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCb-lRXV2Tk6F-YRL7dGQEcchBqxIlF0Tg" />
 
+        <activity
+            android:name=".BasicsActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".OwnerSignInActivity" />
         <activity android:name=".OwnerSignUpActivity" />
         <activity
@@ -42,7 +53,9 @@
         <activity android:name=".SigninActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".SearchActivity" />
+        <activity
+            android:name=".SearchActivity"
+            android:theme="@style/MyAppTheme" />
         <activity android:name=".RecyclerviewActivity" />
         <activity android:name=".HostelActivity" />
         <activity android:name=".HostelInfoActivity" />
@@ -57,9 +70,12 @@
         <activity
             android:name=".MapsActivity"
             android:label="Maps" />
-        <activity android:name=".BasicsActivity" />
+        <activity android:name=".RoomsActivity" />
         <activity android:name=".AddHostelActivity" />
-        <activity android:name=".HostelImagesActivity"></activity>
+        <activity android:name=".HostelImagesActivity" />
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".OwnerProfileActivity" />
+        <activity android:name=".StudentShowActivity" />
     </application>
 
 </manifest>

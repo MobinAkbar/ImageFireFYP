@@ -13,8 +13,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public MyViewHolder(View itemView) {
         super(itemView);
 
-        name = (TextView) itemView.findViewById(R.id.textView);
-        thumbnail = (ImageView) itemView.findViewById(R.id.imageView);
+       // name = (TextView) itemView.findViewById(R.id.textView);
+        //thumbnail = (ImageView) itemView.findViewById(R.id.imageView);
     }
 
 

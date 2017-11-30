@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.education.imagefire.StudentShowActivity">
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/rel1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lay_1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <android.support.v4.view.ViewPager
+
+                    android:id="@+id/viewpage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v4.view.ViewPager>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="3dp"
+                android:id="@+id/lmobin"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_below="@+id/lmobin"
+                android:id="@+id/lay_3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/name_z"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:text="COMSATS HOSTEL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/address_z"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="H-Block , Defence Road, Off Raiwind Road, Lahore."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:id="@+id/map_z"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/map1234"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/v13"
+                android:orientation="vertical"
+                android:id="@+id/l20"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="85dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progress"
+                        android:max="100"
+                        android:progress="100"/>
+                    <TextView
+                        android:id="@+id/value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="7.8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Security"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="68dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="60"/>
+                    <TextView
+                        android:id="@+id/security"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="6.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:text="Location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="65dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="100"/>
+                    <TextView
+                        android:id="@+id/location"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="7.8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Staff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="88dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="80"/>
+                    <TextView
+                        android:id="@+id/staf"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="8.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:text="Cleanliness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:layout_marginLeft="49dp"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="30"/>
+                    <TextView
+                        android:id="@+id/cleanliness"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="35dp"
+                        android:text="3.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view6"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/v133"
+                android:id="@+id/l3"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Facilities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_menu_camera"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+
+                        android:text="Free WiFi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:src="@drawable/ic_menu_manage"
+                        android:layout_marginLeft="100dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="20dp"
+                        android:text="Electrition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_menu_share"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+
+                        android:text="Parking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:src="@drawable/ic_menu_gallery"
+                        android:layout_marginLeft="113dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="20dp"
+                        android:text="Gallry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v3"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/l_3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Rooms Detail:"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:text="Total Rooms:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/totalrooms_z"
+                            android:layout_weight="1"
+                            android:text="Value:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:text="Total Beds:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/totalbeds_z"
+                            android:layout_weight="1"
+                            android:text="Value:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:text="Availability"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:text="Rooms:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/emptyrooms_z"
+                            android:layout_weight="1"
+                            android:text="Value:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:text="Beds:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/emptybeds_z"
+                            android:layout_weight="1"
+                            android:text="Value:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="1 Room prise per month:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/monthlyRprize"
+                        android:layout_weight="1"
+                        android:text="Val:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="1 Bed prize per month:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/monthlyBprize"
+                        android:layout_weight="1"
+                        android:text="Val:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="1 Room prize Six month:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/semstrRprize"
+                        android:layout_weight="1"
+                        android:text="Val:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="1 Room prize six month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/semestrBprize"
+                        android:layout_weight="1"
+                        android:text="Val:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v4"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/v44"
+                android:id="@+id/l39"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="260dp">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Owner Information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:src="@drawable/h11"
+                            android:id="@+id/owner_image_z"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/oname_z"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:text="Name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/oemail_z"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="30dp"
+                            android:text="Email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/onumb1_z"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:text="Number 1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/onumb2_z"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="30dp"
+                            android:text="Number 2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/onumb3_z"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="30dp"
+                            android:text="Number 3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:text="Property Information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/property_z"
+                    android:layout_marginTop="10dp"
+                    android:text="Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/la5"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:background="@color/colorAccent"
+                    android:id="@+id/next8000"
+                    android:text="Next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

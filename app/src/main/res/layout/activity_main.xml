@@ -40,14 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
         <EditText
-            android:hint="Enter your email"
+            android:hint="Enter your number 3"
             android:id="@+id/e4"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
         <EditText
-            android:hint="Enter your password "
+            android:hint="Enter your Profession "
             android:id="@+id/e5"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/image"
@@ -81,16 +81,11 @@
             android:layout_height="wrap_content" />
 
         <!--<Button-->
-            <!--android:text="Search"-->
-            <!--android:id="@+id/search"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
+        <!--android:text="Search"-->
+        <!--android:id="@+id/search"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
 
     </LinearLayout>
-
-
-
-
-
 </RelativeLayout>

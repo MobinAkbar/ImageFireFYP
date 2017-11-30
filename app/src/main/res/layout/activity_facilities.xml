@@ -42,38 +42,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/wifi1"
                 android:layout_marginTop="15dp"
                 android:text="Free Wifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/reception1"
                 android:text="Reception"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/generater1"
                 android:layout_marginTop="20dp"
                 android:text="Generater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/breakfast1"
                 android:text="Breakfast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/staff1"
                 android:layout_marginTop="20dp"
                 android:text="Staff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/camer1"
                 android:text="Camera Security"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/geezer1"
                 android:layout_marginTop="20dp"
                 android:text="Geezer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/elctrition1"
                 android:text="Electrition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -85,38 +93,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/guest1"
                 android:layout_marginTop="15dp"
                 android:text="Guest House"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/tuckshop1"
                 android:text="Tuck Shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/ac1"
                 android:layout_marginTop="20dp"
                 android:text="Air Condition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/fruit1"
                 android:text="Fruits Shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/parking1"
                 android:layout_marginTop="20dp"
                 android:text="Parking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/gym1"
                 android:text="Gym"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/washrom1"
                 android:layout_marginTop="20dp"
                 android:text="Washer-man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/kitchn1"
                 android:text="Kitchen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -130,11 +146,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
+                android:id="@+id/upload2"
                 android:background="@color/colorAccent"
                 android:text="upload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/next2"
                 android:text="Next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

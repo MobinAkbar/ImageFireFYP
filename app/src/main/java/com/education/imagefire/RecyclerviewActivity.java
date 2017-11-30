@@ -24,7 +24,7 @@ public class RecyclerviewActivity extends AppCompatActivity {
     //Button save,view;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    List<RecyclerUpload> list;
+    //List<RecyclerUpload> list;
     RecyclerView recyclerview;
 
     @Override
@@ -32,52 +32,52 @@ public class RecyclerviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
 
-        recyclerview = (RecyclerView) findViewById(R.id.recycle);
-       // myRef=FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH);
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Image");
-
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        list = new ArrayList<>();
-                        // StringBuffer stringbuffer = new StringBuffer();
-                        for(DataSnapshot s :dataSnapshot.getChildren()){
-
-                            ImageUpload userdetails = s.getValue(ImageUpload.class);
-                            RecyclerUpload listdata = new RecyclerUpload();
-
-                            String name=userdetails.getName();
-                            String uri=userdetails.getUrl();
-                           // double log=userdetails.getLongi();
-                            //Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
-                           // double lat=userdetails.getLat();
-                            //double logi=userdetails.getLongi();
-                            listdata.setName(name);
-                            listdata.setUri(uri);
-                            //listdata.setLongi(log);
-
-                           // listdata.setLat(lat);
-                            //listdata.setLongi(logi);
-                            list.add(listdata);
-                            // Toast.makeText(MainActivity.this,""+name,Toast.LENGTH_LONG).show();
-
-                        }
-
-                        //Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,list);
-                        //RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RecyclerviewActivity.this);
-                        //recyclerview.setLayoutManager(layoutmanager);
-                        //recyclerview.setItemAnimator( new DefaultItemAnimator());
-                        //recyclerview.setAdapter(recycler);
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        //  Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
+//        recyclerview = (RecyclerView) findViewById(R.id.recycle);
+//       // myRef=FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH);
+//        database = FirebaseDatabase.getInstance();
+//        myRef = database.getReference("Image");
+//
+//                myRef.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        list = new ArrayList<>();
+//                        // StringBuffer stringbuffer = new StringBuffer();
+//                        for(DataSnapshot s :dataSnapshot.getChildren()){
+//
+//                            ImageUpload userdetails = s.getValue(ImageUpload.class);
+//                            RecyclerUpload listdata = new RecyclerUpload();
+//
+//                            String name=userdetails.getName();
+//                            String uri=userdetails.getUrl();
+//                           // double log=userdetails.getLongi();
+//                            //Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
+//                           // double lat=userdetails.getLat();
+//                            //double logi=userdetails.getLongi();
+//                            listdata.setName(name);
+//                            listdata.setUri(uri);
+//                            //listdata.setLongi(log);
+//
+//                           // listdata.setLat(lat);
+//                            //listdata.setLongi(logi);
+//                            list.add(listdata);
+//                            // Toast.makeText(MainActivity.this,""+name,Toast.LENGTH_LONG).show();
+//
+//                        }
+//
+//                        //Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,list);
+//                        //RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RecyclerviewActivity.this);
+//                        //recyclerview.setLayoutManager(layoutmanager);
+//                        //recyclerview.setItemAnimator( new DefaultItemAnimator());
+//                        //recyclerview.setAdapter(recycler);
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError error) {
+//                        // Failed to read value
+//                        //  Log.w(TAG, "Failed to read value.", error.toException());
+//                    }
+//                });
 
             }
 }

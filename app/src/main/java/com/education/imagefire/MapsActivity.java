@@ -99,11 +99,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     map = ds.getValue(Map.class);
                     lat123 = map.getLatitude();
                     logi123 = map.getLongitude();
+                    String name12345=map.getName();
 
                     LatLng latLng = new LatLng(lat123, logi123);
 
                     MarkerOptions markerOptions = new MarkerOptions();
-                    markerOptions.position(latLng);
+                    markerOptions.position(latLng).title(name12345);
                     googleMap.addMarker(markerOptions);
                 }
             }

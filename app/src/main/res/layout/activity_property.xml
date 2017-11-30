@@ -33,6 +33,7 @@
                     android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/place_info"
                 android:maxLines="5"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -60,6 +61,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/near_1"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -69,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_2"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -78,6 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_3"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -87,6 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_4"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -96,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_5"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -105,6 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_6"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -114,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_7"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -123,6 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_8"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -132,6 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_9"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -141,6 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/near_10"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
@@ -150,6 +161,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <Button
+                    android:id="@+id/upload4"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -157,101 +169,19 @@
                     android:text="upload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/next4"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/colorAccent"
+                    android:text="Next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
             </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>
-                <!--<RelativeLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context="com.education.imagefire.MainActivity">-->
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/l1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="450dp"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<EditText-->
-            <!--android:hint="Enter Hostel Location Info"-->
-            <!--android:id="@+id/e1"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-        <!--<EditText-->
-            <!--android:hint="Near by univrsty 1"-->
-            <!--android:id="@+id/e2"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-        <!--<EditText-->
-            <!--android:hint="Near by univrsty 2"-->
-            <!--android:id="@+id/e3"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-        <!--<EditText-->
-            <!--android:hint="Near by univrsty 3"-->
-            <!--android:id="@+id/e4"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-        <!--<EditText-->
-            <!--android:hint="Near by location 1"-->
-            <!--android:id="@+id/e5"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-        <!--<EditText-->
-            <!--android:hint="Near by location 2"-->
-            <!--android:id="@+id/e6"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-        <!--<EditText-->
-            <!--android:hint="Near by location 3"-->
-            <!--android:id="@+id/e7"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_below="@+id/image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp" />-->
-
-
-
-    <!--</LinearLayout>-->
-    <!--<LinearLayout-->
-        <!--android:layout_below="@+id/l1"-->
-        <!--android:id="@+id/l2"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent">-->
-        <!--<Button-->
-            <!--android:onClick="upload"-->
-            <!--android:text="upload"-->
-            <!--android:id="@+id/upload"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-
-        <!--<Button-->
-            <!--android:onClick="next"-->
-            <!--android:text="Next"-->
-            <!--android:id="@+id/next"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-    <!--</LinearLayout>-->
-<!--</RelativeLayout>-->

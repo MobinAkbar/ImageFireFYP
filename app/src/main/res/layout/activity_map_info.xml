@@ -1,75 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.education.imagefire.MainActivity">
+    tools:context="com.education.foreignkey.DermiyanActivity"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/l1"
-        android:layout_width="match_parent"
-        android:layout_height="430dp"
-        android:orientation="vertical">
-
-        <ImageView
-
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <EditText
-            android:id="@+id/e1"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <EditText
-            android:id="@+id/e2"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <EditText
-            android:id="@+id/e3"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/e2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@+id/l1"
-        android:id="@+id/l2"
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <Button
-            android:onClick="upload"
-            android:text="upload"
-            android:id="@+id/upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <Button
-            android:onClick="chooose"
-            android:text="choose"
-            android:id="@+id/choose"
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/colorAccent"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location on Map "
+            android:layout_weight="0.20"
+            android:textSize="20sp" />
+
+        <ProgressBar
+            android:layout_marginRight="50dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:text="Next"
-            android:id="@+id/nxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:id="@+id/progressBar1"
+            android:layout_height="wrap_content"></ProgressBar>
 
 
     </LinearLayout>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.33"
+        android:id="@+id/editTextLocation"
+        android:editable="false">
+        <requestFocus></requestFocus>
+    </EditText>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/layButtonH"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="0.15">
+        <Button
+            android:layout_weight="1"
+            android:layout_marginLeft="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Location"
+            android:id="@+id/btnLocation"></Button>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_weight="1"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/lat_1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_weight="1"
+                android:text="Latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_weight="1"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/langitude_1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_weight="1"
+                android:text="Longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
-</RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/layloadingH"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.20"
+        android:layout_width="fill_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/upload5"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorAccent"
+            android:text="upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/next5"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorAccent"
+            android:text="Next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</LinearLayout>
+

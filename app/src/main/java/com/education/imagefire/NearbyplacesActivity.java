@@ -69,7 +69,8 @@ public class NearbyplacesActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(NearbyplacesActivity.this,Owner_PortalActivity.class);
+                Intent o=new Intent(NearbyplacesActivity.this,MapInfoActivity.class);
+                o.putExtra("id",key);
                 startActivity(o);
             }
         });
@@ -93,7 +94,7 @@ public class NearbyplacesActivity extends AppCompatActivity {
                     double logitude=Double.parseDouble(longitude.getText().toString());
                     double latitud=Double.parseDouble(latitude.getText().toString());
 
-                    Map maping=new Map(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
+                    NearBy maping=new NearBy(id,nam,latitud,logitude,taskSnapshot.getDownloadUrl().toString());
 
                     databaseReference.child(id).setValue(maping);
                 }

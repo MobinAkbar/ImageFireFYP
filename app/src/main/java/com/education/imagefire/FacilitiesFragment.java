@@ -76,14 +76,7 @@ public class FacilitiesFragment extends Fragment {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                   Facilities  facilities=ds.getValue(Facilities.class);
 
-                    wifi.setText(facilities.getWifi());
-                    air_cond.setText(facilities.getAci());
-                    breakfast.setText(facilities.getBreakfast());
-                    parking.setText(facilities.getParking());
-                    recption.setText(facilities.getReception());
-                    elctrition.setText(facilities.getElect());
-                    jym.setText(facilities.getGym());
-                    kitchn.setText(facilities.getKitchen());
+
 
 
 

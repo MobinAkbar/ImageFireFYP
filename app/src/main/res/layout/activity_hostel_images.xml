@@ -41,6 +41,8 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/choose7"
+                    android:onClick="chooose"
                     android:background="@color/colorAccent"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
@@ -59,12 +61,14 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/image_h1"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:id="@+id/image_h2"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="250dp"
@@ -79,12 +83,14 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/image_h3"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:id="@+id/image_h4"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="250dp"
@@ -98,12 +104,14 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/image_h5"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:id="@+id/image_h6"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="250dp"
@@ -121,6 +129,8 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/clear7"
+                    android:onClick="allclear"
                     android:layout_marginBottom="5dp"
                     android:background="@color/colorAccent"
                     android:layout_marginRight="15dp"
@@ -130,10 +140,22 @@
                     android:layout_height="wrap_content" />
 
                 <Button
+                    android:id="@+id/upload7"
+                    android:onClick="upload"
+                    android:layout_marginBottom="5dp"
                     android:background="@color/colorAccent"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:text="Upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/next7"
+                    android:background="@color/colorAccent"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="next"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

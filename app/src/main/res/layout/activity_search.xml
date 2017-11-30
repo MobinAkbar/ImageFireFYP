@@ -13,6 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/tool_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            layout="@layout/usersignup"
+            />
+
         <TextView
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:text="City Plat"
@@ -89,7 +96,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
 

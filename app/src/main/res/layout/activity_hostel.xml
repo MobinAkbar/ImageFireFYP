@@ -36,14 +36,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <Button
+                        android:id="@+id/choose1"
+                        android:onClick="chooose"
                         android:text="choose"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <Button
-                        android:text="upload"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <Button
+                        android:onClick="allclear"
+                        android:id="@+id/clear1"
                         android:text="clear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -57,11 +57,13 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/man1"
                android:layout_marginLeft="20dp"
                 android:text="Male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/woman1"
                 android:layout_marginLeft="40dp"
                 android:text="Female"
                 android:layout_width="wrap_content"
@@ -77,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/name1"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
@@ -86,6 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/addres1"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:hint="Enter Hostel Address"
@@ -102,11 +106,15 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:layout_marginBottom="5dp"
+                    android:onClick="upload"
                     android:background="@color/colorAccent"
                     android:text="upload"
+                    android:id="@+id/upload1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <Button
+                    android:id="@+id/next11"
                     android:text="Next"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

@@ -32,7 +32,7 @@ import static com.education.imagefire.R.id.security;
 public class ResultActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-    private List<PropertyInfo> imglist;
+    private List<University> imglist;
     private List<Hostel> hostelList;
     private ListView lv;
     private String hostelid;
@@ -72,12 +72,14 @@ public class ResultActivity extends AppCompatActivity {
                 String id=hostell.getId();
                 String owner=hostell.getOwner();
                 String name=hostell.getName();
+                String adres=hostell.getAddres();
                 String urii=hostell.getUri();
-                Intent intent1235=new Intent(ResultActivity.this,ShowdataActivity.class);
+                Intent intent1235=new Intent(ResultActivity.this,StudentShowActivity.class);
                 intent1235.putExtra("uni_name",uniname);
                 intent1235.putExtra("Ownerid",owner);
                 intent1235.putExtra("Hostelid",id);
                 intent1235.putExtra("Hostelname",name);
+                intent1235.putExtra("Hosteladdress",adres);
                 intent1235.putExtra("Hosteluri",urii);
                 startActivity(intent1235);
             }
@@ -99,14 +101,14 @@ public class ResultActivity extends AppCompatActivity {
             }
 
             DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-            Query query1 = mFirebaseDatabaseReference.child("Hostel_Property_Info").orderByChild(bhabi).equalTo(value);
+            Query query1 = mFirebaseDatabaseReference.child("Hostel_Universities").orderByChild(bhabi).equalTo(value);
 
             final ValueEventListener eventListener1 = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                        PropertyInfo propertyInfo = ds.getValue(PropertyInfo.class);
+                        University propertyInfo = ds.getValue(University.class);
                         hostelid = propertyInfo.getId();
                         Toast.makeText(ResultActivity.this, "here is " + hostelid, Toast.LENGTH_SHORT).show();
                         imglist.add(propertyInfo);

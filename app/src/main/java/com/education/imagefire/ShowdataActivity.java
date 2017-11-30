@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class ShowdataActivity extends AppCompatActivity {
     private TextView onumbrs1;
     private TextView onumbr2;
     private TextView oemails;
-
+    Button btn123;
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
@@ -73,9 +74,10 @@ public class ShowdataActivity extends AppCompatActivity {
         String hostluri=getIntent().getStringExtra("Hosteluri");
         univrsty=getIntent().getStringExtra("uni_name");
 
-        Toast.makeText(ShowdataActivity.this,"Value is"+hostlid,Toast.LENGTH_SHORT).show();
-        Toast.makeText(ShowdataActivity.this,"Value is"+hostlname,Toast.LENGTH_SHORT).show();
-        Toast.makeText(ShowdataActivity.this,"Value is"+hostluri,Toast.LENGTH_SHORT).show();
+        Toast.makeText(ShowdataActivity.this,"Value is"+univrsty,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ShowdataActivity.this,"Value is"+hostlid,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ShowdataActivity.this,"Value is"+hostlname,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ShowdataActivity.this,"Value is"+hostluri,Toast.LENGTH_SHORT).show();
 
         see=(TextView)findViewById(R.id.seeall);
         image=(ImageView)findViewById(R.id.image);
@@ -91,10 +93,9 @@ public class ShowdataActivity extends AppCompatActivity {
         oemails=(TextView)findViewById(R.id.oemail);
         onumbrs1=(TextView)findViewById(R.id.onumb1);
         onumbr2=(TextView)findViewById(R.id.onumb2);
+        btn123=(Button)findViewById(R.id.next213);
 
-
-
-        PicassoClient.downloadImage(ShowdataActivity.this,hostluri,image);
+        //PicassoClient.downloadImage(ShowdataActivity.this,hostluri,image);
         name.setText(hostlname);
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -125,7 +126,7 @@ public class ShowdataActivity extends AppCompatActivity {
         };
         query1.addValueEventListener(eventListener);
 
-   Query query2 = mFirebaseDatabaseReference.child("MapsInfo").orderByChild("id").equalTo(hostlid);
+   Query query2 = mFirebaseDatabaseReference.child("MapsInformation").orderByChild("id").equalTo(hostlid);
         final ValueEventListener eventListener1=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -134,8 +135,8 @@ public class ShowdataActivity extends AppCompatActivity {
                     latitude12=map.getLatitude();
                     longitude13=map.getLongitude();
                     nameMap=map.getName();
-                    PicassoClient.downloadImage(ShowdataActivity.this,map.getUri(),imageView);
-                    Toast.makeText(ShowdataActivity.this,"Value is love u " +longitude13,Toast.LENGTH_SHORT).show();
+                    //PicassoClient.downloadImage(ShowdataActivity.this,map.getUri(),imageView);
+                    //Toast.makeText(ShowdataActivity.this,"Value is love u " +longitude13,Toast.LENGTH_SHORT).show();
                     latitude_s=Double.toString(latitude12);
                     logitude_s=Double.toString(longitude13);
 
@@ -229,5 +230,16 @@ public class ShowdataActivity extends AppCompatActivity {
                 fm.beginTransaction().add(R.id.rel1,fragment).addToBackStack("null").commit();
             }
         });
+
+        btn123.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ShowdataActivity.this,"I have something"+latitude_s,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowdataActivity.this,"I have something"+logitude_s,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowdataActivity.this,"I have something"+lati_0,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowdataActivity.this,"I have something"+longi_0,Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

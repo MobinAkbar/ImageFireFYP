@@ -18,7 +18,7 @@ public class PicassoClient {
             Picasso.with(c).load(uri).placeholder(R.drawable.ques_1).into(img);
             //Toast.makeText(c, "Downloading", Toast.LENGTH_SHORT).show();
         }else{
-            Picasso.with(c).load(R.drawable.afridi).fit().centerCrop().resize(80,80).into(img);
+            Picasso.with(c).load(R.drawable.afridi).centerCrop().resize(80,80).into(img);
         }
     }
 

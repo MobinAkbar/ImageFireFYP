@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -33,12 +34,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static android.os.Build.VERSION_CODES.M;
+import static com.education.imagefire.R.id.male;
 
 public class HostelActivity extends AppCompatActivity {
 
     private EditText name;
-    private EditText sex;
-    Button upload,choose,next;
+    private EditText address;
+    private CheckBox male1;
+    private CheckBox female1;
+    Button upload,choose,clear,next;
     private ImageView image;
     private Uri filepath;
     private StorageReference storageReference;
@@ -48,6 +52,7 @@ public class HostelActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH="Hostels";
     Hostel hostel;
     String ids;
+    String gender;
     private String key;
 
     @Override
@@ -55,17 +60,19 @@ public class HostelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hostel);
 
-        name=(EditText)findViewById(R.id.e1);
-        sex=(EditText)findViewById(R.id.e2);
-        image=(ImageView)findViewById(R.id.image);
-        upload=(Button)findViewById(R.id.upload);
-        choose=(Button)findViewById(R.id.choose);
-        next=(Button)findViewById(R.id.next);
+        name=(EditText)findViewById(R.id.name1);
+        address=(EditText)findViewById(R.id.addres1);
+        image=(ImageView)findViewById(R.id.hostel_image);
+        upload=(Button)findViewById(R.id.upload1);
+        choose=(Button)findViewById(R.id.choose1);
+        next=(Button)findViewById(R.id.next11);
+        male1=(CheckBox)findViewById(R.id.man1);
+        female1=(CheckBox)findViewById(R.id.woman1);
 
         key=getIntent().getStringExtra("UID");
         Toast.makeText(HostelActivity.this, "value is "+key ,Toast.LENGTH_LONG).show();
 
-        storageReference = FirebaseStorage.getInstance().getReference();
+
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
@@ -73,72 +80,24 @@ public class HostelActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(HostelActivity.this,HostelInfoActivity.class);
-                //in.putExtra("id",databaseReference.getKey());
-                //in.putExtra("id",hostel.getId());
-                in.putExtra("id",ids);
-                //String id=databaseReference.getKey();
-                //String key = databaseReference.push().getKey();
-                Toast.makeText(HostelActivity.this, "value is "+hostel.getId() ,Toast.LENGTH_LONG).show();
-                startActivity(in);
-            }
-        });
-//        b1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent o=new Intent(MainActivity.this,CarActivity.class);
-//                startActivity(o);
-//            }
-//        });
-//        b2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent o=new Intent(MainActivity.this,SearchActivity.class);
-//                startActivity(o);
-//            }
-//        });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot sp: dataSnapshot.getChildren()){
-                    Hostel per=sp.getValue(Hostel.class);
-                    hostel=per;
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+                Intent intt=new Intent(HostelActivity.this,FacilitiesActivity.class);
+                intt.putExtra("id",ids);
+               // Toast.makeText(HostelActivity.this, "value is "+hostel.getId() ,Toast.LENGTH_LONG).show();
+                startActivity(intt);
             }
         });
     }
-    // progressDialog=new ProgressDialog(this);
 
-    //        B1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                upload();
-//            }
-//        });
-//
-//        B2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                chooose();
-//            }
-//        });
-//    }
-// @SuppressWarnings("VisibleForTests")
     public void upload(View v) {
 
+        if(male1.isChecked()==true){
+            gender="male";
+        }else if(female1.isChecked()==true){
+            gender="female";
+        }
+
         if(filepath!=null){
+            storageReference = FirebaseStorage.getInstance().getReference();
             final ProgressDialog progress=new ProgressDialog(this);
             progress.setTitle("uploading.....");
             progress.show();
@@ -152,19 +111,15 @@ public class HostelActivity extends AppCompatActivity {
                     Toast.makeText(HostelActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=databaseReference.push().getKey();
                     String owner=key;
-                    String owner_name=name.getText().toString().trim();
-                    String hostel_type=sex.getText().toString().trim();
-                    ids=id;
+                    String hostel_name=name.getText().toString().trim();
+                    String hostel_address=address.getText().toString().trim();
                     String statuses="APPROVED";
 
-                    //double logitude=Double.parseDouble(E2.getText().toString());
-                    //double latitude=Double.parseDouble(E3.getText().toString());
+                    ids=id;
+                    Toast.makeText(HostelActivity.this,"I HAVE"+ids,Toast.LENGTH_SHORT).show();
 
-                    Hostel hostel=new Hostel(id,owner,owner_name,taskSnapshot.getDownloadUrl().toString(),statuses,hostel_type);
-
-                    //String uploadId=databaseReference.push().getKey();
+                    Hostel hostel=new Hostel(id,owner,hostel_name,hostel_address,taskSnapshot.getDownloadUrl().toString(),statuses,gender);
                     databaseReference.child(id).setValue(hostel);
-
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -183,7 +138,7 @@ public class HostelActivity extends AppCompatActivity {
                 }
             });
         }else{
-            Toast.makeText(HostelActivity.this,"please select image",Toast.LENGTH_LONG).show();
+            Toast.makeText(HostelActivity.this,"Please select image",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -194,19 +149,15 @@ public class HostelActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Hostels"),REQUEST_CODE);
         Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-            Toast.makeText(HostelActivity.this,"please image 2",Toast.LENGTH_LONG).show();
             filepath=data.getData();
 
             try{
                 Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-                Toast.makeText(HostelActivity.this,"please image",Toast.LENGTH_LONG).show();
                 image.setImageBitmap(bitmap);
             }catch (FileNotFoundException e){
                 e.printStackTrace();
@@ -214,35 +165,11 @@ public class HostelActivity extends AppCompatActivity {
             catch (IOException e){
                 e.printStackTrace();
             }
-
         }
-
     }
-
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==REQUEST_CODE && requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-//            Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-//                    filepath=data.getData();
-//
-//            try{
-//                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-//                Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-//                I1.setImageBitmap(bitmap);
-//            }catch (FileNotFoundException e){
-//                e.printStackTrace();
-//            }
-//            catch (IOException e){
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 }
-
