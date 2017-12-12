@@ -9,6 +9,7 @@
     tools:context="com.education.imagefire.SearchActivity">
 
     <LinearLayout
+        android:background="@drawable/front"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,20 +20,6 @@
             android:layout_width="match_parent"
             layout="@layout/usersignup"
             />
-
-        <TextView
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="City Plat"
-            android:layout_marginLeft="120dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:layout_marginTop="40dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="Select University plz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
@@ -40,24 +27,26 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <TextView
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="Select Gender plz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/male"
+                android:text="Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/female"
+                android:text="Female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-
-        <android.support.v7.widget.AppCompatCheckBox
-            android:layout_marginTop="10dp"
-            android:id="@+id/male"
-            android:text="Male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/female"
-            android:text="Female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
     <!--<EditText-->
         <!--android:id="@+id/eee1"-->
         <!--android:hint="write university or hostel name"-->
@@ -67,18 +56,25 @@
 
 
     <Button
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorAccent"
         android:layout_marginTop="50dp"
         android:text="Search"
         android:id="@+id/go"
         android:layout_below="@+id/e1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
         <Button
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
             android:text="Sign Out"
             android:id="@+id/goes"
             android:layout_below="@+id/go"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     <!--<Button-->

@@ -2,19 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#424242"
+    android:background="@drawable/screen3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.education.imagefire.BasicsActivity">
 
 
-    <Button
+    <!--<ImageView-->
+        <!--android:layout_marginTop="70dp"-->
+        <!--android:layout_marginLeft="100dp"-->
+        <!--android:id="@+id/im1"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/pathan10"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="150dp" />-->
 
+
+    <Button
         android:layout_marginLeft="40dp"
         android:id="@+id/btn_login_student"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dip"
+        android:layout_marginTop="250dip"
         android:background="@color/colorAccent"
         android:text="STUDENTs "
         android:textColor="@android:color/black" />
@@ -30,16 +39,16 @@
         android:text="Hostel Owners"
         android:textColor="@android:color/black" />
 
-    <Button
-        android:layout_marginLeft="40dp"
-        android:layout_below="@+id/btn_login_owner"
-        android:id="@+id/btn_admin_use"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@color/colorAccent"
-        android:text="For Admin Use"
-        android:textColor="@android:color/black" />
+    <!--<Button-->
+        <!--android:layout_marginLeft="40dp"-->
+        <!--android:layout_below="@+id/btn_login_owner"-->
+        <!--android:id="@+id/btn_admin_use"-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dip"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:text="For Admin Use"-->
+        <!--android:textColor="@android:color/black" />-->
 
 
 

@@ -14,10 +14,23 @@
         android:layout_centerVertical="true">
 
         <LinearLayout
+            android:background="#4242"
             android:orientation="vertical"
             android:id="@+id/rel1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="275dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/lay_1"
@@ -36,16 +49,24 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="7dp"
                 android:id="@+id/lmobin"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-
+            </LinearLayout>
             </LinearLayout>
 
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
             <LinearLayout
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
@@ -53,7 +74,7 @@
                 android:layout_below="@+id/lmobin"
                 android:id="@+id/lay_3"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/name_z"
@@ -71,15 +92,15 @@
                     android:text="H-Block , Defence Road, Off Raiwind Road, Lahore."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
             </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-            <View
-                android:id="@+id/view_1"
-                android:layout_marginTop="10dp"
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000" />
+                android:layout_height="40dp">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -94,19 +115,22 @@
                     android:layout_height="match_parent" />
             </LinearLayout>
 
-            <View
-                android:id="@+id/view_2"
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000" />
+                android:layout_height="110dp">
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_below="@+id/v13"
                 android:orientation="vertical"
                 android:id="@+id/l20"
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
@@ -118,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <ProgressBar
-                        android:layout_marginLeft="85dp"
+                        android:layout_marginLeft="75dp"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -144,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <ProgressBar
-                        android:layout_marginLeft="68dp"
+                        android:layout_marginLeft="60dp"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -170,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <ProgressBar
-                        android:layout_marginLeft="65dp"
+                        android:layout_marginLeft="56dp"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -195,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <ProgressBar
-                        android:layout_marginLeft="88dp"
+                        android:layout_marginLeft="77dp"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -220,7 +244,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <ProgressBar
-                        android:layout_marginLeft="49dp"
+                        android:layout_marginLeft="40dp"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -235,15 +259,14 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-            <View
-                android:id="@+id/view6"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="300dp"
-                android:layout_height="1dp"
-                android:background="#000" />
-
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
 
             <LinearLayout
                 android:layout_marginTop="10dp"
@@ -251,7 +274,7 @@
                 android:id="@+id/l3"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="140dp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -332,13 +355,15 @@
 
                 </LinearLayout>
             </LinearLayout>
+</android.support.v7.widget.CardView>
 
-            <View
-                android:id="@+id/v3"
-                android:layout_marginTop="10dp"
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000" />
+                android:layout_height="120dp">
 
 
             <LinearLayout
@@ -346,7 +371,7 @@
                 android:id="@+id/l_3"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
+                android:layout_height="match_parent">
 
 
                 <LinearLayout
@@ -356,6 +381,8 @@
                     android:layout_height="match_parent">
 
                     <TextView
+
+                        android:layout_marginLeft="8dp"
                         android:text="Rooms Detail:"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:layout_width="wrap_content"
@@ -368,6 +395,8 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
                             android:layout_weight="1"
                             android:text="Total Rooms:"
                             android:layout_width="wrap_content"
@@ -388,6 +417,8 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
                             android:layout_weight="1"
                             android:text="Total Beds:"
                             android:layout_width="wrap_content"
@@ -418,12 +449,13 @@
 
 
                     <LinearLayout
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:textStyle="bold"
                             android:layout_weight="1"
                             android:text="Rooms:"
                             android:layout_width="wrap_content"
@@ -444,6 +476,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:textStyle="bold"
                             android:layout_weight="1"
                             android:text="Beds:"
                             android:layout_width="wrap_content"
@@ -460,11 +493,28 @@
 
                 </LinearLayout>
             </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Prizes Detail:"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -473,6 +523,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
                         android:layout_weight="1"
                         android:text="1 Room prise per month:"
                         android:layout_width="wrap_content"
@@ -492,6 +544,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
                         android:layout_weight="1"
                         android:text="1 Bed prize per month:"
                         android:layout_width="wrap_content"
@@ -512,6 +566,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
                         android:layout_weight="1"
                         android:text="1 Room prize Six month:"
                         android:layout_width="wrap_content"
@@ -531,6 +587,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
                         android:layout_weight="1"
                         android:text="1 Room prize six month"
                         android:layout_width="wrap_content"
@@ -547,13 +605,14 @@
 
 
             </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-            <View
-                android:id="@+id/v4"
-                android:layout_marginTop="10dp"
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000" />
+                android:layout_height="260dp">
 
 
             <LinearLayout
@@ -562,7 +621,7 @@
                 android:id="@+id/l39"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="260dp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -601,6 +660,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:textStyle="bold"
                             android:id="@+id/oname_z"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
@@ -609,6 +669,7 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:textStyle="bold"
                             android:id="@+id/oemail_z"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="30dp"
@@ -617,6 +678,7 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:textStyle="bold"
                             android:id="@+id/onumb1_z"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
@@ -625,6 +687,7 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:textStyle="bold"
                             android:id="@+id/onumb2_z"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="30dp"
@@ -633,6 +696,7 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:textStyle="bold"
                             android:id="@+id/onumb3_z"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="30dp"
@@ -647,19 +711,20 @@
                 </LinearLayout>
 
             </LinearLayout>
+</android.support.v7.widget.CardView>
 
-
-            <View
-                android:layout_marginTop="10dp"
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000" />
+                android:layout_height="140dp">
 
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="140dp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -679,21 +744,30 @@
 
 
             </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:id="@+id/la5"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <Button
                     android:background="@color/colorAccent"
                     android:id="@+id/next8000"
-                    android:text="Next"
+                    android:text="Reserve now"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
-
+</android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

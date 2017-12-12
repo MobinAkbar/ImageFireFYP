@@ -36,7 +36,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
-    private String nameMap;
+    private String nameMap,uniName;
     private String id;
 
     private String lat_s;
@@ -70,6 +70,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         long_s=getIntent().getStringExtra("longi");
         lat_t=getIntent().getStringExtra("A_lati1");
         long_t=getIntent().getStringExtra("A_longi1");
+        nameMap=getIntent().getStringExtra("name");
+        uniName=getIntent().getStringExtra("uni_name");
 
         lat_u=Double.parseDouble(lat_s);
         long_u=Double.parseDouble(long_s);
@@ -133,8 +135,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //   LatLng latLng=array1.get(i);
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(COMSATS);
+        markerOptions.position(location).title(nameMap);
         googleMap.addMarker(markerOptions);
+
+        MarkerOptions markerOptions1 = new MarkerOptions();
+        markerOptions1.position(location2).title(uniName);
+        googleMap.addMarker(markerOptions1);
     }
     @Override
     public boolean onMarkerClick(Marker marker) {

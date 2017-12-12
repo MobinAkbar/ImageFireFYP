@@ -8,20 +8,12 @@
     tools:context="com.education.imagefire.SignupActivity">
 
     <LinearLayout
-        android:background="#424242"
+        android:background="@drawable/g904105"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
-
-
-        <ImageView
-            android:layout_width="@dimen/logo_w_h"
-            android:layout_height="@dimen/logo_w_h"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="80dp"
-            android:src="@drawable/ic_menu_share" />
 
         <android.support.design.widget.TextInputLayout
             android:textColor="@android:color/white"
