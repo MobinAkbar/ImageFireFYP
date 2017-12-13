@@ -102,7 +102,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     //startActivity(new Intent(SignupActivity.this, SearchActivity.class));
-                                    Intent intent=new Intent(SignupActivity.this, UserInfoActivity.class);
+                                    Intent intent=new Intent(SignupActivity.this, OptionActivity.class);
                                     intent.putExtra("email",email);
                                     intent.putExtra("password",password);
                                     startActivity(intent);

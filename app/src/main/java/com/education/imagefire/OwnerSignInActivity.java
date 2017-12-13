@@ -66,10 +66,10 @@ public class OwnerSignInActivity extends AppCompatActivity {
             }
         };
 
-//        if (auth.getCurrentUser() != null) {
-//            startActivity(new Intent(SigninActivity.this, MainActivity.class));
-//            finish();
-//        }
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(OwnerSignInActivity.this, Owner_PortalActivity.class));
+            finish();
+        }
 
         // set the view now
         setContentView(R.layout.activity_signin);

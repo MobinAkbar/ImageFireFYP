@@ -41,7 +41,7 @@
 
         <activity
             android:name=".BasicsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".OwnerSignInActivity" />
         <activity android:name=".OwnerSignUpActivity" />
         <activity
@@ -76,6 +76,7 @@
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".OwnerProfileActivity" />
         <activity android:name=".StudentShowActivity" />
+        <activity android:name=".OptionActivity"></activity>
     </application>
 
 </manifest>
