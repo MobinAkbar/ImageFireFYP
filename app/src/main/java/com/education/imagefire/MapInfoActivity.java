@@ -102,7 +102,7 @@ public class MapInfoActivity extends AppCompatActivity {
                 getSystemService(Context.LOCATION_SERVICE);
 
        // storeReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference("MapsInformation").child(key);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Hostels").child(key);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,8 +135,8 @@ public class MapInfoActivity extends AppCompatActivity {
                 latii.setText("Latitude: "+latt);
                 longii.setText("Longitude:" +longi);
 
-                Toast.makeText(MapInfoActivity.this, "I have" + latt, Toast.LENGTH_SHORT).show();
-                Toast.makeText(MapInfoActivity.this, "I have" + longi, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MapInfoActivity.this, "I have" + latt, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MapInfoActivity.this, "I have" + longi, Toast.LENGTH_SHORT).show();
 
 
             }
@@ -202,8 +202,10 @@ public class MapInfoActivity extends AppCompatActivity {
         Double lato=lat_f;
         Double longi=long_f;
 
-        Map map=new Map(id,name,lato,longi);
-        databaseReference.setValue(map);
+       // Map map=new Map(id,name,lato,longi);
+        databaseReference.child("latitude").setValue(lato);
+        databaseReference.child("longitude").setValue(longi);
+
 
     }
 }

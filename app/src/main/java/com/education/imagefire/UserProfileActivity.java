@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 import static com.education.imagefire.R.id.address;
-import static com.education.imagefire.R.id.imageView;
+//import static com.education.imagefire.R.id.imageView;
 import static com.education.imagefire.R.id.location;
 import static com.education.imagefire.R.id.name20;
 import static com.education.imagefire.R.id.security;

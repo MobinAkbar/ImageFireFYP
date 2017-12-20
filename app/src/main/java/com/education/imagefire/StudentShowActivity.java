@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.education.imagefire.R.id.imageView;
+//import static com.education.imagefire.R.id.imageView;
 import static com.education.imagefire.R.id.location;
 import static com.education.imagefire.R.id.security;
 

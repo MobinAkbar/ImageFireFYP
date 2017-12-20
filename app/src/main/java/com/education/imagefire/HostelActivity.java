@@ -114,11 +114,14 @@ public class HostelActivity extends AppCompatActivity {
                     String hostel_name=name.getText().toString().trim();
                     String hostel_address=address.getText().toString().trim();
                     String statuses="APPROVED";
+                    double lat=12.2345;
+                    double longo=23.2345;
+                    String likes="12";
 
                     ids=id;
                     Toast.makeText(HostelActivity.this,"I HAVE"+ids,Toast.LENGTH_SHORT).show();
 
-                    Hostel hostel=new Hostel(id,owner,hostel_name,hostel_address,taskSnapshot.getDownloadUrl().toString(),statuses,gender);
+                    Hostel hostel=new Hostel(id,owner,hostel_name,hostel_address,taskSnapshot.getDownloadUrl().toString(),statuses,gender,lat,longo,likes);
                     databaseReference.child(id).setValue(hostel);
 
                 }

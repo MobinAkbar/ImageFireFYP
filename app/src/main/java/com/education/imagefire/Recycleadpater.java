@@ -37,8 +37,10 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
 
     public void onBindViewHolder(MyHolder holder, int position) {
         RecyclerUpload data = listdata.get(position);
+        String dou=String.valueOf(data.getDistance());
         holder.vname.setText(data.getName());
-        //holder.vlat.setText(data.getLongi());
+        holder.vdistance.setText(dou);
+        holder.vlike.setText(data.getLikes());
         Picasso.with(mContxt).load(data.getUri()).resize(100, 100).into(holder.uri);
       // PicassoClient.downloadImage(mContxt,listdata.get(position).getUri(),holder.uri);
     }
@@ -50,15 +52,15 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
 
 
     class MyHolder extends RecyclerView.ViewHolder{
-        TextView vname;
+        TextView vname,vdistance,vlike;
         ImageView uri;
 
         public MyHolder(View itemView) {
             super(itemView);
-            vname = (TextView) itemView.findViewById(R.id.t1);
-            uri=(ImageView)itemView.findViewById(R.id.imageView);
-            //vlog = (TextView) itemView.findViewById(R.id.t2);
-            //vlat = (TextView) itemView.findViewById(R.id.t3);
+            vname = (TextView) itemView.findViewById(R.id.name9);
+            uri=(ImageView)itemView.findViewById(R.id.image_1);
+            vdistance=(TextView)itemView.findViewById(R.id.distance);
+            vlike=(TextView)itemView.findViewById(R.id.likes);
         }
     }
 

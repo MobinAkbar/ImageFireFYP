@@ -176,7 +176,7 @@ public class SearchActivity extends AppCompatActivity {
                     gender="female";
                 }
 
-                Intent intent = new Intent(SearchActivity.this, ResultActivity.class);
+                Intent intent = new Intent(SearchActivity.this, RecyclerviewActivity.class);
                     intent.putExtra("name",answer);
                     intent.putExtra("sex",gender);
                     startActivity(intent);
