@@ -64,7 +64,7 @@ public class UniversityActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent o=new Intent(UniversityActivity.this,BasicsActivity.class);
+                Intent o=new Intent(UniversityActivity.this,SigninActivity.class);
                 startActivity(o);
             }
         });

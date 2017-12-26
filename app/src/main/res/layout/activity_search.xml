@@ -1,98 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
-    android:id="@+id/drawr"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.education.imagefire.SearchActivity">
-
-    <LinearLayout
-        android:background="@drawable/front"
-        android:orientation="vertical"
+        android:id="@+id/drawr"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/tool_bar"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            layout="@layout/usersignup"
-            />
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="16dp" />
+        android:layout_height="match_parent"
+        tools:context="com.education.imagefire.SearchActivity">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:background="@drawable/front"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.AppCompatCheckBox
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/male"
-                android:text="Male"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/tool_bar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/usersignup"
+                />
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/male"
+                    android:text="Male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/female"
+                    android:text="Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!--<EditText-->
+            <!--android:id="@+id/eee1"-->
+            <!--android:hint="write university or hostel name"-->
+            <!--android:layout_width="350dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+
+
+            <Button
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="50dp"
+                android:text="Search"
+                android:id="@+id/go"
+                android:layout_below="@+id/e1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <android.support.v7.widget.AppCompatCheckBox
-                android:layout_marginLeft="70dp"
+
+            <Button
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/female"
-                android:text="Female"
-                android:layout_width="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="Sign Out"
+                android:id="@+id/goes"
+                android:layout_below="@+id/go"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+
+            <android.support.design.widget.BottomNavigationView
+                android:layout_weight="1"
+                android:layout_marginTop="215dp"
+                android:background="@color/white"
+                android:id="@+id/navigationB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:menu="@menu/bottom_nav_items" />
+
         </LinearLayout>
-
-    <!--<EditText-->
-        <!--android:id="@+id/eee1"-->
-        <!--android:hint="write university or hostel name"-->
-        <!--android:layout_width="350dp"-->
-        <!--android:layout_height="wrap_content" />-->
-
-
-
-    <Button
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="50dp"
-        android:text="Search"
-        android:id="@+id/go"
-        android:layout_below="@+id/e1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="Sign Out"
-            android:id="@+id/goes"
-            android:layout_below="@+id/go"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    <!--<Button-->
-        <!--android:text="Results in Recyclerview"-->
-        <!--android:id="@+id/go0o"-->
-        <!--android:layout_below="@+id/go"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
-
-    </LinearLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"
+        app:headerLayout="@layout/nav_header_main"/>
+
+
+
+
 
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,5 +1,7 @@
 package com.education.imagefire;
 
+import com.google.android.gms.maps.model.PolylineOptions;
+
 import java.lang.ref.SoftReference;
 
 /**
@@ -37,6 +39,7 @@ public class Map {
     public double getLongitude() {
         return longitude;
     }
+
 
 }
 

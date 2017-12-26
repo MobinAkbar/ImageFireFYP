@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -26,12 +27,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerviewActivity extends AppCompatActivity {
+public class RecyclerviewActivity extends AppCompatActivity{
 
     RecyclerView recyclerview;
     private DatabaseReference databaseReference;
     private List<University> imglist;
-    private List<RecyclerUpload> hostelList;
+    private ArrayList<RecyclerUpload> hostelList;
     private ListView lv;
     private String hostelid;
     int i;
@@ -146,16 +147,18 @@ public class RecyclerviewActivity extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     Hostel hostel = ds.getValue(Hostel.class);
+                                    String hostelId=hostel.getId();
+                                    String ownerId=hostel.getOwner();
                                     String name = hostel.getName();
+                                    String adres=hostel.getAddres();
                                     String like = hostel.getLikes();
                                     String uri = hostel.getUri();
                                     double lat = hostel.getLatitude();
                                     double longi = hostel.getLongitude();
-
+                                    String uni=uniname;
                                     double dist = distance(lat, longi, latii, longii);
-                                    RecyclerUpload obj = new RecyclerUpload(name, uri, like, dist);
+                                    RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, like, dist);
                                     hostelList.add(obj);
-
                                 }
 
                                 Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,hostelList);
@@ -163,6 +166,7 @@ public class RecyclerviewActivity extends AppCompatActivity {
                                 recyclerview.setLayoutManager(layoutmanager);
                                 recyclerview.setItemAnimator( new DefaultItemAnimator());
                                 recyclerview.setAdapter(recycler);
+
                             }
 
                             @Override
@@ -250,6 +254,7 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
         return new Double(distance * meterConversion).doubleValue();
     }
+
 }
 //        recyclerview = (RecyclerView) findViewById(R.id.recycle);
 //       // myRef=FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH);

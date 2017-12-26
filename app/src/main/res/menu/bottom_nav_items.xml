@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home"
+        android:icon="@drawable/ic_menu_camera"
+        />
+    <item
+        android:id="@+id/menu_search"
+        android:title="Notifications"
+        android:icon="@drawable/ic_menu_gallery"
+        />
+
+    <item
+        android:id="@+id/likes"
+        android:title="Likes"
+        android:icon="@drawable/ic_menu_gallery" />
+
+    <!--<item-->
+        <!--android:id="@+id/profile"-->
+        <!--android:title="Profile"-->
+        <!--android:icon="@drawable/com_facebook_profile_picture_blank_portrait" />-->
+</menu>

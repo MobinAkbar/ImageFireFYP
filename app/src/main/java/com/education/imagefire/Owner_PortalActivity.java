@@ -448,7 +448,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
             case R.id.sign_out:
                 firebaseAuth.signOut();
                 Toast.makeText(Owner_PortalActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
-                Intent intt=new Intent(Owner_PortalActivity.this,OwnerSignInActivity.class);
+                Intent intt=new Intent(Owner_PortalActivity.this,SigninActivity.class);
                 startActivity(intt);
                 break;
 

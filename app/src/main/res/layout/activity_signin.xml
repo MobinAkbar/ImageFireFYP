@@ -8,7 +8,7 @@
     tools:context="com.education.imagefire.SigninActivity">
 
     <LinearLayout
-        android:background="@drawable/screen4"
+        android:background="#4A148C"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
@@ -24,6 +24,7 @@
             <!--android:src="@drawable/ic_person_white_24dp" />-->
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/l11"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:layout_width="match_parent"
@@ -43,12 +44,14 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
+
                 android:drawableLeft="@drawable/ic_lock_white_24dp"
                 android:drawablePadding="30dp"
                 android:id="@+id/password"
@@ -60,7 +63,6 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white" />
         </android.support.design.widget.TextInputLayout>
-
         <!-- Login Button -->
 
         <Button

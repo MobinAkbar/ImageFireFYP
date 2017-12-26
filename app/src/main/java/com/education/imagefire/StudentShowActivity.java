@@ -59,7 +59,7 @@ public class StudentShowActivity extends AppCompatActivity {
     String lati_0;
     String longi_0;
     private String nameMap;
-    String latitude_s;
+    String latitude_ss;
     String logitude_s;
     String univrsty;
     static final ArrayList<String> images1122=new ArrayList<>();
@@ -68,10 +68,6 @@ public class StudentShowActivity extends AppCompatActivity {
 
 
     String a1,a2,a3,a4,a5,a6;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,16 +220,16 @@ public class StudentShowActivity extends AppCompatActivity {
         name.setText(hostlname);
         address.setText(hostladress);
 
-        Query query2 = mFirebaseDatabaseReference.child("MapsInformation").orderByChild("id").equalTo(hostlid);
+        Query query2 = mFirebaseDatabaseReference.child("Hostels").orderByChild("id").equalTo(hostlid);
         final ValueEventListener eventListener1=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
-                    map=ds.getValue(Map.class);
+                   Hostel map=ds.getValue(Hostel.class);
                     latitude12=map.getLatitude();
                     longitude13=map.getLongitude();
                     nameMap=map.getName();
-                    latitude_s=Double.toString(latitude12);
+                    latitude_ss=Double.toString(latitude12);
                     logitude_s=Double.toString(longitude13);
 
                 }
@@ -330,7 +326,7 @@ public class StudentShowActivity extends AppCompatActivity {
                 Intent intent=new Intent(StudentShowActivity.this,MapsActivity.class);
                 intent.putExtra("id",hostlid);
                 intent.putExtra("name",nameMap);
-                intent.putExtra("lati",latitude_s);
+                intent.putExtra("lati",latitude_ss);
                 intent.putExtra("longi",logitude_s);
                 intent.putExtra("A_lati1",lati_0);
                 intent.putExtra("A_longi1",longi_0);
@@ -343,7 +339,7 @@ public class StudentShowActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(StudentShowActivity.this,"I have something"+latitude_s,Toast.LENGTH_SHORT).show();
+                Toast.makeText(StudentShowActivity.this,"I have something"+latitude_ss,Toast.LENGTH_SHORT).show();
                 Toast.makeText(StudentShowActivity.this,"I have something"+logitude_s,Toast.LENGTH_SHORT).show();
                 Toast.makeText(StudentShowActivity.this,"I have something"+lati_0,Toast.LENGTH_SHORT).show();
                 Toast.makeText(StudentShowActivity.this,"I have something"+longi_0,Toast.LENGTH_SHORT).show();

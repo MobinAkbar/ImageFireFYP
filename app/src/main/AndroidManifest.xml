@@ -40,19 +40,14 @@
             android:value="AIzaSyCb-lRXV2Tk6F-YRL7dGQEcchBqxIlF0Tg" />
 
         <activity
-            android:name=".BasicsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OwnerSignInActivity" />
-        <activity android:name=".OwnerSignUpActivity" />
-        <activity
             android:name=".Owner_PortalActivity"
             android:theme="@style/MyAppTheme" />
         <activity android:name=".ShowdataActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CarActivity" />
-        <activity android:name=".SigninActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".SignupActivity" />
+        <activity android:name=".SigninActivity" />
         <activity
             android:name=".SearchActivity"
             android:theme="@style/MyAppTheme" />
@@ -76,7 +71,8 @@
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".OwnerProfileActivity" />
         <activity android:name=".StudentShowActivity" />
-        <activity android:name=".OptionActivity"></activity>
+        <activity android:name=".OptionActivity" />
+        <activity android:name=".ProfilessActivity"></activity>
     </application>
 
 </manifest>

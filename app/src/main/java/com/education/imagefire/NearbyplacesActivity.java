@@ -144,7 +144,7 @@ public class NearbyplacesActivity extends AppCompatActivity {
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
-    public void allclear(View view){
+    public void allclear1(View view){
         name.getText().clear();
         latitude.getText().clear();
         longitude.getText().clear();

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -63,6 +64,7 @@ public class SearchActivity extends AppCompatActivity {
     TextView t1,t2;
     ImageView im1;
     Users users;
+    BottomNavigationView bottomNavigationView;
 
    // String[] array1={"Punjab University","University of Engineering and Technology","COMSATS University","FAST University",
      //       "Gujrat University","University of Central Punjab","University of Management Science","Lahore University",
@@ -76,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
         imglistt=new ArrayList<>();
-
+        bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigationB);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.pop_up);
@@ -111,6 +113,16 @@ public class SearchActivity extends AppCompatActivity {
         FirebaseUser user=firebaseAuth.getCurrentUser();
         UserId=user.getUid();
         Toast.makeText(SearchActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // handle desired action here
+                // One possibility of action is to replace the contents above the nav bar
+                // return true if you want the item to be displayed as the selected item
+                return true;
+            }
+        });
 
         ArrayAdapter adapter=ArrayAdapter.createFromResource(this, R.array.universities, android.R.layout.simple_spinner_item);
         spin.setAdapter(adapter);
