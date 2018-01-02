@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     //Uri filepath;
     //StorageReference storageReference;
     private EditText name;
+    private EditText adres;
     private EditText numb1;
     private EditText numb2;
     private EditText numb3;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener stateListener;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1;
     public static final int REQUEST_CODE=1234;
     public static final String FB_STOARGE_PATH="Owners/";
     public static final String FB_DATABASE_PATH="Owners";
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         password=getIntent().getStringExtra("password");
 
         image = (ImageView) findViewById(R.id.image);
+        adres=(EditText)findViewById(R.id.e1p);
         name = (EditText) findViewById(R.id.e1);
         numb1 = (EditText) findViewById(R.id.e2);
         numb2 = (EditText) findViewById(R.id.e3);
@@ -170,11 +173,19 @@ public class MainActivity extends AppCompatActivity {
 //
 //
 //    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(stateListener);
-    }
+
+
+        @Override
+        protected void onStart() {
+            super.onStart();
+            auth.addAuthStateListener(stateListener);
+
+            databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(UserId);
+            String type="student";
+            UserType userType=new UserType(UserId,type);
+            databaseReference1.setValue(userType);
+        }
+
 
     @Override
     protected void onStop() {
@@ -219,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=UserId;
                     String owner_name=name.getText().toString().trim();
+                    String adress=adres.getText().toString();
                     String number1=numb1.getText().toString().trim();
                     String number2=numb2.getText().toString().trim();
                     String number3=numb3.getText().toString().trim();
@@ -229,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
                      //double logitude=Double.parseDouble(E2.getText().toString());
                      //double latitude=Double.parseDouble(E3.getText().toString());
 
-                    Owner owner=new Owner(id,owner_name,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString());
+                    Owner owner=new Owner(id,owner_name,adress,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString());
                     databaseReference.child(id).setValue(owner);
 
 

@@ -35,22 +35,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <Button
+                        android:onClick="clean"
+                        android:id="@+id/removes"
                         android:layout_marginTop="15dp"
                         android:textColor="#fff"
                         android:background="@drawable/abuttonstyle"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Save"/>
+                        android:text="remove"/>
 
                     <Button
+                        android:onClick="chosen"
+                        android:id="@+id/chooses"
                         android:layout_marginTop="10dp"
                         android:textColor="#fff"
                         android:background="@drawable/abuttonstyle"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Save"/>
+                        android:text="Choose"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -62,20 +66,6 @@
                 android:id="@+id/name"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:drawableLeft="@drawable/adres"
-                android:drawablePadding="30dp"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:text="Adress"
-                android:layout_marginTop="25dp"
-                android:id="@+id/adres"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_weight="1"
@@ -139,11 +129,14 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:onClick="uploads"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/saves"
                 android:layout_marginRight="40dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="#fff"
                 android:background="@drawable/abuttonstyle"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

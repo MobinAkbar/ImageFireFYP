@@ -46,7 +46,7 @@ public class SignupActivity extends AppCompatActivity {
 //    public static final int REQUEST_CODE = 1234;
 //    public static final String FB_STOARGE_PATH = "Users/";
 //    public static final String FB_DATABASE_PATH = "Users";
-
+private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class SignupActivity extends AppCompatActivity {
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
+        type=getIntent().getStringExtra("type");
 
         //btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
@@ -92,6 +93,10 @@ public class SignupActivity extends AppCompatActivity {
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+
+
                                 Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                                 // If sign in fails, display a message to the user. If sign in succeeds
@@ -101,12 +106,18 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    //startActivity(new Intent(SignupActivity.this, SearchActivity.class));
-                                    Intent intent=new Intent(SignupActivity.this, OptionActivity.class);
-                                    intent.putExtra("email",email);
-                                    intent.putExtra("password",password);
-                                    startActivity(intent);
-                                    finish();
+
+                                    if(type.equals("owner")){
+                               Intent intent=new Intent(SignupActivity.this, MainActivity.class);
+                               intent.putExtra("email",email);
+                               intent.putExtra("password",password);
+                               startActivity(intent); }
+                                   else {
+                               Intent intent=new Intent(SignupActivity.this, UserInfoActivity.class);
+                               intent.putExtra("email",email);
+                               intent.putExtra("password",password);
+                               startActivity(intent);
+                                        }
                                 }
                             }
                         });

@@ -94,6 +94,9 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
             i12.putExtra("Hostelid", car.getHostel_id());
             i12.putExtra("Hostelname", car.getName());
             i12.putExtra("Hosteladdress", car.getAddress());
+            i12.putExtra("Hostelimage", car.getUri());
+            i12.putExtra("Hosteltype", car.getType());
+            i12.putExtra("Hostellikes", car.getLikes());
             this.mContxt.startActivity(i12);
         }
     }

@@ -186,6 +186,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/changes"
         android:textColor="#fff"
         android:background="@drawable/abuttonstyle"
         android:layout_marginTop="35dp"

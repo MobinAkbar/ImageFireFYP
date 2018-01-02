@@ -48,6 +48,7 @@ public class UserInfoActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener stateListener;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1;
     public static final int REQUEST_CODE=1234;
     public static final String FB_STOARGE_PATH="Users_Info/";
     public static final String FB_DATABASE_PATH="Users_Info";
@@ -111,6 +112,11 @@ public class UserInfoActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         auth.addAuthStateListener(stateListener);
+
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(UserId);
+               String type="student";
+               UserType userType=new UserType(UserId,type);
+               databaseReference1.setValue(userType);
     }
 
     @Override

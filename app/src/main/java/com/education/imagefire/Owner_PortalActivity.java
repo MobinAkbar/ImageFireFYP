@@ -126,7 +126,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
         //T2=(TextView)findViewById(R.id.numb1);
         //signout=(TextView)findViewById(R.id.out);
         //T4=(TextView)findViewById(R.id.email);
-        listView=(ListView)findViewById(R.id.recyc);
+
         listhos=new ArrayList<>();
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -392,7 +392,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.user_profile:
-                Intent intent=new Intent(Owner_PortalActivity.this,OwnerProfileActivity.class);
+                Intent intent=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
                 startActivity(intent);
                 break;
 
