@@ -23,7 +23,7 @@
 
         <!-- //android:theme="@style/AppTheme">// -->
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".InterfaceActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,7 +72,9 @@
         <activity android:name=".OwnerProfileActivity" />
         <activity android:name=".StudentShowActivity" />
         <activity android:name=".OptionActivity" />
-        <activity android:name=".ProfilessActivity"></activity>
+        <activity android:name=".ProfilessActivity" />
+        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".StuprofileActivity"></activity>
     </application>
 
 </manifest>

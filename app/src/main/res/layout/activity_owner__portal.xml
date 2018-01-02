@@ -28,13 +28,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ListView
-                android:dividerHeight="20.0px"
-                android:clickable="true"
-                android:background="#9CBABF"
-                android:id="@+id/recyc"
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:id="@+id/recycle">
+
+            </android.support.v7.widget.RecyclerView>
+            <!--<ListView-->
+                <!--android:dividerHeight="20.0px"-->
+                <!--android:clickable="true"-->
+                <!--android:background="#9CBABF"-->
+                <!--android:id="@+id/recyc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
 
         </LinearLayout>
 

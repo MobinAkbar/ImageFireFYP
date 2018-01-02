@@ -21,38 +21,35 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.R.attr.breadCrumbShortTitle;
-import static android.R.attr.data;
 
 /**
- * Created by NET LINK on 9/29/2017.
+ * Created by NET LINK on 1/2/2018.
  */
 
-public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder> {
-    ArrayList<RecyclerUpload> listdata;
+public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder>  {
+    ArrayList<RecyclerUpload2> listdata;
     Context mContxt;
 
-    public Recycleadpater(Context mContxt,ArrayList<RecyclerUpload> listdata) {
+    public Rcycleadpater(Context mContxt,ArrayList<RecyclerUpload2> listdata) {
         this.mContxt=mContxt;
         this.listdata = listdata;
     }
 
     @Override
-    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_recycle,parent,false);
+    public Rcycleadpater.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list2_item_recycle,parent,false);
 
-        MyHolder myHolder = new MyHolder(view,mContxt,listdata);
+        Rcycleadpater.MyHolder myHolder = new Rcycleadpater.MyHolder(view,mContxt,listdata);
         return myHolder;
     }
 
-    public void onBindViewHolder(final MyHolder holder,final int position) {
-        RecyclerUpload data = listdata.get(position);
-        String dou=String.valueOf(data.getDistance());
+
+
+    public void onBindViewHolder(final Rcycleadpater.MyHolder holder, final int position) {
+        RecyclerUpload2 data = listdata.get(position);
         holder.vname.setText(data.getName());
-        holder.vdistance.setText(dou);
         holder.vlike.setText(data.getLikes());
+        holder.vtype.setText(data.getType());
         Picasso.with(mContxt).load(data.getUri()).resize(100, 100).into(holder.uri);
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,22 +66,22 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
 
 
     static class MyHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener{
-        TextView vname,vdistance,vlike;
+        TextView vname,vtype,vlike;
         ImageView uri;
         ImageButton imageButton;
 
-        ArrayList<RecyclerUpload> carList = new ArrayList<RecyclerUpload>();
+        ArrayList<RecyclerUpload2> carList = new ArrayList<RecyclerUpload2>();
         Context mContxt;
 
 
-        public MyHolder(View itemView,Context mContxt,ArrayList<RecyclerUpload> carList) {
+        public MyHolder(View itemView,Context mContxt,ArrayList<RecyclerUpload2> carList) {
             super(itemView);
             this.mContxt=mContxt;
             this.carList=carList;
             itemView.setOnClickListener(this);
             vname = (TextView) itemView.findViewById(R.id.name9);
             uri=(ImageView)itemView.findViewById(R.id.image_1);
-            vdistance=(TextView)itemView.findViewById(R.id.distance);
+            vtype=(TextView)itemView.findViewById(R.id.ch1);
             vlike=(TextView)itemView.findViewById(R.id.likes);
             imageButton=(ImageButton)itemView.findViewById(R.id.image00);
         }
@@ -92,13 +89,11 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            RecyclerUpload car = this.carList.get(position);
-            Intent i12 = new Intent(this.mContxt, StudentShowActivity.class);
-            i12.putExtra("Ownerid", car.getOwner_id());
+            RecyclerUpload2 car = this.carList.get(position);
+            Intent i12 = new Intent(this.mContxt, InterfaceActivity.class);
             i12.putExtra("Hostelid", car.getHostel_id());
             i12.putExtra("Hostelname", car.getName());
             i12.putExtra("Hosteladdress", car.getAddress());
-            i12.putExtra("uni_name", car.getUni_name());
             this.mContxt.startActivity(i12);
         }
     }
@@ -114,7 +109,7 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.user_profile:
-                        RecyclerUpload hostel = listdata.get(position);
+                        RecyclerUpload2 hostel = listdata.get(position);
                         final String HostelId2 = hostel.getHostel_id();
 
                         AlertDialog.Builder dialog = new AlertDialog.Builder(mContxt);
@@ -166,4 +161,3 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         popup.show();
     }
 }
-

@@ -44,7 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Student"
+                android:text="Owner"
                 android:textColor="#fff"
                 android:textSize="15dp"/>
         </LinearLayout>
@@ -110,7 +110,7 @@
                 android:layout_height="27dp"
                 android:src="@drawable/call"/>
             <TextView
-                android:id="@+id/numb_o"
+                android:id="@+id/num1r_0"
                 android:textSize="14dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -127,11 +127,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/schol"/>
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:src="@drawable/call"/>
             <TextView
-                android:id="@+id/universty_o"
+                android:id="@+id/num2r_o"
                 android:textSize="14dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -139,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="University"/>
+                android:text="+92 234 23456"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="4dp"
@@ -150,9 +150,30 @@
             <ImageView
                 android:layout_width="27dp"
                 android:layout_height="27dp"
-                android:src="@drawable/sex"/>
+                android:src="@drawable/call"/>
             <TextView
-                android:id="@+id/gendr_o"
+                android:id="@+id/num3r_o"
+                android:textSize="14dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="+92 324 1234567"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingLeft="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:src="@drawable/job"/>
+            <TextView
+                android:id="@+id/job_o"
                 android:textSize="14dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     tools:context="com.education.imagefire.UserProfileActivity">
 
     <ScrollView
@@ -13,133 +12,142 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-
-            android:background="#1F1F1F"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <LinearLayout
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="2"
-                android:id="@+id/image19"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
-            <TextView
-                android:id="@+id/name19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
                 android:layout_weight="1"
-                android:textSize="29dp"
+                android:id="@+id/l_1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="50dp"
+                    android:src="@drawable/add2"
+                    android:id="@+id/hostel_image"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp" />
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_marginTop="15dp"
+                        android:textColor="#fff"
+                        android:background="@drawable/abuttonstyle"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"/>
+
+                    <Button
+                        android:layout_marginTop="10dp"
+                        android:textColor="#fff"
+                        android:background="@drawable/abuttonstyle"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <EditText
+                android:drawableLeft="@drawable/sex"
+                android:drawablePadding="30dp"
                 android:text="Name"
+                android:layout_marginTop="25dp"
+                android:id="@+id/name"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/profesion19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
+            <EditText
+                android:drawableLeft="@drawable/adres"
+                android:drawablePadding="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="Adress"
+                android:layout_marginTop="25dp"
+                android:id="@+id/adres"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_weight="1"
-                android:textSize="29dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:drawableLeft="@drawable/call"
+                android:drawablePadding="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="Number-1"
+                android:layout_marginTop="25dp"
+                android:id="@+id/num1"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:drawableLeft="@drawable/call"
+                android:drawablePadding="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="Number-2"
+                android:layout_marginTop="25dp"
+                android:id="@+id/num2"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:drawableLeft="@drawable/call"
+                android:drawablePadding="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="Number-3"
+                android:layout_marginTop="25dp"
+                android:id="@+id/num3"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:drawableLeft="@drawable/job"
+                android:drawablePadding="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
                 android:text="Profession"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mobile_a19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
+                android:layout_marginTop="25dp"
+                android:id="@+id/job"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_weight="1"
-                android:textSize="29dp"
-                android:text="Mobile 1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/mobile_b19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
-                android:layout_weight="1"
-                android:textSize="29dp"
-                android:text="Mobile 2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/mobile_c19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
-                android:layout_weight="1"
-                android:textSize="29dp"
-                android:text="Mobile 3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/email19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
-                android:layout_weight="1"
-                android:textSize="29dp"
-                android:text="Email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/password19"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="20dp"
-                android:gravity="left|center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textviewdesign"
-                android:layout_weight="1"
-                android:textSize="29dp"
-                android:text="Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/editchange19"
-                android:layout_weight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/colorAccent"
-                android:text="Edit Changes"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="#fff"
+                android:background="@drawable/abuttonstyle"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Save"/>
 
         </LinearLayout>
     </ScrollView>
