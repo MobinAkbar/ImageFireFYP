@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
-    android:id="@+id/drawr"
+    android:id="@+id/drawrB2"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,12 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include
-            android:id="@+id/tool_bar"
+            android:id="@+id/tool_bar1A"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             layout="@layout/usersignup"
             />
-
 
         <LinearLayout
             android:layout_marginBottom="50dp"
@@ -47,19 +46,23 @@
     </LinearLayout>
         <LinearLayout
             android:layout_marginBottom="2dp"
-            android:gravity="bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/add_1"
-                android:background="@color/colorAccent"
-                android:text="Add New Hostel"
+            <android.support.design.widget.BottomNavigationView
+                android:layout_gravity="bottom"
+                android:layout_marginTop="215dp"
+                android:background="@color/white"
+                android:id="@+id/navigationB"
                 android:layout_width="match_parent"
-                android:layout_height="43dp" />
+                android:layout_height="wrap_content"
+                app:itemBackground="@color/colorPrimary"
+                app:itemIconTint="@drawable/bottom_color"
+                app:itemTextColor="@drawable/bottom_color"
+                app:menu="@menu/botton_navitems_o" />
+
 
         </LinearLayout>
-
 
     <android.support.design.widget.NavigationView
         android:fitsSystemWindows="true"

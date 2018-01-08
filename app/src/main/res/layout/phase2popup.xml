@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/poname"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
@@ -90,7 +91,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:id="@+id/rooms"
+                    android:id="@+id/poadress"
                     android:text="Hostel Address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -99,7 +100,7 @@
 
 
             <Button
-                android:id="@+id/blow"
+                android:id="@+id/posave"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"

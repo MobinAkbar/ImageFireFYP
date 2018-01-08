@@ -1,10 +1,17 @@
 package com.education.imagefire;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +31,7 @@ public class StuprofileActivity extends AppCompatActivity {
 
     TextView name,type,email,adress,number,number2,number3,job;
     CircleImageView image;
-    Button button;
+    ImageButton imageButton;
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
@@ -37,6 +44,7 @@ public class StuprofileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stuprofile);
 
+        imageButton=(ImageButton)findViewById(R.id.imagee100);
         image=(CircleImageView)findViewById(R.id.profile_image);
         name=(TextView)findViewById(R.id.name_o);
         email=(TextView)findViewById(R.id.mail_o);
@@ -45,7 +53,6 @@ public class StuprofileActivity extends AppCompatActivity {
         number2=(TextView)findViewById(R.id.num2r_o);
         number3=(TextView)findViewById(R.id.num3r_o);
         job=(TextView)findViewById(R.id.job_o);
-        button=(Button)findViewById(R.id.changes);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -80,11 +87,21 @@ public class StuprofileActivity extends AppCompatActivity {
         };
         query1.addValueEventListener(eventListener);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(StuprofileActivity.this,OwnerProfileActivity.class);
-                startActivity(intent);
+                PopupMenu popup = new PopupMenu(StuprofileActivity.this, imageButton);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                                Intent intent = new Intent(StuprofileActivity.this, OwnerProfileActivity.class);
+                                startActivity(intent);
+                                return true;
+                        }
+                });
+                popup.show();
             }
         });
     }

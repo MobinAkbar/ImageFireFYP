@@ -46,11 +46,6 @@ import static java.lang.Double.parseDouble;
 public class MainActivity extends AppCompatActivity {
 
     Button upload,choose,next;
-   // EditText name,numb1,numb2,email,descption;
-    //private ImageView image;
-    //DatabaseReference databaseReference;
-    //Uri filepath;
-    //StorageReference storageReference;
     private EditText name;
     private EditText adres;
     private EditText numb1;
@@ -72,9 +67,6 @@ public class MainActivity extends AppCompatActivity {
     Owner owner;
     String email;
     String password;
-
-
-    //private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,66 +114,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
-                //in.putExtra("id",databaseReference.getKey());
                 in.putExtra("UID",UserId);
-                //String id=databaseReference.getKey();
-                //String key = databaseReference.push().getKey();
-//                Toast.makeText(MainActivity.this, "value is "+owner.getId() ,Toast.LENGTH_LONG).show();
                 startActivity(in);
 
             }
         });
-//        b1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent o=new Intent(MainActivity.this,CarActivity.class);
-//                startActivity(o);
-//            }
-//        });
-//        b2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent o=new Intent(MainActivity.this,SearchActivity.class);
-//                startActivity(o);
-//            }
-//        });
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//                for(DataSnapshot sp: dataSnapshot.getChildren()){
-//                    Owner per=sp.getValue(Owner.class);
-//                    owner=per;
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//
-//
-//
-//    }
-
-
         @Override
         protected void onStart() {
             super.onStart();
             auth.addAuthStateListener(stateListener);
 
-            databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(UserId);
-            String type="student";
+            databaseReference1 = FirebaseDatabase.getInstance().getReference("Users_Type").child(UserId);
+            String type="owner";
             UserType userType=new UserType(UserId,type);
             databaseReference1.setValue(userType);
         }
@@ -194,26 +139,6 @@ public class MainActivity extends AppCompatActivity {
             auth.removeAuthStateListener(stateListener);
         }
     }
-
-
-
-       // progressDialog=new ProgressDialog(this);
-
-//        B1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                upload();
-//            }
-//        });
-//
-//        B2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                chooose();
-//            }
-//        });
-//    }
-// @SuppressWarnings("VisibleForTests")
     public void upload(View v) {
 
         if(filepath!=null){
@@ -238,9 +163,6 @@ public class MainActivity extends AppCompatActivity {
                     String password1=password;
                     String profession=profesion.getText().toString().trim();
 
-                     //double logitude=Double.parseDouble(E2.getText().toString());
-                     //double latitude=Double.parseDouble(E3.getText().toString());
-
                     Owner owner=new Owner(id,owner_name,adress,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString());
                     databaseReference.child(id).setValue(owner);
 
@@ -259,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                    double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
-                   // Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
+//                    Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
+//                    in.putExtra("UID",UserId);
 //                    startActivity(in);
                 }
             });
@@ -299,27 +222,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==REQUEST_CODE && requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-//            Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-//                    filepath=data.getData();
-//
-//            try{
-//                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-//                Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-//                I1.setImageBitmap(bitmap);
-//            }catch (FileNotFoundException e){
-//                e.printStackTrace();
-//            }
-//            catch (IOException e){
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();

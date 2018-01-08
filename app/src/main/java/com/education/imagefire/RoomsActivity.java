@@ -135,6 +135,7 @@ public class RoomsActivity extends AppCompatActivity {
 
         University university=new University(key,univrsty1,univrsty2,univrsty3);
         databaseReference2.child(key).setValue(university);
+        Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();
 
     }
 

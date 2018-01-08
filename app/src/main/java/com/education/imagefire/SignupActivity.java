@@ -94,9 +94,6 @@ private String type;
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
-
-
-
                                 Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                                 // If sign in fails, display a message to the user. If sign in succeeds
@@ -108,10 +105,10 @@ private String type;
                                 } else {
 
                                     if(type.equals("owner")){
-                               Intent intent=new Intent(SignupActivity.this, MainActivity.class);
-                               intent.putExtra("email",email);
-                               intent.putExtra("password",password);
-                               startActivity(intent); }
+                                    Intent intent=new Intent(SignupActivity.this, MainActivity.class);
+                                    intent.putExtra("email",email);
+                                    intent.putExtra("password",password);
+                                    startActivity(intent); }
                                    else {
                                Intent intent=new Intent(SignupActivity.this, UserInfoActivity.class);
                                intent.putExtra("email",email);

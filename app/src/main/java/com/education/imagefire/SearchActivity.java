@@ -42,8 +42,6 @@ import static android.R.attr.id;
 
 public class SearchActivity extends AppCompatActivity {
 
-    //private DrawerLayout drawerLayout;
-    //private ActionBarDrawerToggle toggle;
     Button B1,B2,B3;
     EditText E1;
     private DatabaseReference databaseReference;
@@ -66,27 +64,20 @@ public class SearchActivity extends AppCompatActivity {
     Users users;
     BottomNavigationView bottomNavigationView;
 
-   // String[] array1={"Punjab University","University of Engineering and Technology","COMSATS University","FAST University",
-     //       "Gujrat University","University of Central Punjab","University of Management Science","Lahore University",
-       //      "Sergodha University","University of South Asia","Hajveri University","Information Technology University"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-
-
         imglistt=new ArrayList<>();
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigationB);
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar2A);
         setSupportActionBar(toolbar);
-        toolbar.inflateMenu(R.menu.pop_up);
-        drawerLayout=(DrawerLayout)findViewById(R.id.drawr);
+        toolbar.inflateMenu(R.menu.popupp);
+        drawerLayout=(DrawerLayout)findViewById(R.id.drawrB1);
         toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
 
-        // toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        drawerLayout=(DrawerLayout)findViewById(R.id.drawr);
@@ -150,19 +141,6 @@ public class SearchActivity extends AppCompatActivity {
         };
         query1.addValueEventListener(eventListener);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         listener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -209,12 +187,12 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.user_profile:
-                Intent intent=new Intent(SearchActivity.this,UserProfileActivity.class);
+            case R.id.userA1:
+                Intent intent=new Intent(SearchActivity.this,ProfilessActivity.class);
                 startActivity(intent);
             break;
 
-            case R.id.sign_out:
+            case R.id.userB2:
                 firebaseAuth.signOut();
                 Toast.makeText(SearchActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
                 Intent intt=new Intent(SearchActivity.this,SigninActivity.class);
@@ -226,7 +204,7 @@ public class SearchActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.pop_up, menu);
+        getMenuInflater().inflate(R.menu.popupp, menu);
         return true;
     }
 

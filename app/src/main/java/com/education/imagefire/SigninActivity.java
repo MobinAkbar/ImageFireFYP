@@ -42,10 +42,10 @@ public class SigninActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser() != null) {
-            getNext();
-            finish();
-        }
+//        if (auth.getCurrentUser() != null) {
+//            getNext();
+//            finish();
+//        }
 
         // set the view now
         setContentView(R.layout.activity_signin);
@@ -74,7 +74,7 @@ public class SigninActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SigninActivity.this, SignupActivity.class));
+                startActivity(new Intent(SigninActivity.this, OptionActivity.class));
             }
         });
 

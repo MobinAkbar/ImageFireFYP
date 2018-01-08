@@ -99,14 +99,14 @@ public class UserInfoActivity extends AppCompatActivity {
 
         Permission.checkPermission(this);
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
-                in.putExtra("UID",UserId);
-                startActivity(in);
-            }
-        });
+//        next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
+//                in.putExtra("UID",UserId);
+//                startActivity(in);
+//            }
+//        });
     }
     @Override
     protected void onStart() {
@@ -167,8 +167,11 @@ public class UserInfoActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
-                    // Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
-//                    startActivity(in);
+
+                    Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
+                    in.putExtra("UID",UserId);
+                    startActivity(in);
+
                 }
             });
         }else{

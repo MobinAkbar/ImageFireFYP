@@ -45,7 +45,7 @@ public class StudentShowActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
-    private HostelInfo hostelInfo;
+   // private HostelInfo hostelInfo;
     private Map map;
     private PropertyInfo propertyInfo;
     private Facilities facilities;

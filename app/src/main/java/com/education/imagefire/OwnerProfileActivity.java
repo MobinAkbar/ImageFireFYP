@@ -40,7 +40,7 @@ import java.io.IOException;
 
 public class OwnerProfileActivity extends AppCompatActivity {
 
-    private EditText name,profession,numb1,numb2,numb3;
+    private EditText name,adres,profession,numb1,numb2,numb3;
     Button B1,B2,B3;
     ImageView image;
     private Uri filepath;
@@ -50,7 +50,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
-    String UserId,names,prof,numr1,numbr2,numbr3,url;
+    String UserId,names,prof,numr1,numbr2,numbr3,addresss;
     Owner users;
     public static final String FB_STOARGE_PATH="Hostels/";
     private String urll;
@@ -61,6 +61,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_owner_profile);
 
         name=(EditText) findViewById(R.id.name);
+        adres=(EditText)findViewById(R.id.adresy);
         profession=(EditText) findViewById(R.id.job);
         numb1=(EditText) findViewById(R.id.num1);
         numb2=(EditText) findViewById(R.id.num2);
@@ -77,7 +78,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
         UserId=user.getUid();
         Toast.makeText(OwnerProfileActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
-        databaseReference=FirebaseDatabase.getInstance().getReference("Owner").child(UserId);
+        databaseReference=FirebaseDatabase.getInstance().getReference("Owners").child(UserId);
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         Query query1 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(UserId);
@@ -90,6 +91,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
 
                     urll=users.getUri();
                     name.setText(users.getName());
+                    adres.setText(users.getAddress());
                     profession.setText(users.getProfessionn());
                     numb1.setText(users.getNumber_1());
                     numb2.setText(users.getNumber_2());
@@ -103,32 +105,55 @@ public class OwnerProfileActivity extends AppCompatActivity {
             }
         };
         query1.addValueEventListener(eventListener);
+    }
 
+    public void uploads(View v) {
         names=name.getText().toString();
+        addresss=adres.getText().toString();
         prof=profession.getText().toString();
         numr1=numb1.getText().toString();
         numbr2=numb2.getText().toString();
         numbr3=numb3.getText().toString();
-    }
 
-    public void uploads(View v) {
+        databaseReference.child("name").setValue(names);
+        databaseReference.child("address").setValue(addresss);
+        databaseReference.child("number_1").setValue(numr1);
+        databaseReference.child("number_2").setValue(numbr2);
+        databaseReference.child("number_3").setValue(numbr3);
+        databaseReference.child("professionn").setValue(prof);
 
-        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
-        StorageReference photoRef = firebaseStorage.getReferenceFromUrl(urll);
-
-        photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(OwnerProfileActivity.this,"Deleted Succesfully",Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(OwnerProfileActivity.this,"Deletion failed",Toast.LENGTH_LONG).show();
-            }
-        });
+//        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
+//        StorageReference photoRef = firebaseStorage.getReferenceFromUrl(urll);
+//
+//        photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                Toast.makeText(OwnerProfileActivity.this,"Deleted Succesfully",Toast.LENGTH_LONG).show();
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception exception) {
+//                Toast.makeText(OwnerProfileActivity.this,"Deletion failed",Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         if(filepath!=null){
+            FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
+            StorageReference photoRef = firebaseStorage.getReferenceFromUrl(urll);
+
+            photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(OwnerProfileActivity.this,"Deleted Succesfully",Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Toast.makeText(OwnerProfileActivity.this,"Deletion failed",Toast.LENGTH_LONG).show();
+                }
+            });
+
+
             storageReference = FirebaseStorage.getInstance().getReference();
             final ProgressDialog progress=new ProgressDialog(this);
             progress.setTitle("uploading.....");
@@ -141,7 +166,15 @@ public class OwnerProfileActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progress.dismiss();
 
+                    names=name.getText().toString();
+                    addresss=adres.getText().toString();
+                    prof=profession.getText().toString();
+                    numr1=numb1.getText().toString();
+                    numbr2=numb2.getText().toString();
+                    numbr3=numb3.getText().toString();
+
                     databaseReference.child("name").setValue(names);
+                    databaseReference.child("address").setValue(addresss);
                     databaseReference.child("number_1").setValue(numr1);
                     databaseReference.child("number_2").setValue(numbr2);
                     databaseReference.child("number_3").setValue(numbr3);

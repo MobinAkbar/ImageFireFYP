@@ -112,53 +112,7 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.user_profile:
-                        RecyclerUpload hostel = listdata.get(position);
-                        final String HostelId2 = hostel.getHostel_id();
 
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContxt);
-                        dialog.setCancelable(false);
-                        dialog.setTitle("Dialog on Android");
-                        dialog.setMessage("Are you sure you want to delete this entry?");
-                        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-
-                                DatabaseReference databaseReferenceB = FirebaseDatabase.getInstance().getReference("Hostels").child(HostelId2);
-                                DatabaseReference databaseReferenceC = FirebaseDatabase.getInstance().getReference("HostelInformation").child(HostelId2);
-                                DatabaseReference databaseReferenceD = FirebaseDatabase.getInstance().getReference("MapsInfo").child(HostelId2);
-                                DatabaseReference databaseReferenceE = FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(HostelId2);
-                                DatabaseReference databaseReferenceF = FirebaseDatabase.getInstance().getReference("Facilities").child(HostelId2);
-
-                                Toast.makeText(mContxt, "Deleting", Toast.LENGTH_SHORT).show();
-                                databaseReferenceB.removeValue();
-                                databaseReferenceC.removeValue();
-                                databaseReferenceD.removeValue();
-                                databaseReferenceE.removeValue();
-                                databaseReferenceF.removeValue();
-                                Toast.makeText(mContxt, "I Have deleted", Toast.LENGTH_SHORT).show();
-
-
-                            }
-                        })
-                                .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //Action for "Cancel".
-                                    }
-                                });
-
-                        final AlertDialog alert = dialog.create();
-                        alert.show();
-
-                        break;
-
-                    case R.id.sign_out:
-                        Toast.makeText(mContxt, "Functionality not added", Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
                 return true;
             }
 

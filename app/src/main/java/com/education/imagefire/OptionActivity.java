@@ -47,13 +47,13 @@ public class OptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (checkBox1.isChecked() && !checkBox2.isChecked()) {
-                    Intent intent = new Intent(OptionActivity.this, MainActivity.class);
+                if (checkBox1.isChecked()&&!checkBox2.isChecked()) {
+                    Intent intent = new Intent(OptionActivity.this, SignupActivity.class);
                     intent.putExtra("type", "owner");
                     startActivity(intent);
                     finish();
-                } else if (checkBox2.isChecked() && !checkBox1.isChecked()) {
-                    Intent intent = new Intent(OptionActivity.this, UserInfoActivity.class);
+                } else if (checkBox2.isChecked()&&!checkBox1.isChecked()) {
+                    Intent intent = new Intent(OptionActivity.this, SignupActivity.class);
                     intent.putExtra("type", "student");
                     startActivity(intent);
                     finish();

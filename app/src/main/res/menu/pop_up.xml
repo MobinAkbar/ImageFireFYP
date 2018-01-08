@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <item
-            android:id="@+id/user_profile"
+            android:id="@+id/add3"
+            android:title="Home"
+            android:icon="@drawable/pluss"
+            app:showAsAction="ifRoom"
+            />
+
+        <item
+            android:id="@+id/userr1"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="My Account" />
         <item
-            android:id="@+id/sign_out"
+            android:id="@+id/userr2"
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="Sign out" />
-
-
-
-
 
 </menu>

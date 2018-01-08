@@ -89,22 +89,21 @@ public class Owner_PortalActivity extends AppCompatActivity {
     ImageView im1;
     Owner users;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner__portal);
 
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar1A);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.pop_up);
-        drawerLayout=(DrawerLayout)findViewById(R.id.drawr);
+        drawerLayout=(DrawerLayout)findViewById(R.id.drawrB2);
         toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
 
         // toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        hostelList = new ArrayList<>();
         recyclerview = (RecyclerView) findViewById(R.id.recycle);
         recyclerview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,14 +117,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
         t2=(TextView)navi.findViewById(R.id.textView89);
         im1=(ImageView)navi.findViewById(R.id.profile_image);
        // list.clear();
-        B1=(Button)findViewById(R.id.add_1);
-       // B2=(Button)findViewById(R.id.deletehostel);
-        //B3=(Button)findViewById(R.id.btn6);
-        //imageView=(ImageView)findViewById(R.id.imageView);
-        //T1=(TextView)findViewById(R.id.name);
-        //T2=(TextView)findViewById(R.id.numb1);
-        //signout=(TextView)findViewById(R.id.out);
-        //T4=(TextView)findViewById(R.id.email);
+
 
         listhos=new ArrayList<>();
         firebaseAuth=FirebaseAuth.getInstance();
@@ -169,16 +161,6 @@ public class Owner_PortalActivity extends AppCompatActivity {
             }
         };
         query1.addValueEventListener(eventListener);
-
-        B1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                    Intent intent = new Intent(Owner_PortalActivity.this, HostelActivity.class);
-                    intent.putExtra("UID", UserId);
-                    startActivity(intent);
-                }
-            }
-        );
 
 //        B2.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -345,7 +327,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(listener);
-
+        hostelList.clear();
        // databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").orderByChild("owner").equalTo(UserId);
         //databaseReference.addValueEventListener(new ValueEventListener() {
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -391,12 +373,18 @@ public class Owner_PortalActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.user_profile:
-                Intent intent=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
+            case R.id.add3:
+                Intent intent = new Intent(Owner_PortalActivity.this, HostelActivity.class);
+                intent.putExtra("UID", UserId);
                 startActivity(intent);
                 break;
 
-            case R.id.sign_out:
+            case R.id.userr1:
+                Intent intent1=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.userr2:
                 firebaseAuth.signOut();
                 Toast.makeText(Owner_PortalActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
                 Intent intt=new Intent(Owner_PortalActivity.this,SigninActivity.class);

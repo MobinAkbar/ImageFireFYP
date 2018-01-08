@@ -36,16 +36,14 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
     }
 
     @Override
-    public Rcycleadpater.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list2_item_recycle,parent,false);
 
-        Rcycleadpater.MyHolder myHolder = new Rcycleadpater.MyHolder(view,mContxt,listdata);
+        MyHolder myHolder = new MyHolder(view,mContxt,listdata);
         return myHolder;
     }
 
-
-
-    public void onBindViewHolder(final Rcycleadpater.MyHolder holder, final int position) {
+    public void onBindViewHolder(final MyHolder holder, final int position) {
         RecyclerUpload2 data = listdata.get(position);
         holder.vname.setText(data.getName());
         holder.vlike.setText(data.getLikes());
@@ -105,13 +103,13 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
         // inflate menu
         PopupMenu popup = new PopupMenu(view.getContext(),view );
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.pop_up, popup.getMenu());
+        inflater.inflate(R.menu.delete, popup.getMenu());
         // popup.setOnMenuItemClickListener(new MyMenuStyle(position,holder));
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.user_profile:
+                    case R.id.delete:
                         RecyclerUpload2 hostel = listdata.get(position);
                         final String HostelId2 = hostel.getHostel_id();
 
@@ -151,11 +149,6 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
                         alert.show();
 
                         break;
-
-                    case R.id.sign_out:
-                        Toast.makeText(mContxt, "Functionality not added", Toast.LENGTH_SHORT).show();
-                        break;
-
                 }
                 return true;
             }

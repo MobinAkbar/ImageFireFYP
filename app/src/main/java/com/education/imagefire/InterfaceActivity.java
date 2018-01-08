@@ -3,9 +3,14 @@ package com.education.imagefire;
 import android.app.Dialog;
 import android.content.Context;
 import android.media.Image;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Property;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -29,12 +35,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InterfaceActivity extends AppCompatActivity {
 
     TextView     name,adress,e_room,e_bed,t_room,t_bed,m_r_price,m_b_price,s_r_price,s_b_price,
                  p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,prop;
     CheckBox f1,f2,f3,f4,f5,f6,f7,f8,f9,f10;
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
     ImageView i1,i2,i3,i4,i5,i6,img;
     Dialog myDialog;
     private DatabaseReference databaseReference;
@@ -43,32 +51,65 @@ public class InterfaceActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener listener;
     private String UserId;
     private Rooms rooms;
+    private List<Owner> ownerList;
     private Facilities facilities;
     private PropertyInfo property;
     private HostelImages hostelImages;
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+    TextView t1,t2;
+    ImageView im1;
+    Owner users;
+    private String hostel_id;
+    private String nameHod;
+    private String adres;
+    Owner owner22;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interface);
 
+        ownerList=new ArrayList<>();
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.pop_up);
+        drawerLayout=(DrawerLayout)findViewById(R.id.drawr12);
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView=(NavigationView)findViewById(R.id.nav_view);
+        View navi=navigationView.inflateHeaderView(R.layout.nav_header_main);
+        t1=(TextView) navi.findViewById(R.id.headtext);
+        t2=(TextView)navi.findViewById(R.id.textView89);
+        im1=(ImageView)navi.findViewById(R.id.profile_image);
+
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference();
         FirebaseUser user=firebaseAuth.getCurrentUser();
+
         UserId=user.getUid();
         Toast.makeText(InterfaceActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
-        final String hostel_id=getIntent().getStringExtra("Hostelid");
+        hostel_id=getIntent().getStringExtra("Hostelid");
+        databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
         String hostel_name=getIntent().getStringExtra("Hostelname");
-        String hostel_url=getIntent().getStringExtra("Hosteluri");
+        String hostel_url=getIntent().getStringExtra("Hostelimage");
         String hostel_type=getIntent().getStringExtra("Hosteltype");
         String hostel_likes=getIntent().getStringExtra("Hostellikes");
         String hostel_adres=getIntent().getStringExtra("Hosteladdress");
 
+        //Toast.makeText(InterfaceActivity.this,"Valu is"+hostel_url,Toast.LENGTH_SHORT).show();
+
+
         name=(TextView) findViewById(R.id.nam1e);
         adress=(TextView)findViewById(R.id.addres1s);
-        img=(ImageView)findViewById(R.id.image);
+        img=(ImageView)findViewById(R.id.imagees);
         prop=(TextView)findViewById(R.id.pro1);
 
         i1=(ImageView)findViewById(R.id.im1);i2=(ImageView)findViewById(R.id.im2);
@@ -92,11 +133,27 @@ public class InterfaceActivity extends AppCompatActivity {
         p7=(TextView)findViewById(R.id.pl7);p8=(TextView)findViewById(R.id.pl8);
         p9=(TextView)findViewById(R.id.pl9); p10=(TextView)findViewById(R.id.pl10);
 
-        b1=(Button)findViewById(R.id.hy);b2=(Button)findViewById(R.id.hy2);
-        b3=(Button)findViewById(R.id.hy3);b4=(Button)findViewById(R.id.hy4);
-        b5=(Button)findViewById(R.id.hy5);b6=(Button)findViewById(R.id.hy6);
-        b7=(Button)findViewById(R.id.hy7);b8=(Button)findViewById(R.id.hy8);
-        b9=(Button)findViewById(R.id.hy9);b10=(Button)findViewById(R.id.hy10);
+        DatabaseReference mFirebaseDatabaseReference18 = FirebaseDatabase.getInstance().getReference();
+        Query query18 = mFirebaseDatabaseReference18.child("Owners").orderByChild("id").equalTo(UserId);
+
+        final ValueEventListener eventListener18=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    users=ds.getValue(Owner.class);
+                    t1.setText(users.getName());
+                    t2.setText(users.getEmail());
+                    PicassoClient.downloadImage(InterfaceActivity.this,users.getUri(),im1);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        query18.addValueEventListener(eventListener18);
 
 
         PicassoClient.downloadImage(InterfaceActivity.this,hostel_url,img);
@@ -138,8 +195,7 @@ public class InterfaceActivity extends AppCompatActivity {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     facilities=ds.getValue(Facilities.class);
                     if (facilities.getWifi().equals("yes")) {
-
-
+                         //f1.isChecked();
                     }
                 }
             }
@@ -152,7 +208,7 @@ public class InterfaceActivity extends AppCompatActivity {
         query2.addValueEventListener(eventListener2);
 
         DatabaseReference mFirebaseDatabaseReference3 = FirebaseDatabase.getInstance().getReference();
-        Query query3 = mFirebaseDatabaseReference3.child("Facilities").orderByChild("id").equalTo(hostel_id);
+        Query query3 = mFirebaseDatabaseReference3.child("Hostel_Property_Info").orderByChild("id").equalTo(hostel_id);
 
         final ValueEventListener eventListener3=new ValueEventListener() {
             @Override
@@ -182,7 +238,7 @@ public class InterfaceActivity extends AppCompatActivity {
         query3.addValueEventListener(eventListener3);
 
         DatabaseReference mFirebaseDatabaseReference4 = FirebaseDatabase.getInstance().getReference();
-        Query query4 = mFirebaseDatabaseReference4.child("Facilities").orderByChild("id").equalTo(hostel_id);
+        Query query4 = mFirebaseDatabaseReference4.child("AllHostelImages").orderByChild("ids").equalTo(hostel_id);
 
         final ValueEventListener eventListener4=new ValueEventListener() {
             @Override
@@ -206,190 +262,187 @@ public class InterfaceActivity extends AppCompatActivity {
         };
         query4.addValueEventListener(eventListener4);
 
-        myDialog=new Dialog(this);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup1();
-            }
-        });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup2();
-            }
-        });
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup3();
-            }
-        });
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup4();
-            }
-        });
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup5();
-            }
-        });
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup6();
-            }
-        });
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup7();
-            }
-        });
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup8();
-            }
-        });
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup9();
-            }
-        });
-        b10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup10();
-            }
-        });
-
-
+        //myDialog=new Dialog(this);
     }
 
-    public void showPopup10() {
-        Button button;
-        myDialog.setContentView(R.layout.phase10popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup9() {
-        Button button;
-        myDialog.setContentView(R.layout.phase9popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup8() {
-        Button button;
-        myDialog.setContentView(R.layout.phase8popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup7() {
-        Button button;
-        myDialog.setContentView(R.layout.phase7popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup6() {
-        Button button;
-        myDialog.setContentView(R.layout.phase6popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup5() {
-        Button button;
-        myDialog.setContentView(R.layout.phase5popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup4() {
-        Button button;
-        myDialog.setContentView(R.layout.phase4popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup3() {
-        Button button;
-        myDialog.setContentView(R.layout.phase3popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup2() {
-        Button button;
-        myDialog.setContentView(R.layout.phase2popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
-    public void showPopup1() {
-        Button button;
-        myDialog.setContentView(R.layout.phase1popup);
-
-        button = (Button) myDialog.findViewById(R.id.btnfollow);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-    }
+//    public void showPopup10() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase10popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup9() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase9popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup8() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase8popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup7() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase7popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup6() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase6popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup5() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase5popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup4() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase4popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup3() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase3popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public void showPopup2() {
+//        Button button;
+//        final EditText name,dress;
+//        myDialog.setContentView(R.layout.phase2popup);
+//        button = (Button) myDialog.findViewById(R.id.posave);
+//        name=(EditText) myDialog.findViewById(R.id.poname);
+//        dress=(EditText)myDialog.findViewById(R.id.poadress);
+//        final DatabaseReference mFirebaseDatabaseReference76 = FirebaseDatabase.getInstance().getReference();
+//        Query query76 = mFirebaseDatabaseReference76.child("Hostels").orderByChild("id").equalTo(hostel_id);
+//        final ValueEventListener eventListener76=new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for(DataSnapshot ds:dataSnapshot.getChildren()){
+//                    Hostel hostel=ds.getValue(Hostel.class);
+//                    name.setText(hostel.getName());
+//                    dress.setText(hostel.getAddres());
+//                }
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        };
+//        query76.addValueEventListener(eventListener76);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                nameHod=name.getText().toString();
+//                adres=dress.getText().toString();
+//                databaseReference.child("name").setValue(nameHod);
+//                databaseReference.child("addres").setValue(adres);
+//                Toast.makeText(InterfaceActivity.this,"Updated",Toast.LENGTH_SHORT).show();
+//                myDialog.dismiss();
+//                Toast.makeText(InterfaceActivity.this,"Updated 2",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        myDialog.show();
+//    }
+//    public Owner getowner(Owner ownerr,String id){
+//
+//        DatabaseReference mFirebaseDatabaseReference18 = FirebaseDatabase.getInstance().getReference();
+//        Query query18 = mFirebaseDatabaseReference18.child("Owners").orderByChild("id").equalTo(id);
+//
+//        final ValueEventListener eventListener18=new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for(DataSnapshot ds:dataSnapshot.getChildren()){
+//                    ownerr =ds.getValue(Owner.class);
+////                   String id=owner.getId();
+////                    String name=owner.getName();
+////                    String adress=owner.getAddress();
+////                    String mail=owner.getEmail();
+////                    String numbr1=owner.getNumber_1();
+////                    String numbr2=owner.getNumber_2();
+////                    String numbr3=owner.getNumber_3();
+////                    String passw=owner.getPassword();
+////                    String profes=owner.getProfessionn();
+////                    String url=owner.getUri();
+//                   // owner22=owner;
+//                    //owner22=new Owner(id,name,adress,numbr1,numbr2,numbr3,mail,passw,profes,url);
+//                  //ownerList.add(owner);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//        query18.addValueEventListener(eventListener18);
+//
+//        return ownerr;
+//    }
+//    public void showPopup1() {
+//        Button button;
+//        myDialog.setContentView(R.layout.phase1popup);
+//
+//        button = (Button) myDialog.findViewById(R.id.btnfollow);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                myDialog.dismiss();
+//            }
+//        });
+//        myDialog.show();
+//    }
 }
 

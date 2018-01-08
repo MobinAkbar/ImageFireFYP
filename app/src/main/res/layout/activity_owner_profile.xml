@@ -73,6 +73,20 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:drawableLeft="@drawable/sex"
+                android:drawablePadding="30dp"
+                android:text="Address"
+                android:layout_marginTop="25dp"
+                android:id="@+id/adresy"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
                 android:drawableLeft="@drawable/call"
                 android:drawablePadding="30dp"
                 android:textColor="@color/colorPrimary"

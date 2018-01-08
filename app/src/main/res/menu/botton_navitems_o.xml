@@ -11,21 +11,16 @@
         />
     <item
         android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:id="@+id/likes"
+        android:title="Profile"
+        android:icon="@drawable/profile" />
+    <item
+        android:enabled="true"
         android:id="@+id/menu_search"
         android:title="Notifications"
         android:icon="@drawable/notify"
         app:showAsAction="ifRoom"
         />
 
-    <item
-        android:enabled="true"
-        app:showAsAction="ifRoom"
-        android:id="@+id/likes"
-        android:title="Likes"
-        android:icon="@drawable/ic_menu_gallery" />
-
-    <!--<item-->
-        <!--android:id="@+id/profile"-->
-        <!--android:title="Profile"-->
-        <!--android:icon="@drawable/com_facebook_profile_picture_blank_portrait" />-->
 </menu>

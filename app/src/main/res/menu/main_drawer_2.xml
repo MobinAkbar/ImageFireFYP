@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/adres"
             android:title="Home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/profile"
             android:title="My Profile" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Requests" />
+            android:icon="@drawable/account"
+            android:title="Account Settings" />
+        <item
+            android:icon="@drawable/about"
+            android:title="About us" />
+        <item
+            android:icon="@drawable/stop"
+            android:title="Terms" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/help"
             android:title="Help" />
         <item
             android:id="@+id/nav_manage1"
             android:icon="@drawable/ic_menu_manage"
             android:title="Settings" />
-    </group>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:icon="@drawable/ic_menu_camera"
-            android:title="About us" />
         <item
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="Sign out" />
