@@ -762,12 +762,70 @@
                 android:layout_height="match_parent">
                 <Button
                     android:background="@color/colorAccent"
-                    android:id="@+id/next8000"
+                    android:id="@+id/request"
                     android:text="Reserve now"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
 </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="com.education.imagefire.MainActivity">
+
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
+                    android:text="Do you like this hostel?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginTop="35dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:textColor="@color/white"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:text="Reserve now"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/yess"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorAccent"
+                            android:text="Yes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <Button
+                            android:id="@+id/nots"
+                            android:layout_weight="1"
+                            android:background="@color/colorAccent"
+                            android:text="Not"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -14,12 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
@@ -36,13 +39,14 @@ public class StudentShowActivity extends AppCompatActivity {
 
     TextView name,address,total_rooms,total_beds,empty_rooms,empty_beds,r_monthlyPrize,b_monthlyPrize,r_SemestrPrize,b_semestrPrize,ow_name,oemail,onumbr1,onumbr2,onumbr3,property;
     ImageView mapping,owner_image;
-    Button button;
+    Button button,B1,B2;
     ViewPager viewPager;
     LinearLayout linearLayout;
     private int dot_count;
     private ImageView[] dotss;
 
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
    // private HostelInfo hostelInfo;
@@ -65,7 +69,12 @@ public class StudentShowActivity extends AppCompatActivity {
     static final ArrayList<String> images1122=new ArrayList<>();
     Pager pager;
     private ArrayList<String> arrayList;
-
+    private StorageReference storageReference;
+    public static final String FB_DATABASE_PATH="Hostel_Like";
+    public static final String FB_DATABASE_PATH1="Student_Like";
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener listener;
+    private String UserId;
 
     String a1,a2,a3,a4,a5,a6;
 
@@ -81,6 +90,14 @@ public class StudentShowActivity extends AppCompatActivity {
         String hostluri=getIntent().getStringExtra("Hosteluri");
         univrsty=getIntent().getStringExtra("uni_name");
         Toast.makeText(StudentShowActivity.this,"Value is"+univrsty,Toast.LENGTH_SHORT).show();
+
+        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference();
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        UserId=user.getUid();
+
+
 
         arrayList=new ArrayList<>();
         viewPager=(ViewPager)findViewById(R.id.viewpage);
@@ -103,7 +120,13 @@ public class StudentShowActivity extends AppCompatActivity {
         onumbr3=(TextView)findViewById(R.id.onumb3_z);
         owner_image=(ImageView)findViewById(R.id.owner_image_z);
         property=(TextView)findViewById(R.id.property_z);
-        button=(Button)findViewById(R.id.next8000);
+        button=(Button)findViewById(R.id.request);
+        B1=(Button)findViewById(R.id.yess);
+        B2=(Button)findViewById(R.id.nots);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(hostlid);
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH1).child(UserId);
+
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         Query query1 = mFirebaseDatabaseReference.child("AllHostelImages").orderByChild("ids").equalTo(hostlid);
@@ -343,6 +366,33 @@ public class StudentShowActivity extends AppCompatActivity {
                 Toast.makeText(StudentShowActivity.this,"I have something"+logitude_s,Toast.LENGTH_SHORT).show();
                 Toast.makeText(StudentShowActivity.this,"I have something"+lati_0,Toast.LENGTH_SHORT).show();
                 Toast.makeText(StudentShowActivity.this,"I have something"+longi_0,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        B1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String H_id=hostlid;
+                String S_id=UserId;
+                String type="liked";
+
+                 Like like=new Like(S_id,type);
+                 Like like1=new Like(H_id,type);
+                 databaseReference.child(S_id).setValue(like);
+                 databaseReference1.child(H_id).setValue(like1);
+            }
+        });
+        B2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String H_id=hostlid;
+                String S_id=UserId;
+                String type="Disliked";
+
+                Like like=new Like(S_id,type);
+                Like like1=new Like(H_id,type);
+                databaseReference.child(S_id).setValue(like);
+                databaseReference1.child(H_id).setValue(like1);
             }
         });
 

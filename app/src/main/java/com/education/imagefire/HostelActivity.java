@@ -55,6 +55,10 @@ public class HostelActivity extends AppCompatActivity {
     String gender;
     private String key;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

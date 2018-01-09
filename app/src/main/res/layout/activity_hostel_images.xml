@@ -31,6 +31,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <Button
+                    android:id="@+id/print"
+                    android:background="@color/colorAccent"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Uri_Images"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
             <LinearLayout

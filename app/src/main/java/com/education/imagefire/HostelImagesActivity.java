@@ -6,16 +6,20 @@ import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,14 +50,19 @@ public class HostelImagesActivity extends AppCompatActivity {
     public static final String FB_STOARGE_PATH="AllHostelImages/";
     public static final String FB_DATABASE_PATH="AllHostelImages";
     ArrayList<Uri> myOwn=new ArrayList<Uri>();
-    static final ArrayList<String > array=new ArrayList<>();
+    ArrayList<String > array=new ArrayList<String>();
     ArrayList<String> myOwn2=new ArrayList<String>();
+    ArrayList<String> myOwn3=new ArrayList<String>();
     String key;
+    private String ones,twos,threes,fours,fives,sixes;
+    private String Aones,Atwos,Athrees,Afours,Afives,Asixes;
     int PICK_IMAGE_MULTIPLE = 1;
+    private int ip;
     String imageEncoded;
     List<String> imagesEncodedList;
     String id;
-
+    private Handler mHandler = new Handler();
+    Button b109;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +72,7 @@ public class HostelImagesActivity extends AppCompatActivity {
             chose=(Button)findViewById(R.id.choose7);
             next=(Button)findViewById(R.id.next7);
             clear=(Button)findViewById(R.id.clear7);
+            b109=(Button)findViewById(R.id.print);
         image1=(ImageView)findViewById(R.id.image_h1);
         image2=(ImageView)findViewById(R.id.image_h2);
         image3=(ImageView)findViewById(R.id.image_h3);
@@ -76,29 +86,56 @@ public class HostelImagesActivity extends AppCompatActivity {
         //storeReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(id);
 
+        b109.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                Toast.makeText(HostelImagesActivity.this,"myown first 1"+myOwn2.get(0),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 2"+myOwn2.get(1),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 3"+myOwn2.get(2),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 4"+myOwn2.get(3),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 5"+myOwn2.get(4),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"myown last 6"+myOwn2.get(5),Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(HostelImagesActivity.this,"Delayed 11"+Aones,Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostelImagesActivity.this,"Delayed 22"+Atwos,Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostelImagesActivity.this,"Delayed 33"+Athrees,Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostelImagesActivity.this,"Delayed 44"+Afours,Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostelImagesActivity.this,"Delayed 55"+Afives,Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostelImagesActivity.this,"Delayed 66"+Asixes,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String id=key;
-                HostelImages hostelImages=new HostelImages(id,array.get(0),array.get(1),array.get(2),array.get(3),array.get(4),array.get(5));
+                Aones=array.get(0);
+                Atwos=array.get(1);
+                Athrees=array.get(2);
+                Afours=array.get(3);
+                Afives=array.get(4);
+                Asixes=array.get(5);
+
+                HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                 databaseReference.setValue(hostelImages);
                 Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
                 startActivity(in);
-//                for(int i=0;i<=array.size();i++){
-//                    Toast.makeText(HostelImagesActivity.this,"I have "+array.get(i),Toast.LENGTH_SHORT).show();
-//                }
             }
         });
     }
 
     public void upload(View v) {
         storeReference = FirebaseStorage.getInstance().getReference();
+        final ProgressDialog progress=new ProgressDialog(this);
+        progress.setTitle("uploading.....");
+        progress.show();
+
         for(int ip=0;ip<myOwn.size();ip++) {
              filepath1=myOwn.get(ip);
             if (filepath1 != null) {
-                final ProgressDialog progress = new ProgressDialog(this);
-               // progress.setTitle("uploading.....");
-                //progress.show();
                 Toast.makeText(HostelImagesActivity.this,"I have"+ip,Toast.LENGTH_SHORT).show();
                 StorageReference ref = storeReference.child(FB_STOARGE_PATH + System.currentTimeMillis() + getImageExt(filepath1));
                 ref.putFile(filepath1).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -106,13 +143,17 @@ public class HostelImagesActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progress.dismiss();
-                        String final_uri=taskSnapshot.getDownloadUrl().toString();
+                        Uri final_uri=taskSnapshot.getDownloadUrl();
+                        String link=final_uri.toString();
+                        Toast toast = new Toast(HostelImagesActivity.this);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        TextView textView=new TextView(HostelImagesActivity.this);
+                        textView.setText("Chechking images completion");
+                        textView.setBackgroundColor(Color.DKGRAY);
+                        toast.setView(textView);
+                        toast.show();
 
-                        array.add(final_uri);
-                        //HostelImages hostelImages=new HostelImages(final_uri);
-                        //databaseReference.setValue(hostelImages);
-
-
+                        array.add(link);
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -134,11 +175,7 @@ public class HostelImagesActivity extends AppCompatActivity {
                 Toast.makeText(HostelImagesActivity.this, "please select image", Toast.LENGTH_LONG).show();
             }
         }
-
-
     }
-
-
     public void chooose(View view) {
         Intent intent=new Intent();
         intent.setType("Image/*");
@@ -169,13 +206,13 @@ public class HostelImagesActivity extends AppCompatActivity {
                     ClipData mClipData = data.getClipData();
                     ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
                     for (int i = 0; i < mClipData.getItemCount(); i++) {
-                        //Toast.makeText(HostelImagesActivity.this,"please 2 and in ",Toast.LENGTH_LONG).show();
                         ClipData.Item item = mClipData.getItemAt(i);
                         Uri uri = item.getUri();
                         String urii = uri.toString();
-                        //Toast.makeText(HostelImagesActivity.this,"please 3 and "+urii,Toast.LENGTH_LONG).show();
 
-                    mArrayUri.add(uri);
+                        myOwn2.add(urii);
+                        mArrayUri.add(uri);
+
                         switch (i) {
 
                             case 0:
@@ -246,9 +283,9 @@ public class HostelImagesActivity extends AppCompatActivity {
                         }
 
                     }
+                    myOwn3=myOwn2;
                     myOwn=mArrayUri;
                    // Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
-
                 }
                 }
             }

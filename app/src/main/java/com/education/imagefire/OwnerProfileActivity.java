@@ -52,7 +52,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener listener;
     String UserId,names,prof,numr1,numbr2,numbr3,addresss;
     Owner users;
-    public static final String FB_STOARGE_PATH="Hostels/";
+    public static final String FB_STOARGE_PATH="Owners/";
     private String urll;
 
     @Override
@@ -121,21 +121,6 @@ public class OwnerProfileActivity extends AppCompatActivity {
         databaseReference.child("number_2").setValue(numbr2);
         databaseReference.child("number_3").setValue(numbr3);
         databaseReference.child("professionn").setValue(prof);
-
-//        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
-//        StorageReference photoRef = firebaseStorage.getReferenceFromUrl(urll);
-//
-//        photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-//            @Override
-//            public void onSuccess(Void aVoid) {
-//                Toast.makeText(OwnerProfileActivity.this,"Deleted Succesfully",Toast.LENGTH_LONG).show();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception exception) {
-//                Toast.makeText(OwnerProfileActivity.this,"Deletion failed",Toast.LENGTH_LONG).show();
-//            }
-//        });
 
         if(filepath!=null){
             FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
