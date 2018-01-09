@@ -30,11 +30,6 @@ import static com.education.imagefire.R.id.recyclerView;
 
 public class CarActivity extends AppCompatActivity {
 
-//    private DatabaseReference databaseReference;
-//    private RecyclerView recyclerView;
-//    //private FirebaseRecyclerAdapter<ImageUpload> adapter;
-//
-//
 //DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     private DatabaseReference databaseReference;
    // private List<ImageUpload> imglist;
