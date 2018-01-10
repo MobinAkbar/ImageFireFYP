@@ -2,9 +2,14 @@ package com.education.imagefire;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -20,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -29,6 +35,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,30 +45,39 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.w3c.dom.Text;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InterfaceActivity extends AppCompatActivity {
 
     TextView     name,adress,e_room,e_bed,t_room,t_bed,m_r_price,m_b_price,s_r_price,s_b_price,
-                 p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,prop;
+                 p1,p2,p3,p4,p5,p6,prop;
     CheckBox f1,f2,f3,f4,f5,f6,f7,f8,f9,f10;
     ImageView i1,i2,i3,i4,i5,i6,img;
     ImageButton img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13;
     private String namep,adresp,rom1p,rom2p,rom3p,rom4p,rom5p,rom6p,rom7p,rom8p;
-
+    private Uri filepath;
+    public static final int REQUEST_CODE=1234;
+    private ImageView imageView;
+    public static final String FB_STOARGE_PATH="Hostels/";
     Dialog myDialog;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseReference1,databaseReference2,databaseReference3,databaseReference4,databaseReference5;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
     private String UserId;
     private Rooms rooms;
     private List<Owner> ownerList;
-    private Facilities facilities;
+    private Facilities facilities,facilities2;
     private PropertyInfo property;
     private HostelImages hostelImages;
     Toolbar toolbar;
@@ -70,10 +87,12 @@ public class InterfaceActivity extends AppCompatActivity {
     TextView t1,t2;
     ImageView im1;
     Owner users;
-    private String hostel_id;
+    private String hostel_id,hostel_name,hostel_url,hostel_adres;
     private String nameHod;
     private String adres;
+    private String var1,var2,var3,var4,var5,var6,var7,var8,var9,var10;
     Owner owner22;
+    private StorageReference storageReference;
 
 
 
@@ -118,13 +137,19 @@ public class InterfaceActivity extends AppCompatActivity {
         UserId=user.getUid();
         Toast.makeText(InterfaceActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
-        hostel_id=getIntent().getStringExtra("Hostelid");
         databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
-        String hostel_name=getIntent().getStringExtra("Hostelname");
-        String hostel_url=getIntent().getStringExtra("Hostelimage");
+        databaseReference1=FirebaseDatabase.getInstance().getReference("Rooms").child(hostel_id);
+        databaseReference2=FirebaseDatabase.getInstance().getReference("Hoste_Property_Info").child(hostel_id);
+        databaseReference3=FirebaseDatabase.getInstance().getReference("Facilities").child(hostel_id);
+        databaseReference4=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
+        databaseReference5=FirebaseDatabase.getInstance().getReference("AllHostelImages").child(hostel_id);
+
+        hostel_id=getIntent().getStringExtra("Hostelid");
+        hostel_name=getIntent().getStringExtra("Hostelname");
+        hostel_url=getIntent().getStringExtra("Hostelimage");
         String hostel_type=getIntent().getStringExtra("Hosteltype");
         String hostel_likes=getIntent().getStringExtra("Hostellikes");
-        String hostel_adres=getIntent().getStringExtra("Hosteladdress");
+        hostel_adres=getIntent().getStringExtra("Hosteladdress");
 
         //Toast.makeText(InterfaceActivity.this,"Valu is"+hostel_url,Toast.LENGTH_SHORT).show();
 
@@ -152,8 +177,6 @@ public class InterfaceActivity extends AppCompatActivity {
         p1=(TextView)findViewById(R.id.pl1);p2=(TextView)findViewById(R.id.pl2);
         p3=(TextView)findViewById(R.id.pl3);p4=(TextView)findViewById(R.id.pl4);
         p5=(TextView)findViewById(R.id.pl5);p6=(TextView)findViewById(R.id.pl6);
-        p7=(TextView)findViewById(R.id.pl7);p8=(TextView)findViewById(R.id.pl8);
-        p9=(TextView)findViewById(R.id.pl9); p10=(TextView)findViewById(R.id.pl10);
 
         DatabaseReference mFirebaseDatabaseReference18 = FirebaseDatabase.getInstance().getReference();
         Query query18 = mFirebaseDatabaseReference18.child("Owners").orderByChild("id").equalTo(UserId);
@@ -220,31 +243,31 @@ public class InterfaceActivity extends AppCompatActivity {
                          f1.setChecked(true);
                     }
                     if (facilities.getGenereter().equals("Yes")) {
-                        f1.setChecked(true);
+                        f2.setChecked(true);
                     }
                     if (facilities.getBreakfast().equals("Yes")) {
-                        f1.setChecked(true);
+                        f3.setChecked(true);
                     }
-//                    if (facilities.getCamera().equals("Yes")) {
-//                        f1.setChecked(true);
-//                    }
+                    if (facilities.getCamera().equals("Yes")) {
+                        f4.setChecked(true);
+                    }
                     if (facilities.getElectrition().equals("Yes")) {
-                        f1.setChecked(true);
+                        f5.setChecked(true);
                     }
                     if (facilities.getGuesthouse().equals("Yes")) {
-                        f1.setChecked(true);
+                        f6.setChecked(true);
                     }
                     if (facilities.getShop().equals("Yes")) {
-                        f1.setChecked(true);
+                        f7.setChecked(true);
                     }
                     if (facilities.getParking().equals("Yes")) {
-                        f1.setChecked(true);
+                        f8.setChecked(true);
                     }
                     if (facilities.getWasherman().equals("Yes")) {
-                        f1.setChecked(true);
+                        f9.setChecked(true);
                     }
                     if (facilities.getKitchen().equals("Yes")) {
-                        f1.setChecked(true);
+                        f10.setChecked(true);
                     }
                 }
             }
@@ -270,10 +293,6 @@ public class InterfaceActivity extends AppCompatActivity {
                     p4.setText(property.getNearby_place4());
                     p5.setText(property.getNearby_place5());
                     p6.setText(property.getNearby_place6());
-                    p7.setText(property.getNearby_place7());
-                    p8.setText(property.getNearby_place8());
-                    p9.setText(property.getNearby_place9());
-                    p10.setText(property.getNearby_place10());
                     prop.setText(property.getProperty());
 
                 }
@@ -322,7 +341,7 @@ public class InterfaceActivity extends AppCompatActivity {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        showPopup10();
+                        showPopup1();
                         return true;
                     }
                 });
@@ -348,14 +367,32 @@ public class InterfaceActivity extends AppCompatActivity {
         });
     }
 
-    public void showPopup10() {
-        Button button;
-        myDialog.setContentView(R.layout.phase10popup);
+    public void showPopup1() {
+        Button button,button1,button2;
+        //final ImageView imageView;
+        myDialog.setContentView(R.layout.phase1popup);
 
-        button = (Button) myDialog.findViewById(R.id.blow);
+        imageView=(ImageView)findViewById(R.id.hostel_image);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button1 = (Button) myDialog.findViewById(R.id.blowB);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        PicassoClient.downloadImage(InterfaceActivity.this,hostel_url,imageView);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setImageResource(0);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(InterfaceActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
+               uploads(hostel_url,FB_STOARGE_PATH,"uri",databaseReference4);
                 myDialog.dismiss();
             }
         });
@@ -386,160 +423,314 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
-//    public void showPopup9() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase9popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup8() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase8popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup7() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase7popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup6() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase6popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup5() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase5popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup4() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase4popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup2() {
-//        Button button;
-//        final EditText name,dress;
-//        myDialog.setContentView(R.layout.phase2popup);
-//        button = (Button) myDialog.findViewById(R.id.posave);
-//        name=(EditText) myDialog.findViewById(R.id.poname);
-//        dress=(EditText)myDialog.findViewById(R.id.poadress);
-//        final DatabaseReference mFirebaseDatabaseReference76 = FirebaseDatabase.getInstance().getReference();
-//        Query query76 = mFirebaseDatabaseReference76.child("Hostels").orderByChild("id").equalTo(hostel_id);
-//        final ValueEventListener eventListener76=new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for(DataSnapshot ds:dataSnapshot.getChildren()){
-//                    Hostel hostel=ds.getValue(Hostel.class);
-//                    name.setText(hostel.getName());
-//                    dress.setText(hostel.getAddres());
-//                }
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        };
-//        query76.addValueEventListener(eventListener76);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                nameHod=name.getText().toString();
-//                adres=dress.getText().toString();
-//                databaseReference.child("name").setValue(nameHod);
-//                databaseReference.child("addres").setValue(adres);
-//                Toast.makeText(InterfaceActivity.this,"Updated",Toast.LENGTH_SHORT).show();
-//                myDialog.dismiss();
-//                Toast.makeText(InterfaceActivity.this,"Updated 2",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public Owner getowner(Owner ownerr,String id){
-//
-//        DatabaseReference mFirebaseDatabaseReference18 = FirebaseDatabase.getInstance().getReference();
-//        Query query18 = mFirebaseDatabaseReference18.child("Owners").orderByChild("id").equalTo(id);
-//
-//        final ValueEventListener eventListener18=new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for(DataSnapshot ds:dataSnapshot.getChildren()){
-//                    ownerr =ds.getValue(Owner.class);
-////                   String id=owner.getId();
-////                    String name=owner.getName();
-////                    String adress=owner.getAddress();
-////                    String mail=owner.getEmail();
-////                    String numbr1=owner.getNumber_1();
-////                    String numbr2=owner.getNumber_2();
-////                    String numbr3=owner.getNumber_3();
-////                    String passw=owner.getPassword();
-////                    String profes=owner.getProfessionn();
-////                    String url=owner.getUri();
-//                   // owner22=owner;
-//                    //owner22=new Owner(id,name,adress,numbr1,numbr2,numbr3,mail,passw,profes,url);
-//                  //ownerList.add(owner);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        };
-//        query18.addValueEventListener(eventListener18);
-//
-//        return ownerr;
-//    }
-//    public void showPopup1() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase1popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
+
+    public void showPopup3() {
+        Button button;
+        EditText t11,t22,t33,t44;
+        myDialog.setContentView(R.layout.phase3popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow1);
+        t11=(EditText) myDialog.findViewById(R.id.tRooms);
+        t22=(EditText) myDialog.findViewById(R.id.tbeds);
+        t33=(EditText) myDialog.findViewById(R.id.erooms);
+        t44=(EditText) myDialog.findViewById(R.id.ebeds);
+        t11.setText(t_room.getText().toString());
+        t22.setText(t_bed.getText().toString());
+        t33.setText(e_room.getText().toString());
+        t44.setText(e_bed.getText().toString());
+        var1=t11.getText().toString();
+        var2=t22.getText().toString();
+        var3=t33.getText().toString();
+        var4=t44.getText().toString();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference1.child("total_rooms").setValue(var1);
+                databaseReference1.child("total_beds").setValue(var2);
+                databaseReference1.child("empty_rooms").setValue(var3);
+                databaseReference1.child("empty_beds").setValue(var4);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void showPopup4() {
+        Button button;
+        EditText t11,t22,t33,t44;
+        myDialog.setContentView(R.layout.phase4popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow2);
+        t11=(EditText) myDialog.findViewById(R.id.pmr);
+        t22=(EditText) myDialog.findViewById(R.id.pmb);
+        t33=(EditText) myDialog.findViewById(R.id.psr);
+        t44=(EditText) myDialog.findViewById(R.id.psb);
+        t11.setText(m_r_price.getText().toString());
+        t22.setText(m_b_price.getText().toString());
+        t33.setText(s_r_price.getText().toString());
+        t44.setText(s_b_price.getText().toString());
+        var1=t11.getText().toString();
+        var2=t22.getText().toString();
+        var3=t33.getText().toString();
+        var4=t44.getText().toString();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference1.child("r_monthprize").setValue(var1);
+                databaseReference1.child("b_monthprize").setValue(var2);
+                databaseReference1.child("r_sixmonth").setValue(var3);
+                databaseReference1.child("b_sixmonth").setValue(var4);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void showPopup7() {
+        Button button;
+        EditText t11;
+        myDialog.setContentView(R.layout.phase7popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow3);
+        t11=(EditText) myDialog.findViewById(R.id.prop1);
+        t11.setText(prop.getText().toString());
+        var1=t11.getText().toString();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference2.child("property").setValue(var1);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void showPopup6() {
+        Button button;
+        EditText t11,t22,t33,t44,t55,t66;
+        myDialog.setContentView(R.layout.phase6popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow4);
+        t11=(EditText) myDialog.findViewById(R.id.pla1);
+        t22=(EditText) myDialog.findViewById(R.id.pla2);
+        t33=(EditText) myDialog.findViewById(R.id.pla3);
+        t44=(EditText) myDialog.findViewById(R.id.pla4);
+        t55=(EditText) myDialog.findViewById(R.id.pla5);
+        t66=(EditText) myDialog.findViewById(R.id.pla6);
+
+        t11.setText(p1.getText().toString());
+        t22.setText(p2.getText().toString());
+        t33.setText(p3.getText().toString());
+        t44.setText(p4.getText().toString());
+        t55.setText(p5.getText().toString());
+        t66.setText(p6.getText().toString());
+
+        var1=t11.getText().toString();
+        var2=t22.getText().toString();
+        var3=t33.getText().toString();
+        var4=t44.getText().toString();
+        var5=t55.getText().toString();
+        var6=t66.getText().toString();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference2.child("nearby_place1").setValue(var1);
+                databaseReference2.child("nearby_place2").setValue(var2);
+                databaseReference2.child("nearby_place3").setValue(var3);
+                databaseReference2.child("nearby_place4").setValue(var4);
+                databaseReference2.child("nearby_place5").setValue(var5);
+                databaseReference2.child("nearby_place6").setValue(var6);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void showPopup5() {
+        Button button;
+        CheckBox t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+        myDialog.setContentView(R.layout.phase5popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow5);
+        t1=(CheckBox) myDialog.findViewById(R.id.fac1);
+        t2=(CheckBox) myDialog.findViewById(R.id.fac2);
+        t3=(CheckBox) myDialog.findViewById(R.id.fac3);
+        t4=(CheckBox) myDialog.findViewById(R.id.fac4);
+        t5=(CheckBox) myDialog.findViewById(R.id.fac5);
+        t6=(CheckBox) myDialog.findViewById(R.id.fac6);
+        t7=(CheckBox) myDialog.findViewById(R.id.fac7);
+        t8=(CheckBox) myDialog.findViewById(R.id.fac8);
+        t9=(CheckBox) myDialog.findViewById(R.id.fac9);
+        t10=(CheckBox) myDialog.findViewById(R.id.fac10);
+        String c1,c2,c3,c4,c5,c6,c7,c8,c9,c10;
+        String id=hostel_id;
+        if(t1.isChecked()) {
+            c1 = "Yes";
+        }else{
+            c1="No";
+        }
+
+
+        if(t2.isChecked()) {
+            c2 = "Yes";
+        }else{
+            c2="No";
+        }
+
+        if(t3.isChecked()) {
+            c3 = "Yes";;
+        }
+        else{
+            c3="No";
+        }
+
+        if(t4.isChecked()) {
+            c4 = "Yes";;
+        }else{
+            c4="No";
+        }
+
+        if(t5.isChecked()) {
+            c5 = "Yes";;
+        }else{
+            c5="No";
+        }
+
+
+        if(t6.isChecked()) {
+            c6 = "Yes";;
+        }else{
+            c6="No";
+        }
+
+        if(t7.isChecked()) {
+            c7 = "Yes";;
+        }else{
+            c7="No";
+        }
+
+        if(t8.isChecked()) {
+            c8 = "Yes";;
+        }else{
+            c8="No";
+        }
+
+        if(t9.isChecked()) {
+            c9 = "Yes";;
+        }else{
+            c9="No";
+        }
+
+        if(t10.isChecked()) {
+            c10 = "Yes";
+        }else{
+            c10="No";
+        }
+
+        facilities2=new Facilities(id,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference3.setValue(facilities2);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void uploads(String url,final String path, final String attribute, final DatabaseReference databaseReferenceCu) {
+
+        if(filepath!=null){
+            FirebaseStorage firebaseStorage=FirebaseStorage.getInstance().getReference().getStorage();
+            StorageReference photoRef = firebaseStorage.getReferenceFromUrl(url);
+
+            photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(InterfaceActivity.this,"Deleted Succesfully",Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Toast.makeText(InterfaceActivity.this,"Deletion failed",Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+            storageReference = FirebaseStorage.getInstance().getReference();
+            final ProgressDialog progress=new ProgressDialog(this);
+            progress.setTitle("uploading.....");
+            progress.show();
+
+            StorageReference ref=storageReference.child(path + System.currentTimeMillis()+ getImageExt(filepath));
+            ref.putFile(filepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @SuppressWarnings("VisibleForTests")
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    progress.dismiss();
+
+                    databaseReferenceCu.child(attribute).setValue(taskSnapshot.getDownloadUrl().toString());
+
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progress.dismiss();
+                    Toast.makeText(InterfaceActivity.this,"Failed",Toast.LENGTH_LONG).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                @SuppressWarnings("VisibleForTests")
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                    progress.setMessage("uploaded"+(int)pro+"%");
+                }
+            });
+        }else{
+            Toast.makeText(InterfaceActivity.this,"Succesfully complete",Toast.LENGTH_LONG).show();
+        }
+    }
+    public void chosen() {
+        Intent intent=new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select image"),REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                imageView.setImageBitmap(bitmap);
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    public String getImageExt(Uri uri){
+        ContentResolver contentResolver=getContentResolver();
+        MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
+        return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
 }
 

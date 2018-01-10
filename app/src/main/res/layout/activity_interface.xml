@@ -451,7 +451,7 @@
 
                         <android.support.v7.widget.AppCompatCheckBox
                             android:text="Breakfast"
-                            android:id="@+id/fa2"
+                            android:id="@+id/fa3"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -465,7 +465,7 @@
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
                             android:text="Generator"
-                            android:id="@+id/fa3"
+                            android:id="@+id/fa2"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -644,48 +644,6 @@
 
                         <TextView
                             android:id="@+id/pl6"
-                            android:text="Free Wifi"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/pl7"
-                            android:text="Free Wifi"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/pl8"
-                            android:text="Free Wifi"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/pl9"
-                            android:text="Free Wifi"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/pl10"
                             android:text="Free Wifi"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"

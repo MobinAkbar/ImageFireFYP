@@ -15,16 +15,12 @@ public class PropertyInfo implements Serializable {
     private String nearby_place4;
     private String nearby_place5;
     private String nearby_place6;
-    private String nearby_place7;
-    private String nearby_place8;
-    private String nearby_place9;
-    private String nearby_place10;
 
 
     public PropertyInfo() {
     }
 
-    public PropertyInfo(String id, String property, String nearby_place1, String nearby_place2, String nearby_place3, String nearby_place4, String nearby_place5, String nearby_place6, String nearby_place7, String nearby_place8, String nearby_place9, String nearby_place10) {
+    public PropertyInfo(String id, String property, String nearby_place1, String nearby_place2, String nearby_place3, String nearby_place4, String nearby_place5, String nearby_place6) {
         this.id = id;
         this.property = property;
         this.nearby_place1 = nearby_place1;
@@ -33,10 +29,6 @@ public class PropertyInfo implements Serializable {
         this.nearby_place4 = nearby_place4;
         this.nearby_place5 = nearby_place5;
         this.nearby_place6 = nearby_place6;
-        this.nearby_place7 = nearby_place7;
-        this.nearby_place8 = nearby_place8;
-        this.nearby_place9 = nearby_place9;
-        this.nearby_place10 = nearby_place10;
     }
 
     public String getId() {
@@ -69,21 +61,5 @@ public class PropertyInfo implements Serializable {
 
     public String getNearby_place6() {
         return nearby_place6;
-    }
-
-    public String getNearby_place7() {
-        return nearby_place7;
-    }
-
-    public String getNearby_place8() {
-        return nearby_place8;
-    }
-
-    public String getNearby_place9() {
-        return nearby_place9;
-    }
-
-    public String getNearby_place10() {
-        return nearby_place10;
     }
 }

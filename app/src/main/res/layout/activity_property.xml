@@ -120,46 +120,7 @@
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/near_7"
-                    android:maxLines="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Shopping Mall"
-                    android:background="@drawable/editdesign"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/near_8"
-                    android:maxLines="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Grocery Shop"
-                    android:background="@drawable/editdesign"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/near_9"
-                    android:maxLines="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Book Shop"
-                    android:background="@drawable/editdesign"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/near_10"
-                    android:maxLines="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Add Nearby Police Station"
-                    android:background="@drawable/editdesign"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+
                 <Button
                     android:id="@+id/upload4"
                     android:layout_marginTop="15dp"

@@ -88,7 +88,7 @@
 
                 <EditText
                     android:layout_weight="1"
-                    android:id="@+id/rooms"
+                    android:id="@+id/tRooms"
                     android:text="amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -111,6 +111,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/tbeds"
                     android:layout_weight="1"
                     android:text="amount"
                     android:layout_width="wrap_content"
@@ -133,6 +134,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/erooms"
                     android:layout_weight="1"
                     android:text="amount"
                     android:layout_width="wrap_content"
@@ -155,15 +157,15 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/ebeds"
                     android:layout_weight="1"
                     android:text="amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-
             <Button
-                android:id="@+id/blow"
+                android:id="@+id/blow1"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"

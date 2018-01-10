@@ -24,10 +24,6 @@ public class PropertyActivity extends AppCompatActivity {
     private EditText nearby4;
     private EditText nearby5;
     private EditText nearby6;
-    private EditText nearby7;
-    private EditText nearby8;
-    private EditText nearby9;
-    private EditText nearby10;
     Button upload,next;
     DatabaseReference databaseReference;
     String key;
@@ -44,10 +40,6 @@ public class PropertyActivity extends AppCompatActivity {
         nearby4=(EditText)findViewById(R.id.near_4);
         nearby5=(EditText)findViewById(R.id.near_5);
         nearby6=(EditText)findViewById(R.id.near_6);
-        nearby7=(EditText)findViewById(R.id.near_7);
-        nearby8=(EditText)findViewById(R.id.near_8);
-        nearby9=(EditText)findViewById(R.id.near_9);
-        nearby10=(EditText)findViewById(R.id.near_10);
 
         upload=(Button)findViewById(R.id.upload4);
         next=(Button)findViewById(R.id.next4);
@@ -80,12 +72,8 @@ public class PropertyActivity extends AppCompatActivity {
         String places_4=nearby4.getText().toString();
         String places_5=nearby5.getText().toString();
         String places_6=nearby6.getText().toString();
-        String places_7=nearby7.getText().toString();
-        String places_8=nearby8.getText().toString();
-        String places_9=nearby9.getText().toString();
-        String places_10=nearby10.getText().toString();
 
-            PropertyInfo infor=new PropertyInfo(key,surroundings,places_1,places_2,places_3,places_4,places_5,places_6,places_7,places_8,places_9,places_10);
+            PropertyInfo infor=new PropertyInfo(key,surroundings,places_1,places_2,places_3,places_4,places_5,places_6);
             databaseReference.setValue(infor);
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();

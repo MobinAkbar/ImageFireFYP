@@ -75,13 +75,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla1"
+                    android:text="Place 1"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla2"
+                    android:text="Place 2"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -94,33 +96,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla3"
+                    android:text="Place 3"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:text="Free Wifi"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:text="Free Wifi"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla4"
+                    android:text="Place 4"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -134,13 +118,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla5"
+                    android:text="Place 5"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla6"
+                    android:text="Place 6"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -154,13 +140,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla7"
+                    android:text="Place 7"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:text="Free Wifi"
+                    android:id="@+id/pla8"
+                    android:text="Place 8"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/pla9"
+                    android:text="Place 9"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/pla10"
+                    android:text="Place 10"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -169,7 +179,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/blow"
+                android:id="@+id/blow4"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"

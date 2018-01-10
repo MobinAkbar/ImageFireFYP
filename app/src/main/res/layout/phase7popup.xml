@@ -67,7 +67,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
-                android:text="Name and Address"
+                android:text="Hostel Property Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/prop1"
                     android:maxLines="4"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
@@ -92,7 +93,7 @@
 
 
             <Button
-                android:id="@+id/blow"
+                android:id="@+id/blow3"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"

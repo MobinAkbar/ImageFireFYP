@@ -88,6 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/blowB"
                         android:layout_marginTop="15dp"
                         android:textColor="#fff"
                         android:background="@drawable/abuttonstyle"
@@ -97,6 +98,7 @@
                         android:text="Remove"/>
 
                     <Button
+                        android:id="@+id/blowC"
                         android:layout_marginTop="10dp"
                         android:textColor="#fff"
                         android:background="@drawable/abuttonstyle"
@@ -123,7 +125,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/blow"
+                android:id="@+id/blowA"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
