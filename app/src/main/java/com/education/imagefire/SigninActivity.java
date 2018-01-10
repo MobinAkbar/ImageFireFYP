@@ -61,7 +61,6 @@ public class SigninActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
-
         databaseReference=FirebaseDatabase.getInstance().getReference();
 
 //        btnSignup.setOnClickListener(new View.OnClickListener() {

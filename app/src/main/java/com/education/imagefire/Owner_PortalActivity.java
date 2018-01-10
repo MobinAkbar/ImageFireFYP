@@ -127,6 +127,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
         UserId=user.getUid();
         Toast.makeText(Owner_PortalActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
+
         listener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {

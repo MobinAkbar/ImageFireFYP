@@ -1,7 +1,9 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -10,15 +12,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Property;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -44,6 +49,9 @@ public class InterfaceActivity extends AppCompatActivity {
                  p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,prop;
     CheckBox f1,f2,f3,f4,f5,f6,f7,f8,f9,f10;
     ImageView i1,i2,i3,i4,i5,i6,img;
+    ImageButton img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13;
+    private String namep,adresp,rom1p,rom2p,rom3p,rom4p,rom5p,rom6p,rom7p,rom8p;
+
     Dialog myDialog;
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
@@ -87,6 +95,20 @@ public class InterfaceActivity extends AppCompatActivity {
         t1=(TextView) navi.findViewById(R.id.headtext);
         t2=(TextView)navi.findViewById(R.id.textView89);
         im1=(ImageView)navi.findViewById(R.id.profile_image);
+
+        img1=(ImageButton)findViewById(R.id.edit1);
+        img2=(ImageButton)findViewById(R.id.edit2);
+        img3=(ImageButton)findViewById(R.id.edit3);
+        img4=(ImageButton)findViewById(R.id.image4);
+        img5=(ImageButton)findViewById(R.id.image5);
+        img6=(ImageButton)findViewById(R.id.image6);
+        img7=(ImageButton)findViewById(R.id.image7);
+        img8=(ImageButton)findViewById(R.id.image11);
+        img9=(ImageButton)findViewById(R.id.image12);
+        img10=(ImageButton)findViewById(R.id.image13);
+        img11=(ImageButton)findViewById(R.id.image14);
+        img12=(ImageButton)findViewById(R.id.image15);
+        img13=(ImageButton)findViewById(R.id.image16);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -203,9 +225,9 @@ public class InterfaceActivity extends AppCompatActivity {
                     if (facilities.getBreakfast().equals("Yes")) {
                         f1.setChecked(true);
                     }
-                    if (facilities.getCamera().equals("Yes")) {
-                        f1.setChecked(true);
-                    }
+//                    if (facilities.getCamera().equals("Yes")) {
+//                        f1.setChecked(true);
+//                    }
                     if (facilities.getElectrition().equals("Yes")) {
                         f1.setChecked(true);
                     }
@@ -289,21 +311,81 @@ public class InterfaceActivity extends AppCompatActivity {
         };
         query4.addValueEventListener(eventListener4);
 
-        //myDialog=new Dialog(this);
+        myDialog=new Dialog(this);
+
+        img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img1);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup10();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img1);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup2();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
     }
 
-//    public void showPopup10() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase10popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
+    public void showPopup10() {
+        Button button;
+        myDialog.setContentView(R.layout.phase10popup);
+
+        button = (Button) myDialog.findViewById(R.id.blow);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(InterfaceActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+
+    public void showPopup2() {
+        Button button;
+        EditText t11,t22;
+        myDialog.setContentView(R.layout.phase2popup);
+
+        button = (Button) myDialog.findViewById(R.id.posave);
+        t11=(EditText) myDialog.findViewById(R.id.poname);
+        t22=(EditText) myDialog.findViewById(R.id.poadress);
+        t11.setText(t1.getText().toString());
+        t22.setText(t2.getText().toString());
+        nameHod=t11.getText().toString();
+        adres=t22.getText().toString();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                databaseReference.child("name").setValue(nameHod);
+                databaseReference.child("addres").setValue(adres);
+                finish();
+                startActivity(getIntent());
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
 //    public void showPopup9() {
 //        Button button;
 //        myDialog.setContentView(R.layout.phase9popup);
@@ -367,18 +449,6 @@ public class InterfaceActivity extends AppCompatActivity {
 //    public void showPopup4() {
 //        Button button;
 //        myDialog.setContentView(R.layout.phase4popup);
-//
-//        button = (Button) myDialog.findViewById(R.id.btnfollow);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
-//    }
-//    public void showPopup3() {
-//        Button button;
-//        myDialog.setContentView(R.layout.phase3popup);
 //
 //        button = (Button) myDialog.findViewById(R.id.btnfollow);
 //        button.setOnClickListener(new View.OnClickListener() {
