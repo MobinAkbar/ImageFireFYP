@@ -108,9 +108,19 @@ public class SearchActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // handle desired action here
-                // One possibility of action is to replace the contents above the nav bar
-                // return true if you want the item to be displayed as the selected item
+                switch (item.getItemId()) {
+                    case R.id.homes:
+                        Toast.makeText(SearchActivity.this,"Home Already Open",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.bells:
+                        Toast.makeText(SearchActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.likes:
+                        Intent intent=new Intent(SearchActivity.this,MenuActivity.class);
+                        startActivity(intent);
+
+                        break;
+                }
                 return true;
             }
         });

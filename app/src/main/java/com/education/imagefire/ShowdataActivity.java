@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 import static android.R.attr.fragment;
 import static com.education.imagefire.R.drawable.hostel;
 //import static com.education.imagefire.R.id.imageView;
-import static com.education.imagefire.R.id.own;
+//import static com.education.imagefire.R.id.own;
 
 public class ShowdataActivity extends AppCompatActivity {
 

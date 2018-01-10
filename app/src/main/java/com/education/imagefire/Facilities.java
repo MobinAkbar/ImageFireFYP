@@ -8,32 +8,32 @@ public class Facilities {
 
     private String id;
     private String wifi;
-    private String parking;
-    private String breakfast;
-    private String aci;
-    private String electrition;
-    private String shop;
-    private String guesthouse;
     private String genereter;
-    private String kitchen;
+    private String breakfast;
+    private String camera;
+    private String electrition;
+    private String guesthouse;
+    private String shop;
+    private String parking;
     private String washerman;
+    private String kitchen;
 
     public Facilities() {
 
     }
 
-    public Facilities(String id, String wifi, String parking, String breakfast, String aci, String electrition, String shop, String guesthouse, String genereter, String kitchen, String washerman) {
+    public Facilities(String id, String wifi, String genereter, String breakfast, String camera, String electrition, String guesthouse, String shop, String parking, String washerman, String kitchen) {
         this.id = id;
         this.wifi = wifi;
-        this.parking = parking;
-        this.breakfast = breakfast;
-        this.aci = aci;
-        this.electrition = electrition;
-        this.shop = shop;
-        this.guesthouse = guesthouse;
         this.genereter = genereter;
-        this.kitchen = kitchen;
+        this.breakfast = breakfast;
+        this.camera = camera;
+        this.electrition = electrition;
+        this.guesthouse = guesthouse;
+        this.shop = shop;
+        this.parking = parking;
         this.washerman = washerman;
+        this.kitchen = kitchen;
     }
 
     public String getId() {
@@ -44,39 +44,39 @@ public class Facilities {
         return wifi;
     }
 
-    public String getParking() {
-        return parking;
+    public String getGenereter() {
+        return genereter;
     }
 
     public String getBreakfast() {
         return breakfast;
     }
 
-    public String getAci() {
-        return aci;
+    public String getCamera() {
+        return camera;
     }
 
     public String getElectrition() {
         return electrition;
     }
 
-    public String getShop() {
-        return shop;
-    }
-
     public String getGuesthouse() {
         return guesthouse;
     }
 
-    public String getGenereter() {
-        return genereter;
+    public String getShop() {
+        return shop;
     }
 
-    public String getKitchen() {
-        return kitchen;
+    public String getParking() {
+        return parking;
     }
 
     public String getWasherman() {
         return washerman;
+    }
+
+    public String getKitchen() {
+        return kitchen;
     }
 }

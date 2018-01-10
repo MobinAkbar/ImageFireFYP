@@ -50,7 +50,6 @@
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/generater1"
-                android:layout_marginTop="20dp"
                 android:text="Generater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -89,13 +88,11 @@
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/parking1"
-                android:layout_marginTop="20dp"
                 android:text="Parking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/washrom1"
-                android:layout_marginTop="20dp"
                 android:text="Washer-man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

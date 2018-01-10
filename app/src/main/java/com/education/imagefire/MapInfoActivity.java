@@ -205,7 +205,7 @@ public class MapInfoActivity extends AppCompatActivity {
        // Map map=new Map(id,name,lato,longi);
         databaseReference.child("latitude").setValue(lato);
         databaseReference.child("longitude").setValue(longi);
-
+        Toast.makeText(MapInfoActivity.this, "Uploaded" , Toast.LENGTH_SHORT).show();
 
     }
 }

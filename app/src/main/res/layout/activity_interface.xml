@@ -444,14 +444,13 @@
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
                             android:text="Free Wifi"
-                            android:checked="false"
                             android:id="@+id/fa1"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Breakfast"
                             android:id="@+id/fa2"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
@@ -465,14 +464,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Generator"
                             android:id="@+id/fa3"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Camera"
                             android:id="@+id/fa4"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
@@ -486,14 +485,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Electrition"
                             android:id="@+id/fa5"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="GuestHouse"
                             android:id="@+id/fa6"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
@@ -507,14 +506,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Tuckshop"
                             android:id="@+id/fa7"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Parking"
                             android:id="@+id/fa8"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
@@ -528,14 +527,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="Washerman"
                             android:id="@+id/fa9"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.AppCompatCheckBox
-                            android:text="Free Wifi"
+                            android:text="kitchen"
                             android:id="@+id/fa10"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"

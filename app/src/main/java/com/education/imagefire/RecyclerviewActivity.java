@@ -91,26 +91,6 @@ public class RecyclerviewActivity extends AppCompatActivity{
         query2.addValueEventListener(eventListener1);
    Toast.makeText(RecyclerviewActivity.this, "I have " + latii, Toast.LENGTH_SHORT).show();
 
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Hostel hostell = hostelList.get(i);
-//                String id = hostell.getId();
-//                String owner = hostell.getOwner();
-//                String name = hostell.getName();
-//                String adres = hostell.getAddres();
-//                String urii = hostell.getUri();
-//                Intent intent1235 = new Intent(RecyclerviewActivity.this, StudentShowActivity.class);
-//                intent1235.putExtra("uni_name", uniname);
-//                intent1235.putExtra("Ownerid", owner);
-//                intent1235.putExtra("Hostelid", id);
-//                intent1235.putExtra("Hostelname", name);
-//                intent1235.putExtra("Hosteladdress", adres);
-//                intent1235.putExtra("Hosteluri", urii);
-//                startActivity(intent1235);
-//            }
-//        });
-
         String value = getIntent().getStringExtra("name");
        // Toast.makeText(ResultActivity.this, "i have" + value, Toast.LENGTH_SHORT).show();
 
@@ -185,59 +165,7 @@ public class RecyclerviewActivity extends AppCompatActivity{
             };
             query111.addValueEventListener(eventListener11);
         }
-        // CarAdapter adapter = new CarAdapter(ResultActivity.this, hostelList);
-        //lv.setAdapter(adapter);
-        if (imglist == null) {
-            //Toast.makeText(ResultActivity.this, " I am propertylist, Empty ", Toast.LENGTH_SHORT).show();
-        } else {
-            //Toast.makeText(ResultActivity.this, " I HAVE not 789 SOMETHING", Toast.LENGTH_SHORT).show();
-        }
-        if (hostelList == null) {
-            //Toast.makeText(ResultActivity.this, " I am hostellist , Empty ", Toast.LENGTH_SHORT).show();
-        } else {
-            //Toast.makeText(ResultActivity.this, " I HAVE not mobin SOMETHING", Toast.LENGTH_SHORT).show();
-        }
 
-//        for (int i = 1; i <= imglist.size(); i++) {
-//            PropertyInfo propertyInfo = imglist.get(i);
-//            String pro_id = propertyInfo.getId();
-       // Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 2", Toast.LENGTH_SHORT).show();
-//            Query query2 = mFirebaseDatabaseReference.child("Hostels").orderByChild("id").equalTo(hostelid);
-//        Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 3", Toast.LENGTH_SHORT).show();
-//            final ValueEventListener eventListener2 = new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                        Toast.makeText(ResultActivity.this, " I HAVE SOMETHING 4", Toast.LENGTH_SHORT).show();
-//                        Hostel hostel = ds.getValue(Hostel.class);
-//                        String name = hostel.getName();
-//                        Toast.makeText(ResultActivity.this, "i have" + name, Toast.LENGTH_SHORT).show();
-//                        hostelList.add(hostel);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            };
-//            query2.addValueEventListener(eventListener2);
-        //}
-
-//        CarAdapter adapter = new CarAdapter(ResultActivity.this, hostelList);
-//        lv.setAdapter(adapter);
-
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent ip = new Intent(ResultActivity.this, ShowdataActivity.class);
-//                startActivity(ip);
-//            }
-//        });
-
-
-//        CarAdapter adapter=new CarAdapter(ResultActivity.this,imglistt);
-//        lv.setAdapter(adapter);
     }
     public double distance (double lat_a, double lng_a, double lat_b, double lng_b )
     {
@@ -256,53 +184,4 @@ public class RecyclerviewActivity extends AppCompatActivity{
     }
 
 }
-//        recyclerview = (RecyclerView) findViewById(R.id.recycle);
-//       // myRef=FirebaseDatabase.getInstance().getReference(MainActivity.FB_DATABASE_PATH);
-//        database = FirebaseDatabase.getInstance();
-//        myRef = database.getReference("Image");
-//
-//                myRef.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        list = new ArrayList<>();
-//                        // StringBuffer stringbuffer = new StringBuffer();
-//                        for(DataSnapshot s :dataSnapshot.getChildren()){
-//
-//                            ImageUpload userdetails = s.getValue(ImageUpload.class);
-//                            RecyclerUpload listdata = new RecyclerUpload();
-//
-//                            String name=userdetails.getName();
-//                            String uri=userdetails.getUrl();
-//                           // double log=userdetails.getLongi();
-//                            //Toast.makeText(RecyclerviewActivity.this,"Valu is"+name,Toast.LENGTH_LONG).show();
-//                           // double lat=userdetails.getLat();
-//                            //double logi=userdetails.getLongi();
-//                            listdata.setName(name);
-//                            listdata.setUri(uri);
-//                            //listdata.setLongi(log);
-//
-//                           // listdata.setLat(lat);
-//                            //listdata.setLongi(logi);
-//                            list.add(listdata);
-//                            // Toast.makeText(MainActivity.this,""+name,Toast.LENGTH_LONG).show();
-//
-//                        }
-//
-//                        //Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,list);
-//                        //RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RecyclerviewActivity.this);
-//                        //recyclerview.setLayoutManager(layoutmanager);
-//                        //recyclerview.setItemAnimator( new DefaultItemAnimator());
-//                        //recyclerview.setAdapter(recycler);
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError error) {
-//                        // Failed to read value
-//                        //  Log.w(TAG, "Failed to read value.", error.toException());
-//                    }
-//                });
-
-  //          }
-//}
 

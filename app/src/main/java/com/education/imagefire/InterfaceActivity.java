@@ -194,8 +194,35 @@ public class InterfaceActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     facilities=ds.getValue(Facilities.class);
-                    if (facilities.getWifi().equals("yes")) {
-                         //f1.isChecked();
+                    if (facilities.getWifi().equals("Yes")) {
+                         f1.setChecked(true);
+                    }
+                    if (facilities.getGenereter().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getBreakfast().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getCamera().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getElectrition().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getGuesthouse().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getShop().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getParking().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getWasherman().equals("Yes")) {
+                        f1.setChecked(true);
+                    }
+                    if (facilities.getKitchen().equals("Yes")) {
+                        f1.setChecked(true);
                     }
                 }
             }
