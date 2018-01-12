@@ -15,11 +15,12 @@ public class Owner {
     public String password;
     public String professionn;
     public String uri;
+    public String device_token;
 
     public Owner() {
     }
 
-    public Owner(String id, String name, String address, String number_1, String number_2, String number_3, String email, String password, String professionn, String uri) {
+    public Owner(String id, String name, String address, String number_1, String number_2, String number_3, String email, String password, String professionn, String uri, String device_token) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -30,6 +31,7 @@ public class Owner {
         this.password = password;
         this.professionn = professionn;
         this.uri = uri;
+        this.device_token = device_token;
     }
 
     public String getId() {
@@ -70,5 +72,9 @@ public class Owner {
 
     public String getUri() {
         return uri;
+    }
+
+    public String getDevice_token() {
+        return device_token;
     }
 }

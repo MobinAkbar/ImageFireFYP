@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -154,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     progress.dismiss();
                     Toast.makeText(MainActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=UserId;
+                    String deviceToken= FirebaseInstanceId.getInstance().getToken();
                     String owner_name=name.getText().toString().trim();
                     String adress=adres.getText().toString();
                     String number1=numb1.getText().toString().trim();
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     String password1=password;
                     String profession=profesion.getText().toString().trim();
 
-                    Owner owner=new Owner(id,owner_name,adress,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString());
+                    Owner owner=new Owner(id,owner_name,adress,number1,number2,number3,email1,password1,profession,taskSnapshot.getDownloadUrl().toString(),deviceToken);
                     databaseReference.child(id).setValue(owner);
 
 

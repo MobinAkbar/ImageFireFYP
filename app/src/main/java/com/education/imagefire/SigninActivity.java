@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static com.facebook.internal.CallbackManagerImpl.RequestCodeOffset.Login;
@@ -32,7 +34,7 @@ public class SigninActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1,databaseReference2;
     String Uid;
 
     @Override
@@ -61,7 +63,8 @@ public class SigninActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
-        databaseReference=FirebaseDatabase.getInstance().getReference();
+        databaseReference1=FirebaseDatabase.getInstance().getReference("Owners");
+        databaseReference2=FirebaseDatabase.getInstance().getReference("Users_Info");
 
 //        btnSignup.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -132,13 +135,33 @@ public class SigninActivity extends AppCompatActivity {
                     Toast.makeText(SigninActivity.this,"i have"+user.getType(),Toast.LENGTH_SHORT).show();
                     String ans=user.getType();
                     if(ans.equals("owner")){
-                        Intent intent = new Intent(SigninActivity.this, Owner_PortalActivity.class);
-                        startActivity(intent);
-                        finish();
+
+
+                        String curr_user=auth.getCurrentUser().getUid();
+                        String deviceToken= FirebaseInstanceId.getInstance().getToken();
+
+                        databaseReference1.child(curr_user).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent intent = new Intent(SigninActivity.this, Owner_PortalActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+
                     }else{
-                        Intent intent = new Intent(SigninActivity.this, SearchActivity.class);
-                        startActivity(intent);
-                        finish();
+
+                        String curr_user=auth.getCurrentUser().getUid();
+                        String deviceToken= FirebaseInstanceId.getInstance().getToken();
+
+                        databaseReference2.child(curr_user).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent intent = new Intent(SigninActivity.this, SearchActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
                     }
                 }
             }

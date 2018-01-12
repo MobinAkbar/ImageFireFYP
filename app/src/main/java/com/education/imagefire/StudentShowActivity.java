@@ -46,7 +46,7 @@ public class StudentShowActivity extends AppCompatActivity {
     private ImageView[] dotss;
 
     private DatabaseReference databaseReference;
-    private DatabaseReference databaseReference1;
+    private DatabaseReference databaseReference1,databaseReference2;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
    // private HostelInfo hostelInfo;
@@ -74,7 +74,7 @@ public class StudentShowActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH1="Student_Like";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
-    private String UserId;
+    private String UserId,ownerID;
 
     String a1,a2,a3,a4,a5,a6;
 
@@ -83,7 +83,7 @@ public class StudentShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_show);
 
-        final String ownerid=getIntent().getStringExtra("Ownerid");
+        ownerID=getIntent().getStringExtra("Ownerid");
         final String hostlid=getIntent().getStringExtra("Hostelid");
         String hostlname=getIntent().getStringExtra("Hostelname");
         String hostladress=getIntent().getStringExtra("Hosteladdress");
@@ -126,6 +126,7 @@ public class StudentShowActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(hostlid);
         databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH1).child(UserId);
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications").child(ownerID);
 
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -323,7 +324,7 @@ public class StudentShowActivity extends AppCompatActivity {
         query3.addValueEventListener(eventListener2);
 
 
-        Query query4 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(ownerid);
+        Query query4 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(ownerID);
         final ValueEventListener eventListener3=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -362,10 +363,17 @@ public class StudentShowActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(StudentShowActivity.this,"I have something"+latitude_ss,Toast.LENGTH_SHORT).show();
-                Toast.makeText(StudentShowActivity.this,"I have something"+logitude_s,Toast.LENGTH_SHORT).show();
-                Toast.makeText(StudentShowActivity.this,"I have something"+lati_0,Toast.LENGTH_SHORT).show();
-                Toast.makeText(StudentShowActivity.this,"I have something"+longi_0,Toast.LENGTH_SHORT).show();
+                FirebaseUser userr=firebaseAuth.getCurrentUser();
+                String valu=databaseReference2.push().getKey();
+                String from=userr.getUid();
+                String sendto=ownerID;
+                String type="request_pending";
+                String data="1 day";
+
+                Notification notification=new Notification(from,sendto,type,data);
+                databaseReference2.child(valu).setValue(notification);
+
+
             }
         });
 

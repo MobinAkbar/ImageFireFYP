@@ -69,8 +69,10 @@ public class InterfaceActivity extends AppCompatActivity {
     public static final int REQUEST_CODE=1234;
     private ImageView imageView;
     public static final String FB_STOARGE_PATH="Hostels/";
+    public static final String FB_STOARGE_PATH1="AllHostelImages/";
     Dialog myDialog;
-    private DatabaseReference databaseReference,databaseReference1,databaseReference2,databaseReference3,databaseReference4,databaseReference5;
+    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1,databaseReference2,databaseReference3,databaseReference5;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
@@ -91,6 +93,7 @@ public class InterfaceActivity extends AppCompatActivity {
     private String nameHod;
     private String adres;
     private String var1,var2,var3,var4,var5,var6,var7,var8,var9,var10;
+    private String url1,url2,url3,url4,url5,url6;
     Owner owner22;
     private StorageReference storageReference;
 
@@ -137,19 +140,20 @@ public class InterfaceActivity extends AppCompatActivity {
         UserId=user.getUid();
         Toast.makeText(InterfaceActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
-        databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
-        databaseReference1=FirebaseDatabase.getInstance().getReference("Rooms").child(hostel_id);
-        databaseReference2=FirebaseDatabase.getInstance().getReference("Hoste_Property_Info").child(hostel_id);
-        databaseReference3=FirebaseDatabase.getInstance().getReference("Facilities").child(hostel_id);
-        databaseReference4=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
-        databaseReference5=FirebaseDatabase.getInstance().getReference("AllHostelImages").child(hostel_id);
-
         hostel_id=getIntent().getStringExtra("Hostelid");
         hostel_name=getIntent().getStringExtra("Hostelname");
         hostel_url=getIntent().getStringExtra("Hostelimage");
         String hostel_type=getIntent().getStringExtra("Hosteltype");
         String hostel_likes=getIntent().getStringExtra("Hostellikes");
         hostel_adres=getIntent().getStringExtra("Hosteladdress");
+
+        Toast.makeText(InterfaceActivity.this,"Valu is"+hostel_id,Toast.LENGTH_SHORT).show();
+
+        databaseReference1=FirebaseDatabase.getInstance().getReference("Rooms").child(hostel_id);
+        databaseReference2=FirebaseDatabase.getInstance().getReference("Hoste_Property_Info").child(hostel_id);
+        databaseReference3=FirebaseDatabase.getInstance().getReference("Facilities").child(hostel_id);
+        databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
+        databaseReference5=FirebaseDatabase.getInstance().getReference("AllHostelImages").child(hostel_id);
 
         //Toast.makeText(InterfaceActivity.this,"Valu is"+hostel_url,Toast.LENGTH_SHORT).show();
 
@@ -313,6 +317,12 @@ public class InterfaceActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     hostelImages=ds.getValue(HostelImages.class);
+                    url1=hostelImages.getUri_1();
+                    url2=hostelImages.getUri_2();
+                    url3=hostelImages.getUri_3();
+                    url4=hostelImages.getUri_4();
+                    url5=hostelImages.getUri_5();
+                    url6=hostelImages.getUri_6();
 
                     PicassoClient.downloadImage(InterfaceActivity.this,hostelImages.getUri_1(),i1);
                     PicassoClient.downloadImage(InterfaceActivity.this,hostelImages.getUri_2(),i2);
@@ -352,7 +362,7 @@ public class InterfaceActivity extends AppCompatActivity {
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img1);
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img2);
                 popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
 
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -365,25 +375,192 @@ public class InterfaceActivity extends AppCompatActivity {
                 popup.show();
             }
         });
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img3);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup3();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img4);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup4();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img5);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup5();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img6);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup6();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img7);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup7();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img8);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup8();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img9);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup9();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img10);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup10();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img11);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup11();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img12);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup12();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+        img13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(InterfaceActivity.this, img13);
+                popup.getMenuInflater().inflate(R.menu.edit, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showPopup13();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
     }
 
     public void showPopup1() {
-        Button button,button1,button2;
-        //final ImageView imageView;
+        Button button,button2;
         myDialog.setContentView(R.layout.phase1popup);
 
-        imageView=(ImageView)findViewById(R.id.hostel_image);
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
         button = (Button) myDialog.findViewById(R.id.blowA);
-        button1 = (Button) myDialog.findViewById(R.id.blowB);
         button2 = (Button) myDialog.findViewById(R.id.blowC);
 
-        PicassoClient.downloadImage(InterfaceActivity.this,hostel_url,imageView);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageView.setImageResource(0);
-            }
-        });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -392,38 +569,38 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               uploads(hostel_url,FB_STOARGE_PATH,"uri",databaseReference4);
+               uploads(hostel_url,FB_STOARGE_PATH,"uri",databaseReference);
                 myDialog.dismiss();
             }
         });
         myDialog.show();
     }
-
     public void showPopup2() {
         Button button;
-        EditText t11,t22;
+        final EditText t11,t22;
         myDialog.setContentView(R.layout.phase2popup);
 
         button = (Button) myDialog.findViewById(R.id.posave);
         t11=(EditText) myDialog.findViewById(R.id.poname);
         t22=(EditText) myDialog.findViewById(R.id.poadress);
-        t11.setText(t1.getText().toString());
-        t22.setText(t2.getText().toString());
-        nameHod=t11.getText().toString();
-        adres=t22.getText().toString();
+        t11.setText(name.getText().toString());
+        t22.setText(adress.getText().toString());
+       // nameHod=t11.getText().toString();
+       // adres=t22.getText().toString();
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                nameHod=t11.getText().toString();
+                adres=t22.getText().toString();
                 databaseReference.child("name").setValue(nameHod);
                 databaseReference.child("addres").setValue(adres);
-                finish();
-                startActivity(getIntent());
+                Toast.makeText(InterfaceActivity.this,"here is"+nameHod,Toast.LENGTH_SHORT).show();
+                Toast.makeText(InterfaceActivity.this,"Done",Toast.LENGTH_SHORT).show();
                 myDialog.dismiss();
             }
         });
         myDialog.show();
     }
-
     public void showPopup3() {
         Button button;
         EditText t11,t22,t33,t44;
@@ -456,7 +633,6 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
-
     public void showPopup4() {
         Button button;
         EditText t11,t22,t33,t44;
@@ -489,7 +665,6 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
-
     public void showPopup7() {
         Button button;
         EditText t11;
@@ -510,7 +685,6 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
-
     public void showPopup6() {
         Button button;
         EditText t11,t22,t33,t44,t55,t66;
@@ -553,7 +727,6 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
-
     public void showPopup5() {
         Button button;
         CheckBox t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
@@ -647,6 +820,138 @@ public class InterfaceActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
+    public void showPopup8() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase8popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url1,FB_STOARGE_PATH1,"uri_1",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+    public void showPopup9() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase9popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url2,FB_STOARGE_PATH1,"uri_2",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+    public void showPopup10() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase10popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url3,FB_STOARGE_PATH1,"uri_3",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+    public void showPopup11() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase11popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url4,FB_STOARGE_PATH1,"uri_4",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+    public void showPopup12() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase12popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url5,FB_STOARGE_PATH1,"uri_5",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
+    public void showPopup13() {
+        Button button,button2;
+        myDialog.setContentView(R.layout.phase13popup);
+
+        imageView=(ImageView)myDialog.findViewById(R.id.hostello);
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button2 = (Button) myDialog.findViewById(R.id.blowC);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosen();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploads(url6,FB_STOARGE_PATH1,"uri_6",databaseReference5);
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+    }
 
     public void uploads(String url,final String path, final String attribute, final DatabaseReference databaseReferenceCu) {
 
@@ -704,14 +1009,16 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void chosen() {
         Intent intent=new Intent();
-        intent.setType("image/*");
+        intent.setType("Image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Select image"),REQUEST_CODE);
+        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
+       // Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //imageView=(ImageView)findViewById(R.id.hostel_image);
         if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
             filepath=data.getData();
 

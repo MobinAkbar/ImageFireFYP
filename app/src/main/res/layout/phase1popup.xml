@@ -79,7 +79,7 @@
                 <ImageView
                     android:layout_marginLeft="50dp"
                     android:src="@drawable/add2"
-                    android:id="@+id/hostel_image"
+                    android:id="@+id/hostello"
                     android:layout_width="130dp"
                     android:layout_height="130dp" />
                 <LinearLayout

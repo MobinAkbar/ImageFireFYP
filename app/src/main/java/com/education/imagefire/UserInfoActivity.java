@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -143,6 +144,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     progress.dismiss();
                     Toast.makeText(UserInfoActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
                     String id=UserId;
+                    String deviceToken= FirebaseInstanceId.getInstance().getToken();
                     String name1=name.getText().toString().trim();
                     String email1=email;
                     String password1=password;
@@ -151,7 +153,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     String address1=address.getText().toString().trim();
                     String uni1=university.getText().toString().trim();
 
-                    Users user=new Users(id,name1,email1,password1,number1,gender1,address1,uni1,taskSnapshot.getDownloadUrl().toString());
+                    Users user=new Users(id,name1,email1,password1,number1,gender1,address1,uni1,taskSnapshot.getDownloadUrl().toString(),deviceToken);
                     databaseReference.child(id).setValue(user);
 
 

@@ -14,20 +14,22 @@ public class Users {
     String adress;
     String university;
     String uri;
+    String device_token;
 
     public Users() {
     }
 
-    public Users(String id,String name,String email,String password, String number, String sex, String adress, String university, String uri) {
-        this.id=id;
+    public Users(String id, String name, String email, String password, String number, String sex, String adress, String university, String uri, String device_token) {
+        this.id = id;
         this.name = name;
-        this.email=email;
-        this.password=password;
+        this.email = email;
+        this.password = password;
         this.number = number;
         this.sex = sex;
         this.adress = adress;
         this.university = university;
         this.uri = uri;
+        this.device_token = device_token;
     }
 
     public String getId() {
@@ -66,4 +68,7 @@ public class Users {
         return uri;
     }
 
+    public String getDevice_token() {
+        return device_token;
+    }
 }
