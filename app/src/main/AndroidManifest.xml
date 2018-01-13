@@ -20,14 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <service
-            android:name=".FirebaseMessagingService">
+        <service android:name=".FirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
 
         <!-- //android:theme="@style/AppTheme">// -->
         <activity
@@ -80,9 +77,12 @@
         <activity android:name=".StudentShowActivity" />
         <activity android:name=".OptionActivity" />
         <activity android:name=".ProfilessActivity" />
-        <activity android:name=".InterfaceActivity"
-            android:theme="@style/MyAppTheme"/>
-        <activity android:name=".StuprofileActivity"></activity>
+        <activity
+            android:name=".InterfaceActivity"
+            android:theme="@style/MyAppTheme" />
+        <activity android:name=".StuprofileActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".StunotificationActivity"></activity>
     </application>
 
 </manifest>

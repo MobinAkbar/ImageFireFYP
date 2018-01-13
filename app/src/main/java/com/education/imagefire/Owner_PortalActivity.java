@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -88,6 +89,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
     TextView t1,t2;
     ImageView im1;
     Owner users;
+    BottomNavigationView bottomnavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
         t1=(TextView) navi.findViewById(R.id.headtext);
         t2=(TextView)navi.findViewById(R.id.textView89);
         im1=(ImageView)navi.findViewById(R.id.profile_image);
+        bottomnavigationView=(BottomNavigationView)findViewById(R.id.navigationB);
        // list.clear();
 
 
@@ -140,6 +143,27 @@ public class Owner_PortalActivity extends AppCompatActivity {
                 }
             }
         };
+
+        bottomnavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_homeo:
+                        Toast.makeText(Owner_PortalActivity.this,"Home Already Open",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.likeso:
+                        Toast.makeText(Owner_PortalActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.menu_notfyo:
+                        Intent intent=new Intent(Owner_PortalActivity.this,NotificationActivity.class);
+                        intent.putExtra("type","owner");
+                        startActivity(intent);
+
+                        break;
+                }
+                return true;
+            }
+        });
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         Query query1 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(UserId);

@@ -113,7 +113,10 @@ public class SearchActivity extends AppCompatActivity {
                         Toast.makeText(SearchActivity.this,"Home Already Open",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bells:
-                        Toast.makeText(SearchActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(SearchActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
+                        Intent intent1=new Intent(SearchActivity.this,NotificationActivity.class);
+                        intent1.putExtra("type","student");
+                        startActivity(intent1);
                         break;
                     case R.id.likes:
                         Intent intent=new Intent(SearchActivity.this,MenuActivity.class);

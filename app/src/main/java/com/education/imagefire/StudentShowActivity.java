@@ -33,6 +33,7 @@ import java.util.TimerTask;
 //import static com.education.imagefire.R.id.imageView;
 import static com.education.imagefire.R.id.location;
 import static com.education.imagefire.R.id.security;
+import static com.education.imagefire.R.id.url;
 
 public class StudentShowActivity extends AppCompatActivity {
 
@@ -74,7 +75,7 @@ public class StudentShowActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH1="Student_Like";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
-    private String UserId,ownerID;
+    private String UserId,ownerID,hostelName,hostelUrl;
 
     String a1,a2,a3,a4,a5,a6;
 
@@ -85,9 +86,9 @@ public class StudentShowActivity extends AppCompatActivity {
 
         ownerID=getIntent().getStringExtra("Ownerid");
         final String hostlid=getIntent().getStringExtra("Hostelid");
-        String hostlname=getIntent().getStringExtra("Hostelname");
+        hostelName=getIntent().getStringExtra("Hostelname");
         String hostladress=getIntent().getStringExtra("Hosteladdress");
-        String hostluri=getIntent().getStringExtra("Hosteluri");
+        hostelUrl=getIntent().getStringExtra("Hosteluri");
         univrsty=getIntent().getStringExtra("uni_name");
         Toast.makeText(StudentShowActivity.this,"Value is"+univrsty,Toast.LENGTH_SHORT).show();
 
@@ -126,7 +127,7 @@ public class StudentShowActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(hostlid);
         databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH1).child(UserId);
-        databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications").child(ownerID);
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications");
 
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -241,7 +242,7 @@ public class StudentShowActivity extends AppCompatActivity {
         };
         query1.addValueEventListener(eventListener);
 
-        name.setText(hostlname);
+        name.setText(hostelName);
         address.setText(hostladress);
 
         Query query2 = mFirebaseDatabaseReference.child("Hostels").orderByChild("id").equalTo(hostlid);
@@ -369,8 +370,10 @@ public class StudentShowActivity extends AppCompatActivity {
                 String sendto=ownerID;
                 String type="request_pending";
                 String data="1 day";
+                String uri=hostelUrl;
+                String name=hostelName;
 
-                Notification notification=new Notification(from,sendto,type,data);
+                Notification notification=new Notification(valu,from,sendto,type,data,uri,name);
                 databaseReference2.child(valu).setValue(notification);
 
 
