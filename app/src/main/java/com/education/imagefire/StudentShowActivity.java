@@ -389,16 +389,16 @@ public class StudentShowActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser userr=firebaseAuth.getCurrentUser();
-                String valu=databaseReference2.push().getKey();
+                String ide=databaseReference2.push().getKey();
                 String from=userr.getUid();
                 String sendto=ownerID;
                 String type="request_pending";
                 String data="1 day";
-                String uri=hostelUrl;
+                String uriii=hostelUrl;
                 String name=hostelName;
-
-                Notification notification=new Notification(valu,from,sendto,type,data,uri,name);
-                databaseReference2.child(valu).setValue(notification);
+                Toast.makeText(StudentShowActivity.this,"url is"+uriii,Toast.LENGTH_SHORT).show();
+                Notification notification=new Notification(ide,from,sendto,type,data,uriii,name);
+                databaseReference2.child(ide).setValue(notification);
 
 
             }

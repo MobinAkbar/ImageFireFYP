@@ -2,6 +2,7 @@ package com.education.imagefire;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -159,6 +160,12 @@ public class NotificationActivity extends AppCompatActivity {
             query1.addValueEventListener(eventListener1);
 
         }
+    }
+
+    public void restsrt(){
+        //hostelList.clear();
+        finish();
+        startActivity(getIntent());
     }
     @Override
     protected void onStart() {

@@ -8,46 +8,6 @@
     android:layout_gravity="center">
 
     <android.support.v7.widget.CardView
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold"
-                android:layout_marginTop="2dp"
-                android:text="Hostel Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_marginTop="2dp"
-                android:id="@+id/txtclose"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:text="X"
-                android:textStyle="bold"
-                android:layout_gravity="end"
-                android:gravity="center"
-                android:background="#4bb6ef"/>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
@@ -61,17 +21,23 @@
 
             <TextView
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
                 android:text="Facilities"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
             <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.AppCompatCheckBox
@@ -82,43 +48,49 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:text="GuestRoom"
-                    android:id="@+id/fac6"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:text="Generator"
+                    android:text="Genereter"
                     android:id="@+id/fac2"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:text="TuckShop"
-                    android:id="@+id/fac7"
+                    android:text="Breakfast"
+                    android:id="@+id/fac3"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:text="Caemera"
+                    android:id="@+id/fac4"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:text="Electrition"
+                    android:id="@+id/fac5"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:text="Breakfast"
-                    android:id="@+id/fac3"
+                    android:text="Guesthouse"
+                    android:id="@+id/fac6"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:text="Shop"
+                    android:id="@+id/fac7"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -130,51 +102,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:text="Camera"
-                    android:id="@+id/fac4"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
                 <android.support.v7.widget.AppCompatCheckBox
                     android:text="Washerman"
                     android:id="@+id/fac9"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:text="Electrition"
-                    android:id="@+id/fac5"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
                 <android.support.v7.widget.AppCompatCheckBox
                     android:text="Kitchen"
                     android:id="@+id/fac10"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
             </LinearLayout>
-
-
-
+            </LinearLayout>
             <Button
                 android:id="@+id/blow5"
                 android:textSize="14dp"
@@ -191,7 +133,4 @@
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
-
-
 </LinearLayout>

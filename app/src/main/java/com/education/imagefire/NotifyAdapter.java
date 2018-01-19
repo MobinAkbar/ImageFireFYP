@@ -66,9 +66,15 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
             public void onClick(View view) {
                 holder.vtype.setText("Accepted");
                 DatabaseReference   databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications").child(id);
-                databaseReference2.child("type").setValue("accepted");
+                databaseReference2.child("type").setValue("accepted").addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        ((NotificationActivity)mContxt).restsrt();
+                    }
+                });
             }
         });
+
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +112,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
 
         @Override
         public void onClick(View view) {
+
 
         }
     }
@@ -159,4 +166,5 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
         });
         popup.show();
     }
+
 }

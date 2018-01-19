@@ -64,6 +64,7 @@ public class InterfaceActivity extends AppCompatActivity {
     CheckBox f1,f2,f3,f4,f5,f6,f7,f8,f9,f10;
     ImageView i1,i2,i3,i4,i5,i6,img;
     ImageButton img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13;
+    String c1,c2,c3,c4,c5,c6,c7,c8,c9,c10;
     private String namep,adresp,rom1p,rom2p,rom3p,rom4p,rom5p,rom6p,rom7p,rom8p;
     private Uri filepath;
     public static final int REQUEST_CODE=1234;
@@ -150,7 +151,7 @@ public class InterfaceActivity extends AppCompatActivity {
         Toast.makeText(InterfaceActivity.this,"Valu is"+hostel_id,Toast.LENGTH_SHORT).show();
 
         databaseReference1=FirebaseDatabase.getInstance().getReference("Rooms").child(hostel_id);
-        databaseReference2=FirebaseDatabase.getInstance().getReference("Hoste_Property_Info").child(hostel_id);
+        databaseReference2=FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(hostel_id);
         databaseReference3=FirebaseDatabase.getInstance().getReference("Facilities").child(hostel_id);
         databaseReference=FirebaseDatabase.getInstance().getReference("Hostels").child(hostel_id);
         databaseReference5=FirebaseDatabase.getInstance().getReference("AllHostelImages").child(hostel_id);
@@ -592,8 +593,9 @@ public class InterfaceActivity extends AppCompatActivity {
                 adres=t22.getText().toString();
                 databaseReference.child("name").setValue(nameHod);
                 databaseReference.child("addres").setValue(adres);
-                Toast.makeText(InterfaceActivity.this,"here is"+nameHod,Toast.LENGTH_SHORT).show();
-                Toast.makeText(InterfaceActivity.this,"Done",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
+                finish();
                 myDialog.dismiss();
             }
         });
@@ -624,8 +626,9 @@ public class InterfaceActivity extends AppCompatActivity {
                 databaseReference1.child("total_beds").setValue(var2);
                 databaseReference1.child("empty_rooms").setValue(var3);
                 databaseReference1.child("empty_beds").setValue(var4);
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(getIntent());
                 myDialog.dismiss();
             }
         });
@@ -657,8 +660,9 @@ public class InterfaceActivity extends AppCompatActivity {
                 databaseReference1.child("b_monthprize").setValue(var2);
                 databaseReference1.child("r_sixmonth").setValue(var3);
                 databaseReference1.child("b_sixmonth").setValue(var4);
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(getIntent());
                 myDialog.dismiss();
             }
         });
@@ -675,10 +679,11 @@ public class InterfaceActivity extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                var1=t11.getText().toString();
-                databaseReference2.child("property").setValue(var1);
+                var10=t11.getText().toString();
+                databaseReference2.child("property").setValue(var10);
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(getIntent());
                 myDialog.dismiss();
             }
         });
@@ -718,8 +723,9 @@ public class InterfaceActivity extends AppCompatActivity {
                 databaseReference2.child("nearby_place4").setValue(var4);
                 databaseReference2.child("nearby_place5").setValue(var5);
                 databaseReference2.child("nearby_place6").setValue(var6);
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(getIntent());
                 myDialog.dismiss();
             }
         });
@@ -727,7 +733,7 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void showPopup5() {
         Button button;
-        CheckBox t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+        final CheckBox t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
         myDialog.setContentView(R.layout.phase5popup);
 
         button = (Button) myDialog.findViewById(R.id.blow5);
@@ -741,78 +747,78 @@ public class InterfaceActivity extends AppCompatActivity {
         t8=(CheckBox) myDialog.findViewById(R.id.fac8);
         t9=(CheckBox) myDialog.findViewById(R.id.fac9);
         t10=(CheckBox) myDialog.findViewById(R.id.fac10);
-        String c1,c2,c3,c4,c5,c6,c7,c8,c9,c10;
-        String id=hostel_id;
-        if(t1.isChecked()) {
-            c1 = "Yes";
-        }else{
-            c1="No";
-        }
-
-
-        if(t2.isChecked()) {
-            c2 = "Yes";
-        }else{
-            c2="No";
-        }
-
-        if(t3.isChecked()) {
-            c3 = "Yes";;
-        }
-        else{
-            c3="No";
-        }
-
-        if(t4.isChecked()) {
-            c4 = "Yes";;
-        }else{
-            c4="No";
-        }
-
-        if(t5.isChecked()) {
-            c5 = "Yes";;
-        }else{
-            c5="No";
-        }
-
-
-        if(t6.isChecked()) {
-            c6 = "Yes";;
-        }else{
-            c6="No";
-        }
-
-        if(t7.isChecked()) {
-            c7 = "Yes";;
-        }else{
-            c7="No";
-        }
-
-        if(t8.isChecked()) {
-            c8 = "Yes";;
-        }else{
-            c8="No";
-        }
-
-        if(t9.isChecked()) {
-            c9 = "Yes";;
-        }else{
-            c9="No";
-        }
-
-        if(t10.isChecked()) {
-            c10 = "Yes";
-        }else{
-            c10="No";
-        }
-
-        facilities2=new Facilities(id,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                databaseReference3.setValue(facilities2);
+                String id=hostel_id;
+                if(t1.isChecked()) {
+                    c1 = "Yes";
+                }else{
+                    c1="No";
+                }
+
+
+                if(t2.isChecked()) {
+                    c2 = "Yes";
+                }else{
+                    c2="No";
+                }
+
+                if(t3.isChecked()) {
+                    c3 = "Yes";;
+                }
+                else{
+                    c3="No";
+                }
+
+                if(t4.isChecked()) {
+                    c4 = "Yes";;
+                }else{
+                    c4="No";
+                }
+
+                if(t5.isChecked()) {
+                    c5 = "Yes";;
+                }else{
+                    c5="No";
+                }
+
+
+                if(t6.isChecked()) {
+                    c6 = "Yes";;
+                }else{
+                    c6="No";
+                }
+
+                if(t7.isChecked()) {
+                    c7 = "Yes";;
+                }else{
+                    c7="No";
+                }
+
+                if(t8.isChecked()) {
+                    c8 = "Yes";;
+                }else{
+                    c8="No";
+                }
+
+                if(t9.isChecked()) {
+                    c9 = "Yes";;
+                }else{
+                    c9="No";
+                }
+
+                if(t10.isChecked()) {
+                    c10 = "Yes";
+                }else{
+                    c10="No";
+                }
+
+                Facilities fac=new Facilities(id,c1,c8,c4,c2,c5,c7,c6,c3,c10,c9);
+                databaseReference3.setValue(fac);
+                Intent intent = new Intent(InterfaceActivity.this, Owner_PortalActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(getIntent());
                 myDialog.dismiss();
             }
         });
@@ -901,6 +907,7 @@ public class InterfaceActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 uploads(url4,FB_STOARGE_PATH1,"uri_4",databaseReference5);
+
                 myDialog.dismiss();
             }
         });
@@ -923,6 +930,7 @@ public class InterfaceActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 uploads(url5,FB_STOARGE_PATH1,"uri_5",databaseReference5);
+
                 myDialog.dismiss();
             }
         });
@@ -983,6 +991,9 @@ public class InterfaceActivity extends AppCompatActivity {
                     progress.dismiss();
 
                     databaseReferenceCu.child(attribute).setValue(taskSnapshot.getDownloadUrl().toString());
+
+                    Intent intent = new Intent(InterfaceActivity.this,Owner_PortalActivity.class);
+                    startActivity(intent);
 
 
                 }

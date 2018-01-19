@@ -18,16 +18,15 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         super.onMessageReceived(remoteMessage);
 
         String noti_title=remoteMessage.getNotification().getTitle();
-
-
+        String noti_mesag=remoteMessage.getNotification().getBody();
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.like)
-                        .setContentTitle("Request")
-                        .setContentText("You have received request from student!");
+                        .setSmallIcon(R.drawable.ring)
+                        .setContentTitle(noti_title)
+                        .setContentText(noti_mesag);
 
-        Intent resultIntent = new Intent(this, Owner_PortalActivity.class);
+        Intent resultIntent = new Intent(this, NotificationActivity.class);
         PendingIntent resultPendingIntent =
                 PendingIntent.getActivity(
                         this,
@@ -37,9 +36,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
                 );
 
         mBuilder.setContentIntent(resultPendingIntent);
-
-
-
 
         int mNotificationId = (int) System.currentTimeMillis();
         NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

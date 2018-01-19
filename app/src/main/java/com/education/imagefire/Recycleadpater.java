@@ -99,6 +99,7 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
             i12.putExtra("Hostelname", car.getName());
             i12.putExtra("Hosteladdress", car.getAddress());
             i12.putExtra("uni_name", car.getUni_name());
+            i12.putExtra("Hosteluri",car.getUri());
             this.mContxt.startActivity(i12);
         }
     }
