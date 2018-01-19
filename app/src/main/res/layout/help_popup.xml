@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:background="@color/colorPrimary"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="13dp"
+            android:layout_below="@+id/l3_a"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+                android:text="Help?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:text=
+                        "This is the application about Hostels and their nearbyPlaces.
+
+Students and Owners upload their profiles and contact with each other through application.
+
+Student can like, request, edit and upload profile, add or remove from likes and will recieve notification about request.
+
+Owner can accept request, add, delete, edit, update hostels and their profiles.
+
+Students can do complain about misconduct from owner."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/cancel"
+                android:textSize="14dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#fff"
+                android:background="@drawable/abuttonstyle"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

@@ -82,7 +82,8 @@
             android:theme="@style/MyAppTheme" />
         <activity android:name=".StuprofileActivity" />
         <activity android:name=".NotificationActivity" />
-        <activity android:name=".StunotificationActivity"></activity>
+        <activity android:name=".StunotificationActivity" />
+        <activity android:name=".AccountActivity"></activity>
     </application>
 
 </manifest>

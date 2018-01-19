@@ -4,21 +4,23 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/s_home"
             android:icon="@drawable/adres"
             android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/s_profile"
             android:icon="@drawable/profile"
             android:title="My Profile" />
         <item
+            android:id="@+id/s_like"
             android:icon="@drawable/stop"
             android:title="Likes" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/s_account"
             android:icon="@drawable/account"
             android:title="Account Settings" />
         <item
+            android:id="@+id/s_info"
             android:icon="@drawable/about"
             android:title="About us" />
 
@@ -27,15 +29,12 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/s_help"
             android:icon="@drawable/help"
             android:title="Help" />
-        <item
-            android:id="@+id/nav_manage1"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
 
         <item
+            android:id="@+id/s_signout"
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="Sign out" />
     </group>

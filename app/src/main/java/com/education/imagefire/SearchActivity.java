@@ -120,6 +120,61 @@ public class SearchActivity extends AppCompatActivity {
         UserId=user.getUid();
         Toast.makeText(SearchActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.s_home:
+                        Toast.makeText(SearchActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.s_profile:
+                        Intent intent=new Intent(SearchActivity.this,ProfilessActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.s_like:
+                        Intent intent1=new Intent(SearchActivity.this,MenuActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.s_account:
+                        Intent intent2=new Intent(SearchActivity.this,AccountActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.s_info:
+                        final Button button;
+                        myDialog.setContentView(R.layout.aboutuspopup);
+                        button=(Button)myDialog.findViewById(R.id.cancel);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+
+                        break;
+                    case R.id.s_help:
+                        final Button button1;
+                        myDialog.setContentView(R.layout.help_popup);
+                        button1=(Button)myDialog.findViewById(R.id.cancel);
+                        button1.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+
+                        break;
+                    case R.id.s_signout:
+                        firebaseAuth.signOut();
+                        Toast.makeText(SearchActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+                        Intent intt=new Intent(SearchActivity.this,SigninActivity.class);
+                        startActivity(intt);
+                        return true;
+                }
+                return true;
+            }
+        });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -128,7 +183,6 @@ public class SearchActivity extends AppCompatActivity {
                         Toast.makeText(SearchActivity.this,"Home Already Open",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bells:
-                        //Toast.makeText(SearchActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
                         Intent intent1=new Intent(SearchActivity.this,NotificationActivity.class);
                         intent1.putExtra("type","student");
                         startActivity(intent1);
@@ -136,7 +190,6 @@ public class SearchActivity extends AppCompatActivity {
                     case R.id.likes:
                         Intent intent=new Intent(SearchActivity.this,MenuActivity.class);
                         startActivity(intent);
-
                         break;
                 }
                 return true;

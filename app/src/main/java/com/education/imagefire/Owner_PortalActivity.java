@@ -90,12 +90,14 @@ public class Owner_PortalActivity extends AppCompatActivity {
     ImageView im1;
     Owner users;
     BottomNavigationView bottomnavigationView;
+    Dialog myDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner__portal);
 
+        myDialog=new Dialog(this);
         toolbar = (Toolbar) findViewById(R.id.tool_bar1A);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.pop_up);
@@ -144,6 +146,61 @@ public class Owner_PortalActivity extends AppCompatActivity {
             }
         };
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+
+                switch (item.getItemId()) {
+                    case R.id.o_home:
+                        Toast.makeText(Owner_PortalActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.o_profile:
+                        Intent intent=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.o_reset:
+                        Intent intent1=new Intent(Owner_PortalActivity.this,AccountActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.s_account:
+                        Intent intent2=new Intent(Owner_PortalActivity.this,AccountActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.o_info:
+                        final Button button;
+                        myDialog.setContentView(R.layout.aboutuspopup);
+                        button=(Button)myDialog.findViewById(R.id.cancel);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+                        break;
+                    case R.id.o_help:
+                        final Button button1;
+                        myDialog.setContentView(R.layout.help_popup);
+                        button1=(Button)myDialog.findViewById(R.id.cancel);
+                        button1.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+
+                        break;
+                    case R.id.s_signout:
+                        firebaseAuth.signOut();
+                        Toast.makeText(Owner_PortalActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+                        Intent intt=new Intent(Owner_PortalActivity.this,SigninActivity.class);
+                        startActivity(intt);
+                        return true;
+                }
+                return true;
+            }
+        });
+
         bottomnavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -186,167 +243,6 @@ public class Owner_PortalActivity extends AppCompatActivity {
             }
         };
         query1.addValueEventListener(eventListener);
-
-//        B2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                final Dialog dialog = new Dialog(getApplicationContext());
-//                dialog.setContentView(R.layout.delete_dialog);
-//                dialog.setTitle("Enter Name To Cancel");
-//
-//                dialog.show();
-//
-//                // set the custom dialog components - text, image and button
-//                TextView T1 = (TextView) dialog.findViewById(R.id.t1);
-//                final EditText E12 = (EditText) dialog.findViewById(R.id.e1);
-//               final Button B12=(Button)dialog.findViewById(R.id.del1);
-//                final Button B22=(Button)dialog.findViewById(R.id.can1);
-//
-//                B12.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                        String name=E12.getText().toString();
-//                    DatabaseReference databaseReferenceA=FirebaseDatabase.getInstance().getReference("Hostels");
-//                        Query query = databaseReferenceA.child("Hostels").orderByChild("name").equalTo(name);
-//
-//                        final ValueEventListener eventListener56=new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(DataSnapshot dataSnapshot) {
-//                                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                                   Hostel hostel=ds.getValue(Hostel.class);
-//                                    HostelId2=hostel.getId();
-//                                    String name=hostel.getName();
-//                                    Toast.makeText(Owner_PortalActivity.this,"IM that"+name,Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                            @Override
-//                            public void onCancelled(DatabaseError databaseError) {
-//                            }
-//                        };
-//                        query.addValueEventListener(eventListener56);
-//
-//                        DatabaseReference databaseReferenceB=FirebaseDatabase.getInstance().getReference("Hostels").child(HostelId2);
-//                        DatabaseReference databaseReferenceC=FirebaseDatabase.getInstance().getReference("HostelInformation").child(HostelId2);
-//                        DatabaseReference databaseReferenceD=FirebaseDatabase.getInstance().getReference("MapsInfo").child(HostelId2);
-//                        DatabaseReference databaseReferenceE=FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(HostelId2);
-//                        DatabaseReference databaseReferenceF=FirebaseDatabase.getInstance().getReference("Facilities").child(HostelId2);
-//
-//                        Toast.makeText(Owner_PortalActivity.this,"Deleting",Toast.LENGTH_SHORT).show();
-//                        databaseReferenceB.removeValue();
-//                        databaseReferenceC.removeValue();
-//                        databaseReferenceD.removeValue();
-//                        databaseReferenceE.removeValue();
-//                        databaseReferenceF.removeValue();
-//                        Toast.makeText(Owner_PortalActivity.this,"I Have deleted",Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//                B22.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                //dialog.show();
-//            }
-//        });
-
-//        B3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent123=new Intent(Owner_PortalActivity.this,ShowdataActivity.class);
-//                //startActivity(intent123);
-//                intent123.putExtra("Hostelid",HostelId);
-//                intent123.putExtra("ownerid",ownerId);
-//                intent123.putExtra("Hostelname",HostelName);
-//                intent123.putExtra("Hosteluri",HostelUri);
-//                startActivity(intent123);
-//                //Toast.makeText(Owner_PortalActivity.this,"Value is"+HostelId,Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//        signout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                firebaseAuth.signOut();
-//                Toast.makeText(Owner_PortalActivity.this,"Digning out",Toast.LENGTH_SHORT).show();
-//                Intent intt=new Intent(Owner_PortalActivity.this,OwnerSignInActivity.class);
-//                startActivity(intt);
-//            }
-//        });
-//        Toast.makeText(Owner_PortalActivity.this,"Above of mainActivity",Toast.LENGTH_SHORT).show();
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Hostel hostell = listhos.get(i);
-//                String sta=hostell.getStatus();
-//                if (sta.equals("NOT_APPROVED")) {
-//                    Toast.makeText(Owner_PortalActivity.this, "Please wait for approval ", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    String id = hostell.getId();
-//                    String name = hostell.getName();
-//                    String urii = hostell.getUri();
-//                    Intent intent12345 = new Intent(Owner_PortalActivity.this, OwnerShowActivity.class);
-//                    intent12345.putExtra("Ownerid", UserId);
-//                    intent12345.putExtra("Hostelid", id);
-//                    intent12345.putExtra("Hostelname", name);
-//                    intent12345.putExtra("Hosteluri", urii);
-//                    startActivity(intent12345);
-//
-//                }
-//            }
-//        });
-
-//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                Hostel hostel=listhos.get(i);
-//                HostelId2=hostel.getId();
-//
-//                AlertDialog.Builder dialog = new AlertDialog.Builder(Owner_PortalActivity.this);
-//                dialog.setCancelable(false);
-//                dialog.setTitle("Dialog on Android");
-//                dialog.setMessage("Are you sure you want to delete this entry?" );
-//                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int id) {
-//
-//                        DatabaseReference databaseReferenceB=FirebaseDatabase.getInstance().getReference("Hostels").child(HostelId2);
-//                        DatabaseReference databaseReferenceC=FirebaseDatabase.getInstance().getReference("HostelInformation").child(HostelId2);
-//                        DatabaseReference databaseReferenceD=FirebaseDatabase.getInstance().getReference("MapsInfo").child(HostelId2);
-//                        DatabaseReference databaseReferenceE=FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(HostelId2);
-//                        DatabaseReference databaseReferenceF=FirebaseDatabase.getInstance().getReference("Facilities").child(HostelId2);
-//
-//                        Toast.makeText(Owner_PortalActivity.this,"Deleting",Toast.LENGTH_SHORT).show();
-//                        databaseReferenceB.removeValue();
-//                        databaseReferenceC.removeValue();
-//                        databaseReferenceD.removeValue();
-//                        databaseReferenceE.removeValue();
-//                        databaseReferenceF.removeValue();
-//                        Toast.makeText(Owner_PortalActivity.this,"I Have deleted",Toast.LENGTH_SHORT).show();
-//
-//
-//                    }
-//                })
-//                        .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                //Action for "Cancel".
-//                            }
-//                        });
-//
-//                final AlertDialog alert = dialog.create();
-//                alert.show();
-//
-//
-//                return false;
-//            }
-//        });
 }
     @Override
     protected void onStart() {
