@@ -144,7 +144,7 @@ public class NotificationActivity extends AppCompatActivity {
                         hostelList.add(notification);
                     }
 
-                    NotifyAdapter recycler = new NotifyAdapter(NotificationActivity.this, hostelList);
+                    Notify1Adapter recycler = new Notify1Adapter(NotificationActivity.this, hostelList);
                     RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(NotificationActivity.this);
                     recyclerview.setLayoutManager(layoutmanager);
                     recyclerview.setItemAnimator(new DefaultItemAnimator());

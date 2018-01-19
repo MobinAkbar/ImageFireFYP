@@ -1,15 +1,18 @@
 package com.education.imagefire;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +47,8 @@ public class SearchActivity extends AppCompatActivity {
 
     Button B1,B2,B3;
     EditText E1;
+    Dialog myDialog;
+    private FloatingActionButton fab;
     private DatabaseReference databaseReference;
     private List<PropertyInfo> imglistt;
     private String hostelid;
@@ -68,6 +73,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        myDialog=new Dialog(this);
 
         imglistt=new ArrayList<>();
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigationB);
@@ -79,6 +85,15 @@ public class SearchActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              showComplainPopup();
+            }
+        });
+
 
 //        drawerLayout=(DrawerLayout)findViewById(R.id.drawr);
 //        toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
@@ -196,6 +211,20 @@ public class SearchActivity extends AppCompatActivity {
                 startActivity(intt);
             }
         });
+    }
+
+    public void showComplainPopup(){
+        Button button;
+        myDialog.setContentView(R.layout.complainpopup);
+
+        button = (Button) myDialog.findViewById(R.id.blowA);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

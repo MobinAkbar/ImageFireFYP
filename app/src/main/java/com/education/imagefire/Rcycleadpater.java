@@ -56,7 +56,6 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
         RecyclerUpload2 data = listdata.get(position);
         holder.vname.setText(data.getName());
         holder.vlike.setText(data.getLikes());
-        holder.vtype.setText(data.getType());
         Picasso.with(mContxt).load(data.getUri()).resize(100, 100).into(holder.uri);
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +87,6 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
             itemView.setOnClickListener(this);
             vname = (TextView) itemView.findViewById(R.id.name9);
             uri=(ImageView)itemView.findViewById(R.id.image_1);
-            vtype=(TextView)itemView.findViewById(R.id.ch1);
             vlike=(TextView)itemView.findViewById(R.id.likes);
             imageButton=(ImageButton)itemView.findViewById(R.id.image00);
         }

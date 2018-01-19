@@ -12,11 +12,12 @@ public class Notification {
     private String data;
     private String url;
     private String name;
+    private String time;
 
     public Notification() {
     }
 
-    public Notification(String id, String from, String sendto, String type, String data, String url, String name) {
+    public Notification(String id, String from, String sendto, String type, String data, String url, String name, String time) {
         this.id = id;
         this.from = from;
         this.sendto = sendto;
@@ -24,6 +25,7 @@ public class Notification {
         this.data = data;
         this.url = url;
         this.name = name;
+        this.time = time;
     }
 
     public String getId() {
@@ -52,5 +54,9 @@ public class Notification {
 
     public String getName() {
         return name;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

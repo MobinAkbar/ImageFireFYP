@@ -29,7 +29,9 @@ import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -392,12 +394,13 @@ public class StudentShowActivity extends AppCompatActivity {
                 String ide=databaseReference2.push().getKey();
                 String from=userr.getUid();
                 String sendto=ownerID;
-                String type="request_pending";
+                String type="Pending";
                 String data="1 day";
                 String uriii=hostelUrl;
                 String name=hostelName;
+                String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
                 Toast.makeText(StudentShowActivity.this,"url is"+uriii,Toast.LENGTH_SHORT).show();
-                Notification notification=new Notification(ide,from,sendto,type,data,uriii,name);
+                Notification notification=new Notification(ide,from,sendto,type,data,uriii,name,currentDateTimeString);
                 databaseReference2.child(ide).setValue(notification);
 
 

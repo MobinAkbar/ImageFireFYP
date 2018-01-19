@@ -19,6 +19,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
         String noti_title=remoteMessage.getNotification().getTitle();
         String noti_mesag=remoteMessage.getNotification().getBody();
+        //long time=remoteMessage.getSentTime();
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

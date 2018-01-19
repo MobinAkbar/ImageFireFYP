@@ -2,13 +2,9 @@ package com.education.imagefire;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,44 +15,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
- * Created by NET LINK on 1/2/2018.
+ * Created by NET LINK on 1/19/2018.
  */
 
-public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder>  {
+public class Notify1Adapter extends RecyclerView.Adapter<Notify1Adapter.MyHolder> {
     ArrayList<Notification> listdata;
     Context mContxt;
 
-    public NotifyAdapter(Context mContxt,ArrayList<Notification> listdata) {
+    public Notify1Adapter(Context mContxt,ArrayList<Notification> listdata) {
         this.mContxt=mContxt;
         this.listdata = listdata;
     }
 
     @Override
-    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+    public Notify1Adapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list1item,parent,false);
 
-        MyHolder myHolder = new MyHolder(view,mContxt,listdata);
+        Notify1Adapter.MyHolder myHolder = new Notify1Adapter.MyHolder(view,mContxt,listdata);
         return myHolder;
     }
 
-    public void onBindViewHolder(final MyHolder holder, final int position) {
+    public void onBindViewHolder(final Notify1Adapter.MyHolder holder, final int position) {
         Notification data = listdata.get(position);
         final String id=data.getId();
         holder.vname.setText(data.getName());
@@ -64,21 +51,6 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
         holder.vtime.setText(data.getData());
         holder.vdate.setText(data.getTime());
         Picasso.with(mContxt).load(data.getUrl()).into(holder.uri);
-        holder.vtype.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.vtype.setText("Accepted");
-                String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-                DatabaseReference   databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications").child(id);
-                databaseReference2.child("time").setValue(currentDateTimeString);
-                databaseReference2.child("type").setValue("accepted").addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        ((NotificationActivity)mContxt).restsrt();
-                    }
-                });
-            }
-        });
 
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
