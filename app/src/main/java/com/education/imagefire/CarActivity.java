@@ -31,7 +31,7 @@ import static com.education.imagefire.R.id.recyclerView;
 public class CarActivity extends AppCompatActivity {
 
 //DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference databaseReference;
+   // private DatabaseReference databaseReference;
    // private List<ImageUpload> imglist;
    // private ListView lv;
     private ProgressDialog progressDialog;
