@@ -33,7 +33,7 @@ public class CarActivity extends AppCompatActivity {
 //DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     private DatabaseReference databaseReference;
    // private List<ImageUpload> imglist;
-    private ListView lv;
+   // private ListView lv;
     private ProgressDialog progressDialog;
     private CarAdapter adapter;
 
