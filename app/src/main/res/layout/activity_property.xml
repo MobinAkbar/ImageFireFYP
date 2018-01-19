@@ -76,7 +76,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Hospital"
+                    android:hint="Add NearBy Restaurant"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -86,7 +86,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Park"
+                    android:hint="Add NearBy Shopping mall"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -96,7 +96,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy GYM"
+                    android:hint="Add NearBy Grocery store"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -106,7 +106,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Restaurents"
+                    android:hint="Add NearBy Park"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -116,7 +116,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Add NearBy Restaurents"
+                    android:hint="Add NearBy Market"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

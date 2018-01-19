@@ -22,45 +22,43 @@
 
         tools:context="com.education.imagefire.MapsActivity"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        android:orientation="vertical">
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left"
+                android:id="@+id/btnRestaurant"
+                android:background="@drawable/abuttonstyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurants" />
 
-        <Button
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/abuttonstyle"
+                android:id="@+id/btnHospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hospitals" />
 
-            android:id="@+id/btnRestaurant"
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="right"
+                android:background="@drawable/abuttonstyle"
+                android:id="@+id/btnSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ATM's" />
 
-            android:layout_width="wrap_content"
+        </LinearLayout>
 
-            android:layout_height="wrap_content"
-
-            android:text="Nearby Restaurants" />
-
-        <Button
-
-            android:id="@+id/btnHospital"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:text="Nearby Hospitals" />
-
-        <Button
-
-            android:id="@+id/btnSchool"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:text="Nearby Schools" />
 
         <TextView
 
@@ -78,5 +76,4 @@
 
             android:layout_height="wrap_content" />
 
-    </LinearLayout>
 </FrameLayout>

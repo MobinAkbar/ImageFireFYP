@@ -1,14 +1,17 @@
 package com.education.imagefire;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,6 +34,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 //import static com.education.imagefire.R.id.imageView;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.education.imagefire.R.id.location;
 import static com.education.imagefire.R.id.security;
 import static com.education.imagefire.R.id.url;
@@ -38,13 +43,15 @@ import static com.education.imagefire.R.id.url;
 public class StudentShowActivity extends AppCompatActivity {
 
 
-    TextView name,address,total_rooms,total_beds,empty_rooms,empty_beds,r_monthlyPrize,b_monthlyPrize,r_SemestrPrize,b_semestrPrize,ow_name,oemail,onumbr1,onumbr2,onumbr3,property;
+    TextView facnew,oprofile,name,address,total_rooms,total_beds,empty_rooms,empty_beds,r_monthlyPrize,b_monthlyPrize,r_SemestrPrize,b_semestrPrize,
+    ow_name,oemail,property,hospital,restaurant,shoping,grocry,park,market;
     ImageView mapping,owner_image;
     Button button,B1,B2;
     ViewPager viewPager;
     LinearLayout linearLayout;
     private int dot_count;
     private ImageView[] dotss;
+    Dialog myDialog;
 
     private DatabaseReference databaseReference;
     private DatabaseReference databaseReference1,databaseReference2;
@@ -75,17 +82,18 @@ public class StudentShowActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH1="Student_Like";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
-    private String UserId,ownerID,hostelName,hostelUrl;
+    private String UserId,ownerID,hostelName,hostelUrl,hostlid;
 
-    String a1,a2,a3,a4,a5,a6;
+    private String a1,a2,a3,a4,a5,a6,a7,a8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_show);
 
+        myDialog=new Dialog(this);
         ownerID=getIntent().getStringExtra("Ownerid");
-        final String hostlid=getIntent().getStringExtra("Hostelid");
+        hostlid=getIntent().getStringExtra("Hostelid");
         hostelName=getIntent().getStringExtra("Hostelname");
         String hostladress=getIntent().getStringExtra("Hosteladdress");
         hostelUrl=getIntent().getStringExtra("Hosteluri");
@@ -114,13 +122,17 @@ public class StudentShowActivity extends AppCompatActivity {
         b_monthlyPrize=(TextView)findViewById(R.id.monthlyBprize);
         r_SemestrPrize=(TextView)findViewById(R.id.semstrRprize);
         b_semestrPrize=(TextView)findViewById(R.id.semestrBprize);
-        ow_name=(TextView)findViewById(R.id.oname_z);
-        oemail=(TextView)findViewById(R.id.oemail_z);
-        onumbr1=(TextView)findViewById(R.id.onumb1_z);
-        onumbr2=(TextView)findViewById(R.id.onumb2_z);
-        onumbr3=(TextView)findViewById(R.id.onumb3_z);
-        owner_image=(ImageView)findViewById(R.id.owner_image_z);
+        ow_name=(TextView)findViewById(R.id.newoname);
+        oemail=(TextView)findViewById(R.id.newoemail);
+        oprofile=(TextView) findViewById(R.id.seeoprofile);
+        facnew=(TextView)findViewById(R.id.newseefac);
         property=(TextView)findViewById(R.id.property_z);
+        hospital=(TextView)findViewById(R.id.hosp);
+        restaurant=(TextView)findViewById(R.id.resto);
+        shoping=(TextView)findViewById(R.id.mall);
+        grocry=(TextView)findViewById(R.id.store);
+        park=(TextView)findViewById(R.id.parks);
+        market=(TextView)findViewById(R.id.market);
         button=(Button)findViewById(R.id.request);
         B1=(Button)findViewById(R.id.yess);
         B2=(Button)findViewById(R.id.nots);
@@ -316,6 +328,13 @@ public class StudentShowActivity extends AppCompatActivity {
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     propertyInfo=ds.getValue(PropertyInfo.class);
                     property.setText(propertyInfo.getProperty());
+                    hospital.setText(propertyInfo.getNearby_place1());
+                    restaurant.setText(propertyInfo.getNearby_place2());
+                    shoping.setText(propertyInfo.getNearby_place3());
+                    grocry.setText(propertyInfo.getNearby_place4());
+                    park.setText(propertyInfo.getNearby_place5());
+                    market.setText(propertyInfo.getNearby_place6());
+
                 }
             }
             @Override
@@ -333,10 +352,15 @@ public class StudentShowActivity extends AppCompatActivity {
                     owner=ds.getValue(Owner.class);
                     ow_name.setText(owner.getName());
                     oemail.setText(owner.getEmail());
-                    onumbr1.setText(owner.getNumber_1());
-                    onumbr2.setText(owner.getNumber_2());
-                    onumbr3.setText(owner.getNumber_3());
-                    PicassoClient.downloadImage(StudentShowActivity.this,owner.getUri(),owner_image);
+                    a1=owner.getName();
+                    a2=owner.getAddress();
+                    a3=owner.getNumber_1();
+                    a4=owner.getNumber_2();
+                    a5=owner.getNumber_3();
+                    a6=owner.getProfessionn();
+                    a7=owner.getEmail();
+                    a8=owner.getUri();
+                    //PicassoClient.downloadImage(StudentShowActivity.this,owner.getUri(),owner_image);
                 }
             }
             @Override
@@ -407,6 +431,131 @@ public class StudentShowActivity extends AppCompatActivity {
             }
         });
 
+        facnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showfacilities();
+            }
+        });
+        oprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               showprofle();
+
+            }
+        });
+
+    }
+    public void showprofle(){
+        Button button;
+        TextView t1,t2,t3,t4,t5,t6,t7;
+        CircleImageView imageView;
+        myDialog.setContentView(R.layout.profilepopup);
+
+        button=(Button)myDialog.findViewById(R.id.newbackpro);
+        imageView=(CircleImageView)myDialog.findViewById(R.id.profile_image1);
+        t1=(TextView)myDialog.findViewById(R.id.name_o1);
+        t2=(TextView)myDialog.findViewById(R.id.adress_o1);
+        t3=(TextView)myDialog.findViewById(R.id.num1r_01);
+        t4=(TextView)myDialog.findViewById(R.id.num2r_o1);
+        t5=(TextView)myDialog.findViewById(R.id.num3r_o1);
+        t6=(TextView)myDialog.findViewById(R.id.job_o1);
+        t7=(TextView)myDialog.findViewById(R.id.mail_o1);
+
+        PicassoClient.downloadImage(StudentShowActivity.this,a8,imageView);
+        t1.setText(a1);
+        t2.setText(a2);
+        t3.setText(a3);
+        t4.setText(a4);
+        t5.setText(a5);
+        t6.setText(a6);
+        t7.setText(a7);
+
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
+
+
+
+
+
+    }
+    public void showfacilities() {
+        Button button;
+        final CheckBox t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
+        myDialog.setContentView(R.layout.facilitypopup);
+
+        t1=(CheckBox) myDialog.findViewById(R.id.fac1);
+        t2=(CheckBox) myDialog.findViewById(R.id.fac2);
+        t3=(CheckBox) myDialog.findViewById(R.id.fac3);
+        t4=(CheckBox) myDialog.findViewById(R.id.fac4);
+        t5=(CheckBox) myDialog.findViewById(R.id.fac5);
+        t6=(CheckBox) myDialog.findViewById(R.id.fac6);
+        t7=(CheckBox) myDialog.findViewById(R.id.fac7);
+        t8=(CheckBox) myDialog.findViewById(R.id.fac8);
+        t9=(CheckBox) myDialog.findViewById(R.id.fac9);
+        t10=(CheckBox) myDialog.findViewById(R.id.fac10);
+
+        DatabaseReference mFirebaseDatabaseReference2 = FirebaseDatabase.getInstance().getReference();
+        Query query2 = mFirebaseDatabaseReference2.child("Facilities").orderByChild("id").equalTo(hostlid);
+
+        final ValueEventListener eventListener2=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    facilities=ds.getValue(Facilities.class);
+                    if (facilities.getWifi().equals("Yes")) {
+                        t1.setChecked(true);
+                    }
+                    if (facilities.getGenereter().equals("Yes")) {
+                        t2.setChecked(true);
+                    }
+                    if (facilities.getBreakfast().equals("Yes")) {
+                        t3.setChecked(true);
+                    }
+                    if (facilities.getCamera().equals("Yes")) {
+                        t4.setChecked(true);
+                    }
+                    if (facilities.getElectrition().equals("Yes")) {
+                        t5.setChecked(true);
+                    }
+                    if (facilities.getGuesthouse().equals("Yes")) {
+                        t6.setChecked(true);
+                    }
+                    if (facilities.getShop().equals("Yes")) {
+                        t7.setChecked(true);
+                    }
+                    if (facilities.getParking().equals("Yes")) {
+                        t8.setChecked(true);
+                    }
+                    if (facilities.getWasherman().equals("Yes")) {
+                        t9.setChecked(true);
+                    }
+                    if (facilities.getKitchen().equals("Yes")) {
+                        t10.setChecked(true);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        query2.addValueEventListener(eventListener2);
+
+        button = (Button) myDialog.findViewById(R.id.newback);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.show();
     }
 
     public class MyTime extends TimerTask {

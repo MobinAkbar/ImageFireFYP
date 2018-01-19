@@ -585,8 +585,6 @@ public class InterfaceActivity extends AppCompatActivity {
         t22=(EditText) myDialog.findViewById(R.id.poadress);
         t11.setText(name.getText().toString());
         t22.setText(adress.getText().toString());
-       // nameHod=t11.getText().toString();
-       // adres=t22.getText().toString();
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -603,7 +601,7 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void showPopup3() {
         Button button;
-        EditText t11,t22,t33,t44;
+       final EditText t11,t22,t33,t44;
         myDialog.setContentView(R.layout.phase3popup);
 
         button = (Button) myDialog.findViewById(R.id.blow1);
@@ -615,13 +613,13 @@ public class InterfaceActivity extends AppCompatActivity {
         t22.setText(t_bed.getText().toString());
         t33.setText(e_room.getText().toString());
         t44.setText(e_bed.getText().toString());
-        var1=t11.getText().toString();
-        var2=t22.getText().toString();
-        var3=t33.getText().toString();
-        var4=t44.getText().toString();
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                var1=t11.getText().toString();
+                var2=t22.getText().toString();
+                var3=t33.getText().toString();
+                var4=t44.getText().toString();
                 databaseReference1.child("total_rooms").setValue(var1);
                 databaseReference1.child("total_beds").setValue(var2);
                 databaseReference1.child("empty_rooms").setValue(var3);
@@ -635,7 +633,7 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void showPopup4() {
         Button button;
-        EditText t11,t22,t33,t44;
+        final EditText t11,t22,t33,t44;
         myDialog.setContentView(R.layout.phase4popup);
 
         button = (Button) myDialog.findViewById(R.id.blow2);
@@ -647,13 +645,14 @@ public class InterfaceActivity extends AppCompatActivity {
         t22.setText(m_b_price.getText().toString());
         t33.setText(s_r_price.getText().toString());
         t44.setText(s_b_price.getText().toString());
-        var1=t11.getText().toString();
-        var2=t22.getText().toString();
-        var3=t33.getText().toString();
-        var4=t44.getText().toString();
+
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                var1=t11.getText().toString();
+                var2=t22.getText().toString();
+                var3=t33.getText().toString();
+                var4=t44.getText().toString();
                 databaseReference1.child("r_monthprize").setValue(var1);
                 databaseReference1.child("b_monthprize").setValue(var2);
                 databaseReference1.child("r_sixmonth").setValue(var3);
@@ -667,16 +666,16 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void showPopup7() {
         Button button;
-        EditText t11;
+        final EditText t11;
         myDialog.setContentView(R.layout.phase7popup);
 
         button = (Button) myDialog.findViewById(R.id.blow3);
         t11=(EditText) myDialog.findViewById(R.id.prop1);
         t11.setText(prop.getText().toString());
-        var1=t11.getText().toString();
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                var1=t11.getText().toString();
                 databaseReference2.child("property").setValue(var1);
                 finish();
                 startActivity(getIntent());
@@ -687,7 +686,7 @@ public class InterfaceActivity extends AppCompatActivity {
     }
     public void showPopup6() {
         Button button;
-        EditText t11,t22,t33,t44,t55,t66;
+        final EditText t11,t22,t33,t44,t55,t66;
         myDialog.setContentView(R.layout.phase6popup);
 
         button = (Button) myDialog.findViewById(R.id.blow4);
@@ -705,15 +704,14 @@ public class InterfaceActivity extends AppCompatActivity {
         t55.setText(p5.getText().toString());
         t66.setText(p6.getText().toString());
 
-        var1=t11.getText().toString();
-        var2=t22.getText().toString();
-        var3=t33.getText().toString();
-        var4=t44.getText().toString();
-        var5=t55.getText().toString();
-        var6=t66.getText().toString();
-
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                var1=t11.getText().toString();
+                var2=t22.getText().toString();
+                var3=t33.getText().toString();
+                var4=t44.getText().toString();
+                var5=t55.getText().toString();
+                var6=t66.getText().toString();
                 databaseReference2.child("nearby_place1").setValue(var1);
                 databaseReference2.child("nearby_place2").setValue(var2);
                 databaseReference2.child("nearby_place3").setValue(var3);
