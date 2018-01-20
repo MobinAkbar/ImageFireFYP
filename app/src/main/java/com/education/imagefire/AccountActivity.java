@@ -127,7 +127,7 @@ public class AccountActivity extends AppCompatActivity {
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(AccountActivity.this, "Ejrror", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AccountActivity.this, "Ejorror", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
