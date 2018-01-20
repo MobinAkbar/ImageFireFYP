@@ -50,6 +50,7 @@ public class SearchActivity extends AppCompatActivity {
     Dialog myDialog;
     private FloatingActionButton fab;
     private DatabaseReference databaseReference;
+    private DatabaseReference cdatabaserefer;
     private List<PropertyInfo> imglistt;
     private String hostelid;
     private FirebaseDatabase firebaseDatabase;
@@ -119,6 +120,8 @@ public class SearchActivity extends AppCompatActivity {
         FirebaseUser user=firebaseAuth.getCurrentUser();
         UserId=user.getUid();
         Toast.makeText(SearchActivity.this,"Valu is"+UserId,Toast.LENGTH_SHORT).show();
+
+             cdatabaserefer=FirebaseDatabase.getInstance().getReference("Complains");
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -268,12 +271,25 @@ public class SearchActivity extends AppCompatActivity {
 
     public void showComplainPopup(){
         Button button;
+        final EditText name,hostel,compln;
+        //final String ownr,hosname,detail;
         myDialog.setContentView(R.layout.complainpopup);
 
-        button = (Button) myDialog.findViewById(R.id.blowA);
+        button = (Button) myDialog.findViewById(R.id.s_comp);
+        name=(EditText)myDialog.findViewById(R.id.name_co);
+        hostel=(EditText)myDialog.findViewById(R.id.name_ho);
+        compln=(EditText)myDialog.findViewById(R.id.comp);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                String id=cdatabaserefer.push().getKey();
+                String s_id=UserId;
+               String ownr=name.getText().toString();
+               String name=hostel.getText().toString();
+               String detail=compln.getText().toString();
+                Complain complain=new Complain(id,s_id,ownr,name,detail);
+                cdatabaserefer.child(id).setValue(complain);
+                Toast.makeText(SearchActivity.this,"Complain Sent",Toast.LENGTH_SHORT).show();
                 myDialog.dismiss();
             }
         });

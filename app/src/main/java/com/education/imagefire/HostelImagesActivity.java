@@ -72,7 +72,7 @@ public class HostelImagesActivity extends AppCompatActivity {
             chose=(Button)findViewById(R.id.choose7);
             next=(Button)findViewById(R.id.next7);
             clear=(Button)findViewById(R.id.clear7);
-            b109=(Button)findViewById(R.id.print);
+            //b109=(Button)findViewById(R.id.print);
         image1=(ImageView)findViewById(R.id.image_h1);
         image2=(ImageView)findViewById(R.id.image_h2);
         image3=(ImageView)findViewById(R.id.image_h3);
@@ -86,26 +86,26 @@ public class HostelImagesActivity extends AppCompatActivity {
         //storeReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(id);
 
-        b109.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                Toast.makeText(HostelImagesActivity.this,"myown first 1"+myOwn2.get(0),Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 2"+myOwn2.get(1),Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 3"+myOwn2.get(2),Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 4"+myOwn2.get(3),Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 5"+myOwn2.get(4),Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"myown last 6"+myOwn2.get(5),Toast.LENGTH_SHORT).show();
-
-                Toast.makeText(HostelImagesActivity.this,"Delayed 11"+Aones,Toast.LENGTH_SHORT).show();
-                Toast.makeText(HostelImagesActivity.this,"Delayed 22"+Atwos,Toast.LENGTH_SHORT).show();
-                Toast.makeText(HostelImagesActivity.this,"Delayed 33"+Athrees,Toast.LENGTH_SHORT).show();
-                Toast.makeText(HostelImagesActivity.this,"Delayed 44"+Afours,Toast.LENGTH_SHORT).show();
-                Toast.makeText(HostelImagesActivity.this,"Delayed 55"+Afives,Toast.LENGTH_SHORT).show();
-                Toast.makeText(HostelImagesActivity.this,"Delayed 66"+Asixes,Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        b109.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+////                Toast.makeText(HostelImagesActivity.this,"myown first 1"+myOwn2.get(0),Toast.LENGTH_SHORT).show();
+////                Toast.makeText(HostelImagesActivity.this,"Delayed 2"+myOwn2.get(1),Toast.LENGTH_SHORT).show();
+////                Toast.makeText(HostelImagesActivity.this,"Delayed 3"+myOwn2.get(2),Toast.LENGTH_SHORT).show();
+////                Toast.makeText(HostelImagesActivity.this,"Delayed 4"+myOwn2.get(3),Toast.LENGTH_SHORT).show();
+////                Toast.makeText(HostelImagesActivity.this,"Delayed 5"+myOwn2.get(4),Toast.LENGTH_SHORT).show();
+////                Toast.makeText(HostelImagesActivity.this,"myown last 6"+myOwn2.get(5),Toast.LENGTH_SHORT).show();
+//
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 11"+Aones,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 22"+Atwos,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 33"+Athrees,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 44"+Afours,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 55"+Afives,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HostelImagesActivity.this,"Delayed 66"+Asixes,Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,10 +119,35 @@ public class HostelImagesActivity extends AppCompatActivity {
                 Afives=array.get(4);
                 Asixes=array.get(5);
 
+                if (array.get(0).equals(null)) {
+                   Aones="";
+                }
+                if (array.get(1).equals(null)) {
+                    Atwos="";
+                }
+                if (array.get(2).equals(null)) {
+                    Athrees="";
+                }
+                if (array.get(3).equals(null)) {
+                    Afours="";
+                }
+                if (array.get(4).equals(null)) {
+                    Afives="";
+                }
+                if (array.get(5).equals(null)) {
+                    Asixes="";
+                }
+
                 HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
-                databaseReference.setValue(hostelImages);
-                Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
-                startActivity(in);
+                databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                        startActivity(in);
+                    }
+                });
+                //Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                //startActivity(in);
             }
         });
     }
@@ -146,10 +171,10 @@ public class HostelImagesActivity extends AppCompatActivity {
                         Uri final_uri=taskSnapshot.getDownloadUrl();
                         String link=final_uri.toString();
                         Toast toast = new Toast(HostelImagesActivity.this);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.setGravity(Gravity.CENTER, 30, 30);
                         TextView textView=new TextView(HostelImagesActivity.this);
                         textView.setText("Chechking images completion");
-                        textView.setBackgroundColor(Color.DKGRAY);
+                        textView.setBackgroundColor(Color.BLUE);
                         toast.setView(textView);
                         toast.show();
 
@@ -189,7 +214,7 @@ public class HostelImagesActivity extends AppCompatActivity {
 
         if (requestCode == REQUEST_CODE) {
             if(resultCode==RESULT_OK) {
-                Toast.makeText(HostelImagesActivity.this, "please 1", Toast.LENGTH_LONG).show();
+                Toast.makeText(HostelImagesActivity.this, "Select 6 image", Toast.LENGTH_LONG).show();
                 if (data != null && data.getData() != null) {
                     Uri mImageUri = data.getData();
                     try {
@@ -292,50 +317,7 @@ public class HostelImagesActivity extends AppCompatActivity {
 
 
         }
-//
-//
-////    @Override
-////    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        super.onActivityResult(requestCode, resultCode, data);
-////        if(requestCode==REQUEST_CODE || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-////            //Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-////            filepath=data.getData();
-////
-////            try{
-////                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-////                //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-////                image.setImageBitmap(bitmap);
-////            }catch (FileNotFoundException e){
-////                e.printStackTrace();
-////            }
-////            catch (IOException e){
-////                e.printStackTrace();
-////            }
-////
-////        }
-////
-////    }
-//
-//    //    @Override
-////    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        super.onActivityResult(requestCode, resultCode, data);
-////        if(requestCode==REQUEST_CODE && requestCode== RESULT_OK && data !=null&& data.getData()!=null){
-////            Toast.makeText(MainActivity.this,"please image 2",Toast.LENGTH_LONG).show();
-////                    filepath=data.getData();
-////
-////            try{
-////                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-////                Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-////                I1.setImageBitmap(bitmap);
-////            }catch (FileNotFoundException e){
-////                e.printStackTrace();
-////            }
-////            catch (IOException e){
-////                e.printStackTrace();
-////            }
-////
-////        }
-////    }
+
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
@@ -350,5 +332,3 @@ public class HostelImagesActivity extends AppCompatActivity {
         image6.setImageResource(0);
     }
 }
-  //  }
-//}

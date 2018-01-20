@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -137,7 +138,14 @@ public class FacilitiesActivity extends AppCompatActivity {
         }
 
            Facilities fac=new Facilities(id,c1,c8,c4,c2,c5,c7,c6,c3,c10,c9);
-            databaseReference.setValue(fac);
+            databaseReference.setValue(fac).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Intent intnt=new Intent(FacilitiesActivity.this,RoomsActivity.class);
+                    intnt.putExtra("id",key);
+                    startActivity(intnt);
+                }
+            });
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();
 

@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -57,7 +59,7 @@ public class PropertyActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intnt=new Intent(PropertyActivity.this,NearbyplacesActivity.class);
+                Intent intnt=new Intent(PropertyActivity.this,MapInfoActivity.class);
                 intnt.putExtra("id",key);
                 startActivity(intnt);
             }
@@ -74,7 +76,14 @@ public class PropertyActivity extends AppCompatActivity {
         String places_6=nearby6.getText().toString();
 
             PropertyInfo infor=new PropertyInfo(key,surroundings,places_1,places_2,places_3,places_4,places_5,places_6);
-            databaseReference.setValue(infor);
+            databaseReference.setValue(infor).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Intent intnt=new Intent(PropertyActivity.this,MapInfoActivity.class);
+                    intnt.putExtra("id",key);
+                    startActivity(intnt);
+                }
+            });
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();
 

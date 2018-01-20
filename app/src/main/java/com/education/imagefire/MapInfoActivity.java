@@ -204,7 +204,14 @@ public class MapInfoActivity extends AppCompatActivity {
 
        // Map map=new Map(id,name,lato,longi);
         databaseReference.child("latitude").setValue(lato);
-        databaseReference.child("longitude").setValue(longi);
+        databaseReference.child("longitude").setValue(longi).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Intent o = new Intent(MapInfoActivity.this, HostelImagesActivity.class);
+                o.putExtra("id", key);
+                startActivity(o);
+            }
+        });
         Toast.makeText(MapInfoActivity.this, "Uploaded" , Toast.LENGTH_SHORT).show();
 
     }

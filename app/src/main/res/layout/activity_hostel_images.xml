@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,6 +12,14 @@
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
@@ -25,26 +34,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:textSize="30dp"
                     android:textColor="@color/colorAccent"
                     android:text="Add Hostel Images !!!"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/print"
-                    android:background="@color/colorAccent"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:text="Uri_Images"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                <!--<Button-->
+                    <!--android:id="@+id/print"-->
+                    <!--android:background="@color/colorAccent"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:text="Uri_Images"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" />-->
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -55,7 +64,7 @@
                     android:background="@color/colorAccent"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
-                    android:text="Select Images"
+                    android:text="Select 6 Images"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -70,18 +79,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/image_h1"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp" />
+                    android:layout_height="wrap_content" />
 
                 <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/image_h2"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="250dp"
-                    android:layout_height="150dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>
@@ -92,18 +104,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/image_h3"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp" />
+                    android:layout_height="wrap_content" />
 
                 <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:id="@+id/image_h4"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="250dp"
-                    android:layout_height="150dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>
@@ -113,18 +128,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/image_h5"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp" />
+                    android:layout_height="wrap_content" />
 
                 <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/image_h6"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="250dp"
-                    android:layout_height="150dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>
@@ -153,8 +171,8 @@
                     android:onClick="upload"
                     android:layout_marginBottom="5dp"
                     android:background="@color/colorAccent"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginLeft="55dp"
                     android:text="Upload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -170,8 +188,7 @@
 
 
             </LinearLayout>
-
-
         </LinearLayout>
+        </android.support.v7.widget.CardView>
 </ScrollView>
     </RelativeLayout>

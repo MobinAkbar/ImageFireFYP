@@ -1,58 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="350dp"
-    android:layout_height="475dp"
+    android:layout_height="550dp"
     android:background="@color/colorPrimary"
     android:padding="5dp"
     android:layout_gravity="center">
-
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold"
-                android:layout_marginTop="2dp"
-                android:text="Hostel Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_marginTop="2dp"
-                android:id="@+id/txtclose"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:text="X"
-                android:textStyle="bold"
-                android:layout_gravity="end"
-                android:gravity="center"
-                android:background="#4bb6ef"/>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
 
     <android.support.v7.widget.CardView
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_marginTop="13dp"
@@ -67,32 +28,41 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
-                android:text="Hostel Property Info"
+                android:text="Write Your Complain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical"
+            <EditText
+                android:id="@+id/name_co"
+                android:layout_marginTop="60dp"
+                android:hint="Owner name"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/name_ho"
+                android:hint="Hostel name"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
                 <EditText
-                    android:id="@+id/prop1"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/comp"
                     android:maxLines="4"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="Hostel property info"
+                    android:hint="Write here in 2 to 3 lines"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
 
-            </LinearLayout>
 
             <Button
-                android:id="@+id/blow3"
+                android:id="@+id/s_comp"
                 android:textSize="14dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
@@ -103,11 +73,10 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save"/>
+                android:text="Send"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
 
 
 </LinearLayout>

@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -108,12 +110,27 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         // inflate menu
         PopupMenu popup = new PopupMenu(view.getContext(),view );
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.pop_up, popup.getMenu());
+        inflater.inflate(R.menu.save, popup.getMenu());
         // popup.setOnMenuItemClickListener(new MyMenuStyle(position,holder));
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
+                switch (item.getItemId()) {
+                    case R.id.save:
+                        RecyclerUpload hostel = listdata.get(position);
+                       FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
+                       FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+                        FirebaseUser user=firebaseAuth.getCurrentUser();
+                       String UserId=user.getUid();
+                        String h_id=hostel.hostel_id;
+                        String valu="liked";
+                        Like like=new Like(h_id,valu);
+                        DatabaseReference   databaseReference2 = FirebaseDatabase.getInstance().getReference("Student_Like").child(UserId);
+                        databaseReference2.child(h_id).setValue(like);
+                        Toast.makeText(mContxt,"Saved in you LIKES",Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 return true;
             }
 

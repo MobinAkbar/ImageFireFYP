@@ -49,13 +49,6 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <!--<EditText-->
-            <!--android:id="@+id/eee1"-->
-            <!--android:hint="write university or hostel name"-->
-            <!--android:layout_width="350dp"-->
-            <!--android:layout_height="wrap_content" />-->
-
-
 
             <Button
                 android:layout_weight="1"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,23 +8,32 @@
     android:layout_height="match_parent"
     tools:context="com.education.imagefire.OptionActivity">
 
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
         <TextView
-
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:text="Select your type of account !!"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
-            android:text="This would not be asked again !!"
+            android:text="This would not be change again !!"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -52,10 +62,10 @@
 
         </LinearLayout>
 
-
         <Button
+            android:background="@color/colorAccent"
             android:id="@+id/nexttt"
-            android:text="Next"
+            android:text="Done"
             android:layout_marginTop="50dp"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
@@ -63,4 +73,5 @@
             android:layout_height="50dp" />
 
     </LinearLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

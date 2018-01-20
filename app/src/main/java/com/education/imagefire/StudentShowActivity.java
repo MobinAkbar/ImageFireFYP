@@ -451,8 +451,8 @@ public class StudentShowActivity extends AppCompatActivity {
     }
     public void showprofle(){
         Button button;
-        TextView t1,t2,t3,t4,t5,t6,t7;
-        CircleImageView imageView;
+        final TextView t1,t2,t3,t4,t5,t6,t7;
+        final CircleImageView imageView;
         myDialog.setContentView(R.layout.profilepopup);
 
         button=(Button)myDialog.findViewById(R.id.newbackpro);
@@ -465,17 +465,28 @@ public class StudentShowActivity extends AppCompatActivity {
         t6=(TextView)myDialog.findViewById(R.id.job_o1);
         t7=(TextView)myDialog.findViewById(R.id.mail_o1);
 
-        PicassoClient.downloadImage(StudentShowActivity.this,a8,imageView);
-        t1.setText(a1);
-        t2.setText(a2);
-        t3.setText(a3);
-        t4.setText(a4);
-        t5.setText(a5);
-        t6.setText(a6);
-        t7.setText(a7);
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query4 = mFirebaseDatabaseReference.child("Owners").orderByChild("id").equalTo(ownerID);
+        final ValueEventListener eventListener3=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    t1.setText(owner.getName());
+                    t2.setText(owner.getAddress());
+                    t3.setText(owner.getNumber_1());
+                    t4.setText(owner.getNumber_2());
+                    t5.setText(owner.getNumber_3());
+                    t6.setText(owner.getProfessionn());
+                    t7.setText(owner.getEmail());
 
-
-
+                    PicassoClient.downloadImage(StudentShowActivity.this,owner.getUri(),imageView);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        query4.addValueEventListener(eventListener3);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myDialog.dismiss();

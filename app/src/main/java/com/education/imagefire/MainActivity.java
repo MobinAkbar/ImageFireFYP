@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -110,6 +111,29 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         Permission.checkPermission(this);
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String owner_name=name.getText().toString().trim();
+                String number1=numb1.getText().toString().trim();
+                String profession=profesion.getText().toString().trim();
+
+                if (TextUtils.isEmpty(owner_name)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(number1)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(profession)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                upload();
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             auth.removeAuthStateListener(stateListener);
         }
     }
-    public void upload(View v) {
+    public void upload() {
 
         if(filepath!=null){
             final ProgressDialog progress=new ProgressDialog(this);
@@ -228,6 +252,9 @@ public class MainActivity extends AppCompatActivity {
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+    public void clean(View view){
+        image.setImageResource(0);
     }
 
 }

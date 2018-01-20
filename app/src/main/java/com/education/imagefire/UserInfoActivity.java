@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -94,13 +95,37 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         };
 
-
-
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
         //databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH1);
 
         Permission.checkPermission(this);
+
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String name1=name.getText().toString().trim();
+                String gender1=age.getText().toString().trim();
+                String uni1=university.getText().toString().trim();
+
+                if (TextUtils.isEmpty(name1)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(gender1)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(uni1)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                upload();
+
+            }
+        });
 
 //        next.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -129,7 +154,7 @@ public class UserInfoActivity extends AppCompatActivity {
             auth.removeAuthStateListener(stateListener);
         }
     }
-    public void upload(View v) {
+    public void upload() {
 
         if(filepath!=null){
             final ProgressDialog progress=new ProgressDialog(this);
@@ -154,7 +179,14 @@ public class UserInfoActivity extends AppCompatActivity {
                     String uni1=university.getText().toString().trim();
 
                     Users user=new Users(id,name1,email1,password1,number1,gender1,address1,uni1,taskSnapshot.getDownloadUrl().toString(),deviceToken);
-                    databaseReference.child(id).setValue(user);
+                    databaseReference.child(id).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
+                            in.putExtra("UID",UserId);
+                            startActivity(in);
+                        }
+                    });
 
 
                 }
@@ -210,15 +242,14 @@ public class UserInfoActivity extends AppCompatActivity {
             catch (IOException e){
                 e.printStackTrace();
             }
-
         }
-
     }
-
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
-
+    public void clean(View view){
+        image.setImageResource(0);
+    }
 }

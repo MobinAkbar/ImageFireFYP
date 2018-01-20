@@ -56,12 +56,14 @@
         <activity
             android:name=".SearchActivity"
             android:theme="@style/MyAppTheme" />
-        <activity android:name=".RecyclerviewActivity" />
+        <activity android:name=".RecyclerviewActivity"
+            android:theme="@style/MyAppTheme"/>
         <activity android:name=".HostelActivity" />
         <activity android:name=".MapInfoActivity" />
         <activity android:name=".PropertyActivity" />
         <activity android:name=".FacilitiesActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuActivity"
+            android:theme="@style/MyAppTheme"/>
         <activity android:name=".UniversityActivity" />
         <activity android:name=".NearbyplacesActivity" />
         <activity android:name=".UserInfoActivity" />

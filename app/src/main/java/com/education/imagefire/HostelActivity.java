@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -127,6 +128,10 @@ public class HostelActivity extends AppCompatActivity {
 
                     Hostel hostel=new Hostel(id,owner,hostel_name,hostel_address,taskSnapshot.getDownloadUrl().toString(),statuses,gender,lat,longo,likes);
                     databaseReference.child(id).setValue(hostel);
+
+                    Intent intt=new Intent(HostelActivity.this,FacilitiesActivity.class);
+                    intt.putExtra("id",ids);
+                    startActivity(intt);
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

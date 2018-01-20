@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,6 +12,14 @@
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
@@ -25,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="15dp"
                     android:textSize="30dp"
                     android:textColor="@color/colorAccent"
@@ -33,6 +43,9 @@
                     android:layout_height="wrap_content" />
 
             <EditText
+                android:textColor="#000"
+                android:drawablePadding="15dp"
+                android:drawableLeft="@drawable/adres"
                 android:id="@+id/place_info"
                 android:maxLines="5"
                 android:layout_marginLeft="15dp"
@@ -53,6 +66,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="15dp"
                     android:textSize="30dp"
                     android:textColor="@color/colorAccent"
@@ -61,6 +75,9 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_1"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -71,6 +88,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_2"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -81,6 +101,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_3"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -91,6 +114,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_4"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -101,6 +127,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_5"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -111,6 +140,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:textColor="#000"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/adres"
                     android:id="@+id/near_6"
                     android:maxLines="1"
                     android:layout_marginLeft="10dp"
@@ -123,9 +155,9 @@
 
                 <Button
                     android:id="@+id/upload4"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="55dp"
                     android:background="@color/colorAccent"
                     android:text="upload"
                     android:layout_width="match_parent"
@@ -142,7 +174,7 @@
 
 
             </LinearLayout>
-
             </LinearLayout>
+        </android.support.v7.widget.CardView>
         </ScrollView>
     </RelativeLayout>

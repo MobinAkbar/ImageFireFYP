@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,10 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_weight="0"
@@ -25,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:layout_marginLeft="10dp"
                 android:textSize="30dp"
                 android:textColor="@color/colorAccent"
                 android:text="Rooms Details :"
@@ -34,7 +45,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:id="@+id/l_3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -50,7 +61,7 @@
                     android:id="@+id/total_rooms"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="7dp"
-                    android:hint="Add Total Rooms"
+                    android:hint="Total Rooms"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -58,7 +69,7 @@
                 <EditText
                     android:id="@+id/empty_rooms"
                     android:layout_marginLeft="5dp"
-                    android:hint="Add Empty Rooms"
+                    android:hint="Empty Rooms"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -75,13 +86,13 @@
                 <EditText
                     android:id="@+id/total_beds"
                     android:layout_marginBottom="7dp"
-                    android:hint="Add Total Beds"
+                    android:hint="Total Beds"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
                     android:id="@+id/empty_beds"
-                    android:hint="Add Empty Beds"
+                    android:hint="Empty Beds"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -91,12 +102,13 @@
 
         <LinearLayout
             android:layout_weight="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:id="@+id/l_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:layout_marginLeft="10dp"
                 android:textSize="30dp"
                 android:textColor="@color/colorAccent"
                 android:text="Prizes Details :"
@@ -104,9 +116,31 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="0"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="20dp"
+                        android:text="Rooms:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="20dp"
+                        android:text="Beds:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="7dp"
             android:id="@+id/l_7"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -122,7 +156,7 @@
                     android:id="@+id/r_prizemont"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="7dp"
-                    android:hint="Per month prize"
+                    android:hint="Per month Rs/"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -130,7 +164,7 @@
                 <EditText
                     android:id="@+id/r_prize6month"
                     android:layout_marginLeft="5dp"
-                    android:hint="Six motn prize"
+                    android:hint="Six month Rs/ "
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -138,7 +172,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="150dp"
@@ -147,13 +181,13 @@
                 <EditText
                     android:id="@+id/b_prize1month"
                     android:layout_marginBottom="7dp"
-                    android:hint="1 month prize of bed"
+                    android:hint="Per month Rs/"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
                     android:id="@+id/b_prize6month"
-                    android:hint="6 month prize of bed"
+                    android:hint="Six month Rs/"
                     android:background="@drawable/editdesign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -168,9 +202,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:layout_marginLeft="10dp"
                 android:textSize="30dp"
                 android:textColor="@color/colorAccent"
-                android:text="Select Universities :"
+                android:text="NearBy Universities :"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -178,14 +213,15 @@
 
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
@@ -206,11 +242,8 @@
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="16dp" />
             </LinearLayout>
-
-
-
             <LinearLayout
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
@@ -234,7 +267,7 @@
 
 
             <LinearLayout
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
@@ -267,8 +300,8 @@
             <Button
                 android:layout_marginBottom="5dp"
                 android:id="@+id/upload3"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="55dp"
                 android:background="@color/colorAccent"
                 android:text="upload"
                 android:layout_width="match_parent"
@@ -282,58 +315,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-
         </LinearLayout>
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/l2"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<Button-->
-            <!--android:onClick="upload"-->
-            <!--android:text="upload"-->
-            <!--android:id="@+id/upload"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-
-        <!--<Button-->
-            <!--android:onClick="chooose"-->
-            <!--android:text="choose"-->
-            <!--android:id="@+id/choose"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-        <!--<Button-->
-
-            <!--android:text="Next"-->
-            <!--android:id="@+id/nextt"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/l1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="430dp"-->
-        <!--android:orientation="horizontal">-->
-
-
-        <!--<ImageView-->
-
-            <!--android:layout_weight="1"-->
-            <!--android:id="@+id/image111"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="200dp" />-->
-        <!--<ImageView-->
-            <!--android:layout_marginLeft="2dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:id="@+id/image12"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="200dp" />-->
-
-
-    <!--</LinearLayout>-->
-
-    </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>>
     </ScrollView>
 </RelativeLayout>

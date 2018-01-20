@@ -108,7 +108,7 @@ public class Notify1Adapter extends RecyclerView.Adapter<Notify1Adapter.MyHolder
                 switch (item.getItemId()) {
                     case R.id.delete:
                         Notification hostel = listdata.get(position);
-                        final String owner=hostel.getSendto();
+                        final String owner=hostel.getId();
                         //final String HostelId2 = hostel.getHostel_id();
 
                         AlertDialog.Builder dialog = new AlertDialog.Builder(mContxt);

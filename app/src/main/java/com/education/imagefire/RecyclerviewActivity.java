@@ -1,16 +1,25 @@
 package com.education.imagefire;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,11 +52,37 @@ public class RecyclerviewActivity extends AppCompatActivity{
     private String UserId;
     String uniname, sexx, bhabi;
     double latii,longii;
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+    BottomNavigationView bottomNavigationView;
+    TextView t1,t2;
+    ImageView im1;
+    Dialog myDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
+
+        myDialog=new Dialog(this);
+        bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigationB);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar2A);
+        setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.popupp);
+        drawerLayout=(DrawerLayout)findViewById(R.id.drawrB1);
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView=(NavigationView)findViewById(R.id.nav_view);
+        View navi=navigationView.inflateHeaderView(R.layout.nav_header_main);
+        t1=(TextView) navi.findViewById(R.id.headtext);
+        t2=(TextView)navi.findViewById(R.id.textView89);
+        im1=(ImageView)navi.findViewById(R.id.profile_image);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -70,6 +105,83 @@ public class RecyclerviewActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        DatabaseReference mFirebaseDatabaseReference7 = FirebaseDatabase.getInstance().getReference();
+        Query query1 = mFirebaseDatabaseReference7.child("Users_Info").orderByChild("id").equalTo(UserId);
+
+        final ValueEventListener eventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    Users users=ds.getValue(Users.class);
+                    t1.setText(users.getName());
+                    t2.setText(users.getEmail());
+                    PicassoClient.downloadImage(RecyclerviewActivity.this,users.getUri(),im1);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        query1.addValueEventListener(eventListener);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.s_home:
+                        Toast.makeText(RecyclerviewActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.s_profile:
+                        Intent intent=new Intent(RecyclerviewActivity.this,ProfilessActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.s_like:
+                        Intent intent1=new Intent(RecyclerviewActivity.this,MenuActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.s_account:
+                        Intent intent2=new Intent(RecyclerviewActivity.this,AccountActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.s_info:
+                        final Button button;
+                        myDialog.setContentView(R.layout.aboutuspopup);
+                        button=(Button)myDialog.findViewById(R.id.cancel);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+
+                        break;
+                    case R.id.s_help:
+                        final Button button1;
+                        myDialog.setContentView(R.layout.help_popup);
+                        button1=(Button)myDialog.findViewById(R.id.cancel);
+                        button1.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                myDialog.dismiss();
+                            }
+                        });
+                        myDialog.show();
+
+                        break;
+                    case R.id.s_signout:
+                        firebaseAuth.signOut();
+                        Toast.makeText(RecyclerviewActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+                        Intent intt=new Intent(RecyclerviewActivity.this,SigninActivity.class);
+                        startActivity(intt);
+                        return true;
+                }
+                return true;
             }
         });
 
@@ -167,6 +279,7 @@ public class RecyclerviewActivity extends AppCompatActivity{
         }
 
     }
+
     public double distance (double lat_a, double lng_a, double lat_b, double lng_b )
     {
         double earthRadius = 3958.75;
@@ -181,6 +294,35 @@ public class RecyclerviewActivity extends AppCompatActivity{
         int meterConversion = 1609;
 
         return new Double(distance * meterConversion).doubleValue();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.userA1:
+                Intent intent=new Intent(RecyclerviewActivity.this,ProfilessActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.userB2:
+                firebaseAuth.signOut();
+                Toast.makeText(RecyclerviewActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+                Intent intt=new Intent(RecyclerviewActivity.this,SigninActivity.class);
+                startActivity(intt);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.popupp, menu);
+        return true;
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        toggle.syncState();
     }
 
 }

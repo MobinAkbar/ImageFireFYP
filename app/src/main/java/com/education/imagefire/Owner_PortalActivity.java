@@ -161,11 +161,8 @@ public class Owner_PortalActivity extends AppCompatActivity {
                         break;
                     case R.id.o_reset:
                         Intent intent1=new Intent(Owner_PortalActivity.this,AccountActivity.class);
+                        intent1.putExtra("type","owner");
                         startActivity(intent1);
-                        break;
-                    case R.id.s_account:
-                        Intent intent2=new Intent(Owner_PortalActivity.this,AccountActivity.class);
-                        startActivity(intent2);
                         break;
                     case R.id.o_info:
                         final Button button;

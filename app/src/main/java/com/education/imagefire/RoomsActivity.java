@@ -134,7 +134,15 @@ public class RoomsActivity extends AppCompatActivity {
         databaseReference1.child(key).setValue(room);
 
         University university=new University(key,univrsty1,univrsty2,univrsty3);
-        databaseReference2.child(key).setValue(university);
+        databaseReference2.child(key).setValue(university).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Intent in = new Intent(RoomsActivity.this, PropertyActivity.class);
+                in.putExtra("id", key);
+                Toast.makeText(RoomsActivity.this, "value is " + key, Toast.LENGTH_LONG).show();
+                startActivity(in);
+            }
+        });
         Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();
 
     }

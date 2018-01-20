@@ -12,7 +12,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
@@ -23,13 +23,13 @@
                 android:layout_gravity="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="32dp"
                 android:text="Facilities"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -123,7 +123,7 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="59dp"
                 android:textColor="#fff"
                 android:background="@drawable/abuttonstyle"
                 android:layout_gravity="center"

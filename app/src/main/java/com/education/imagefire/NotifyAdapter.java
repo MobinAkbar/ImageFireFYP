@@ -136,7 +136,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
                 switch (item.getItemId()) {
                     case R.id.delete:
                         Notification hostel = listdata.get(position);
-                        final String owner=hostel.getSendto();
+                        final String owner=hostel.getId();
                         //final String HostelId2 = hostel.getHostel_id();
 
                         AlertDialog.Builder dialog = new AlertDialog.Builder(mContxt);
@@ -149,8 +149,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
 
                                 DatabaseReference databaseReferenceC = FirebaseDatabase.getInstance().getReference("Notifications").child(owner);
                                 databaseReferenceC.removeValue();
-                                Toast.makeText(mContxt, "Removed", Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(mContxt, "Deleted", Toast.LENGTH_SHORT).show();
 
                             }
                         })
