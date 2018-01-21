@@ -293,7 +293,14 @@ public class RecyclerviewActivity extends AppCompatActivity{
 
         int meterConversion = 1609;
 
-        return new Double(distance * meterConversion).doubleValue();
+        return new Double(distance * meterConversion/1000).doubleValue();
+    }
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        Intent intent = new Intent(RecyclerviewActivity.this, SearchActivity.class);
+        startActivity(intent);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

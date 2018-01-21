@@ -269,6 +269,13 @@ public class MenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     @Override
+    public void onBackPressed() {
+
+        finish();
+        Intent intent = new Intent(MenuActivity.this, SearchActivity.class);
+        startActivity(intent);
+    }
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.popupp, menu);
         return true;

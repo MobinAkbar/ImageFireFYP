@@ -207,7 +207,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                build_retrofit_and_get_response("school");
+                build_retrofit_and_get_response("atm");
             }
         });
     }

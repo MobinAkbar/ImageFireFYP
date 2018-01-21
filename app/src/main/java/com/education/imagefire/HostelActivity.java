@@ -82,6 +82,13 @@ public class HostelActivity extends AppCompatActivity {
 
         Permission.checkPermission(this);
 
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGallery();
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,14 +161,20 @@ public class HostelActivity extends AppCompatActivity {
         }
     }
 
-
-    public void chooose(View view) {
-        Intent intent=new Intent();
-        intent.setType("Hostels/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Hostels"),REQUEST_CODE);
-        Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
+    private void openGallery() {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, REQUEST_CODE);
     }
+
+//    public void chooose() {
+//        Intent intent=new Intent();
+//        intent.setType("Hostels/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent,"Hostels"),REQUEST_CODE);
+//        Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
+//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

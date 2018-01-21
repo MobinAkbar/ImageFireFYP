@@ -1,5 +1,7 @@
 package com.education.imagefire;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -134,5 +136,20 @@ public class AccountActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+
+        if(typee.equals("owner")){
+            finish();
+            Intent intent = new Intent(AccountActivity.this, Owner_PortalActivity.class);
+            startActivity(intent);
+
+        }else{
+            finish();
+            Intent intent = new Intent(AccountActivity.this, SearchActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

@@ -75,6 +75,9 @@
                 android:layout_height="wrap_content" />
 
             <android.support.design.widget.FloatingActionButton
+                android:layout_marginBottom="150dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,16 +86,12 @@
                 android:src="@android:drawable/ic_dialog_email" />
 
             <android.support.design.widget.BottomNavigationView
-
                 android:layout_marginTop="215dp"
                 android:background="@color/white"
                 android:id="@+id/navigationB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menu="@menu/bottom_nav_items" />
-
-
-
         </LinearLayout>
 
     <android.support.design.widget.NavigationView

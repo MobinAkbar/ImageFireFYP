@@ -53,16 +53,18 @@ public class HostelImagesActivity extends AppCompatActivity {
     ArrayList<String > array=new ArrayList<String>();
     ArrayList<String> myOwn2=new ArrayList<String>();
     ArrayList<String> myOwn3=new ArrayList<String>();
+    private String[] title=new String[5];
     String key;
     private String ones,twos,threes,fours,fives,sixes;
     private String Aones,Atwos,Athrees,Afours,Afives,Asixes;
     int PICK_IMAGE_MULTIPLE = 1;
-    private int ip;
+
     String imageEncoded;
     List<String> imagesEncodedList;
     String id;
     private Handler mHandler = new Handler();
     Button b109;
+    private int ip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,60 +85,143 @@ public class HostelImagesActivity extends AppCompatActivity {
            key=getIntent().getStringExtra("id");
            id=key;
 
-        //storeReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(id);
-
-//        b109.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-////                Toast.makeText(HostelImagesActivity.this,"myown first 1"+myOwn2.get(0),Toast.LENGTH_SHORT).show();
-////                Toast.makeText(HostelImagesActivity.this,"Delayed 2"+myOwn2.get(1),Toast.LENGTH_SHORT).show();
-////                Toast.makeText(HostelImagesActivity.this,"Delayed 3"+myOwn2.get(2),Toast.LENGTH_SHORT).show();
-////                Toast.makeText(HostelImagesActivity.this,"Delayed 4"+myOwn2.get(3),Toast.LENGTH_SHORT).show();
-////                Toast.makeText(HostelImagesActivity.this,"Delayed 5"+myOwn2.get(4),Toast.LENGTH_SHORT).show();
-////                Toast.makeText(HostelImagesActivity.this,"myown last 6"+myOwn2.get(5),Toast.LENGTH_SHORT).show();
-//
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 11"+Aones,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 22"+Atwos,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 33"+Athrees,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 44"+Afours,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 55"+Afives,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(HostelImagesActivity.this,"Delayed 66"+Asixes,Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String id=key;
+
+                int size=array.size();
+
+                if(size==0){
+                    String id=key;
+                    Aones="";
+                    Atwos="";
+                    Athrees="";
+                    Afours="";
+                    Afives="";
+                    Asixes="";
+
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+                }
+                if(size==1){
+                    String id=key;
+                    Aones=array.get(0);
+                    Atwos="";
+                    Athrees="";
+                    Afours="";
+                    Afives="";
+                    Asixes="";
+
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+                }
+                if(size==2){
+                    String id=key;
+                    Aones=array.get(0);
+                    Atwos=array.get(1);
+                    Athrees="";
+                    Afours="";
+                    Afives="";
+                    Asixes="";
+
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+                }
+
+                if(size==3){
+                    String id=key;
+                    Aones=array.get(0);
+                    Atwos=array.get(1);
+                    Athrees=array.get(2);
+                    Afours="";
+                    Afives="";
+                    Asixes="";
+
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+                }
+                if(size==4){
+                    String id=key;
+                    Aones=array.get(0);
+                    Atwos=array.get(1);
+                    Athrees=array.get(2);
+                    Afours=array.get(3);
+                    Afives="";
+                    Asixes="";
+
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+
+                }
+                if(size==5){
+                    String id=key;
+                    Aones=array.get(0);
+                    Atwos=array.get(1);
+                    Athrees=array.get(2);
+                    Afours=array.get(3);
+                    Afives=array.get(4);
+                    Asixes="";
+                    HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
+                    databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
+                            startActivity(in);
+                        }
+                    });
+
+                    return;
+                }
+
                 Aones=array.get(0);
                 Atwos=array.get(1);
                 Athrees=array.get(2);
                 Afours=array.get(3);
                 Afives=array.get(4);
                 Asixes=array.get(5);
-
-                if (array.get(0).equals(null)) {
-                   Aones="";
-                }
-                if (array.get(1).equals(null)) {
-                    Atwos="";
-                }
-                if (array.get(2).equals(null)) {
-                    Athrees="";
-                }
-                if (array.get(3).equals(null)) {
-                    Afours="";
-                }
-                if (array.get(4).equals(null)) {
-                    Afives="";
-                }
-                if (array.get(5).equals(null)) {
-                    Asixes="";
-                }
 
                 HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                 databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -146,8 +231,6 @@ public class HostelImagesActivity extends AppCompatActivity {
                         startActivity(in);
                     }
                 });
-                //Intent in=new Intent(HostelImagesActivity.this,Owner_PortalActivity.class);
-                //startActivity(in);
             }
         });
     }
@@ -179,6 +262,7 @@ public class HostelImagesActivity extends AppCompatActivity {
                         toast.show();
 
                         array.add(link);
+                       // title[ip]=link;
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -200,6 +284,7 @@ public class HostelImagesActivity extends AppCompatActivity {
                 Toast.makeText(HostelImagesActivity.this, "please select image", Toast.LENGTH_LONG).show();
             }
         }
+
     }
     public void chooose(View view) {
         Intent intent=new Intent();

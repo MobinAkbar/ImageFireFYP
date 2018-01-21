@@ -173,6 +173,13 @@ public class NotificationActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(listener);
 
     }
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        Intent intent = new Intent(NotificationActivity.this, SearchActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onStop() {
