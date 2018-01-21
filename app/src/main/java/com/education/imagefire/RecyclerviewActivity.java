@@ -243,18 +243,40 @@ public class RecyclerviewActivity extends AppCompatActivity{
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     Hostel hostel = ds.getValue(Hostel.class);
-                                    String hostelId=hostel.getId();
-                                    String ownerId=hostel.getOwner();
-                                    String name = hostel.getName();
-                                    String adres=hostel.getAddres();
-                                    String like = hostel.getLikes();
-                                    String uri = hostel.getUri();
-                                    double lat = hostel.getLatitude();
-                                    double longi = hostel.getLongitude();
-                                    String uni=uniname;
-                                    double dist = distance(lat, longi, latii, longii);
-                                    RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, like, dist);
-                                    hostelList.add(obj);
+
+                                    if(hostel.getStatus().equals("APPROVED")){
+                                        if(hostel.getSex().equals(sexx)){
+                                            String hostelId=hostel.getId();
+                                            String ownerId=hostel.getOwner();
+                                            String name = hostel.getName();
+                                            String adres=hostel.getAddres();
+                                            int like = hostel.getLikes();
+                                            String uri = hostel.getUri();
+                                            double lat = hostel.getLatitude();
+                                            double longi = hostel.getLongitude();
+                                            String uni=uniname;
+                                            double dist = distance(lat, longi, latii, longii);
+                                            RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, like, dist);
+                                            hostelList.add(obj);
+
+                                        }
+                                    }
+
+
+
+
+//                                    String hostelId=hostel.getId();
+//                                    String ownerId=hostel.getOwner();
+//                                    String name = hostel.getName();
+//                                    String adres=hostel.getAddres();
+//                                    int like = hostel.getLikes();
+//                                    String uri = hostel.getUri();
+//                                    double lat = hostel.getLatitude();
+//                                    double longi = hostel.getLongitude();
+//                                    String uni=uniname;
+//                                    double dist = distance(lat, longi, latii, longii);
+//                                    RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, like, dist);
+//                                    hostelList.add(obj);
                                 }
 
                                 Recycleadpater recycler = new Recycleadpater(RecyclerviewActivity.this,hostelList);

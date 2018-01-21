@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Free Wifi"
                     android:id="@+id/fac1"
                     android:layout_weight="1"
@@ -46,6 +47,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="GuestRoom"
                     android:id="@+id/fac6"
                     android:layout_weight="1"
@@ -53,6 +55,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Generator"
                     android:id="@+id/fac2"
                     android:layout_weight="1"
@@ -60,6 +63,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="TuckShop"
                     android:id="@+id/fac7"
                     android:layout_weight="1"
@@ -67,6 +71,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Breakfast"
                     android:id="@+id/fac3"
                     android:layout_weight="1"
@@ -74,6 +79,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Parking"
                     android:id="@+id/fac8"
                     android:layout_weight="1"
@@ -81,6 +87,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Camera"
                     android:id="@+id/fac4"
                     android:layout_weight="1"
@@ -88,6 +95,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Washerman"
                     android:id="@+id/fac9"
                     android:layout_weight="1"
@@ -95,6 +103,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Electrition"
                     android:id="@+id/fac5"
                     android:layout_weight="1"
@@ -102,6 +111,7 @@
                     android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:clickable="false"
                     android:text="Kitchen"
                     android:id="@+id/fac10"
                     android:layout_weight="1"

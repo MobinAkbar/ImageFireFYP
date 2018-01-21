@@ -195,6 +195,8 @@ public class UserProfileActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
+                    Intent intent=new Intent(UserProfileActivity.this,SearchActivity.class);
+                    startActivity(intent);
                 }
             });
         }else{
@@ -202,10 +204,10 @@ public class UserProfileActivity extends AppCompatActivity {
         }
     }
     public void chosen(View view) {
-        Intent intent=new Intent();
-        intent.setType("Hostels/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Hostels"),REQUEST_CODE);
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, REQUEST_CODE);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

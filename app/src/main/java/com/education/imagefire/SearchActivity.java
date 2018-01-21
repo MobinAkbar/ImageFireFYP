@@ -253,6 +253,11 @@ public class SearchActivity extends AppCompatActivity {
                     gender="female";
                 }
 
+                if (check1.isChecked()&&check2.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Select one!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent = new Intent(SearchActivity.this, RecyclerviewActivity.class);
                     intent.putExtra("name",answer);
                     intent.putExtra("sex",gender);
@@ -341,5 +346,14 @@ public class SearchActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         toggle.syncState();
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        if (firebaseAuth.getCurrentUser() != null) {
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+    }
 }

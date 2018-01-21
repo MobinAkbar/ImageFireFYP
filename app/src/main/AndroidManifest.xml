@@ -47,47 +47,76 @@
         <activity
             android:name=".Owner_PortalActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ShowdataActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ShowdataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".CarActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".SigninActivity" />
+        <activity android:name=".SignupActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SigninActivity"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".SearchActivity"
             android:theme="@style/MyAppTheme" />
         <activity
             android:name=".RecyclerviewActivity"
-            android:theme="@style/MyAppTheme" />
-        <activity android:name=".HostelActivity" />
-        <activity android:name=".MapInfoActivity" />
-        <activity android:name=".PropertyActivity" />
-        <activity android:name=".FacilitiesActivity" />
+            android:theme="@style/MyAppTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HostelActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MapInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PropertyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FacilitiesActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MenuActivity"
             android:theme="@style/MyAppTheme" />
-        <activity android:name=".UniversityActivity" />
-        <activity android:name=".NearbyplacesActivity" />
-        <activity android:name=".UserInfoActivity" />
-        <activity android:name=".OwnerShowActivity" />
+        <activity android:name=".UniversityActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NearbyplacesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OwnerShowActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MapsActivity"
-            android:label="Maps" />
-        <activity android:name=".RoomsActivity" />
-        <activity android:name=".AddHostelActivity" />
-        <activity android:name=".HostelImagesActivity" />
-        <activity android:name=".UserProfileActivity" />
-        <activity android:name=".OwnerProfileActivity" />
-        <activity android:name=".StudentShowActivity" />
-        <activity android:name=".OptionActivity" />
-        <activity android:name=".ProfilessActivity" />
+            android:label="Maps"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".RoomsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddHostelActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HostelImagesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OwnerProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".StudentShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OptionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfilessActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".InterfaceActivity"
-            android:theme="@style/MyAppTheme" />
-        <activity android:name=".StuprofileActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".StunotificationActivity" />
-        <activity android:name=".AccountActivity" />
+            android:theme="@style/MyAppTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".StuprofileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NotificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".StunotificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AccountActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ForgotpassActivity"></activity>
     </application>
 

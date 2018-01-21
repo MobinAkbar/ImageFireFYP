@@ -3,6 +3,7 @@
     <string name="app_name">City Plat</string>
 
     <string-array name="universities">
+        <item>--Select University--</item>
         <item>Punjab University</item>
         <item>FAST University</item>
         <item>CONSATS University of Information</item>

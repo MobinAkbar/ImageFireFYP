@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_marginLeft="10dp"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:textColor="@color/colorAccent"
                 android:text="Rooms Details :"
                 android:layout_width="match_parent"
@@ -109,9 +109,9 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_marginLeft="10dp"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:textColor="@color/colorAccent"
-                android:text="Prizes Details :"
+                android:text="Prizes Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -203,9 +203,10 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_marginLeft="10dp"
-                android:textSize="30dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/colorAccent"
-                android:text="NearBy Universities :"
+                android:text="Nearby Universities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -230,11 +231,13 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:text="University 1"
+                    android:layout_weight="0.5"
+                    android:text="Uni1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:background="@drawable/spinner_border"
+                    android:layout_marginRight="5dp"
                     android:id="@+id/spin_1"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
@@ -252,12 +255,14 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:text="University 2"
+                    android:layout_weight="0.5"
+                    android:text="Uni2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:background="@drawable/spinner_border"
                     android:id="@+id/spin_2"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,11 +281,13 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:text="University 3"
+                    android:layout_weight="0.5"
+                    android:text="Uni3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <Spinner
+                    android:background="@drawable/spinner_border"
+                    android:layout_marginRight="5dp"
                     android:id="@+id/spin_3"
                     android:layout_weight="2"
                     android:layout_width="wrap_content"
@@ -304,14 +311,6 @@
                 android:layout_marginRight="55dp"
                 android:background="@color/colorAccent"
                 android:text="upload"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/next3"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/colorAccent"
-                android:text="next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

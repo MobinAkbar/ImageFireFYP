@@ -1016,12 +1016,12 @@ public class InterfaceActivity extends AppCompatActivity {
             Toast.makeText(InterfaceActivity.this,"Succesfully complete",Toast.LENGTH_LONG).show();
         }
     }
+
     public void chosen() {
-        Intent intent=new Intent();
-        intent.setType("Image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
-       // Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, REQUEST_CODE);
     }
 
     @Override

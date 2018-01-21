@@ -16,13 +16,13 @@ public class Hostel {
     public String sex;
     public double latitude;
     public double longitude;
-    public String likes;
+    public int likes;
 
     public Hostel() {
     }
 
     public Hostel(String id, String owner, String name, String addres, String uri, String status, String sex, double latitude, double
-            longitude, String likes) {
+            longitude, int likes) {
         this.id = id;
         this.owner = owner;
         this.name = name;
@@ -71,7 +71,7 @@ public class Hostel {
         return longitude;
     }
 
-    public String getLikes() {
+    public int getLikes() {
         return likes;
     }
 }

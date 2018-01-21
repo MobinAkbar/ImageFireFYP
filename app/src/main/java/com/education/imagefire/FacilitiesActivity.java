@@ -39,7 +39,7 @@ public class FacilitiesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_facilities);
 
         upload=(Button)findViewById(R.id.upload2);
-        next=(Button)findViewById(R.id.next2);
+       // next=(Button)findViewById(R.id.next2);
         wifi2=(CheckBox)findViewById(R.id.wifi1);
         generetor2=(CheckBox)findViewById(R.id.generater1);
         tuck2=(CheckBox)findViewById(R.id.tuckshop1);
@@ -50,15 +50,6 @@ public class FacilitiesActivity extends AppCompatActivity {
         guest2=(CheckBox)findViewById(R.id.guest1);
         camera2=(CheckBox)findViewById(R.id.camer1);
         kitchen2=(CheckBox)findViewById(R.id.kitchn1);
-
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intnt=new Intent(FacilitiesActivity.this,RoomsActivity.class);
-                intnt.putExtra("id",key);
-                startActivity(intnt);
-            }
-        });
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override

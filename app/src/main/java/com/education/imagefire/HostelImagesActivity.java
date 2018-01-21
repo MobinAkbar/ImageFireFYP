@@ -49,7 +49,8 @@ public class HostelImagesActivity extends AppCompatActivity {
     public static final int REQUEST_CODE=1234;
     public static final String FB_STOARGE_PATH="AllHostelImages/";
     public static final String FB_DATABASE_PATH="AllHostelImages";
-    ArrayList<Uri> myOwn=new ArrayList<Uri>();
+     ArrayList<Uri> myOwn=new ArrayList<Uri>();
+    ArrayList<Uri> myOwn99;
     ArrayList<String > array=new ArrayList<String>();
     ArrayList<String> myOwn2=new ArrayList<String>();
     ArrayList<String> myOwn3=new ArrayList<String>();
@@ -58,7 +59,7 @@ public class HostelImagesActivity extends AppCompatActivity {
     private String ones,twos,threes,fours,fives,sixes;
     private String Aones,Atwos,Athrees,Afours,Afives,Asixes;
     int PICK_IMAGE_MULTIPLE = 1;
-
+    private Uri filepath;
     String imageEncoded;
     List<String> imagesEncodedList;
     String id;
@@ -74,6 +75,7 @@ public class HostelImagesActivity extends AppCompatActivity {
             chose=(Button)findViewById(R.id.choose7);
             next=(Button)findViewById(R.id.next7);
             clear=(Button)findViewById(R.id.clear7);
+            myOwn99=new ArrayList<Uri>();
             //b109=(Button)findViewById(R.id.print);
         image1=(ImageView)findViewById(R.id.image_h1);
         image2=(ImageView)findViewById(R.id.image_h2);
@@ -241,8 +243,8 @@ public class HostelImagesActivity extends AppCompatActivity {
         progress.setTitle("uploading.....");
         progress.show();
 
-        for(int ip=0;ip<myOwn.size();ip++) {
-             filepath1=myOwn.get(ip);
+        for(int ip=0;ip<myOwn99.size();ip++) {
+             filepath1=myOwn99.get(ip);
             if (filepath1 != null) {
                 Toast.makeText(HostelImagesActivity.this,"I have"+ip,Toast.LENGTH_SHORT).show();
                 StorageReference ref = storeReference.child(FB_STOARGE_PATH + System.currentTimeMillis() + getImageExt(filepath1));
@@ -253,14 +255,7 @@ public class HostelImagesActivity extends AppCompatActivity {
                         progress.dismiss();
                         Uri final_uri=taskSnapshot.getDownloadUrl();
                         String link=final_uri.toString();
-                        Toast toast = new Toast(HostelImagesActivity.this);
-                        toast.setGravity(Gravity.CENTER, 30, 30);
-                        TextView textView=new TextView(HostelImagesActivity.this);
-                        textView.setText("Chechking images completion");
-                        textView.setBackgroundColor(Color.BLUE);
-                        toast.setView(textView);
-                        toast.show();
-
+                        Toast.makeText(HostelImagesActivity.this,"Checking Completion",Toast.LENGTH_SHORT).show();
                         array.add(link);
                        // title[ip]=link;
 
@@ -287,6 +282,135 @@ public class HostelImagesActivity extends AppCompatActivity {
 
     }
 
+    public void chase1(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 1);
+    }
+    public void chase2(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 2);
+    }
+    public void chase3(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 3);
+    }
+    public void chase4(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 4);
+    }
+    public void chase5(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 5);
+    }
+    public void chase6(View view) {
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, 6);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ArrayList<Uri> finall=new ArrayList<>();
+        if(requestCode==1 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image1.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if(requestCode==2 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image2.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if(requestCode==3 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image3.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if(requestCode==4 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image4.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if(requestCode==5 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image5.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if(requestCode==6 || requestCode== RESULT_OK && data !=null&& data.getData()!=null){
+            filepath=data.getData();
+            try{
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image6.setImageBitmap(bitmap);
+                myOwn99.add(filepath);
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        myOwn=finall;
+
+    }
+
 //    public void chooose(View view) {
 //        Intent gallery = new Intent();
 //        //gallery.setType("Image/*");
@@ -295,123 +419,123 @@ public class HostelImagesActivity extends AppCompatActivity {
 //        startActivityForResult(Intent.createChooser(gallery,"Images"), REQUEST_CODE);
 //    }
 
-    public void chooose(View view) {
-        Intent intent=new Intent();
-        intent.setType("Image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
-    }
+//    public void chooose(View view) {
+//        Intent intent=new Intent();
+//        intent.setType("Image/*");
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
+//    }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_CODE) {
-            if(resultCode==RESULT_OK) {
-                Toast.makeText(HostelImagesActivity.this, "Select 6 image", Toast.LENGTH_LONG).show();
-                if (data != null && data.getData() != null) {
-                    Uri mImageUri = data.getData();
-                    try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mImageUri);
-                        //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
-                        image1.setImageBitmap(bitmap);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else if (data.getClipData() != null) {
-                    //Toast.makeText(HostelImagesActivity.this,"please 2",Toast.LENGTH_LONG).show();
-                    ClipData mClipData = data.getClipData();
-                    ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
-                    for (int i = 0; i < mClipData.getItemCount(); i++) {
-                        ClipData.Item item = mClipData.getItemAt(i);
-                        Uri uri = item.getUri();
-                        String urii = uri.toString();
-
-                        myOwn2.add(urii);
-                        mArrayUri.add(uri);
-
-                        switch (i) {
-
-                            case 0:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image1.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-                            case 1:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image2.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-
-                            case 2:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image3.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-
-                            case 3:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image4.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-
-                            case 4:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image5.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-
-                            case 5:
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                    image6.setImageBitmap(bitmap);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-
-                        }
-
-                    }
-                    myOwn3=myOwn2;
-                    myOwn=mArrayUri;
-                   // Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
-                }
-                }
-            }
-
-
-        }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == REQUEST_CODE) {
+//            if(resultCode==RESULT_OK) {
+//                Toast.makeText(HostelImagesActivity.this, "Select 6 image", Toast.LENGTH_LONG).show();
+//                if (data != null && data.getData() != null) {
+//                    Uri mImageUri = data.getData();
+//                    try {
+//                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mImageUri);
+//                        //Toast.makeText(MainActivity.this,"please image",Toast.LENGTH_LONG).show();
+//                        image1.setImageBitmap(bitmap);
+//                    } catch (FileNotFoundException e) {
+//                        e.printStackTrace();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                } else if (data.getClipData() != null) {
+//                    //Toast.makeText(HostelImagesActivity.this,"please 2",Toast.LENGTH_LONG).show();
+//                    ClipData mClipData = data.getClipData();
+//                    ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
+//                    for (int i = 0; i < mClipData.getItemCount(); i++) {
+//                        ClipData.Item item = mClipData.getItemAt(i);
+//                        Uri uri = item.getUri();
+//                        String urii = uri.toString();
+//
+//                        myOwn2.add(urii);
+//                        mArrayUri.add(uri);
+//
+//                        switch (i) {
+//
+//                            case 0:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image1.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//                            case 1:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image2.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//
+//                            case 2:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image3.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//
+//                            case 3:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image4.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//
+//                            case 4:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image5.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//
+//                            case 5:
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                                    image6.setImageBitmap(bitmap);
+//                                } catch (FileNotFoundException e) {
+//                                    e.printStackTrace();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//
+//                        }
+//
+//                    }
+//                    myOwn3=myOwn2;
+//                    myOwn=mArrayUri;
+//                   // Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
+//                }
+//                }
+//            }
+//
+//
+//        }
 
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();

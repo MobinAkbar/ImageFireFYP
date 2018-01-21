@@ -70,7 +70,7 @@ public class RoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rooms);
 
         upload_r=(Button)findViewById(R.id.upload3);
-        next_r=(Button)findViewById(R.id.next3);
+        //next_r=(Button)findViewById(R.id.next3);
         t_rooms=(EditText)findViewById(R.id.total_rooms);
         e_rooms=(EditText)findViewById(R.id.empty_rooms);
         t_beds=(EditText)findViewById(R.id.total_beds);
@@ -91,16 +91,6 @@ public class RoomsActivity extends AppCompatActivity {
         uni1.setAdapter(adapter);
         uni2.setAdapter(adapter);
         uni3.setAdapter(adapter);
-
-        next_r.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(RoomsActivity.this, PropertyActivity.class);
-                in.putExtra("id", key);
-                Toast.makeText(RoomsActivity.this, "value is " + key, Toast.LENGTH_LONG).show();
-                startActivity(in);
-            }
-        });
 
         upload_r.setOnClickListener(new View.OnClickListener() {
             @Override

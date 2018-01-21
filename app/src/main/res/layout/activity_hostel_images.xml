@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:onClick="chase1"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/image_h1"
                     android:layout_weight="1"
@@ -87,6 +88,7 @@
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:onClick="chase2"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/image_h2"
@@ -104,6 +106,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:onClick="chase3"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/image_h3"
                     android:layout_weight="1"
@@ -112,6 +115,7 @@
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:onClick="chase4"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:id="@+id/image_h4"
@@ -127,6 +131,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:onClick="chase5"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/image_h5"
                     android:layout_weight="1"
@@ -135,6 +140,7 @@
                     android:layout_height="150dp" />
 
                 <ImageView
+                    android:onClick="chase6"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/image_h6"
@@ -181,7 +187,7 @@
                     android:background="@color/colorAccent"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
-                    android:text="next"
+                    android:text="Go"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

@@ -44,8 +44,6 @@ public class PropertyActivity extends AppCompatActivity {
         nearby6=(EditText)findViewById(R.id.near_6);
 
         upload=(Button)findViewById(R.id.upload4);
-        next=(Button)findViewById(R.id.next4);
-
         key = getIntent().getStringExtra("id");
         databaseReference = FirebaseDatabase.getInstance().getReference("Hostel_Property_Info").child(key);
 
@@ -53,15 +51,6 @@ public class PropertyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addMember();
-            }
-        });
-
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intnt=new Intent(PropertyActivity.this,MapInfoActivity.class);
-                intnt.putExtra("id",key);
-                startActivity(intnt);
             }
         });
     }

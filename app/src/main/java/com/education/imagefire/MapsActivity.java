@@ -2,6 +2,7 @@ package com.education.imagefire;
 
 import android.*;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -90,7 +91,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Double long_u;
     private Double lat_v;
     private Double long_v;
-
+private LatLng shown;
     private double lat123;
     private double logi123;
     private static final LatLng UMT = new LatLng(31.4512, 74.2930);
@@ -124,7 +125,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
          final LatLng origi=new LatLng(lat_u,long_u);
          final LatLng desti=new LatLng(lat_v,long_v);
           markerPoints = new ArrayList<LatLng>();
-
+             shown=origi;
 
        // Toast.makeText(MapsActivity.this, "I have" + id, Toast.LENGTH_SHORT).show();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -187,6 +188,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         markerOptions1.position(location2).title(uniName);
         googleMap.addMarker(markerOptions1);
 
+        Button button=(Button)findViewById(R.id.re_run);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.clear();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+
         Button btnRestaurant = (Button) findViewById(R.id.btnRestaurant);
         btnRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,6 +244,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 try {
                     mMap.clear();
+
+                    MarkerOptions markerOptions1 = new MarkerOptions();
+                    markerOptions1.position(shown).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+                    mMap.addMarker(markerOptions1);
+
                     // This loop will go through all the results and add marker on each location.
                     for (int i = 0; i < response.body().getResults().size(); i++) {
                         Double lat = response.body().getResults().get(i).getGeometry().getLocation().getLat();

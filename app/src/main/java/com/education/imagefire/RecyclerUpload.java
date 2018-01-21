@@ -11,14 +11,14 @@ public class RecyclerUpload {
     public String address;
     public String uni_name;
     public String Uri;
-    public String likes;
+    public int likes;
     public double distance;
 
 
     public RecyclerUpload() {
     }
 
-    public RecyclerUpload(String hostel_id, String owner_id, String name, String address, String uni_name, String uri, String likes, double distance) {
+    public RecyclerUpload(String hostel_id, String owner_id, String name, String address, String uni_name, String uri, int likes, double distance) {
         this.hostel_id = hostel_id;
         this.owner_id = owner_id;
         this.name = name;
@@ -53,7 +53,7 @@ public class RecyclerUpload {
         return Uri;
     }
 
-    public String getLikes() {
+    public int getLikes() {
         return likes;
     }
 

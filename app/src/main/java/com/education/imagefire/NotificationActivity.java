@@ -176,9 +176,17 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-//        finish();
-//        Intent intent = new Intent(NotificationActivity.this, SearchActivity.class);
-//        startActivity(intent);
+        if(form.equals("owner")){
+            finish();
+            Intent intent = new Intent(NotificationActivity.this, Owner_PortalActivity.class);
+            startActivity(intent);
+
+        }else{
+            finish();
+            Intent intent = new Intent(NotificationActivity.this, SearchActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override

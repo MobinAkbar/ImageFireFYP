@@ -55,7 +55,7 @@ public class StudentShowActivity extends AppCompatActivity {
     private ImageView[] dotss;
     Dialog myDialog;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseReference3;
     private DatabaseReference databaseReference1,databaseReference2;
     private ProgressDialog progressDialog;
     private FirebaseDatabase firebaseDatabase;
@@ -84,7 +84,7 @@ public class StudentShowActivity extends AppCompatActivity {
     public static final String FB_DATABASE_PATH1="Student_Like";
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
-    private String UserId,ownerID,hostelName,hostelUrl,hostlid;
+    private String UserId,ownerID,hostelName,hostelUrl,hostlid,hostl_likes;
 
     private String a1,a2,a3,a4,a5,a6,a7,a8;
 
@@ -100,7 +100,10 @@ public class StudentShowActivity extends AppCompatActivity {
         String hostladress=getIntent().getStringExtra("Hosteladdress");
         hostelUrl=getIntent().getStringExtra("Hosteluri");
         univrsty=getIntent().getStringExtra("uni_name");
-        Toast.makeText(StudentShowActivity.this,"Value is"+univrsty,Toast.LENGTH_SHORT).show();
+        hostl_likes=getIntent().getStringExtra("likes");
+
+
+        Toast.makeText(StudentShowActivity.this,"Value is"+hostl_likes,Toast.LENGTH_SHORT).show();
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -137,11 +140,12 @@ public class StudentShowActivity extends AppCompatActivity {
         market=(TextView)findViewById(R.id.market);
         button=(Button)findViewById(R.id.request);
         B1=(Button)findViewById(R.id.yess);
-        B2=(Button)findViewById(R.id.nots);
+       // B2=(Button)findViewById(R.id.nots);
 
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(hostlid);
         databaseReference1 = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH1).child(UserId);
         databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications");
+        databaseReference3 = FirebaseDatabase.getInstance().getReference("Hostels").child(hostlid);
 
 
         DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -413,24 +417,13 @@ public class StudentShowActivity extends AppCompatActivity {
                 String H_id=hostlid;
                 String S_id=UserId;
                 String type="liked";
-
+                 int a=Integer.parseInt(hostl_likes);
+                 a=a+1;
                  Like like=new Like(S_id,type);
                  Like like1=new Like(H_id,type);
                  databaseReference.child(S_id).setValue(like);
                  databaseReference1.child(H_id).setValue(like1);
-            }
-        });
-        B2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String H_id=hostlid;
-                String S_id=UserId;
-                String type="Disliked";
-
-                Like like=new Like(S_id,type);
-                Like like1=new Like(H_id,type);
-                databaseReference.child(S_id).setValue(like);
-                databaseReference1.child(H_id).setValue(like1);
+                 databaseReference3.child("likes").setValue(a);
             }
         });
 
@@ -595,4 +588,10 @@ public class StudentShowActivity extends AppCompatActivity {
             });
         }
     }
+//    @Override
+//    public void onBackPressed() {
+//        finish();
+//        Intent intent = new Intent(StudentShowActivity.this, .class);
+//        startActivity(intent);
+//    }
 }

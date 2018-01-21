@@ -202,13 +202,13 @@ public class MenuActivity extends AppCompatActivity {
                                 String ownerId=hostel.getOwner();
                                 String name = hostel.getName();
                                 String adres=hostel.getAddres();
-                                String like = hostel.getLikes();
+                                int likes = hostel.getLikes();
                                 String uri = hostel.getUri();
                                 double lat = hostel.getLatitude();
                                 double longi = hostel.getLongitude();
                                 String uni="";
                                 double dist = 0.00;
-                                RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, like, dist);
+                                RecyclerUpload obj = new RecyclerUpload(hostelId,ownerId,name,adres,uni, uri, likes, dist);
                                 hostelList.add(obj);
                             }
 

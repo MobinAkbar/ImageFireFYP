@@ -179,14 +179,15 @@ public class UserInfoActivity extends AppCompatActivity {
                     String uni1=university.getText().toString().trim();
 
                     Users user=new Users(id,name1,email1,password1,number1,gender1,address1,uni1,taskSnapshot.getDownloadUrl().toString(),deviceToken);
-                    databaseReference.child(id).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
-                            in.putExtra("UID",UserId);
-                            startActivity(in);
-                        }
-                    });
+                    databaseReference.child(id).setValue(user);
+// addOnSuccessListener(new OnSuccessListener<Void>() {
+//                        @Override
+//                        public void onSuccess(Void aVoid) {
+//                            Intent in=new Intent(UserInfoActivity.this,SearchActivity.class);
+//                            in.putExtra("UID",UserId);
+//                            startActivity(in);
+//                        }
+//                    });
 
 
                 }
@@ -217,12 +218,10 @@ public class UserInfoActivity extends AppCompatActivity {
 
 
     public void chooose(View view) {
-        Intent intent=new Intent();
-        intent.setType("Owners/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Owners"),REQUEST_CODE);
-        Toast.makeText(UserInfoActivity.this,"please image 3",Toast.LENGTH_LONG).show();
-
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, REQUEST_CODE);
     }
 
     @Override

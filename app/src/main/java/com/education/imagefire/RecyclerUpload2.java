@@ -9,14 +9,14 @@ public class RecyclerUpload2 {
     public  String name;
     public String address;
     public String Uri;
-    public String likes;
+    public int likes;
     public String type;
 
 
     public RecyclerUpload2() {
     }
 
-    public RecyclerUpload2(String hostel_id, String name, String address, String uri, String likes, String type) {
+    public RecyclerUpload2(String hostel_id, String name, String address, String uri, int likes, String type) {
         this.hostel_id = hostel_id;
         this.name = name;
         this.address = address;
@@ -41,7 +41,7 @@ public class RecyclerUpload2 {
         return Uri;
     }
 
-    public String getLikes() {
+    public int getLikes() {
         return likes;
     }
 

@@ -57,9 +57,6 @@ public class HostelActivity extends AppCompatActivity {
     private String key;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +67,10 @@ public class HostelActivity extends AppCompatActivity {
         image=(ImageView)findViewById(R.id.hostel_image);
         upload=(Button)findViewById(R.id.upload1);
         choose=(Button)findViewById(R.id.choose1);
-        next=(Button)findViewById(R.id.next11);
+        //next=(Button)findViewById(R.id.next11);
         male1=(CheckBox)findViewById(R.id.man1);
         female1=(CheckBox)findViewById(R.id.woman1);
+        clear=(Button)findViewById(R.id.clear1);
 
         key=getIntent().getStringExtra("UID");
         Toast.makeText(HostelActivity.this, "value is "+key ,Toast.LENGTH_LONG).show();
@@ -89,15 +87,15 @@ public class HostelActivity extends AppCompatActivity {
             }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intt=new Intent(HostelActivity.this,FacilitiesActivity.class);
-                intt.putExtra("id",ids);
-               // Toast.makeText(HostelActivity.this, "value is "+hostel.getId() ,Toast.LENGTH_LONG).show();
-                startActivity(intt);
-            }
-        });
+//        next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intt=new Intent(HostelActivity.this,FacilitiesActivity.class);
+//                intt.putExtra("id",ids);
+//               // Toast.makeText(HostelActivity.this, "value is "+hostel.getId() ,Toast.LENGTH_LONG).show();
+//                startActivity(intt);
+//            }
+//        });
     }
 
     public void upload(View v) {
@@ -128,7 +126,7 @@ public class HostelActivity extends AppCompatActivity {
                     String statuses="APPROVED";
                     double lat=12.2345;
                     double longo=23.2345;
-                    String likes="12";
+                    int likes=0;
 
                     ids=id;
                     Toast.makeText(HostelActivity.this,"I HAVE"+ids,Toast.LENGTH_SHORT).show();
@@ -168,13 +166,6 @@ public class HostelActivity extends AppCompatActivity {
         startActivityForResult(gallery, REQUEST_CODE);
     }
 
-//    public void chooose() {
-//        Intent intent=new Intent();
-//        intent.setType("Hostels/*");
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(Intent.createChooser(intent,"Hostels"),REQUEST_CODE);
-//        Toast.makeText(HostelActivity.this,"please image 3",Toast.LENGTH_LONG).show();
-//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -192,9 +183,13 @@ public class HostelActivity extends AppCompatActivity {
             }
         }
     }
+
     public String getImageExt(Uri uri){
         ContentResolver contentResolver=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+    public void allclear(View view){
+        image.setImageResource(0);
     }
 }

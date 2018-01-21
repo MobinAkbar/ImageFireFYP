@@ -261,7 +261,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
                     String hostelId=hostel.getId();
                     String name = hostel.getName();
                     String adres=hostel.getAddres();
-                    String like = hostel.getLikes();
+                    int like = hostel.getLikes();
                     String uri = hostel.getUri();
                     String type=hostel.getSex();
 
@@ -325,5 +325,10 @@ public class Owner_PortalActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         toggle.syncState();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

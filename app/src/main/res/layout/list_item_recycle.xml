@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="260dp"
     android:layout_margin="8dp"
     app:cardCornerRadius="5dp"
     app:cardMaxElevation="1dp"
@@ -18,14 +18,14 @@
         <ImageView
             android:id="@+id/image_1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="210dp"
             android:layout_alignParentTop="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/afridi" />
 
         <ImageButton
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="310dp"
+            android:layout_marginLeft="330dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_dots"
@@ -33,12 +33,11 @@
             android:background="@null"
             />
 
-
         <LinearLayout
             android:layout_below="@+id/image_1"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="80dp">
 
             <TextView
                 android:layout_weight="1"
@@ -53,37 +52,35 @@
                 android:textStyle="bold"
                 android:textSize="22dp" />
 
-
-            <ImageView
-                android:layout_weight="1"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/arrao"
-                android:layout_width="1dp"
-                android:layout_height="wrap_content" />
-
             <TextView
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:id="@+id/distance"
                 android:textStyle="bold"
-                android:layout_weight="1"
                 android:textColor="#000"
                 android:text="0KM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:text="KM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
+                android:id="@+id/push_like"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:layout_marginTop="5dp"
                 android:src="@drawable/dil2"
                 android:layout_width="1dp"
                 android:layout_height="50dp" />
 
             <TextView
-                android:textSize="22dp"
-                android:layout_marginTop="5dp"
-                android:id="@+id/likes"
+                android:textSize="25dp"
+                android:id="@+id/likes_counter"
                 android:layout_marginRight="5dp"
                 android:textStyle="bold"
                 android:layout_weight="1"
@@ -91,7 +88,6 @@
                 android:text="12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
 
 

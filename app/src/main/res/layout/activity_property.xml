@@ -162,15 +162,6 @@
                     android:text="upload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/next4"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/colorAccent"
-                    android:text="Next"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>

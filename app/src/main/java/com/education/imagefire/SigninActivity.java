@@ -60,7 +60,7 @@ public class SigninActivity extends AppCompatActivity {
         //btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
-        forgot=(Button)findViewById(R.id.forgot_password);
+       // forgot=(Button)findViewById(R.id.forgot_password);
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();

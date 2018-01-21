@@ -54,9 +54,9 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         RecyclerUpload data = listdata.get(position);
         String dou=String.valueOf(data.getDistance());
         holder.vname.setText(data.getName());
-        //holder.vdistance.setText(dou);
         holder.vdistance.setText(new DecimalFormat("##.##").format(data.getDistance()));
-        holder.vlike.setText(data.getLikes());
+        int ans=data.getLikes();
+        holder.vlike.setText(String.valueOf(ans));
         Picasso.with(mContxt).load(data.getUri()).resize(100, 100).into(holder.uri);
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +89,7 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
             vname = (TextView) itemView.findViewById(R.id.name9);
             uri=(ImageView)itemView.findViewById(R.id.image_1);
             vdistance=(TextView)itemView.findViewById(R.id.distance);
-            vlike=(TextView)itemView.findViewById(R.id.likes);
+            vlike=(TextView)itemView.findViewById(R.id.likes_counter);
             imageButton=(ImageButton)itemView.findViewById(R.id.image00);
         }
 
@@ -104,6 +104,8 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
             i12.putExtra("Hosteladdress", car.getAddress());
             i12.putExtra("uni_name", car.getUni_name());
             i12.putExtra("Hosteluri",car.getUri());
+            String likes=String.valueOf(car.getLikes());
+            i12.putExtra("likes",likes);
             this.mContxt.startActivity(i12);
         }
     }

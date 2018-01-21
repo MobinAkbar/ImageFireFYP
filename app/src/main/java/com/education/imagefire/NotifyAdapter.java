@@ -70,7 +70,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
                 holder.vtype.setText("Accepted");
                 String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
                 DatabaseReference   databaseReference2 = FirebaseDatabase.getInstance().getReference("Notifications").child(id);
-                databaseReference2.child("time").setValue(currentDateTimeString);
+                //databaseReference2.child("time").setValue(currentDateTimeString);
                 databaseReference2.child("type").setValue("accepted").addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -148,7 +148,12 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.MyHolder> 
                             public void onClick(DialogInterface dialog, int id) {
 
                                 DatabaseReference databaseReferenceC = FirebaseDatabase.getInstance().getReference("Notifications").child(owner);
-                                databaseReferenceC.removeValue();
+                                databaseReferenceC.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        ((NotificationActivity)mContxt).restsrt();
+                                    }
+                                });
                                 Toast.makeText(mContxt, "Deleted", Toast.LENGTH_SHORT).show();
 
                             }
