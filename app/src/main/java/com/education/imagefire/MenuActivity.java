@@ -86,7 +86,9 @@ public class MenuActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.s_home:
-                        Toast.makeText(MenuActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MenuActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        Intent intent9=new Intent(MenuActivity.this,SearchActivity.class);
+                        startActivity(intent9);
                         break;
                     case R.id.s_profile:
                         Intent intent=new Intent(MenuActivity.this,ProfilessActivity.class);

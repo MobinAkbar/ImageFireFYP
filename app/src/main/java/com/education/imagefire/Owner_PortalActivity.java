@@ -153,7 +153,8 @@ public class Owner_PortalActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.o_home:
-                        Toast.makeText(Owner_PortalActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        Intent intent8=new Intent(Owner_PortalActivity.this,Owner_PortalActivity.class);
+                        startActivity(intent8);
                         break;
                     case R.id.o_profile:
                         Intent intent=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
@@ -187,7 +188,7 @@ public class Owner_PortalActivity extends AppCompatActivity {
                         myDialog.show();
 
                         break;
-                    case R.id.s_signout:
+                    case R.id.o_signout:
                         firebaseAuth.signOut();
                         Toast.makeText(Owner_PortalActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
                         Intent intt=new Intent(Owner_PortalActivity.this,SigninActivity.class);
@@ -203,15 +204,17 @@ public class Owner_PortalActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_homeo:
-                        Toast.makeText(Owner_PortalActivity.this,"Home Already Open",Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(Owner_PortalActivity.this,Owner_PortalActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.likeso:
-                        Toast.makeText(Owner_PortalActivity.this,"Functionality miss",Toast.LENGTH_SHORT).show();
+                        Intent intent1=new Intent(Owner_PortalActivity.this,StuprofileActivity.class);
+                        startActivity(intent1);
                         break;
                     case R.id.menu_notfyo:
-                        Intent intent=new Intent(Owner_PortalActivity.this,NotificationActivity.class);
-                        intent.putExtra("type","owner");
-                        startActivity(intent);
+                        Intent intent2=new Intent(Owner_PortalActivity.this,NotificationActivity.class);
+                        intent2.putExtra("type","owner");
+                        startActivity(intent2);
 
                         break;
                 }

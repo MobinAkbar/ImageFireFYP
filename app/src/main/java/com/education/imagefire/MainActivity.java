@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -119,16 +120,16 @@ public class MainActivity extends AppCompatActivity {
                 String profession=profesion.getText().toString().trim();
 
                 if (TextUtils.isEmpty(owner_name)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Name is necessary!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(number1)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter at least 1 number", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(profession)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter your profession", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 upload();
@@ -217,15 +218,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void chooose(View view) {
-        Intent intent=new Intent();
-        intent.setType("Owners/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Owners"),REQUEST_CODE);
-        Toast.makeText(MainActivity.this,"please image 3",Toast.LENGTH_LONG).show();
-
+        Intent gallery =
+                new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, REQUEST_CODE);
     }
+
+//    public void chooose(View view) {
+//        Intent intent=new Intent();
+//        intent.setType("Owners/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent,"Owners"),REQUEST_CODE);
+//        Toast.makeText(MainActivity.this,"please image 3",Toast.LENGTH_LONG).show();
+//
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -256,5 +263,11 @@ public class MainActivity extends AppCompatActivity {
     public void clean(View view){
         image.setImageResource(0);
     }
+    @Override
+    public void onBackPressed() {
 
+        finish();
+        Intent intent = new Intent(MainActivity.this, Owner_PortalActivity.class);
+        startActivity(intent);
+    }
 }

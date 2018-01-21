@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -129,7 +130,8 @@ public class SearchActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.s_home:
-                        Toast.makeText(SearchActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        Intent intent9=new Intent(SearchActivity.this,SearchActivity.class);
+                        startActivity(intent9);
                         break;
                     case R.id.s_profile:
                         Intent intent=new Intent(SearchActivity.this,ProfilessActivity.class);
@@ -141,6 +143,7 @@ public class SearchActivity extends AppCompatActivity {
                         break;
                     case R.id.s_account:
                         Intent intent2=new Intent(SearchActivity.this,AccountActivity.class);
+                        intent2.putExtra("type","student");
                         startActivity(intent2);
                         break;
                     case R.id.s_info:
@@ -287,6 +290,20 @@ public class SearchActivity extends AppCompatActivity {
                String ownr=name.getText().toString();
                String name=hostel.getText().toString();
                String detail=compln.getText().toString();
+
+                if (TextUtils.isEmpty(ownr)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(detail)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Complain complain=new Complain(id,s_id,ownr,name,detail);
                 cdatabaserefer.child(id).setValue(complain);
                 Toast.makeText(SearchActivity.this,"Complain Sent",Toast.LENGTH_SHORT).show();

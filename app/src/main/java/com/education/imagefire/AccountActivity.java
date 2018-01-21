@@ -30,7 +30,7 @@ public class AccountActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener listener;
     private String UserId,email,password;
-    String typee;
+    String typee,user1,user2;
 
 
     @Override
@@ -74,10 +74,22 @@ public class AccountActivity extends AppCompatActivity {
 
                                                if(typee.equals("owner")){
                                                    databaseReference=FirebaseDatabase.getInstance().getReference("Owners").child(UserId);
-                                                   databaseReference.child("password").setValue(newpass);
+                                                   databaseReference.child("password").setValue(newpass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                       @Override
+                                                       public void onSuccess(Void aVoid) {
+                                                           Intent intent=new Intent(AccountActivity.this,Owner_PortalActivity.class);
+                                                           startActivity(intent);
+                                                       }
+                                                   });
                                                }else{
                                                    databaseReference=FirebaseDatabase.getInstance().getReference("Users_Info").child(UserId);
-                                                   databaseReference.child("password").setValue(newpass);
+                                                   databaseReference.child("password").setValue(newpass).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                       @Override
+                                                       public void onSuccess(Void aVoid) {
+                                                           Intent intent=new Intent(AccountActivity.this,SearchActivity.class);
+                                                           startActivity(intent);
+                                                       }
+                                                   });
                                                }
 
 
@@ -117,10 +129,22 @@ public class AccountActivity extends AppCompatActivity {
                                                 Toast.makeText(AccountActivity.this, "Successfull update email", Toast.LENGTH_SHORT).show();
                                                 if(typee.equals("owner")){
                                                     databaseReference=FirebaseDatabase.getInstance().getReference("Owners").child(UserId);
-                                                    databaseReference.child("password").setValue(newmail);
+                                                    databaseReference.child("password").setValue(newmail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Intent intent=new Intent(AccountActivity.this,Owner_PortalActivity.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    });
                                                 }else{
                                                     databaseReference=FirebaseDatabase.getInstance().getReference("Users_Info").child(UserId);
-                                                    databaseReference.child("password").setValue(newmail);
+                                                    databaseReference.child("password").setValue(newmail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Intent intent=new Intent(AccountActivity.this,SearchActivity.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    });
                                                 }
 
                                             } else {

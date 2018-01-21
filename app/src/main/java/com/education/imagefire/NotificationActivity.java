@@ -176,9 +176,9 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        finish();
-        Intent intent = new Intent(NotificationActivity.this, SearchActivity.class);
-        startActivity(intent);
+//        finish();
+//        Intent intent = new Intent(NotificationActivity.this, SearchActivity.class);
+//        startActivity(intent);
     }
 
     @Override

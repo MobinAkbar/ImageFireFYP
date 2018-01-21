@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -136,7 +137,9 @@ public class RecyclerviewActivity extends AppCompatActivity{
 
                 switch (item.getItemId()) {
                     case R.id.s_home:
-                        Toast.makeText(RecyclerviewActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(RecyclerviewActivity.this,"Already Opened",Toast.LENGTH_SHORT).show();
+                        Intent intent9=new Intent(RecyclerviewActivity.this,SearchActivity.class);
+                        startActivity(intent9);
                         break;
                     case R.id.s_profile:
                         Intent intent=new Intent(RecyclerviewActivity.this,ProfilessActivity.class);
@@ -148,6 +151,7 @@ public class RecyclerviewActivity extends AppCompatActivity{
                         break;
                     case R.id.s_account:
                         Intent intent2=new Intent(RecyclerviewActivity.this,AccountActivity.class);
+                        intent2.putExtra("type","student");
                         startActivity(intent2);
                         break;
                     case R.id.s_info:

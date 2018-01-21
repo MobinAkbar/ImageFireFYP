@@ -105,4 +105,11 @@ public class StuprofileActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        Intent intent = new Intent(StuprofileActivity.this, Owner_PortalActivity.class);
+        startActivity(intent);
+    }
 }

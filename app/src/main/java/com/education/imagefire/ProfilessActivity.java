@@ -103,9 +103,12 @@ public class ProfilessActivity extends AppCompatActivity {
                 popup.show();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
 
-
-
-
+        finish();
+        Intent intent = new Intent(ProfilessActivity.this, SearchActivity.class);
+        startActivity(intent);
     }
 }

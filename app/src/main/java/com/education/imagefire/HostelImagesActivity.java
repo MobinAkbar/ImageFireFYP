@@ -286,6 +286,15 @@ public class HostelImagesActivity extends AppCompatActivity {
         }
 
     }
+
+//    public void chooose(View view) {
+//        Intent gallery = new Intent();
+//        //gallery.setType("Image/*");
+//        gallery.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//        gallery.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(gallery,"Images"), REQUEST_CODE);
+//    }
+
     public void chooose(View view) {
         Intent intent=new Intent();
         intent.setType("Image/*");
@@ -293,6 +302,7 @@ public class HostelImagesActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Images"),REQUEST_CODE);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

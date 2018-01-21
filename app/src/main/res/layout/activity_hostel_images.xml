@@ -74,7 +74,7 @@
             <LinearLayout
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="30dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -83,8 +83,8 @@
                     android:id="@+id/image_h1"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
                 <ImageView
                     android:layout_marginRight="5dp"
@@ -92,14 +92,14 @@
                     android:id="@+id/image_h2"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
 
             </LinearLayout>
             <LinearLayout
                 android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -108,8 +108,8 @@
                     android:id="@+id/image_h3"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
                 <ImageView
                     android:layout_marginLeft="5dp"
@@ -117,13 +117,12 @@
                     android:id="@+id/image_h4"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
             </LinearLayout>
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -132,8 +131,8 @@
                     android:id="@+id/image_h5"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
                 <ImageView
                     android:layout_marginRight="5dp"
@@ -141,8 +140,8 @@
                     android:id="@+id/image_h6"
                     android:layout_weight="1"
                     android:src="@drawable/add2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="250dp"
+                    android:layout_height="150dp" />
 
 
             </LinearLayout>

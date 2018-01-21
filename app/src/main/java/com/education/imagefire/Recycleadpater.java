@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,8 @@ public class Recycleadpater extends RecyclerView.Adapter<Recycleadpater.MyHolder
         RecyclerUpload data = listdata.get(position);
         String dou=String.valueOf(data.getDistance());
         holder.vname.setText(data.getName());
-        holder.vdistance.setText(dou);
+        //holder.vdistance.setText(dou);
+        holder.vdistance.setText(new DecimalFormat("##.##").format(data.getDistance()));
         holder.vlike.setText(data.getLikes());
         Picasso.with(mContxt).load(data.getUri()).resize(100, 100).into(holder.uri);
         holder.imageButton.setOnClickListener(new View.OnClickListener() {

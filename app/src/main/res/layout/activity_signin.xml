@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     tools:context="com.education.imagefire.SigninActivity">
 
@@ -96,16 +97,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp" />
-
-        <Button
-            android:id="@+id/forgot_password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@null"
-            android:text="Forgot Password?"
-            android:textAllCaps="false"
-            android:textColor="#fff" />
 
 
     </LinearLayout>

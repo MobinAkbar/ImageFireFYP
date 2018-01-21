@@ -44,6 +44,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+
+                    android:inputType="textEmailAddress"
                     android:drawablePadding="15dp"
                     android:drawableLeft="@drawable/mail"
                     android:id="@+id/pre_email"
@@ -55,6 +57,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:inputType="textPassword"
                     android:drawablePadding="15dp"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/pre_pass"
@@ -101,6 +104,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:inputType="textPassword"
                     android:id="@+id/new_passw"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
@@ -158,6 +162,9 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/mail"
+                    android:inputType="textEmailAddress"
                     android:id="@+id/new_email"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"

@@ -20,7 +20,10 @@
                 layout="@layout/usersignup"
                 />
             <Spinner
-
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/spinner_border"
                 android:layout_weight="1"
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
