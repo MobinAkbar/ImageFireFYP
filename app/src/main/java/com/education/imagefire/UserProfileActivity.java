@@ -200,6 +200,8 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             });
         }else{
+            Intent intent=new Intent(UserProfileActivity.this,SearchActivity.class);
+            startActivity(intent);
             Toast.makeText(UserProfileActivity.this,"Succesfully complete",Toast.LENGTH_LONG).show();
         }
     }

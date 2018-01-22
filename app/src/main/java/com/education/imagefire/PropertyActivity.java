@@ -64,6 +64,35 @@ public class PropertyActivity extends AppCompatActivity {
         String places_5=nearby5.getText().toString();
         String places_6=nearby6.getText().toString();
 
+
+        if (TextUtils.isEmpty(surroundings)) {
+            Toast.makeText(getApplicationContext(), "Enter property info", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(places_1)) {
+            Toast.makeText(getApplicationContext(), "Enter nearby 1 place", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(places_2)) {
+            Toast.makeText(getApplicationContext(), "Enter nearby 2 place", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(places_3)) {
+            Toast.makeText(getApplicationContext(), "Enter nearby 3 place", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(places_4)) {
+            Toast.makeText(getApplicationContext(), "Enter nearby 4 place", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+
+
+
+
+
             PropertyInfo infor=new PropertyInfo(key,surroundings,places_1,places_2,places_3,places_4,places_5,places_6);
             databaseReference.setValue(infor).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -75,6 +104,12 @@ public class PropertyActivity extends AppCompatActivity {
             });
 
             Toast.makeText(this,"Successfulyy entered",Toast.LENGTH_LONG).show();
+
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Upload Next.",
+                Toast.LENGTH_SHORT).show();
 
 
     }

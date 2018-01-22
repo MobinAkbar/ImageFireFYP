@@ -212,7 +212,7 @@ public class MenuActivity extends AppCompatActivity {
                                 hostelList.add(obj);
                             }
 
-                            Recycleadpater recycler = new Recycleadpater(MenuActivity.this,hostelList);
+                            Likeadapter recycler = new Likeadapter(MenuActivity.this,hostelList);
                             RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(MenuActivity.this);
                             recyclerview.setLayoutManager(layoutmanager);
                             recyclerview.setItemAnimator( new DefaultItemAnimator());

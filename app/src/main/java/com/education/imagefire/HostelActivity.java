@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -87,6 +89,9 @@ public class HostelActivity extends AppCompatActivity {
             }
         });
 
+
+
+
 //        next.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -100,10 +105,29 @@ public class HostelActivity extends AppCompatActivity {
 
     public void upload(View v) {
 
+        String hostel_name=name.getText().toString().trim();
+        String hostel_address=address.getText().toString().trim();
+
+
         if(male1.isChecked()==true){
             gender="male";
         }else if(female1.isChecked()==true){
             gender="female";
+        }
+
+        if (male1.isChecked()&&female1.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Select one!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(hostel_name)) {
+            Toast.makeText(getApplicationContext(), "Enter name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(hostel_address)) {
+            Toast.makeText(getApplicationContext(), "Enter Address", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         if(filepath!=null){
@@ -123,7 +147,7 @@ public class HostelActivity extends AppCompatActivity {
                     String owner=key;
                     String hostel_name=name.getText().toString().trim();
                     String hostel_address=address.getText().toString().trim();
-                    String statuses="APPROVED";
+                    String statuses="NOT APPROVED";
                     double lat=12.2345;
                     double longo=23.2345;
                     int likes=0;
@@ -191,5 +215,14 @@ public class HostelActivity extends AppCompatActivity {
     }
     public void allclear(View view){
         image.setImageResource(0);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+            Toast.makeText(this, "Upload Next.",
+                    Toast.LENGTH_SHORT).show();
+
+
     }
 }

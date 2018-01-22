@@ -94,6 +94,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 private LatLng shown;
     private double lat123;
     private double logi123;
+    private Double lat124;
+    private Double longi124;
     private static final LatLng UMT = new LatLng(31.4512, 74.2930);
     private static final LatLng UET = new LatLng(31.5770, 74.3552);
     private static final LatLng COMSATS = new LatLng(31.6003, 74.3952);
@@ -126,7 +128,7 @@ private LatLng shown;
          final LatLng desti=new LatLng(lat_v,long_v);
           markerPoints = new ArrayList<LatLng>();
              shown=origi;
-
+        Toast.makeText(MapsActivity.this, "I have starting with "+id, Toast.LENGTH_SHORT).show();
        // Toast.makeText(MapsActivity.this, "I have" + id, Toast.LENGTH_SHORT).show();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -135,8 +137,6 @@ private LatLng shown;
         String url = getDirectionsUrl(origi, desti);
 
         DownloadTask downloadTask = new DownloadTask();
-//
-//                        // Start downloading json data from Google Directions API
         downloadTask.execute(url);
 
     }
@@ -155,12 +155,16 @@ private LatLng shown;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    map = ds.getValue(Map.class);
-                    lat123 = map.getLatitude();
-                    logi123 = map.getLongitude();
+                    Map2 map = ds.getValue(Map2.class);
+
+                    Double lat=Double.parseDouble(map.getLatitude());
+                    Double longi=Double.parseDouble(map.getLongitude());
+
+                   // lat124 = lat;
+                    //longi124 = longi;
                     String name12345=map.getName();
 
-                    LatLng latLng = new LatLng(lat123, logi123);
+                    LatLng latLng = new LatLng(lat, longi);
 
                     MarkerOptions markerOptions = new MarkerOptions();
                     markerOptions.position(latLng).title(name12345);

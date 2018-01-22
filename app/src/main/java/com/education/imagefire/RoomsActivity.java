@@ -14,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -41,6 +42,7 @@ import java.util.List;
 import static android.R.attr.data;
 import static com.education.imagefire.R.drawable.hostel;
 import static com.education.imagefire.R.id.e1;
+import static com.education.imagefire.R.id.empty_rooms;
 import static com.education.imagefire.R.id.spin;
 
 
@@ -119,6 +121,31 @@ public class RoomsActivity extends AppCompatActivity {
         String univrsty1=uni1.getSelectedItem().toString();
         String univrsty2=uni2.getSelectedItem().toString();
         String univrsty3=uni3.getSelectedItem().toString();
+
+        if (TextUtils.isEmpty(emptyRoos)) {
+            Toast.makeText(getApplicationContext(), "Enter empty rooms!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(totalRooms)) {
+            Toast.makeText(getApplicationContext(), "Enter total rooms", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(emptybeds)) {
+            Toast.makeText(getApplicationContext(), "Enter empty beds!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(totalBeds)) {
+            Toast.makeText(getApplicationContext(), "Enter total beds", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(univrsty1.equals("--Select University--")){
+            Toast.makeText(getApplicationContext(), "Select University!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Rooms room=new Rooms(key,totalRooms,emptyRoos,totalBeds,emptybeds,rm_1month,bd_1month,rm_6month,bd_6month);
         databaseReference1.child(key).setValue(room);

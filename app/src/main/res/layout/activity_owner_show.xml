@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.education.imagefire.ShowdataActivity">
+    tools:context="com.education.imagefire.StudentShowActivity">
 
     <ScrollView
         android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true">
 
         <LinearLayout
+            android:background="#4242"
             android:orientation="vertical"
             android:id="@+id/rel1"
             android:layout_width="match_parent"
@@ -21,444 +23,720 @@
             <android.support.v7.widget.CardView
                 android:layout_marginRight="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/l2_a"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/image"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/h11"
-                    android:layout_width="match_parent"
-                    android:layout_height="210dp" />
-
-                <Button
-                    android:textSize="14dp"
-                    android:layout_marginRight="4dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:background="@drawable/abuttonstyle"
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit"/>
-
-            </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:orientation="vertical"
-                android:layout_below="@+id/l2_a"
-                android:id="@+id/l3_a"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textStyle="bold"
-                    android:layout_marginTop="5dp"
-                    android:text="COMSATS HOSTEL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/address"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="H-Block , Defence Road, Off Raiwind Road, Lahore."
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="4dp"
-                    android:textColor="#fff"
-                    android:background="@drawable/abuttonstyle"
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit"/>
-
-            </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_marginTop="13dp"
-                android:layout_below="@+id/l3_a"
-                android:orientation="vertical"
-                android:id="@+id/l4_a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_marginLeft="20dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:text="Available rooms:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/rooms"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="50dp"
-                    android:text="amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
+                android:layout_height="275dp">
 
                 <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/lay_1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp">
+
+                        <android.support.v4.view.ViewPager
+
+                            android:id="@+id/viewpage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </android.support.v4.view.ViewPager>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_marginTop="7dp"
+                        android:id="@+id/lmobin"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <LinearLayout
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/lmobin"
+                    android:id="@+id/lay_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/name_z"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:text="COMSATS HOSTEL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/address_z"
+                        android:textStyle="bold"
+                        android:layout_marginTop="3dp"
+                        android:text="H-Block , Defence Road, Off Raiwind Road, Lahore."
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/l_3"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:text="Total"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:text="Total Rooms:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/totalrooms_z"
+                                android:layout_weight="1"
+                                android:text="Value:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:text="Total Beds:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/totalbeds_z"
+                                android:layout_weight="1"
+                                android:text="Value:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:text="Available"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:text="Rooms:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/emptyrooms_z"
+                                android:layout_weight="1"
+                                android:text="Value:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:text="Beds:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/emptybeds_z"
+                                android:layout_weight="1"
+                                android:text="Value:"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/v133"
+                    android:id="@+id/l3"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="Available Beds:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_marginLeft="63dp"
-                        android:id="@+id/beds"
                         android:textStyle="bold"
-                        android:text="amount"
+                        android:layout_marginLeft="10dp"
+                        android:text="Facilities"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginTop="3dp"
+                            android:src="@drawable/ic_wifi_black_24dp"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:text="Free WiFi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/newseefac"
+                            android:textColor="@color/colorAccent"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="See All Facilities......"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <Button
-                    android:textSize="14dp"
-                    android:layout_marginRight="4dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#fff"
-                    android:background="@drawable/abuttonstyle"
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EDIT"/>
-
-            </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/l4_a"
-                android:id="@+id/l5_a"
-                android:orientation="vertical"
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="140dp">
-
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:text="Rooms Slider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-
-
-                </LinearLayout>
-
-            <View
-                android:id="@+id/v3_a"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l5_a"
-                android:layout_width="300dp"
-                android:layout_height="0.5dp"
-                android:background="#000" />
-
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/l5_a"
-                android:id="@+id/l6_a"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="140dp">
-
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:text="Nearby Places Slider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-
-
-            </LinearLayout>
-
-            <View
-                android:id="@+id/v4_a"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l6_a"
-                android:layout_width="300dp"
-                android:layout_height="1dp"
-                android:background="#000" />
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/l6_a"
-                android:id="@+id/l7_a"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="140dp">
-
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:text="Facilities"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/v133"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_marginTop="3dp"
-                        android:src="@drawable/ic_wifi_black_24dp"
-                        android:layout_width="25dp"
-                        android:layout_height="30dp" />
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-
-                        android:text="Free WiFi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/ic_menu_manage"
-                        android:layout_marginLeft="100dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp" />
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_marginTop="10dp"
-
-                        android:layout_marginLeft="20dp"
-                        android:text="Electrition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_marginTop="3dp"
-                        android:src="@drawable/ic_directions_bike_black_24dp"
-                        android:layout_width="25dp"
-                        android:layout_height="30dp" />
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-
-                        android:text="Parking"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:src="@drawable/ic_menu_gallery"
-                        android:layout_marginLeft="113dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp" />
-
-                    <TextView
-                        android:layout_marginTop="10dp"
-
-                        android:layout_marginLeft="20dp"
-                        android:text="Gallry"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:clickable="true"
-                        android:id="@+id/seeall"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="#FF9224"
-                        android:text="... See all facilities"
+                        android:layout_marginLeft="10dp"
+                        android:text="Nearby Places"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
+                    <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/hosp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="Hospital"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/resto"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="Restarant"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/mall"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="Shopping Mall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/store"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="Store"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/parks"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="Park"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_marginTop="3dp"
+                                    android:src="@drawable/ic_menu_camera"
+                                    android:layout_width="25dp"
+                                    android:layout_height="30dp" />
+                                <TextView
+                                    android:id="@+id/market"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="market"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-            <View
-                android:id="@+id/v5_a"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l7_a"
-                android:layout_width="300dp"
-                android:layout_height="1dp"
-                android:background="#000" />
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l7_a"
-                android:id="@+id/l8_a"
-                android:orientation="vertical"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Prices Detail:"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="1 Room price per month:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/monthlyRprize"
+                            android:layout_weight="1"
+                            android:text="Val:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="1 Bed price per month:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp"
+                            android:id="@+id/monthlyBprize"
+                            android:layout_weight="1"
+                            android:text="Val:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="1 Room price Six month:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp"
+                            android:id="@+id/semstrRprize"
+                            android:layout_weight="1"
+                            android:text="Val:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="1 Room price six month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp"
+                            android:id="@+id/semestrBprize"
+                            android:layout_weight="1"
+                            android:text="Val:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/l39"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:text="Owner Information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginTop="3dp"
+                            android:src="@drawable/sex"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp" />
+                        <TextView
+                            android:id="@+id/newoname"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:text="Name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:src="@drawable/mail"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp" />
+                        <TextView
+                            android:id="@+id/newoemail"
+                            android:layout_marginLeft="15dp"
+                            android:text="OwnerEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/seeoprofile"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="45dp"
+                        android:text="See Owner Profile......"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="140dp">
 
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:text="Owner Information"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
                 <LinearLayout
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/oname"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:text="Property Information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/property_z"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
                         android:text="Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/oemail"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
+                    android:id="@+id/la5"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/onumb1"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:text="Number 1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/onumb2"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Number 2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
+                    android:layout_height="match_parent">
+                    <Button
+                        android:background="@color/colorAccent"
+                        android:id="@+id/request"
+                        android:text="Reserve now"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-
-            <View
-                android:id="@+id/v444"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l8_a"
-                android:layout_width="300dp"
-                android:layout_height="1dp"
-                android:background="#000" />
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/l8_a"
-                android:id="@+id/l4"
-                android:orientation="vertical"
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="wrap_content"
+                tools:context="com.education.imagefire.MainActivity">
 
-                <TextView
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:text="Property Information"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:textColor="#000"
-                    android:id="@+id/properr"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp"
-                    android:text="Hello"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/yess"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="Like"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
 
-
-            </LinearLayout>
-
-
-
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

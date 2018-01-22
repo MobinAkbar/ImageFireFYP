@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -258,6 +259,11 @@ public class SearchActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(answer.equals("--Select University--")){
+                    Toast.makeText(getApplicationContext(), "Select University!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent = new Intent(SearchActivity.this, RecyclerviewActivity.class);
                     intent.putExtra("name",answer);
                     intent.putExtra("sex",gender);
@@ -346,14 +352,25 @@ public class SearchActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         toggle.syncState();
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
 
-        if (firebaseAuth.getCurrentUser() != null) {
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
+        private Boolean exit = false;
+        @Override
+        public void onBackPressed() {
+            if (exit) {
+                finish(); // finish activity
+            } else {
+                Toast.makeText(this, "Press Back again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 3 * 1000);
+
+            }
+
         }
     }
-}
+

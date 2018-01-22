@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         profesion = (EditText) findViewById(R.id.e5);
         upload=(Button)findViewById(R.id.upload);
         choose=(Button)findViewById(R.id.choose);
-        next=(Button)findViewById(R.id.next);
+        //next=(Button)findViewById(R.id.next);
         //databaseReference= FirebaseDatabase.getInstance().getReference("Owners");
 
         auth=FirebaseAuth.getInstance();
@@ -136,15 +136,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
-                in.putExtra("UID",UserId);
-                startActivity(in);
-
-            }
-        });
     }
         @Override
         protected void onStart() {
@@ -208,9 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                    double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
-//                    Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
-//                    in.putExtra("UID",UserId);
-//                    startActivity(in);
+                    Intent in=new Intent(MainActivity.this,Owner_PortalActivity.class);
+                    in.putExtra("UID",UserId);
+                    startActivity(in);
                 }
             });
         }else{

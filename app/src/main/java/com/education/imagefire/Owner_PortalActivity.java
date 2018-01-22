@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -258,15 +259,17 @@ public class Owner_PortalActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Hostel hostel = ds.getValue(Hostel.class);
-                    String hostelId=hostel.getId();
-                    String name = hostel.getName();
-                    String adres=hostel.getAddres();
-                    int like = hostel.getLikes();
-                    String uri = hostel.getUri();
-                    String type=hostel.getSex();
 
-                    RecyclerUpload2 obj = new RecyclerUpload2(hostelId,name,adres,uri, like, type);
-                    hostelList.add(obj);
+                    if (hostel.getStatus().equals("APPROVED")) {
+                        String hostelId = hostel.getId();
+                        String name = hostel.getName();
+                        String adres = hostel.getAddres();
+                        int like = hostel.getLikes();
+                        String uri = hostel.getUri();
+                        String type = hostel.getSex();
+                        RecyclerUpload2 obj = new RecyclerUpload2(hostelId, name, adres, uri, like, type);
+                        hostelList.add(obj);
+                    }
                 }
 
                 Rcycleadpater recycler = new Rcycleadpater(Owner_PortalActivity.this,hostelList);
@@ -290,6 +293,11 @@ public class Owner_PortalActivity extends AppCompatActivity {
         if (listener != null) {
             firebaseAuth.removeAuthStateListener(listener);
         }
+    }
+    public void restsrt(){
+        //hostelList.clear();
+        finish();
+        startActivity(getIntent());
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -326,9 +334,23 @@ public class Owner_PortalActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         toggle.syncState();
     }
+    private Boolean exit = false;
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Press Back again to Exit.",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+
+        }
+
     }
 }

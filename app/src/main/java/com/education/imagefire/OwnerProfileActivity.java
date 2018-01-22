@@ -181,9 +181,13 @@ public class OwnerProfileActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     double pro=(100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     progress.setMessage("uploaded"+(int)pro+"%");
+                    Intent intent=new Intent(OwnerProfileActivity.this,Owner_PortalActivity.class);
+                    startActivity(intent);
                 }
             });
         }else{
+            Intent intent=new Intent(OwnerProfileActivity.this,Owner_PortalActivity.class);
+            startActivity(intent);
             Toast.makeText(OwnerProfileActivity.this,"Succesfully complete",Toast.LENGTH_LONG).show();
         }
     }

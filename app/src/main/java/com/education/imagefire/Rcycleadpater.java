@@ -1,5 +1,6 @@
 package com.education.imagefire;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -243,7 +244,7 @@ public class Rcycleadpater extends RecyclerView.Adapter<Rcycleadpater.MyHolder> 
                                 //databaseReferenceI.removeValue();
                                 databaseReferenceJ.removeValue();
                                 Toast.makeText(mContxt, "I Have deleted", Toast.LENGTH_SHORT).show();
-
+                                ((Owner_PortalActivity)mContxt).restsrt();
 
                             }
                         })

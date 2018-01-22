@@ -24,8 +24,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -45,7 +49,7 @@ public class HostelImagesActivity extends AppCompatActivity {
     private ImageView image1,image2,image3,image4,image5,image6;
     private Uri filepath1;
     private StorageReference storeReference;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,databaseReference1;
     public static final int REQUEST_CODE=1234;
     public static final String FB_STOARGE_PATH="AllHostelImages/";
     public static final String FB_DATABASE_PATH="AllHostelImages";
@@ -61,6 +65,7 @@ public class HostelImagesActivity extends AppCompatActivity {
     int PICK_IMAGE_MULTIPLE = 1;
     private Uri filepath;
     String imageEncoded;
+    private String url;
     List<String> imagesEncodedList;
     String id;
     private Handler mHandler = new Handler();
@@ -88,6 +93,24 @@ public class HostelImagesActivity extends AppCompatActivity {
            id=key;
 
         databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child(id);
+        //databaseReference1=FirebaseDatabase.getInstance().getReference("Hostels").child(id);
+
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query4 = mFirebaseDatabaseReference.child("Hostels").orderByChild("id").equalTo(id);
+        final ValueEventListener eventListener3=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    Hostel hostel=ds.getValue(Hostel.class);
+                    url=hostel.getUri();
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        query4.addValueEventListener(eventListener3);
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,12 +121,12 @@ public class HostelImagesActivity extends AppCompatActivity {
 
                 if(size==0){
                     String id=key;
-                    Aones="";
-                    Atwos="";
-                    Athrees="";
-                    Afours="";
-                    Afives="";
-                    Asixes="";
+                    Aones=url;
+                    Atwos=url;
+                    Athrees=url;
+                    Afours=url;
+                    Afives=url;
+                    Asixes=url;
 
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -119,11 +142,11 @@ public class HostelImagesActivity extends AppCompatActivity {
                 if(size==1){
                     String id=key;
                     Aones=array.get(0);
-                    Atwos="";
-                    Athrees="";
-                    Afours="";
-                    Afives="";
-                    Asixes="";
+                    Atwos=url;
+                    Athrees=url;
+                    Afours=url;
+                    Afives=url;
+                    Asixes=url;
 
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -140,10 +163,10 @@ public class HostelImagesActivity extends AppCompatActivity {
                     String id=key;
                     Aones=array.get(0);
                     Atwos=array.get(1);
-                    Athrees="";
-                    Afours="";
-                    Afives="";
-                    Asixes="";
+                    Athrees=url;
+                    Afours=url;
+                    Afives=url;
+                    Asixes=url;
 
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -162,9 +185,9 @@ public class HostelImagesActivity extends AppCompatActivity {
                     Aones=array.get(0);
                     Atwos=array.get(1);
                     Athrees=array.get(2);
-                    Afours="";
-                    Afives="";
-                    Asixes="";
+                    Afours=url;
+                    Afives=url;
+                    Asixes=url;
 
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -183,8 +206,8 @@ public class HostelImagesActivity extends AppCompatActivity {
                     Atwos=array.get(1);
                     Athrees=array.get(2);
                     Afours=array.get(3);
-                    Afives="";
-                    Asixes="";
+                    Afives=url;
+                    Asixes=url;
 
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -205,7 +228,7 @@ public class HostelImagesActivity extends AppCompatActivity {
                     Athrees=array.get(2);
                     Afours=array.get(3);
                     Afives=array.get(4);
-                    Asixes="";
+                    Asixes=url;
                     HostelImages hostelImages=new HostelImages(id,Aones,Atwos,Athrees,Afours,Afives,Asixes);
                     databaseReference.setValue(hostelImages).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -549,5 +572,12 @@ public class HostelImagesActivity extends AppCompatActivity {
         image4.setImageResource(0);
         image5.setImageResource(0);
         image6.setImageResource(0);
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Upload Next.",
+                Toast.LENGTH_SHORT).show();
+
+
     }
 }

@@ -52,11 +52,12 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:hint="Enter your email"
+                    android:hint="Enter current email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:drawableLeft="@drawable/lock"
                     android:inputType="textPassword"
                     android:drawablePadding="15dp"
                     android:layout_marginBottom="10dp"
@@ -64,7 +65,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:hint="Enter your password"
+                    android:hint="Enter current password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -104,12 +105,14 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/lock"
                     android:inputType="textPassword"
                     android:id="@+id/new_passw"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:hint="Enter email"
+                    android:hint="Enter new password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -169,7 +172,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:hint="Enter email"
+                    android:hint="Enter new email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
